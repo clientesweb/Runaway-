@@ -442,7 +442,7 @@
 
 })(document.documentElement);
 
-// Añade esto al final de tu archivo main.js
+// New video functionality
 document.addEventListener('DOMContentLoaded', (event) => {
     const playButton = document.getElementById('playVideo');
     const videoWrapper = document.getElementById('videoWrapper');
@@ -451,6 +451,37 @@ document.addEventListener('DOMContentLoaded', (event) => {
         playButton.addEventListener('click', () => {
             videoWrapper.classList.remove('hidden');
             playButton.classList.add('hidden');
+        });
+    }
+});
+
+// Form submission
+document.addEventListener('DOMContentLoaded', (event) => {
+    const contactForm = document.getElementById('contactForm');
+
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const submitButton = contactForm.querySelector('button[type="submit"]');
+            const originalButtonText = submitButton.textContent;
+            submitButton.textContent = 'Enviando...';
+
+            // Simulate form submission (replace with actual AJAX call in production)
+            setTimeout(() => {
+                const messageSuccess = document.querySelector('.message-success');
+                const messageWarning = document.querySelector('.message-warning');
+
+                // Simulating successful submission
+                messageSuccess.style.display = 'block';
+                messageWarning.style.display = 'none';
+
+                // Reset form
+                contactForm.reset();
+
+                // Reset button text
+                submitButton.textContent = originalButtonText;
+            }, 2000);
         });
     }
 });
