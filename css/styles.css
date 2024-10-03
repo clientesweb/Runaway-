@@ -1,7 +1,4 @@
-/* =================================================================== 
- * Tyndale Main Stylesheet
- * Template Ver. 1.0.0
- * 06-17-2021
+/* ===================================================================
  * ------------------------------------------------------------------
  *
  * TOC:
@@ -4330,22 +4327,16 @@ img.u-pull-left {
 }
 
 /* Estilos para el formulario de contacto actualizado */
-.contact-form fieldset {
-    border: none;
+.checkbox-group {
     margin-bottom: var(--vspace-0_5);
 }
 
-.contact-form legend {
-    font-weight: 600;
-    margin-bottom: var(--vspace-0_25);
-}
-
-.contact-form label {
+.checkbox-group label {
     display: block;
     margin-bottom: var(--vspace-0_25);
 }
 
-.contact-form select {
+#contactForm select {
     width: 100%;
     margin-bottom: var(--vspace-0_5);
 }
@@ -4359,3 +4350,4 @@ img.u-pull-left {
 .s-footer__social a:hover {
     color: var(--color-2);
 }
+    
