@@ -4299,3 +4299,121 @@ img.u-pull-left {
         width  : var(--vspace-1_25);
     }
 }
+    /* Paleta de colores RNW Studio */
+:root {
+    --color-white: #FFFFFF;
+    --color-beige: #F5F5DC;
+    --color-gray: #808080;
+    --color-black: #000000;
+    --color-accent: #CCFF00;
+}
+
+/* Estilos generales */
+body {
+    font-family: 'Glacial Indifference', sans-serif;
+    background-color: var(--color-beige);
+    color: var(--color-black);
+}
+
+/*reemplazar con @font-face si se proporciona la fuente Tan Meringue */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Tan Meringue', serif;
+}
+
+/* Estilos del encabezado */
+.s-header {
+    background-color: var(--color-white);
+}
+
+.logo-text {
+    font-family: 'Tan Meringue', serif;
+    text-align: center;
+}
+
+.logo-text-main {
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+.logo-text-sub {
+    font-size: 1rem;
+}
+
+/* Estilos de navegación */
+.s-header__nav a {
+    color: var(--color-black);
+}
+
+.s-header__nav a:hover {
+    color: var(--color-accent);
+}
+
+/* Estilos de la sección de introducción */
+.s-intro__text {
+    color: var(--color-black);
+}
+
+.s-intro__subtitle {
+    color: var(--color-gray);
+}
+
+.btn--primary {
+    background-color: var(--color-accent);
+    color: var(--color-black);
+}
+
+/* Estilos para las secciones */
+.s-services, .s-works, .s-contact {
+    background-color: var(--color-white);
+}
+
+/* Estilos del pie de página */
+.s-footer {
+    background-color: var(--color-black);
+    color: var(--color-white);
+}
+
+.s-footer a {
+    color: var(--color-accent);
+}
+
+/* Estilos para el contenedor de video */
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* Aspecto 16:9 */
+    height: 0;
+    overflow: hidden;
+    margin-bottom: var(--vspace-1);
+}
+
+.video-container video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Estilos para el formulario de contacto */
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+    background-color: var(--color-beige);
+    border: 1px solid var(--color-gray);
+}
+
+.contact-form button {
+    background-color: var(--color-accent);
+    color: var(--color-black);
+}
+
+/* Estilos responsivos */
+@media screen and (max-width: 600px) {
+    .logo-text-main {
+        font-size: 2rem;
+    }
+
+    .logo-text-sub {
+        font-size: 0.8rem;
+    }
+}
