@@ -62,6 +62,7 @@
                     <li><a href="#about" class="smoothscroll">About</a></li>
                     <li><a href="#services" class="smoothscroll">Services</a></li>
                     <li><a href="#works" class="smoothscroll">Works</a></li>
+                    <li><a href="#contact" class="smoothscroll">Contact</a></li>
                 </ul>
 
             </nav>
@@ -87,12 +88,21 @@
 
                         <div class="s-intro__top-block">
 
+                            <span class="s-intro__bg"></span>
+
                             <h1 class="s-intro__text">
                                 Impulsa tu E-Commerce hacia el Éxito con Nuestros Servicios
                             </h1>
                             <h2 class="s-intro__subtitle">
                                 Hacemos que tu marca destaque y las ventas aumenten
                             </h2>
+
+                            <div class="s-intro__scroll-down">
+                                <a href="#about" class="smoothscroll">
+                                    <span>Scroll Down</span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill:rgba(0, 0, 0, 1);transform:;-ms-filter:"><path d="M18.707 12.707L17.293 11.293 13 15.586 13 6 11 6 11 15.586 6.707 11.293 5.293 12.707 12 19.414z"></path></svg>
+                                </a>
+                            </div>
 
                         </div> <!-- end s-intro__top-block -->
 
@@ -290,19 +300,19 @@
                         <form id="contactForm" method="post" action="#">
                             <fieldset>
                                 <div class="form-field">
-                                    <input name="nombre" type="text" id="nombre" placeholder="Nombre completo *" required>
+                                    <input name="nombre" type="text" id="nombre" placeholder="Nombre completo *" value="" minlength="2" required="" aria-required="true" class="full-width">
                                 </div>
                                 <div class="form-field">
-                                    <input name="whatsapp" type="tel" id="whatsapp" placeholder="WhatsApp *" required>
+                                    <input name="whatsapp" type="tel" id="whatsapp" placeholder="WhatsApp *" value="" required="" aria-required="true" class="full-width">
                                 </div>
                                 <div class="form-field">
-                                    <input name="sitio_web" type="url" id="sitio_web" placeholder="Sitio Web *" required>
+                                    <input name="sitio_web" type="url" id="sitio_web" placeholder="Sitio Web *" value="" required="" aria-required="true" class="full-width">
                                 </div>
                                 <div class="form-field">
-                                    <input name="pais" type="text" id="pais" placeholder="País">
+                                    <input name="pais" type="text" id="pais" placeholder="País" value="" class="full-width">
                                 </div>
                                 <div class="form-field">
-                                    <select name="servicios" id="servicios">
+                                    <select name="servicios" id="servicios" class="full-width">
                                         <option value="">¿En qué servicios estás interesado?</option>
                                         <option value="BRANDING">BRANDING</option>
                                         <option value="CREACIÓN DE CONTENIDO">CREACIÓN DE CONTENIDO | PRODUCCIÓN & ESTILISMO</option>
@@ -311,10 +321,10 @@
                                     </select>
                                 </div>
                                 <div class="form-field">
-                                    <input name="anos_empresa" type="number" id="anos_empresa" placeholder="¿Cuántos años lleva la empresa en el mercado?">
+                                    <input name="anos_empresa" type="number" id="anos_empresa" placeholder="¿Cuántos años lleva la empresa en el mercado?" value="" class="full-width">
                                 </div>
                                 <div class="form-field">
-                                    <select name="facturacion" id="facturacion">
+                                    <select name="facturacion" id="facturacion" class="full-width">
                                         <option value="">¿Cuánto estás facturando por mes?</option>
                                         <option value="0-1000">0-1000 USD</option>
                                         <option value="1000-3000">1000USD A 3000USD</option>
@@ -323,18 +333,37 @@
                                     </select>
                                 </div>
                                 <div class="form-field">
-                                    <select name="inversion_previa" id="inversion_previa">
+                                    <select name="inversion_previa" id="inversion_previa" class="full-width">
                                         <option value="">¿Alguna vez invertiste en pauta publicitaria?</option>
                                         <option value="si">Sí</option>
                                         <option value="no">No</option>
                                     </select>
                                 </div>
                                 <div class="form-field">
-                                    <input name="inversion_futura" type="number" id="inversion_futura" placeholder="¿Qué monto estarías dispuesto a invertir en pauta publicitaria?">
+                                    <input name="inversion_futura" type="number" id="inversion_futura" placeholder="¿Qué monto estarías dispuesto a invertir en pauta publicitaria?" value="" class="full-width">
                                 </div>
-                                <button type="submit" class="btn btn--primary">Enviar y Agendar Reunión</button>
+                                <div class="form-field">
+                                    <button type="submit" class="full-width btn--primary">Enviar y Agendar Reunión</button>
+                                    <div class="submit-loader">
+                                        <div class="s-loader">
+                                            <div class="bounce1"></div>
+                                            <div class="bounce2"></div>
+                                            <div class="bounce3"></div>
+                                        </div>
+                                    </div>
+                                </div>
                             </fieldset>
                         </form>
+
+                        <!-- contact-warning -->
+                        <div class="message-warning">
+                            Something went wrong. Please try again.
+                        </div> 
+                    
+                        <!-- contact-success -->
+                        <div class="message-success">
+                            Your message was sent, thank you!<br>
+                        </div>
 
                     </div>
                 </div>
@@ -372,6 +401,7 @@
             </div> <!-- end ss-go-top -->
 
         </footer> <!-- end s-footer -->
+
 
     </div> <!-- end s-pagewrap -->
 
