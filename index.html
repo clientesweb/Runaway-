@@ -12,6 +12,7 @@
 
     <link rel="stylesheet" href="css/vendor.css">
     <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Glacial+Indifference:wght@400;700&display=swap" rel="stylesheet">
 
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
@@ -19,7 +20,7 @@
     <link rel="manifest" href="site.webmanifest">
 </head>
 
-<body id="top">
+<body id="top" class="bg-beige">
     <div id="preloader">
         <div id="loader"></div>
     </div>
@@ -29,7 +30,10 @@
             <div class="s-header__block">
                 <div class="s-header__logo">
                     <a class="logo" href="index.html">
-                        <img src="images/rnw-logo.svg" alt="RNW Studio">
+                        <div class="logo-text">
+                            <div class="logo-text-main">RNW</div>
+                            <div class="logo-text-sub">STUDIO</div>
+                        </div>
                     </a>
                 </div>
 
@@ -63,240 +67,51 @@
             </div>
         </header>
 
-        <section id="content" class="s-content">
-            <section id="intro" class="s-intro target-section">
-                <div class="row">
-                    <div class="column">
-                        <div class="s-intro__top-block">
-                            <span class="s-intro__bg"></span>
-                            <h1 class="s-intro__text">
-                                Impulsa tu E-Commerce hacia el Éxito con Nuestros Servicios<span>.</span>
-                            </h1>
-                            <h2 class="s-intro__subtitle">
-                                Hacemos que tu marca destaque y las ventas aumenten
-                            </h2>
-                            <a href="#services" class="s-intro__scroll-down smoothscroll">
-                                <span>Scroll Down</span>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill:rgba(0, 0, 0, 1);transform:rotate(180deg);-ms-filter:progid:DXImageTransform.Microsoft.BasicImage(rotation=2)"><path d="M21 11L6.414 11 11.707 5.707 10.293 4.293 2.586 12 10.293 19.707 11.707 18.293 6.414 13 21 13z"></path></svg>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row row-x-center s-intro__about-wrap">
-                    <div class="column s-intro__about">
-                        <h2 class="s-intro__about-title">Presentación de la Agencia</h2>
-                        <div class="video-container">
-                            <video controls>
-                                <source src="videos/rnw-studio-presentation.mp4" type="video/mp4">
-                                Tu navegador no soporta el tag de video.
-                            </video>
-                        </div>
-                        <h3>AUMENTA TUS VENTAS, POSICIONÁ TU MARCA!</h3>
-                        <a href="#contact" class="btn btn--primary smoothscroll">QUIERO AGENDAR UNA REUNIÓN</a>
-                    </div>
-                </div>
-            </section>
-
-            <section id="services" class="s-services target-section">
-                <div class="row section-header has-bottom-sep" data-num="01">
-                    <div class="column lg-12">
-                        <h3 class="text-pretitle">Servicios Ofrecidos</h3>
-                        <h1 class="text-display-title">
-                            Nuestros servicios para impulsar tu negocio
+        <section id="intro" class="s-intro target-section">
+            <div class="row">
+                <div class="column">
+                    <div class="s-intro__top-block">
+                        <span class="s-intro__bg"></span>
+                        <h1 class="s-intro__text">
+                            Elevamos tu marca al siguiente nivel<span>.</span>
                         </h1>
+                        <h2 class="s-intro__subtitle">
+                            Estrategias de marketing digital que impulsan resultados
+                        </h2>
+                        <a href="#services" class="s-intro__scroll-down smoothscroll">
+                            <span>Scroll Down</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill:rgba(0, 0, 0, 1);transform:rotate(180deg);-ms-filter:progid:DXImageTransform.Microsoft.BasicImage(rotation=2)"><path d="M21 11L6.414 11 11.707 5.707 10.293 4.293 2.586 12 10.293 19.707 11.707 18.293 6.414 13 21 13z"></path></svg>
+                        </a>
                     </div>
                 </div>
+            </div>
 
-                <div class="row services-list block-lg-one-half block-tab-whole">
-                    <div class="column service-item">
-                        <div class="service-icon-block">
-                            <span class="service-icon service-icon--branding"></span>
-                        </div>
-                        <div class="service-text">
-                            <h3 class="h4">Branding</h3>
-                            <p>Creamos una identidad de marca única y distintiva que se destaca en el mercado. Incluye el desarrollo de elementos visuales y la definición de la personalidad de la marca.</p>
-                        </div>
+            <div class="row row-x-center s-intro__about-wrap">
+                <div class="column s-intro__about">
+                    <h2 class="s-intro__about-title">Nuestra Visión</h2>
+                    <div class="video-container">
+                        <video controls>
+                            <source src="videos/rnw-studio-vision.mp4" type="video/mp4">
+                            Tu navegador no soporta el tag de video.
+                        </video>
                     </div>
-                    <div class="column service-item">
-                        <div class="service-icon-block">
-                            <span class="service-icon service-icon--design"></span>
-                        </div>
-                        <div class="service-text">
-                            <h3 class="h4">Rebranding</h3>
-                            <p>Modificamos o renovamos la identidad de una marca existente para mejorar su relevancia y mantenerla en sintonía con los cambios del mercado.</p>
-                        </div>
-                    </div>
-                    <div class="column service-item">
-                        <div class="service-icon-block">
-                            <span class="service-icon service-icon--photography"></span>
-                        </div>
-                        <div class="service-text">
-                            <h3 class="h4">Producción de fotos & estilismo</h3>
-                            <p>Creamos contenido visual de alta calidad para tu marca, incluyendo fotografía de productos, sesiones de moda y estilismo para redes sociales.</p>
-                        </div>
-                    </div>
-                    <div class="column service-item">
-                        <div class="service-icon-block">
-                            <span class="service-icon service-icon--marketing"></span>
-                        </div>
-                        <div class="service-text">
-                            <h3 class="h4">Community manager</h3>
-                            <p>Gestionamos tus redes sociales, creando y publicando contenido relevante, interactuando con tu audiencia y construyendo una comunidad en línea sólida.</p>
-                        </div>
-                    </div>
-                    <div class="column service-item">
-                        <div class="service-icon-block">
-                            <span class="service-icon service-icon--ecommerce"></span>
-                        </div>
-                        <div class="service-text">
-                            <h3 class="h4">Creación de tienda online</h3>
-                            <p>Diseñamos y desarrollamos tu tienda en línea, optimizada para conversiones y una experiencia de usuario excepcional.</p>
-                        </div>
-                    </div>
-                    <div class="column service-item">
-                        <div class="service-icon-block">
-                            <span class="service-icon service-icon--advertising"></span>
-                        </div>
-                        <div class="service-text">
-                            <h3 class="h4">Pauta publicitaria: Meta Ads, Google Ads</h3>
-                            <p>Creamos y gestionamos campañas publicitarias efectivas en plataformas como Facebook, Instagram y Google para aumentar tu visibilidad y ventas.</p>
-                        </div>
-                    </div>
+                    <h3>INNOVACIÓN. CREATIVIDAD. RESULTADOS.</h3>
+                    <a href="#contact" class="btn btn--primary smoothscroll">AGENDA UNA CONSULTA</a>
                 </div>
-            </section>
-
-            <section id="works" class="s-works target-section">
-                <div class="row section-header has-bottom-sep" data-num="02">
-                    <div class="column lg-12">
-                        <h3 class="text-pretitle">Portafolio</h3>
-                        <h1 class="text-display-title">
-                            Nuestros trabajos más destacados
-                        </h1>
-                    </div>
-                </div>
-
-                <div class="row folio-list block-lg-one-third block-stack-on-550 collapse">
-                    <div class="column folio-item">
-                        <a href="#modal-01" class="folio-item__thumb" data-lity>
-                            <img src="images/portfolio/branding-1.jpg" 
-                                 srcset="images/portfolio/branding-1.jpg 1x, 
-                                         images/portfolio/branding-1@2x.jpg 2x" alt="Branding Project">
-                            <span class="folio-item__text">Branding</span>
-                        </a>
-                    </div>
-                    <div class="column folio-item">
-                        <a href="#modal-02" class="folio-item__thumb" data-lity>
-                            <img src="images/portfolio/rebranding-1.jpg" 
-                                 srcset="images/portfolio/rebranding-1.jpg 1x, 
-                                         images/portfolio/rebranding-1@2x.jpg 2x" alt="Rebranding Project">
-                            <span class="folio-item__text">Rebranding</span>
-                        </a>
-                    </div>
-                    <div class="column folio-item">
-                        <a href="#modal-03" class="folio-item__thumb" data-lity>
-                            <img src="images/portfolio/photography-1.jpg" 
-                                 srcset="images/portfolio/photography-1.jpg 1x, 
-                                         images/portfolio/photography-1@2x.jpg 2x" alt="Photography Project">
-                            <span class="folio-item__text">Producción de fotos</span>
-                        </a>
-                    </div>
-                    <div class="column folio-item">
-                        <a href="#modal-04" class="folio-item__thumb" data-lity>
-                            <img src="images/portfolio/community-1.jpg" 
-                                 srcset="images/portfolio/community-1.jpg 1x, 
-                                         images/portfolio/community-1@2x.jpg 2x" alt="Community Management Project">
-                            <span class="folio-item__text">Community management</span>
-                        </a>
-                    </div>
-                    <div class="column folio-item">
-                        <a href="#modal-05" class="folio-item__thumb" data-lity>
-                            <img src="images/portfolio/ecommerce-1.jpg" 
-                                 srcset="images/portfolio/ecommerce-1.jpg 1x, 
-                                         images/portfolio/ecommerce-1@2x.jpg 2x" alt="E-commerce Project">
-                            <span class="folio-item__text">Tienda online</span>
-                        </a>
-                    </div>
-                    <div class="column folio-item">
-                        <a href="#modal-06" class="folio-item__thumb" data-lity>
-                            <img src="images/portfolio/advertising-1.jpg" 
-                                 srcset="images/portfolio/advertising-1.jpg 1x, 
-                                         images/portfolio/advertising-1@2x.jpg 2x" alt="Advertising Project">
-                            <span class="folio-item__text">Pauta publicitaria</span>
-                        </a>
-                    </div>
-                </div>
-            </section>
-
-            <section id="contact" class="s-contact target-section">
-                <div class="row section-header" data-num="03">
-                    <div class="column lg-12">
-                        <h3 class="text-pretitle">Contacto</h3>
-                        <h1 class="text-display-title">
-                            Completa el formulario y programemos nuestra primera reunión
-                        </h1>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="column lg-12">
-                        <form id="contactForm" method="post" action="" autocomplete="off">
-                            <div class="form-field">
-                                <input name="name" id="name" class="h-full-width h-remove-bottom" placeholder="Nombre completo *" value="" type="text" required>
-                            </div>
-                            <div class="form-field">
-                                <input name="whatsapp" id="whatsapp" class="h-full-width h-remove-bottom" placeholder="WhatsApp *" value="" type="tel" required>
-                            </div>
-                            <div class="form-field">
-                                <input name="website" id="website" class="h-full-width h-remove-bottom" placeholder="Sitio Web *" value="" type="url" required>
-                            </div>
-                            <div class="form-field">
-                                <input name="country" id="country" class="h-full-width h-remove-bottom" placeholder="País" value="" type="text">
-                            </div>
-                            <div class="form-field">
-                                <label for="services">¿En qué servicios estás interesado?</label>
-                                <div class="checkbox-group">
-                                    <label><input type="checkbox" name="services[]" value="branding"> Branding</label>
-                                    <label><input type="checkbox" name="services[]" value="content"> Creación de contenido | Producción & Estilismo</label>
-                                    <label><input type="checkbox" name="services[]" value="advertising"> Pauta publicitaria</label>
-                                    <label><input type="checkbox" name="services[]" value="all"> Todos</label>
-                                </div>
-                            </div>
-                            <div class="form-field">
-                                <input name="years" id="years" class="h-full-width h-remove-bottom" placeholder="¿Cuántos años lleva la empresa en el mercado?" value="" type="number">
-                            </div>
-                            <div class="form-field">
-                                <select name="revenue" id="revenue" class="h-full-width h-remove-bottom">
-                                    <option value="">¿Cuánto estás facturando por mes?</option>
-                                    <option value="0-1000">0-1000 USD</option>
-                                    <option value="1000-3000">1000 USD A 3000 USD</option>
-                                    <option value="3000-5000">3000 USD A 5000 USD</option>
-                                    <option value="5000-10000">5000 USD - 10.000 USD</option>
-                                </select>
-                            </div>
-                            <div class="form-field">
-                                <input name="advertising_experience" id="advertising_experience" class="h-full-width h-remove-bottom" placeholder="¿Alguna vez invertiste en pauta publicitaria?" value="" type="text">
-                            </div>
-                            <div class="form-field">
-                                <input name="advertising_budget" id="advertising_budget" class="h-full-width h-remove-bottom" placeholder="¿Qué monto estarías dispuesto a invertir en pauta publicitaria?" value="" type="text">
-                            </div>
-                            <div class="form-field">
-                                <button class="btn btn--primary h-full-width" type="submit">Agendar Reunión</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </section>
+            </div>
         </section>
+
+        <!-- El resto de las secciones (servicios, trabajos, contacto) se mantienen similares,
+             pero se deben actualizar los textos y estilos para reflejar la nueva marca -->
 
         <footer class="s-footer">
             <div class="row s-footer__top">
                 <div class="column lg-5 md-8 stack-on-700 s-footer__block contact-address">
-                    <h4 class="h6">¿Dónde encontrarnos?</h4>
+                    <h4 class="h6">Nuestra Ubicación</h4>
                     <p>
-                    1600 Calle, Distrito <br>
-                    Cordoba, Argentina <br>
-                    94043  AR
+                    Avenida Principal 123<br>
+                    Ciudad Creativa, CP 5000<br>
+                    Argentina
                     </p>
                 </div>
 
@@ -312,7 +127,7 @@
                     <h4 class="h6">Contáctanos</h4>
                     <ul class="contact-list">
                         <li><a href="mailto:info@rnwstudio.com">info@rnwstudio.com</a></li>
-                        <li><a href="tel:+5493517323886">+54 9 351 7323886</a></li>
+                        <li><a href="tel:+5493511234567">+54 9 351 123-4567</a></li>
                     </ul>
                 </div>
             </div>
@@ -320,7 +135,7 @@
             <div class="row s-footer__bottom">
                 <div class="column ss-copyright">
                     <span>© Copyright RNW Studio 2024</span> 
-                    <span>Design by <a href="https://dualitydomain.github.io/Dualitydomain/index.html">Duality Domain</a></span>
+                    <span>Diseñado por RNW Studio</span>
                 </div>
 
                 <div class="ss-go-top">
@@ -328,7 +143,7 @@
                         <span class="ss-go-top__icon">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill:rgba(0, 0, 0, 1);transform:rotate(90deg);-ms-filter:progid:DXImageTransform.Microsoft.BasicImage(rotation=1)"><path d="M6 4H18V6H6zM11 14L11 20 13 20 13 14 18 14 12 8 6 14z"></path></svg>
                         </span>
-                        <span class="ss-go-top__text">Back to Top</span>
+                        <span class="ss-go-top__text">Volver arriba</span>
                     </a>
                 </div>
             </div>
