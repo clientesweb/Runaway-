@@ -441,3 +441,16 @@
     })();
 
 })(document.documentElement);
+
+// Añade esto al final de tu archivo main.js
+document.addEventListener('DOMContentLoaded', (event) => {
+    const playButton = document.getElementById('playVideo');
+    const videoWrapper = document.getElementById('videoWrapper');
+
+    if (playButton && videoWrapper) {
+        playButton.addEventListener('click', () => {
+            videoWrapper.classList.remove('hidden');
+            playButton.classList.add('hidden');
+        });
+    }
+});
