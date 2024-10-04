@@ -22,7 +22,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const elementTop = element.getBoundingClientRect().top;
             const elementBottom = element.getBoundingClientRect().bottom;
             if (elementTop < window.innerHeight && elementBottom > 0) {
-                element.classList.add('animate');
+                element.style.animationDelay = '0.2s';
+                element.style.animationPlayState = 'running';
             }
         });
     };
@@ -39,39 +40,6 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     });
-
-    // Animación del encabezado al hacer scroll
-    const header = document.querySelector('header');
-    let lastScrollTop = 0;
-
-    window.addEventListener('scroll', () => {
-        let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        if (scrollTop > lastScrollTop) {
-            header.style.transform = 'translateY(-100%)';
-        } else {
-            header.style.transform = 'translateY(0)';
-        }
-        lastScrollTop = scrollTop;
-    });
-
-    // Slider para el hero
-    const heroSlider = document.querySelector('.hero.slider');
-    const heroSlides = heroSlider.querySelectorAll('.slide');
-    let currentHeroSlide = 0;
-
-    const showHeroSlide = (index) => {
-        heroSlides.forEach((slide, i) => {
-            slide.style.display = i === index ? 'block' : 'none';
-        });
-    };
-
-    const nextHeroSlide = () => {
-        currentHeroSlide = (currentHeroSlide + 1) % heroSlides.length;
-        showHeroSlide(currentHeroSlide);
-    };
-
-    setInterval(nextHeroSlide, 5000); // Cambiar slide cada 5 segundos
-    showHeroSlide(currentHeroSlide); // Mostrar el primer slide
 
     // Slider para el top banner
     const topBanner = document.querySelector('#top-banner');
@@ -119,5 +87,27 @@ document.addEventListener('DOMContentLoaded', () => {
         // Aquí puedes agregar la lógica para enviar el formulario y programar la reunión
         // Por ejemplo, puedes usar la API de Google Calendar para agendar la reunión
         alert('Gracias por tu mensaje. Nos pondremos en contacto contigo pronto para agendar una reunión.');
+    });
+
+    // Animación del encabezado al hacer scroll
+    const header = document.querySelector('header');
+    let lastScroll = 0;
+
+    window.addEventListener('scroll', () => {
+        const currentScroll = window.pageYOffset;
+
+        if (currentScroll <= 0) {
+            header.classList.remove("scroll-up");
+            return;
+        }
+
+        if (currentScroll > lastScroll && !header.classList.contains("scroll-down")) {
+            header.classList.remove("scroll-up");
+            header.classList.add("scroll-down");
+        } else if (currentScroll < lastScroll && header.classList.contains("scroll-down")) {
+            header.classList.remove("scroll-down");
+            header.classList.add("scroll-up");
+        }
+        lastScroll = currentScroll;
     });
 });
