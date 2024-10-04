@@ -170,6 +170,7 @@ body {
         font-size: 24px;
     }
 }
+
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
@@ -199,4 +200,12 @@ body {
 
 .overflow-hidden {
     overflow: hidden;
+}
+
+#content {
+    transition: opacity 0.5s ease-out;
+}
+
+#content.visible {
+    opacity: 1;
 }
