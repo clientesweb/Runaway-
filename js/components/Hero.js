@@ -1,4 +1,3 @@
-// js/components/Hero.js
 export function Hero() {
   return `
     <section id="inicio" class="hero slider">
