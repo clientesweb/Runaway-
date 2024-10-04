@@ -1,109 +1,77 @@
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', function() {
     // Preloader
-    const preloader = document.getElementById('preloader');
-    window.addEventListener('load', () => {
-        preloader.style.opacity = '0';
-        setTimeout(() => {
-            preloader.style.display = 'none';
-        }, 500);
+    window.addEventListener('load', function() {
+        document.getElementById('preloader').style.display = 'none';
     });
 
-    // Navegación responsive
+    // Responsive Navigation
     const navToggle = document.querySelector('.nav-toggle');
-    const nav = document.querySelector('nav');
+    const nav = document.querySelector('nav ul');
 
-    navToggle.addEventListener('click', () => {
-        nav.classList.toggle('active');
-        navToggle.classList.toggle('active');
+    navToggle.addEventListener('click', function() {
+        nav.classList.toggle('show');
+        this.classList.toggle('active');
     });
 
-    // Cerrar menú al hacer clic en un enlace
-    const navLinks = document.querySelectorAll('nav a');
-    navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            nav.classList.remove('active');
-            navToggle.classList.remove('active');
-        });
-    });
-
-    // Animación de entrada para elementos
-    const animateOnScroll = () => {
-        const elements = document.querySelectorAll('.animate-on-scroll');
-        const triggerBottom = window.innerHeight * 0.8;
-
-        elements.forEach(element => {
-            const elementTop = element.getBoundingClientRect().top;
-            if (elementTop < triggerBottom) {
-                element.classList.add('animate');
-            }
-        });
-    };
-
-    window.addEventListener('scroll', animateOnScroll);
-    animateOnScroll(); // Llamar inicialmente para animar elementos visibles
-
-    // Smooth scroll para enlaces internos
+    // Smooth Scrolling
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                window.scrollTo({
-                    top: target.offsetTop - 80,
-                    behavior: 'smooth'
-                });
-            }
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
         });
     });
 
-    // Slider para el hero
-    const heroSlider = document.querySelector('.hero-slider');
-    const heroSlides = heroSlider.querySelectorAll('.slide');
+    // Hero Slider
+    const heroSlides = document.querySelectorAll('.hero-slider .slide');
     let currentHeroSlide = 0;
 
-    const showHeroSlide = (index) => {
-        heroSlides.forEach((slide, i) => {
-            slide.classList.toggle('active', i === index);
-        });
-    };
+    function showHeroSlide(n) {
+        heroSlides[currentHeroSlide].classList.remove('active');
+        currentHeroSlide = (n + heroSlides.length) % heroSlides.length;
+        heroSlides[currentHeroSlide].classList.add('active');
+    }
 
-    const nextHeroSlide = () => {
-        currentHeroSlide = (currentHeroSlide + 1) % heroSlides.length;
-        showHeroSlide(currentHeroSlide);
-    };
+    setInterval(() => showHeroSlide(currentHeroSlide + 1), 5000);
 
-    setInterval(nextHeroSlide, 5000); // Cambiar slide cada 5 segundos
+    // Top Banner Slider
+    const topBannerSlides = document.querySelectorAll('.top-banner .slide');
+    let currentTopBannerSlide = 0;
 
-    // Slider para el banner publicitario
-    const adBanner = document.querySelector('.banner-slider');
-    const adSlides = adBanner.querySelectorAll('.slide');
-    let currentAdSlide = 0;
+    function showTopBannerSlide(n) {
+        topBannerSlides[currentTopBannerSlide].classList.remove('active');
+        currentTopBannerSlide = (n + topBannerSlides.length) % topBannerSlides.length;
+        topBannerSlides[currentTopBannerSlide].classList.add('active');
+    }
 
-    const showAdSlide = (index) => {
-        adSlides.forEach((slide, i) => {
-            slide.classList.toggle('active', i === index);
-        });
-    };
+    setInterval(() => showTopBannerSlide(currentTopBannerSlide + 1), 3000);
 
-    const nextAdSlide = () => {
-        currentAdSlide = (currentAdSlide + 1) % adSlides.length;
-        showAdSlide(currentAdSlide);
-    };
+    // Ad Banner Slider
+    const adBannerSlides = document.querySelectorAll('.ad-banner .slide');
+    let currentAdBannerSlide = 0;
 
-    setInterval(nextAdSlide, 3000); // Cambiar slide cada 3 segundos
+    function showAdBannerSlide(n) {
+        adBannerSlides[currentAdBannerSlide].classList.remove('active');
+        currentAdBannerSlide = (n + adBannerSlides.length) % adBannerSlides.length;
+        adBannerSlides[currentAdBannerSlide].classList.add('active');
+    }
 
-    // Filtros del portfolio
-    const portfolioFilters = document.querySelectorAll('.filter-btn');
+    setInterval(() => showAdBannerSlide(currentAdBannerSlide + 1), 4000);
+
+    // Portfolio Filters
+    const filterButtons = document.querySelectorAll('.filter-btn');
     const portfolioItems = document.querySelectorAll('.portfolio-item');
 
-    portfolioFilters.forEach(filter => {
-        filter.addEventListener('click', () => {
-            portfolioFilters.forEach(f => f.classList.remove('active'));
-            filter.classList.add('active');
-            const category = filter.getAttribute('data-filter');
+    filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const filter = this.dataset.filter;
+            
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            this.classList.add('active');
 
             portfolioItems.forEach(item => {
-                if (category === 'all' || item.classList.contains(category)) {
+                if (filter === 'all' || item.classList.contains(filter)) {
                     item.style.display = 'block';
                 } else {
                     item.style.display = 'none';
@@ -112,54 +80,66 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Manejo del formulario de contacto
+    // Form Validation
     const contactForm = document.getElementById('contact-form');
-    contactForm.addEventListener('submit', (e) => {
+    contactForm.addEventListener('submit', function(e) {
         e.preventDefault();
-        // Aquí puedes agregar la lógica para enviar el formulario y programar la reunión
-        // Por ejemplo, puedes usar la API de Google Calendar para agendar la reunión
-        alert('Gracias por tu mensaje. Nos pondremos en contacto contigo pronto para agendar una reunión.');
-    });
-
-    // Animación del encabezado al hacer scroll
-    const header = document.querySelector('header');
-    let lastScrollTop = 0;
-
-    window.addEventListener('scroll', () => {
-        let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        if (scrollTop > lastScrollTop) {
-            header.style.transform = 'translateY(-100%)';
-        } else {
-            header.style.transform = 'translateY(0)';
+        if (validateForm()) {
+            // Here you would typically send the form data to a server
+            alert('Formulario enviado con éxito!');
+            contactForm.reset();
         }
-        lastScrollTop = scrollTop;
     });
 
-    // Lazy loading para imágenes
+    function validateForm() {
+        let isValid = true;
+        const requiredFields = contactForm.querySelectorAll('[required]');
+        requiredFields.forEach(field => {
+            if (!field.value.trim()) {
+                isValid = false;
+                field.classList.add('error');
+            } else {
+                field.classList.remove('error');
+            }
+        });
+        return isValid;
+    }
+
+    // Lazy Loading Images
     const lazyImages = document.querySelectorAll('img[data-src]');
-    const lazyLoadImage = (image) => {
-        image.setAttribute('src', image.getAttribute('data-src'));
-        image.onload = () => {
-            image.removeAttribute('data-src');
-        };
+    const lazyLoadOptions = {
+        threshold: 0.5,
+        rootMargin: "0px 0px 200px 0px"
     };
 
-    if ('IntersectionObserver' in window) {
-        const imageObserver = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    lazyLoadImage(entry.target);
-                    observer.unobserve(entry.target);
-                }
-            });
+    const lazyLoadObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const img = entry.target;
+                img.src = img.dataset.src;
+                img.removeAttribute('data-src');
+                observer.unobserve(img);
+            }
         });
+    }, lazyLoadOptions);
 
-        lazyImages.forEach(image => {
-            imageObserver.observe(image);
+    lazyImages.forEach(img => lazyLoadObserver.observe(img));
+
+    // Animate on Scroll
+    const animatedElements = document.querySelectorAll('.animate-on-scroll');
+    const animateOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px"
+    };
+
+    const animateObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate');
+                observer.unobserve(entry.target);
+            }
         });
-    } else {
-        lazyImages.forEach(image => {
-            lazyLoadImage(image);
-        });
-    }
+    }, animateOptions);
+
+    animatedElements.forEach(el => animateObserver.observe(el));
 });
