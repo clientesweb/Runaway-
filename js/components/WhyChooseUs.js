@@ -1,4 +1,3 @@
-// js/components/WhyChooseUs.js
 export function WhyChooseUs() {
   const reasons = [
     {
