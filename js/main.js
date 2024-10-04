@@ -154,3 +154,38 @@ document.addEventListener('DOMContentLoaded', function() {
         lastScrollTop = scrollTop;
     });
 });
+
+// Selección de elementos
+const track = document.querySelector('.services-track');
+const items = document.querySelectorAll('.service-item');
+const prevBtn = document.querySelector('.prev');
+const nextBtn = document.querySelector('.next');
+
+// Variables de control del slider
+let index = 0;
+const itemWidth = items[0].offsetWidth + 30; // Ancho de cada item más el margen derecho
+
+// Función para actualizar el desplazamiento del slider
+function updateSlider() {
+    const offset = index * itemWidth; // Cálculo del desplazamiento
+    track.style.transform = `translateX(-${offset}px)`; // Aplicar el desplazamiento
+}
+
+// Evento para el botón "Anterior"
+prevBtn.addEventListener('click', () => {
+    if (index > 0) {
+        index--;
+    }
+    updateSlider();
+});
+
+// Evento para el botón "Siguiente"
+nextBtn.addEventListener('click', () => {
+    if (index < items.length - 1) {
+        index++;
+    }
+    updateSlider();
+});
+
+// Actualizar el slider en el resize para evitar problemas de tamaño
+window.addEventListener('resize', updateSlider);
