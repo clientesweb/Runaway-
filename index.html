@@ -5,317 +5,125 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RNW Studio - Impulsa tu E-Commerce hacia el Éxito</title>
     <meta name="description" content="En RNW Studio ofrecemos servicios de marketing digital, branding y desarrollo web para impulsar tu e-commerce hacia el éxito.">
-    <link rel="icon" href="images/Logos_B-10.jpg" type="image/x-icon"> <!-- Agregado de favicon -->
-    <link rel="stylesheet" href="css/styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="icon" href="images/Logos_B-10.jpg" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div id="preloader">
-        <div class="loader"></div>
-    </div>
-
-    <div id="top-banner" class="top-banner">
-        <div class="container">
-            <div class="banner-slider">
-                <div class="slide active">
-                    <p>¡Promoción! 20% de descuento en tu primer mes de servicios</p>
-                </div>
-                <div class="slide">
-                    <p>¡Oferta! Consultoría gratuita para nuevos clientes</p>
-                </div>
-                <div class="slide">
-                    <p>¡Novedades! Nuevo servicio de marketing de influencers</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <header id="main-header">
-        <div class="container">
-            <div class="logo">
-                <img src="images/Logos_B-10-removebg-preview.png" alt="RNW Studio">
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="#inicio">Inicio</a></li>
-                    <li><a href="#servicios">Servicios</a></li>
-                    <li><a href="#portfolio">Portfolio</a></li>
-                    <li><a href="#contacto">Contacto</a></li>
-                </ul>
+    <header class="sticky top-0 z-50 bg-primary text-white shadow-md">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <img src="images/Logos_B-10-removebg-preview.png" alt="RNW Studio" class="h-16 w-auto">
+            <nav class="hidden md:flex space-x-8">
+                <a href="#inicio" class="text-white hover:text-accent transition-colors">Inicio</a>
+                <a href="#servicios" class="text-white hover:text-accent transition-colors">Servicios</a>
+                <a href="#portfolio" class="text-white hover:text-accent transition-colors">Portfolio</a>
+                <a href="#contacto" class="text-white hover:text-accent transition-colors">Contacto</a>
             </nav>
-            <div class="social-icons">
-                <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
-                <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                <a href="#" target="_blank"><i class="fab fa-tiktok"></i></a>
+            <div class="flex space-x-4">
+                <a href="#" class="text-white hover:text-accent transition-colors"><i class="fab fa-facebook"></i></a>
+                <a href="#" class="text-white hover:text-accent transition-colors"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="text-white hover:text-accent transition-colors"><i class="fab fa-linkedin"></i></a>
+                <a href="#" class="text-white hover:text-accent transition-colors"><i class="fab fa-tiktok"></i></a>
             </div>
-            <button class="nav-toggle" aria-label="Abrir menú">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
         </div>
     </header>
 
     <main>
-        <section id="inicio" class="hero">
-            <div class="hero-slider">
-                <div class="slide active">
-                    <img src="images/IMG_4414_jpg.jpg" alt="Hero 1">
-                    <div class="hero-content">
-                        <h1>Impulsa tu E-Commerce hacia el Éxito</h1>
-                        <p>Hacemos que tu marca destaque y las ventas aumenten</p>
-                        <a href="#contacto" class="btn">Contáctanos</a>
-                    </div>
-                </div>
-                <div class="slide">
-                    <img src="images/IMG_4380_jpg.jpg" alt="Hero 2">
-                    <div class="hero-content">
-                        <h1>Estrategias Digitales Innovadoras</h1>
-                        <p>Potenciamos tu presencia online con soluciones creativas</p>
-                        <a href="#contacto" class="btn">Descubre Más</a>
-                    </div>
-                </div>
-                <div class="slide">
-                    <img src="images/IMG_7019.jpg" alt="Hero 3">
-                    <div class="hero-content">
-                        <h1>Transforma tu Negocio Digital</h1>
-                        <p>Expertos en llevar tu e-commerce al siguiente nivel</p>
-                        <a href="#contacto" class="btn">Empieza Ahora</a>
-                    </div>
+        <section id="inicio" class="hero-section bg-primary text-white flex items-center">
+            <div class="container mx-auto px-4 text-center">
+                <h1 class="text-5xl md:text-6xl font-bold mb-4 animate-fade-in">Impulsa tu E-Commerce hacia el Éxito</h1>
+                <p class="text-xl mb-8 animate-fade-in">Hacemos que tu marca destaque y las ventas aumenten</p>
+                <a href="#contacto" class="bg-accent text-primary font-bold py-3 px-8 rounded-full text-lg hover:bg-white transition duration-300">Contáctanos</a>
+            </div>
+        </section>
+
+        <section id="servicios" class="py-20 bg-gray-100">
+            <div class="container mx-auto px-4">
+                <h2 class="text-4xl font-bold text-center mb-12">Nuestros Servicios</h2>
+                <div class="services-slider">
+                    <!-- Los servicios se cargarán dinámicamente con JavaScript -->
                 </div>
             </div>
         </section>
 
-        <section id="presentacion" class="presentacion">
-            <div class="container">
-                <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/your-video-id" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        <section id="portfolio" class="py-20">
+            <div class="container mx-auto px-4">
+                <h2 class="text-4xl font-bold text-center mb-12">Nuestro Portfolio</h2>
+                <div class="flex justify-center space-x-4 mb-8">
+                    <button class="filter-btn px-4 py-2 rounded-full bg-primary text-white" data-filter="all">Todos</button>
+                    <button class="filter-btn px-4 py-2 rounded-full bg-gray-200 text-primary" data-filter="branding">Branding</button>
+                    <button class="filter-btn px-4 py-2 rounded-full bg-gray-200 text-primary" data-filter="web">Web</button>
+                    <button class="filter-btn px-4 py-2 rounded-full bg-gray-200 text-primary" data-filter="photo">Fotografía</button>
                 </div>
-                <h2 class="section-title">AUMENTA TUS VENTAS, POSICIONÁ TU MARCA!</h2>
-                <a href="#contacto" class="btn btn-large">QUIERO AGENDAR UNA REUNIÓN</a>
-            </div>
-        </section>
-
-        <section id="servicios" class="services">
-    <div class="container">
-        <h2 class="section-title">Nuestros Servicios</h2>
-        <div class="services-slider">
-            <div class="services-track">
-                <div class="service-item">
-                    <div class="service-icon"><i class="fas fa-paint-brush"></i></div>
-                    <img src="images/service-branding.jpg" alt="Branding" class="service-image">
-                    <h3>Branding</h3>
-                    <p>Creamos una identidad de marca única y distintiva que se destaca en el mercado.</p>
-                </div>
-                <div class="service-item">
-                    <div class="service-icon"><i class="fas fa-sync-alt"></i></div>
-                    <img src="images/service-rebranding.jpg" alt="Rebranding" class="service-image">
-                    <h3>Rebranding</h3>
-                    <p>Renovamos la identidad de marcas existentes para mantenerlas relevantes y en sintonía con el mercado.</p>
-                </div>
-                <div class="service-item">
-                    <div class="service-icon"><i class="fas fa-camera"></i></div>
-                    <img src="images/service-produccion.jpg" alt="Producción & Estilismo" class="service-image">
-                    <h3>Producción & Estilismo</h3>
-                    <p>Planificamos y ejecutamos producciones de fotos y videos para crear contenido visual coherente y efectivo.</p>
-                </div>
-                <div class="service-item">
-                    <div class="service-icon"><i class="fas fa-pencil-alt"></i></div>
-                    <img src="images/service-contenido.jpg" alt="Creación de Contenido" class="service-image">
-                    <h3>Creación de Contenido</h3>
-                    <p>Generamos material relevante y atractivo para promover tu marca y aumentar su visibilidad.</p>
-                </div>
-                <div class="service-item">
-                    <div class="service-icon"><i class="fas fa-ad"></i></div>
-                    <img src="images/service-pauta.jpg" alt="Pauta Publicitaria" class="service-image">
-                    <h3>Pauta Publicitaria</h3>
-                    <p>Planificamos y ejecutamos estrategias publicitarias efectivas en diversos canales digitales.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-        <section id="portfolio" class="portfolio">
-            <div class="container">
-                <h2 class="section-title">Nuestro Portfolio</h2>
-                <div class="portfolio-filters">
-                    <button class="filter-btn active" data-filter="all">Todos</button>
-                    <button class="filter-btn" data-filter="branding">Branding</button>
-                    <button class="filter-btn" data-filter="web">Desarrollo Web</button>
-                    <button class="filter-btn" data-filter="photo">Fotografía</button>
-                </div>
-                <div class="portfolio-grid">
-                    <div class="portfolio-item branding">
-                        <img src="images/portfolio-1.jpg" alt="Proyecto de Branding 1">
-                        <div class="portfolio-overlay">
-                            <h3>Proyecto de Branding 1</h3>
-                            <p>Descripción breve del proyecto</p>
-                        </div>
-                    </div>
-                    <div class="portfolio-item web">
-                        <img src="images/portfolio-2.jpg" alt="Proyecto Web 1">
-                        <div class="portfolio-overlay">
-                            <h3>Proyecto Web 1</h3>
-                            <p>Descripción breve del proyecto</p>
-                        </div>
-                    </div>
-                    <div class="portfolio-item photo">
-                        <img src="images/portfolio-3.jpg" alt="Proyecto de Fotografía 1">
-                        <div class="portfolio-overlay">
-                            <h3>Proyecto de Fotografía 1</h3>
-                            <p>Descripción breve del proyecto</p>
-                        </div>
-                    </div>
-                    <div class="portfolio-item branding">
-                        <img src="images/portfolio-4.jpg" alt="Proyecto de Branding 2">
-                        <div class="portfolio-overlay">
-                            <h3>Proyecto de Branding 2</h3>
-                            <p>Descripción breve del proyecto</p>
-                        </div>
-                    </div>
-                    <div class="portfolio-item web">
-                        <img src="images/portfolio-5.jpg" alt="Proyecto Web 2">
-                        <div class="portfolio-overlay">
-                            <h3>Proyecto Web 2</h3>
-                            <p>Descripción breve del proyecto</p>
-                        </div>
-                    </div>
-                    <div class="portfolio-item photo">
-                        <img src="images/portfolio-6.jpg" alt="Proyecto de Fotografía 2">
-                        <div class="portfolio-overlay">
-                            <h3>Proyecto de Fotografía 2</h3>
-                            <p>Descripción breve del proyecto</p>
-                        </div>
-                    </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8" id="portfolio-grid">
+                    <!-- Los elementos del portfolio se cargarán dinámicamente con JavaScript -->
                 </div>
             </div>
         </section>
 
-        <section id="ad-banner" class="ad-banner">
-            <div class="container">
-                <div class="banner-slider">
-                    <div class="slide active">
-                        <h3>¿Listo para llevar tu E-Commerce al siguiente nivel?</h3>
-                        <p>Aprovecha nuestra oferta especial: 20% de descuento en tu primer mes de servicios</p>
-                        <a href="#contacto" class="btn">¡Contáctanos ahora!</a>
+        <section id="contacto" class="py-20 bg-gray-100">
+            <div class="container mx-auto px-4">
+                <h2 class="text-4xl font-bold text-center mb-12">Contáctanos</h2>
+                <form id="contact-form" class="max-w-lg mx-auto bg-white p-8 rounded-lg shadow-lg">
+                    <div class="mb-4">
+                        <label for="nombre" class="block text-gray-700 text-sm font-bold mb-2">Nombre completo</label>
+                        <input type="text" id="nombre" name="nombre" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-accent" required>
                     </div>
-                    <div class="slide">
-                        <h3>Potencia tu presencia digital</h3>
-                        <p>Estrategias personalizadas para maximizar tus ventas online</p>
-                        <a href="#contacto" class="btn">Descubre cómo</a>
+                    <div class="mb-4">
+                        <label for="email" class="block text-gray-700 text-sm font-bold mb-2">Email</label>
+                        <input type="email" id="email" name="email" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-accent" required>
                     </div>
-                    <div class="slide">
-                        <h3>Transforma tu marca con RNW Studio</h3>
-                        <p>Expertos en branding y marketing digital para e-commerce</p>
-                        <a href="#contacto" class="btn">Empieza hoy</a>
+                    <div class="mb-4">
+                        <label for="mensaje" class="block text-gray-700 text-sm font-bold mb-2">Mensaje</label>
+                        <textarea id="mensaje" name="mensaje" rows="4" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-accent" required></textarea>
                     </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="contacto" class="contact">
-            <div class="container">
-                <h2 class="section-title">Contáctanos</h2>
-                <p class="subtitle">Completa el formulario y programemos nuestra primera reunión para empezar a trabajar juntos!</p>
-                <form id="contact-form" class="contact-form">
-                    <div class="form-group">
-                        <label for="nombre">Nombre completo *</label>
-                        <input type="text" id="nombre" name="nombre" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="whatsapp">WhatsApp *</label>
-                        <input type="tel" id="whatsapp" name="whatsapp" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="sitio_web">Sitio Web *</label>
-                        <input type="url" id="sitio_web" name="sitio_web" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="pais">País</label>
-                        <input type="text" id="pais" name="pais">
-                    </div>
-                    <div class="form-group">
-                        <label for="servicios">¿En qué servicios estás interesado? *</label>
-                        <select id="servicios" name="servicios" required>
-                            <option value="">Selecciona una opción</option>
-                            <option value="branding">BRANDING</option>
-                            <option value="contenido">CREACIÓN DE CONTENIDO | PRODUCCIÓN & ESTILISMO</option>
-                            <option value="pauta">PAUTA PUBLICITARIA</option>
-                            <option value="todos">TODOS</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="anos_empresa">¿Cuántos años lleva la empresa en el mercado?</label>
-                        <input type="number" id="anos_empresa" name="anos_empresa">
-                    </div>
-                    <div class="form-group">
-                        <label for="facturacion">¿Cuánto estás facturando por mes? *</label>
-                        <select id="facturacion" name="facturacion" required>
-                            <option value="">Selecciona una opción</option>
-                            <option value="0-1000">0-1000 USD</option>
-                            <option value="1000-3000">1000 USD A 3000 USD</option>
-                            <option value="3000-5000">3000 USD A 5000 USD</option>
-                            <option value="5000-10000">5000 USD - 10.000 USD</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="inversion_previa">¿Alguna vez invertiste en pauta publicitaria? *</label>
-                        <select id="inversion_previa" name="inversion_previa" required>
-                            <option value="">Selecciona una opción</option>
-                            <option value="si">Sí</option>
-                            <option value="no">No</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="inversion_futura">¿Qué monto estarías dispuesto a invertir en pauta publicitaria?</label>
-                        <input type="number" id="inversion_futura" name="inversion_futura">
-                    </div>
-                    <button type="submit" class="btn btn-submit">Enviar y Agendar Reunión</button>
+                    <button type="submit" class="w-full bg-accent text-primary font-bold py-2 px-4 rounded-lg hover:bg-primary hover:text-white transition duration-300">Enviar mensaje</button>
                 </form>
             </div>
         </section>
     </main>
 
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <img src="images/Logos_B-10-removebg-preview.png" alt="RNW Studio">
+    <footer class="bg-primary text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <img src="images/Logos_B-10-removebg-preview.png" alt="RNW Studio" class="h-12 w-auto mb-4">
+                    <p class="text-sm">Impulsando tu e-commerce hacia el éxito.</p>
                 </div>
-                <div class="footer-links">
-                    <h4>Enlaces rápidos</h4>
-                    <ul>
-                        <li><a href="#inicio">Inicio</a></li>
-                        <li><a href="#servicios">Servicios</a></li>
-                        <li><a href="#portfolio">Portfolio</a></li>
-                        <li><a href="#contacto">Contacto</a></li>
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Enlaces rápidos</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#inicio" class="hover:text-accent transition-colors">Inicio</a></li>
+                        <li><a href="#servicios" class="hover:text-accent transition-colors">Servicios</a></li>
+                        <li><a href="#portfolio" class="hover:text-accent transition-colors">Portfolio</a></li>
+                        <li><a href="#contacto" class="hover:text-accent transition-colors">Contacto</a></li>
                     </ul>
                 </div>
-                <div class="footer-contact">
-                    <h4>Contáctanos</h4>
-                    <p><i class="fas fa-envelope"></i> Email: info@rnwstudio.com</p>
-                    <p><i class="fas fa-phone"></i> Teléfono: +1 234 567 890</p>
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Contáctanos</h4>
+                    <p><i class="fas fa-envelope mr-2"></i>Email: info@rnwstudio.com</p>
+                    <p><i class="fas fa-phone mr-2"></i>Teléfono: +1 234 567 890</p>
                 </div>
-                <div class="footer-social">
-                    <h4>Síguenos</h4>
-                    <div class="social-icons">
-                        <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
-                        <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#" target="_blank"><i class="fab fa-tiktok"></i></a>
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Síguenos</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-white hover:text-accent transition-colors"><i class="fab fa-facebook text-2xl"></i></a>
+                        <a href="#" class="text-white hover:text-accent transition-colors"><i class="fab fa-instagram text-2xl"></i></a>
+                        <a href="#" class="text-white hover:text-accent transition-colors"><i class="fab fa-linkedin text-2xl"></i></a>
+                        <a href="#" class="text-white hover:text-accent transition-colors"><i class="fab fa-tiktok text-2xl"></i></a>
                     </div>
                 </div>
             </div>
-            <div class="footer-bottom">
+            <div class="mt-8 text-center">
                 <p>&copy; 2024 RNW Studio. Todos los derechos reservados.</p>
-                <p>Powered by <a href="https://dualitydomain.com" target="_blank" rel="noopener noreferrer">Duality Domain</a></p>
+                <p>Powered by <a href="https://dualitydomain.com" target="_blank" rel="noopener noreferrer" class="text-accent">Duality Domain</a></p>
             </div>
         </div>
     </footer>
 
-    <script src="js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/keen-slider@6.8.5/keen-slider.min.js"></script>
+    <script src="main.js"></script>
 </body>
 </html>
