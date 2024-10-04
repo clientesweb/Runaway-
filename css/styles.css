@@ -60,7 +60,7 @@ body {
 .top-banner {
     background-color: var(--color-accent);
     color: var(--color-primary);
-    padding: 10px 0; /* Reducido para hacer el banner compacto */
+    padding: 10px 0; /* Mantener el padding para un banner compacto */
     text-align: center;
     font-weight: bold;
     position: relative;
@@ -90,12 +90,20 @@ body {
     justify-content: center; /* Centrar horizontalmente */
     align-items: center;     /* Centrar verticalmente */
     height: 100%;           /* Asegurarse de que ocupe toda la altura */
-    font-size: 1.2rem;      /* Ajustar el tamaño del texto si es necesario */
+    font-size: 0.9rem;      /* Ajustar el tamaño del texto a un valor más pequeño */
     white-space: nowrap;    /* Evitar que el texto se divida en varias líneas */
+    padding: 0 20px;       /* Añadir padding lateral para mejorar el espaciado */
 }
 
 .top-banner .slide.active {
     opacity: 1;
+}
+
+/* Media Query para pantallas más pequeñas */
+@media (max-width: 768px) {
+    .top-banner .slide {
+        font-size: 0.8rem; /* Ajustar aún más el tamaño del texto en pantallas pequeñas */
+    }
 }
 /* Header */
 #main-header {
