@@ -60,16 +60,20 @@ body {
 .top-banner {
     background-color: var(--color-accent);
     color: var(--color-primary);
-    padding: 10px 0;
+    padding: 20px 0; /* Aumentar el padding para dar más espacio vertical */
     text-align: center;
     font-weight: bold;
     position: relative;
     overflow: hidden;
+    height: 100px; /* Ajusta la altura según el contenido */
 }
 
 .top-banner .banner-slider {
     position: relative;
-    height: 20px;
+    height: 100%; /* Asegurarse de que ocupe toda la altura disponible */
+    display: flex;
+    justify-content: center; /* Centrar el contenido horizontalmente */
+    align-items: center;     /* Centrar el contenido verticalmente */
 }
 
 .top-banner .slide {
@@ -79,6 +83,10 @@ body {
     width: 100%;
     opacity: 0;
     transition: opacity 0.5s ease-in-out;
+    display: flex;          /* Usar flexbox para centrar el contenido */
+    justify-content: center; /* Centrar el contenido dentro del slide */
+    align-items: center;
+    height: 100%;           /* Asegurarse de que el slide ocupe toda la altura */
 }
 
 .top-banner .slide.active {
