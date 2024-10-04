@@ -21,13 +21,16 @@
             <a href="index.html" class="logo">
                 <img src="images/rnw-studio-logo.svg" alt="RNW Studio">
             </a>
+            <button class="nav-toggle" aria-label="Abrir menú">
+                <i class="fas fa-bars"></i>
+            </button>
             <nav>
-                <ul>
-                    <li><a href="#inicio">Inicio</a></li>
-                    <li><a href="#servicios">Servicios</a></li>
-                    <li><a href="#portfolio">Portfolio</a></li>
-                    <li><a href="#testimonios">Testimonios</a></li>
-                    <li><a href="#contacto">Contacto</a></li>
+                <ul class="nav-menu">
+                    <li><a href="#inicio"><i class="fas fa-home"></i> Inicio</a></li>
+                    <li><a href="#servicios"><i class="fas fa-cogs"></i> Servicios</a></li>
+                    <li><a href="#portfolio"><i class="fas fa-briefcase"></i> Portfolio</a></li>
+                    <li><a href="#testimonios"><i class="fas fa-comments"></i> Testimonios</a></li>
+                    <li><a href="#contacto"><i class="fas fa-envelope"></i> Contacto</a></li>
                 </ul>
             </nav>
             <div class="social-icons">
@@ -44,28 +47,28 @@
                 <div class="container">
                     <h1>Impulsa tu E-Commerce hacia el Éxito con Nuestros Servicios</h1>
                     <p>Hacemos que tu marca destaque y las ventas aumenten</p>
-                    <a href="#contacto" class="btn">Contáctanos</a>
+                    <a href="#contacto" class="btn"><i class="fas fa-rocket"></i> Contáctanos</a>
                 </div>
             </div>
             <div class="slide">
                 <div class="container">
                     <h1>Estrategias de Marketing Digital Personalizadas</h1>
                     <p>Maximiza tu presencia online y aumenta tus conversiones</p>
-                    <a href="#servicios" class="btn">Nuestros Servicios</a>
+                    <a href="#servicios" class="btn"><i class="fas fa-chart-line"></i> Nuestros Servicios</a>
                 </div>
             </div>
             <div class="slide">
                 <div class="container">
                     <h1>Diseño Creativo que Cautiva a tu Audiencia</h1>
                     <p>Creamos experiencias visuales únicas para tu marca</p>
-                    <a href="#portfolio" class="btn">Ver Portfolio</a>
+                    <a href="#portfolio" class="btn"><i class="fas fa-palette"></i> Ver Portfolio</a>
                 </div>
             </div>
         </section>
 
         <section id="about" class="animate-on-scroll">
             <div class="container">
-                <h2 class="section-title">Quiénes Somos</h2>
+                <h2 class="section-title"><i class="fas fa-users"></i> Quiénes Somos</h2>
                 <div class="video-container">
                     <video id="agency-video" controls>
                         <source src="video/agency-presentation.mp4" type="video/mp4">
@@ -73,36 +76,36 @@
                     </video>
                 </div>
                 <h3>AUMENTA TUS VENTAS, POSICIONÁ TU MARCA!</h3>
-                <a href="#contacto" class="btn">QUIERO AGENDAR UNA REUNIÓN</a>
+                <a href="#contacto" class="btn"><i class="fas fa-calendar-alt"></i> QUIERO AGENDAR UNA REUNIÓN</a>
             </div>
         </section>
 
         <section id="servicios" class="animate-on-scroll">
             <div class="container">
-                <h2 class="section-title">Nuestros Servicios</h2>
+                <h2 class="section-title"><i class="fas fa-cogs"></i> Nuestros Servicios</h2>
                 <div class="services-grid">
                     <div class="service-item">
-                        <div class="circle"></div>
+                        <div class="circle"><i class="fas fa-paint-brush"></i></div>
                         <h3>Branding</h3>
                         <p>Creamos una identidad de marca única y distintiva que se destaca en el mercado.</p>
                     </div>
                     <div class="service-item">
-                        <div class="circle"></div>
+                        <div class="circle"><i class="fas fa-sync-alt"></i></div>
                         <h3>Rebranding</h3>
                         <p>Renovamos la identidad de marcas existentes para mantenerlas relevantes y en sintonía con el mercado.</p>
                     </div>
                     <div class="service-item">
-                        <div class="circle"></div>
+                        <div class="circle"><i class="fas fa-camera"></i></div>
                         <h3>Producción & Estilismo</h3>
                         <p>Planificamos y ejecutamos producciones de fotos y videos para crear contenido visual coherente y efectivo.</p>
                     </div>
                     <div class="service-item">
-                        <div class="circle"></div>
+                        <div class="circle"><i class="fas fa-pencil-alt"></i></div>
                         <h3>Creación de Contenido</h3>
                         <p>Generamos material relevante y atractivo para promover tu marca y aumentar su visibilidad.</p>
                     </div>
                     <div class="service-item">
-                        <div class="circle"></div>
+                        <div class="circle"><i class="fas fa-ad"></i></div>
                         <h3>Pauta Publicitaria</h3>
                         <p>Planificamos y ejecutamos estrategias publicitarias efectivas en diversos canales digitales.</p>
                     </div>
@@ -112,7 +115,7 @@
 
         <section id="portfolio" class="animate-on-scroll">
             <div class="container">
-                <h2 class="section-title">Nuestro Portfolio</h2>
+                <h2 class="section-title"><i class="fas fa-briefcase"></i> Nuestro Portfolio</h2>
                 <div class="portfolio-filters">
                     <button class="filter-btn active" data-filter="all">Todos</button>
                     <button class="filter-btn" data-filter="branding">Branding</button>
@@ -122,21 +125,45 @@
                 <div class="portfolio-grid">
                     <div class="portfolio-item branding">
                         <img src="images/portfolio-1.jpg" alt="Proyecto de Branding 1">
+                        <div class="portfolio-overlay">
+                            <h3>Proyecto de Branding 1</h3>
+                            <p>Descripción breve del proyecto</p>
+                        </div>
                     </div>
                     <div class="portfolio-item web">
                         <img src="images/portfolio-2.jpg" alt="Proyecto Web 1">
+                        <div class="portfolio-overlay">
+                            <h3>Proyecto Web 1</h3>
+                            <p>Descripción breve del proyecto</p>
+                        </div>
                     </div>
                     <div class="portfolio-item photo">
                         <img src="images/portfolio-3.jpg" alt="Proyecto de Fotografía 1">
+                        <div class="portfolio-overlay">
+                            <h3>Proyecto de Fotografía 1</h3>
+                            <p>Descripción breve del proyecto</p>
+                        </div>
                     </div>
                     <div class="portfolio-item branding">
                         <img src="images/portfolio-4.jpg" alt="Proyecto de Branding 2">
+                        <div class="portfolio-overlay">
+                            <h3>Proyecto de Branding 2</h3>
+                            <p>Descripción breve del proyecto</p>
+                        </div>
                     </div>
                     <div class="portfolio-item web">
                         <img src="images/portfolio-5.jpg" alt="Proyecto Web 2">
+                        <div class="portfolio-overlay">
+                            <h3>Proyecto Web 2</h3>
+                            <p>Descripción breve del proyecto</p>
+                        </div>
                     </div>
                     <div class="portfolio-item photo">
                         <img src="images/portfolio-6.jpg" alt="Proyecto de Fotografía 2">
+                        <div class="portfolio-overlay">
+                            <h3>Proyecto de Fotografía 2</h3>
+                            <p>Descripción breve del proyecto</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -144,7 +171,7 @@
 
         <section id="why-choose-us" class="animate-on-scroll">
             <div class="container">
-                <h2 class="section-title">Por qué Elegirnos</h2>
+                <h2 class="section-title"><i class="fas fa-check-circle"></i> Por qué Elegirnos</h2>
                 <div class="reasons-grid">
                     <div class="reason-item">
                         <i class="fas fa-chart-line"></i>
@@ -167,7 +194,7 @@
 
         <section id="testimonios" class="animate-on-scroll">
             <div class="container">
-                <h2 class="section-title">Testimonios de Clientes Satisfechos</h2>
+                <h2 class="section-title"><i class="fas fa-quote-left"></i> Testimonios de Clientes Satisfechos</h2>
                 <div class="testimonial-slider">
                     <div class="testimonial">
                         <p>"RNW Studio transformó completamente nuestra presencia online. Nuestras ventas se han duplicado desde que empezamos a trabajar con ellos."</p>
@@ -187,51 +214,78 @@
 
         <section id="commitment" class="animate-on-scroll">
             <div class="container">
-                <h2 class="section-title">Resultados Sostenibles: Compromiso de Tres Meses para Impulsar tu E-Commerce</h2>
+                <h2 class="section-title"><i class="fas fa-handshake"></i> Resultados Sostenibles: Compromiso de Tres Meses para Impulsar tu E-Commerce</h2>
                 <p>Comprendemos la importancia de generar resultados concretos y sostenibles para tu negocio. Por eso, en RNW Studio, recomendamos un compromiso mínimo de tres meses para nuestras campañas publicitarias. Este plazo nos permite implementar estrategias sólidas, ajustarlas según los datos obtenidos y optimizar el rendimiento para asegurar el logro de tus objetivos de ventas y crecimiento.</p>
             </div>
         </section>
 
         <section id="contacto" class="animate-on-scroll">
             <div class="container">
-                <h2 class="section-title">Contáctanos</h2>
+                <h2 class="section-title"><i class="fas fa-envelope"></i> Contáctanos</h2>
                 <p>Completa el formulario y programemos nuestra primera reunión para empezar a trabajar juntos!</p>
                 <form id="contact-form">
-                    <input type="text" name="nombre" placeholder="Nombre completo *" required>
-                    <input type="tel" name="whatsapp" placeholder="WhatsApp *" required>
-                    <input type="url" name="sitio_web" placeholder="Sitio Web *" required>
-                    <input type="text" name="pais" placeholder="País">
-                    <select name="servicios" required>
-                        <option value="">¿En qué servicios estás interesado? *</option>
-                        <option value="branding">BRANDING</option>
-                        <option value="contenido">CREACIÓN DE CONTENIDO | PRODUCCIÓN & ESTILISMO</option>
-                        <option value="pauta">PAUTA PUBLICITARIA</option>
-                        <option value="todos">TODOS</option>
-                    </select>
-                    <input type="number" name="anos_empresa" placeholder="¿Cuántos años lleva la empresa en el mercado?">
-                    <select name="facturacion" required>
-                        <option value="">¿Cuánto estás facturando por mes? *</option>
-                        <option value="0-1000">0-1000 USD</option>
-                        <option value="1000-3000">1000 USD A 3000 USD</option>
-                        <option value="3000-5000">3000 USD A 5000 USD</option>
-                        <option value="5000-10000">5000 USD - 10.000 USD</option>
-                    </select>
-                    <select name="inversion_previa" required>
-                        <option value="">¿Alguna vez invertiste en pauta publicitaria? *</option>
-                        <option value="si">Sí</option>
-                        <option value="no">No</option>
-                    </select>
-                    <input type="number" name="inversion_futura" placeholder="¿Qué monto estarías dispuesto a invertir en pauta publicitaria?">
-                    <button type="submit" class="btn">Enviar y Agendar Reunión</button>
+                    <div class="form-group">
+                        <label for="nombre"><i class="fas fa-user"></i> Nombre completo *</label>
+                        <input type="text" id="nombre" name="nombre" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp *</label>
+                        <input type="tel" id="whatsapp" name="whatsapp" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="sitio_web"><i class="fas fa-globe"></i> Sitio Web *</label>
+                        <input type="url" id="sitio_web" name="sitio_web" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="pais"><i class="fas fa-map-marker-alt"></i> País</label>
+                        <input type="text" id="pais" name="pais">
+                    </div>
+                    <div class="form-group">
+                        <label for="servicios"><i class="fas fa-list-ul"></i> ¿En qué servicios estás interesado? *</label>
+                        <select id="servicios" name="servicios" required>
+                            <option value="">Selecciona una opción</option>
+                            <option value="branding">BRANDING</option>
+                            <option value="contenido">CREACIÓN DE CONTENIDO | PRODUCCIÓN & ESTILISMO</option>
+                            <option value="pauta">PA UTA PUBLICITARIA</option>
+                            <option value="todos">TODOS</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="anos_empresa"><i class="fas fa-building"></i> ¿Cuántos años lleva la empresa en el mercado?</label>
+                        <input type="number" id="anos_empresa" name="anos_empresa">
+                    </div>
+                    <div class="form-group">
+                        <label for="facturacion"><i class="fas fa-dollar-sign"></i> ¿Cuánto estás facturando por mes? *</label>
+                        <select id="facturacion" name="facturacion" required>
+                            <option value="">Selecciona una opción</option>
+                            <option value="0-1000">0-1000 USD</option>
+                            <option value="1000-3000">1000 USD A 3000 USD</option>
+                            <option value="3000-5000">3000 USD A 5000 USD</option>
+                            <option value="5000-10000">5000 USD - 10.000 USD</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="inversion_previa"><i class="fas fa-ad"></i> ¿Alguna vez invertiste en pauta publicitaria? *</label>
+                        <select id="inversion_previa" name="inversion_previa" required>
+                            <option value="">Selecciona una opción</option>
+                            <option value="si">Sí</option>
+                            <option value="no">No</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="inversion_futura"><i class="fas fa-money-bill-wave"></i> ¿Qué monto estarías dispuesto a invertir en pauta publicitaria?</label>
+                        <input type="number" id="inversion_futura" name="inversion_futura">
+                    </div>
+                    <button type="submit" class="btn"><i class="fas fa-paper-plane"></i> Enviar y Agendar Reunión</button>
                 </form>
             </div>
         </section>
 
         <div id="ad-banner" class="animate-on-scroll">
             <div class="container">
-                <h3>¿Listo para llevar tu E-Commerce al siguiente nivel?</h3>
+                <h3><i class="fas fa-bullhorn"></i> ¿Listo para llevar tu E-Commerce al siguiente nivel?</h3>
                 <p>Aprovecha nuestra oferta especial: 20% de descuento en tu primer mes de servicios</p>
-                <a href="#contacto" class="btn">¡Contáctanos ahora!</a>
+                <a href="#contacto" class="btn"><i class="fas fa-rocket"></i> ¡Contáctanos ahora!</a>
             </div>
         </div>
     </main>
@@ -245,16 +299,16 @@
                 <div class="footer-links">
                     <h4>Enlaces rápidos</h4>
                     <ul>
-                        <li><a href="#inicio">Inicio</a></li>
-                        <li><a href="#servicios">Servicios</a></li>
-                        <li><a href="#portfolio">Portfolio</a></li>
-                        <li><a href="#contacto">Contacto</a></li>
+                        <li><a href="#inicio"><i class="fas fa-home"></i> Inicio</a></li>
+                        <li><a href="#servicios"><i class="fas fa-cogs"></i> Servicios</a></li>
+                        <li><a href="#portfolio"><i class="fas fa-briefcase"></i> Portfolio</a></li>
+                        <li><a href="#contacto"><i class="fas fa-envelope"></i> Contacto</a></li>
                     </ul>
                 </div>
                 <div class="footer-contact">
                     <h4>Contáctanos</h4>
-                    <p>Email: info@rnwstudio.com</p>
-                    <p>Teléfono: +1 234 567 890</p>
+                    <p><i class="fas fa-envelope"></i> Email: info@rnwstudio.com</p>
+                    <p><i class="fas fa-phone"></i> Teléfono: +1 234 567 890</p>
                 </div>
                 <div class="footer-social">
                     <h4>Síguenos</h4>
