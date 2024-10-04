@@ -60,22 +60,23 @@ body {
 .top-banner {
     background-color: var(--color-accent);
     color: var(--color-primary);
-    padding: 10px 0; /* Reducir el padding para hacer el banner más compacto */
+    padding: 10px 0; /* Reducido para hacer el banner compacto */
     text-align: center;
     font-weight: bold;
     position: relative;
     overflow: hidden;
-    height: 60px; /* Reducir la altura del banner */
-    max-width: 1200px; /* Controla el ancho máximo del banner (si es necesario) */
+    height: 60px; /* Altura deseada para el banner */
+    max-width: 1200px; /* Máximo ancho del banner */
     margin: 0 auto; /* Centrar el banner horizontalmente */
 }
 
 .top-banner .banner-slider {
     position: relative;
-    height: 100%; /* Asegurarse de que ocupe toda la altura disponible */
+    height: 100%; /* Ocupa toda la altura del banner */
     display: flex;
-    justify-content: center; /* Centrar el contenido horizontalmente */
-    align-items: center;     /* Centrar el contenido verticalmente */
+    justify-content: center; /* Centrar horizontalmente */
+    align-items: center;     /* Centrar verticalmente */
+    text-align: center;      /* Asegurarse de que el texto esté centrado */
 }
 
 .top-banner .slide {
@@ -85,10 +86,12 @@ body {
     width: 100%;
     opacity: 0;
     transition: opacity 0.5s ease-in-out;
-    display: flex;          /* Usar flexbox para centrar el contenido */
-    justify-content: center; /* Centrar el contenido dentro del slide */
-    align-items: center;
-    height: 100%;           /* Asegurarse de que el slide ocupe toda la altura */
+    display: flex;          /* Flexbox para centrar el contenido */
+    justify-content: center; /* Centrar horizontalmente */
+    align-items: center;     /* Centrar verticalmente */
+    height: 100%;           /* Asegurarse de que ocupe toda la altura */
+    font-size: 1.2rem;      /* Ajustar el tamaño del texto si es necesario */
+    white-space: nowrap;    /* Evitar que el texto se divida en varias líneas */
 }
 
 .top-banner .slide.active {
