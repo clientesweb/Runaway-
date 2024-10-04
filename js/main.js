@@ -26,7 +26,6 @@ document.addEventListener('DOMContentLoaded', () => {
   renderComponent('#ad-banner-container', AdBanner);
   renderComponent('#footer-container', Footer);
 
-  // Inicializar funcionalidades
   initializeSlider();
   initializeScrollAnimations();
   initializePortfolioFilters();
@@ -96,9 +95,8 @@ function initializeContactForm() {
   if (form) {
     form.addEventListener('submit', (e) => {
       e.preventDefault();
-      // Aquí iría la lógica para enviar el formulario
       console.log('Formulario enviado');
-      // Puedes agregar aquí la lógica para mostrar un mensaje de éxito o error
+      // Aquí puedes agregar la lógica para enviar el formulario
     });
   }
 }
