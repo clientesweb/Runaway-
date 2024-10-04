@@ -77,5 +77,75 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }, options);
 
-    observer.observe(video);
+    if (video) {
+        observer.observe(video);
+    }
+
+    // Slider para el hero
+    const heroSlider = document.querySelector('.hero.slider');
+    const heroSlides = heroSlider.querySelectorAll('.slide');
+    let currentSlide = 0;
+
+    const showSlide = (index) => {
+        heroSlides.forEach((slide, i) => {
+            slide.style.display = i === index ? 'block' : 'none';
+        });
+    };
+
+    const nextSlide = () => {
+        currentSlide = (currentSlide + 1) % heroSlides.length;
+        showSlide(currentSlide);
+    };
+
+    setInterval(nextSlide, 5000); // Cambiar slide cada 5 segundos
+    showSlide(currentSlide); // Mostrar el primer slide
+
+    // Slider para el top banner
+    const topBanner = document.querySelector('#top-banner');
+    const topBannerSlides = topBanner.querySelectorAll('.slide');
+    let currentTopBannerSlide = 0;
+
+    const showTopBannerSlide = (index) => {
+        topBannerSlides.forEach((slide, i) => {
+            slide.style.display = i === index ? 'block' : 'none';
+        });
+    };
+
+    const nextTopBannerSlide = () => {
+        currentTopBannerSlide = (currentTopBannerSlide + 1) % topBannerSlides.length;
+        showTopBannerSlide(currentTopBannerSlide);
+    };
+
+    setInterval(nextTopBannerSlide, 3000); // Cambiar slide cada 3 segundos
+    showTopBannerSlide(currentTopBannerSlide); // Mostrar el primer slide
+
+    // Slider para testimonios
+    const testimonialSlider = document.querySelector('.testimonial-slider');
+    const testimonials = testimonialSlider.querySelectorAll('.testimonial');
+    let currentTestimonial = 0;
+
+    const showTestimonial = (index) => {
+        testimonials.forEach((testimonial, i) => {
+            testimonial.style.display = i === index ? 'block' : 'none';
+        });
+    };
+
+    const nextTestimonial = () => {
+        currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+        showTestimonial(currentTestimonial);
+    };
+
+    setInterval(nextTestimonial, 6000); // Cambiar testimonio cada 6 segundos
+    showTestimonial(currentTestimonial); // Mostrar el primer testimonio
+
+    // Manejo del formulario de contacto
+    const contactForm = document.querySelector('#contact-form');
+    if (contactForm) {
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            // Aquí puedes agregar la lógica para enviar el formulario y programar la reunión
+            // Por ejemplo, puedes usar la API de Google Calendar para programar la reunión
+            alert('Gracias por tu mensaje. Nos pondremos en contacto contigo pronto para programar nuestra reunión.');
+        });
+    }
 });
