@@ -1,4 +1,3 @@
-// js/components/Header.js
 export function Header() {
   return `
     <header>
