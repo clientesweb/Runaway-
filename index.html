@@ -12,11 +12,20 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+    <div id="promo-banner" class="bg-accent text-primary py-2">
+        <div class="container mx-auto px-4">
+            <div class="promo-slider">
+                <!-- Promo slides will be inserted here by JavaScript -->
+            </div>
+        </div>
+    </div>
+
     <header class="sticky top-0 z-50 bg-primary text-white shadow-md">
         <div class="container mx-auto px-4 py-4 flex justify-between items-center">
             <img src="images/Logos_B-10-removebg-preview.png" alt="RNW Studio" class="h-16 w-auto">
             <nav class="hidden md:flex space-x-8">
                 <a href="#inicio" class="text-white hover:text-accent transition-colors">Inicio</a>
+                <a href="#sobre-nosotros" class="text-white hover:text-accent transition-colors">Sobre Nosotros</a>
                 <a href="#servicios" class="text-white hover:text-accent transition-colors">Servicios</a>
                 <a href="#portfolio" class="text-white hover:text-accent transition-colors">Portfolio</a>
                 <a href="#contacto" class="text-white hover:text-accent transition-colors">Contacto</a>
@@ -31,11 +40,30 @@
     </header>
 
     <main>
-        <section id="inicio" class="hero-section bg-primary text-white flex items-center">
-            <div class="container mx-auto px-4 text-center">
-                <h1 class="text-5xl md:text-6xl font-bold mb-4 animate-fade-in">Impulsa tu E-Commerce hacia el Éxito</h1>
-                <p class="text-xl mb-8 animate-fade-in">Hacemos que tu marca destaque y las ventas aumenten</p>
-                <a href="#contacto" class="bg-accent text-primary font-bold py-3 px-8 rounded-full text-lg hover:bg-white transition duration-300">Contáctanos</a>
+        <section id="inicio" class="hero-section bg-primary text-white">
+            <div class="hero-slider">
+                <!-- Hero slides will be inserted here by JavaScript -->
+            </div>
+            <div class="absolute inset-0 flex items-center justify-center">
+                <div class="text-center">
+                    <h1 class="text-5xl md:text-6xl font-bold mb-4 animate-fade-in">Impulsa tu E-Commerce hacia el Éxito</h1>
+                    <p class="text-xl mb-8 animate-fade-in">Hacemos que tu marca destaque y las ventas aumenten</p>
+                    <a href="#contacto" class="bg-accent text-primary font-bold py-3 px-8 rounded-full text-lg hover:bg-white transition duration-300">Contáctanos</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="sobre-nosotros" class="py-20">
+            <div class="container mx-auto px-4">
+                <div class="max-w-4xl mx-auto">
+                    <div class="aspect-w-16 aspect-h-9 mb-8">
+                        <iframe src="https://www.youtube.com/embed/your-video-id" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-full"></iframe>
+                    </div>
+                    <h2 class="text-4xl font-bold text-center mb-8">AUMENTA TUS VENTAS, POSICIONÁ TU MARCA!</h2>
+                    <div class="text-center">
+                        <a href="#" id="schedule-meeting" class="bg-accent text-primary font-bold py-3 px-8 rounded-full text-lg hover:bg-primary hover:text-white transition duration-300">QUIERO AGENDAR UNA REUNIÓN</a>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -66,21 +94,63 @@
         <section id="contacto" class="py-20 bg-gray-100">
             <div class="container mx-auto px-4">
                 <h2 class="text-4xl font-bold text-center mb-12">Contáctanos</h2>
-                <form id="contact-form" class="max-w-lg mx-auto bg-white p-8 rounded-lg shadow-lg">
-                    <div class="mb-4">
-                        <label for="nombre" class="block text-gray-700 text-sm font-bold mb-2">Nombre completo</label>
-                        <input type="text" id="nombre" name="nombre" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-accent" required>
-                    </div>
-                    <div class="mb-4">
-                        <label for="email" class="block text-gray-700 text-sm font-bold mb-2">Email</label>
-                        <input type="email" id="email" name="email" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-accent" required>
-                    </div>
-                    <div class="mb-4">
-                        <label for="mensaje" class="block text-gray-700 text-sm font-bold mb-2">Mensaje</label>
-                        <textarea id="mensaje" name="mensaje" rows="4" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-accent" required></textarea>
-                    </div>
-                    <button type="submit" class="w-full bg-accent text-primary font-bold py-2 px-4 rounded-lg hover:bg-primary hover:text-white transition duration-300">Enviar mensaje</button>
-                </form>
+                <div class="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-lg">
+                    <h3 class="text-2xl font-bold text-center mb-8">Completa el formulario y programemos nuestra primera reunión para empezar a trabajar juntos!</h3>
+                    <form id="contact-form" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="nombre" class="block text-gray-700 text-sm font-bold mb-2">Nombre completo *</label>
+                            <input type="text" id="nombre" name="nombre" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-accent" required>
+                        </div>
+                        <div>
+                            <label for="whatsapp" class="block text-gray-700 text-sm font-bold mb-2">WhatsApp *</label>
+                            <input type="tel" id="whatsapp" name="whatsapp" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-accent" required>
+                        </div>
+                        <div>
+                            <label for="sitio-web" class="block text-gray-700 text-sm font-bold mb-2">Sitio Web *</label>
+                            <input type="url" id="sitio-web" name="sitio-web" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-accent" required>
+                        </div>
+                        <div>
+                            <label for="pais" class="block text-gray-700 text-sm font-bold mb-2">País</label>
+                            <input type="text" id="pais" name="pais" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-accent">
+                        </div>
+                        <div>
+                            <label for="servicios" class="block text-gray-700 text-sm font-bold mb-2">¿En qué servicios estás interesado?</label>
+                            <select id="servicios" name="servicios" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-accent">
+                                <option value="branding">BRANDING</option>
+                                <option value="contenido">CREACIÓN DE CONTENIDO | PRODUCCIÓN & ESTILISMO</option>
+                                <option value="pauta">PAUTA PUBLICITARIA</option>
+                                <option value="todos">TODOS</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="anos-empresa" class="block text-gray-700 text-sm font-bold mb-2">¿Cuántos años lleva la empresa en el mercado?</label>
+                            <input type="number" id="anos-empresa" name="anos-empresa" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-accent">
+                        </div>
+                        <div>
+                            <label for="facturacion" class="block text-gray-700 text-sm font-bold mb-2">¿Cuánto estás facturando por mes?</label>
+                            <select id="facturacion" name="facturacion" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-accent">
+                                <option value="0-1000">0-1000 USD</option>
+                                <option value="1000-3000">1000 USD A 3000 USD</option>
+                                <option value="3000-5000">3000 USD A 5000 USD</option>
+                                <option value="5000-10000">5000 USD - 10.000 USD</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="inversion-previa" class="block text-gray-700 text-sm font-bold mb-2">¿Alguna vez invertiste en pauta publicitaria?</label>
+                            <select id="inversion-previa" name="inversion-previa" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-accent">
+                                <option value="si">Sí</option>
+                                <option value="no">No</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="inversion-futura" class="block text-gray-700 text-sm font-bold mb-2">¿Qué monto estarías dispuesto a invertir en pauta publicitaria?</label>
+                            <input type="number" id="inversion-futura" name="inversion-futura" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-accent">
+                        </div>
+                        <div class="md:col-span-2">
+                            <button type="submit" class="w-full bg-accent text-primary font-bold py-3 px-4 rounded-lg hover:bg-primary hover:text-white transition duration-300">Enviar y Agendar Reunión</button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </section>
     </main>
@@ -96,6 +166,7 @@
                     <h4 class="text-lg font-bold mb-4">Enlaces rápidos</h4>
                     <ul class="space-y-2">
                         <li><a href="#inicio" class="hover:text-accent transition-colors">Inicio</a></li>
+                        <li><a href="#sobre-nosotros" class="hover:text-accent transition-colors">Sobre Nosotros</a></li>
                         <li><a href="#servicios" class="hover:text-accent transition-colors">Servicios</a></li>
                         <li><a href="#portfolio" class="hover:text-accent transition-colors">Portfolio</a></li>
                         <li><a href="#contacto" class="hover:text-accent transition-colors">Contacto</a></li>
