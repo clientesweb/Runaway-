@@ -1,4 +1,3 @@
-// js/components/Commitment.js
 export function Commitment() {
   return `
     <section id="commitment" class="animate-on-scroll">
