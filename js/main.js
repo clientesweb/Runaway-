@@ -1,14 +1,16 @@
 document.addEventListener('DOMContentLoaded', function() {
-// Preloader
-const preloader = document.getElementById('preloader');
-document.body.classList.add('overflow-hidden');
+    // Preloader
+    const preloader = document.getElementById('preloader');
+    const content = document.getElementById('content');
+    
+    window.addEventListener('load', function() {
+        setTimeout(function() {
+            preloader.classList.add('hidden');
+            content.classList.add('visible');
+            document.body.classList.remove('overflow-hidden');
+        }, 1000); // Ajusta este valor para controlar cuánto tiempo se muestra el preloader
+    });
 
-window.addEventListener('load', function() {
-    setTimeout(function() {
-        preloader.classList.add('hidden');
-        document.body.classList.remove('overflow-hidden');
-    }, 1000); // Ajusta este valor para controlar cuánto tiempo se muestra el preloader
-});
     // Menú móvil
     const menuToggle = document.getElementById('menu-toggle');
     const mobileNav = document.getElementById('mobile-nav');
@@ -72,30 +74,35 @@ window.addEventListener('load', function() {
             description: 'Planificamos y ejecutamos producciones de fotos y videos para crear contenido visual coherente y efectivo.'
         },
         {
-            icon: 'pencil-alt',
-            title: 'Creación de Contenido',
-            description: 'Generamos material relevante y atractivo para promover tu marca y aumentar su visibilidad.'
+            icon: 'penc il-alt',
+            title: 'Diseño Gráfico',
+            description: 'Creamos diseños atractivos y funcionales para diversos medios y plataformas.'
         },
         {
-            icon: 'ad',
-            title: 'Pauta Publicitaria',
-            description: 'Planificamos y ejecutamos estrategias publicitarias efectivas en diversos canales digitales.'
+            icon: 'code',
+            title: 'Desarrollo Web',
+            description: 'Diseñamos y desarrollamos sitios web modernos, responsivos y optimizados para SEO.'
+        },
+        {
+            icon: 'bullhorn',
+            title: 'Marketing Digital',
+            description: 'Implementamos estrategias de marketing digital para aumentar la visibilidad y las ventas.'
         }
     ];
 
     const servicesSlider = document.getElementById('services-slider');
     services.forEach(service => {
-        const serviceItem = document.createElement('div');
-        serviceItem.className = 'keen-slider__slide';
-        serviceItem.innerHTML = `
+        const slide = document.createElement('div');
+        slide.className = 'keen-slider__slide';
+        slide.innerHTML = `
             <i class="fas fa-${service.icon} text-4xl text-accent mb-4"></i>
             <h3 class="text-xl font-bold mb-2">${service.title}</h3>
-            <p class="text-gray-600">${service.description}</p>
+            <p>${service.description}</p>
         `;
-        servicesSlider.appendChild(serviceItem);
+        servicesSlider.appendChild(slide);
     });
 
-    const servicesSliderInstance = new KeenSlider('#services-slider', {
+    new KeenSlider('#services-slider', {
         loop: true,
         mode: "free-snap",
         slides: {
@@ -107,30 +114,25 @@ window.addEventListener('load', function() {
                 slides: {
                     perView: 2,
                     spacing: 15,
-                },
+                }
             },
             "(min-width: 1024px)": {
                 slides: {
                     perView: 3,
                     spacing: 15,
-                },
-            },
-        },
+                }
+            }
+        }
     });
 
-    // Botón "Ver más servicios"
-    const verMasServiciosBtn = document.getElementById('ver-mas-servicios');
-    verMasServiciosBtn.addEventListener('click', function() {
-        servicesSliderInstance.next();
-    });
-
-    // Banner publicitario slider
+    // Banner Publicitario Slider
     new KeenSlider('#ad-slider', {
         loop: true,
-        mode: "fade",
-        duration: 3000,
-        dragStart: () => false,
-        dragEnd: () => false,
+        mode: "free-snap",
+        slides: {
+            perView: 1,
+            spacing: 15,
+        },
         created: function (instance) {
             setInterval(() => {
                 instance.next();
@@ -140,12 +142,12 @@ window.addEventListener('load', function() {
 
     // Portfolio
     const portfolioItems = [
-        { category: 'branding', image: 'images/portfolio-1.jpg', title: 'Diseño de Logo' },
-        { category: 'web', image: 'images/portfolio-2.jpg', title: 'Sitio Web E-commerce' },
-        { category: 'photo', image: 'images/portfolio-3.jpg', title: 'Sesión de Fotos de Producto' },
-        { category: 'branding', image: 'images/portfolio-4.jpg', title: 'Identidad Corporativa' },
-        { category: 'web', image: 'images/portfolio-5.jpg', title: 'Aplicación Web' },
-        { category: 'photo', image: 'images/portfolio-6.jpg', title: 'Campaña Publicitaria' }
+        { category: 'branding', image: 'images/portfolio-1.jpg', title: 'Proyecto 1', description: 'Branding para empresa de tecnología' },
+        { category: 'web', image: 'images/portfolio-2.jpg', title: 'Proyecto 2', description: 'Desarrollo web para e-commerce' },
+        { category: 'photo', image: 'images/portfolio-3.jpg', title: 'Proyecto 3', description: 'Sesión fotográfica para marca de moda' },
+        { category: 'branding', image: 'images/portfolio-4.jpg', title: 'Proyecto 4', description: 'Rebranding para restaurante' },
+        { category: 'web', image: 'images/portfolio-5.jpg', title: 'Proyecto 5', description: 'Diseño UX/UI para aplicación móvil' },
+        { category: 'photo', image: 'images/portfolio-6.jpg', title: 'Proyecto 6', description: 'Producción de video para campaña publicitaria' },
     ];
 
     const portfolioGrid = document.getElementById('portfolio-grid');
@@ -158,7 +160,7 @@ window.addEventListener('load', function() {
                 <div class="portfolio-overlay absolute inset-0 flex items-center justify-center">
                     <div class="text-center">
                         <h3 class="text-white text-xl font-bold mb-2">${item.title}</h3>
-                        <p class="text-accent">${item.category}</p>
+                        <p class="text-white">${item.description}</p>
                     </div>
                 </div>
             </div>
@@ -166,7 +168,7 @@ window.addEventListener('load', function() {
         portfolioGrid.appendChild(portfolioItem);
     });
 
-    // Filtros del portfolio
+    // Filtro de Portfolio
     const filterButtons = document.querySelectorAll('.filter-btn');
     filterButtons.forEach(button => {
         button.addEventListener('click', function() {
@@ -190,15 +192,17 @@ window.addEventListener('load', function() {
     contactForm.addEventListener('submit', function(e) {
         e.preventDefault();
         // Aquí puedes agregar la lógica para enviar el formulario
-        alert('Gracias por contactarnos. Nos pondremos en contacto contigo pronto.');
+        alert('Gracias por tu mensaje. Nos pondremos en contacto contigo pronto.');
         contactForm.reset();
     });
 
-    // Botón de programar reunión
-    const scheduleMeetingBtn = document.getElementById('schedule-meeting');
-    scheduleMeetingBtn.addEventListener('click', function(e) {
-        e.preventDefault();
-        // Aquí puedes agregar la lógica para programar una reunión
-        alert('Gracias por tu interés. Te contactaremos para programar una reunión.');
+    // Smooth Scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
     });
 });
