@@ -37,41 +37,23 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Hero Slider
-    const heroSlides = document.querySelectorAll('.hero-slider .slide');
-    let currentHeroSlide = 0;
+    // Sliders
+    function createSlider(containerSelector, interval = 5000) {
+        const slides = document.querySelectorAll(`${containerSelector} .slide`);
+        let currentSlide = 0;
 
-    function showHeroSlide(n) {
-        heroSlides[currentHeroSlide].classList.remove('active');
-        currentHeroSlide = (n + heroSlides.length) % heroSlides.length;
-        heroSlides[currentHeroSlide].classList.add('active');
+        function showSlide(n) {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (n + slides.length) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+
+        setInterval(() => showSlide(currentSlide + 1), interval);
     }
 
-    setInterval(() => showHeroSlide(currentHeroSlide + 1), 5000);
-
-    // Top Banner Slider
-    const topBannerSlides = document.querySelectorAll('.top-banner .slide');
-    let currentTopBannerSlide = 0;
-
-    function showTopBannerSlide(n) {
-        topBannerSlides[currentTopBannerSlide].classList.remove('active');
-        currentTopBannerSlide = (n + topBannerSlides.length) % topBannerSlides.length;
-        topBannerSlides[currentTopBannerSlide].classList.add('active');
-    }
-
-    setInterval(() => showTopBannerSlide(currentTopBannerSlide + 1), 3000);
-
-    // Ad Banner Slider
-    const adBannerSlides = document.querySelectorAll('.ad-banner .slide');
-    let currentAdBannerSlide = 0;
-
-    function showAdBannerSlide(n) {
-        adBannerSlides[currentAdBannerSlide].classList.remove('active');
-        currentAdBannerSlide = (n + adBannerSlides.length) % adBannerSlides.length;
-        adBannerSlides[currentAdBannerSlide].classList.add('active');
-    }
-
-    setInterval(() => showAdBannerSlide(currentAdBannerSlide + 1), 4000);
+    createSlider('.hero-slider');
+    createSlider('.top-banner .banner-slider', 3000);
+    createSlider('.ad-banner .banner-slider', 4000);
 
     // Portfolio Filters
     const filterButtons = document.querySelectorAll('.filter-btn');
@@ -158,7 +140,7 @@ document.addEventListener('DOMContentLoaded', function() {
     animatedElements.forEach(el => animateObserver.observe(el));
 
     // Sticky Header
-    const header = document.querySelector('header');
+    const header = document.getElementById('main-header');
     const headerHeight = header.offsetHeight;
     let lastScrollTop = 0;
 
