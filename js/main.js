@@ -1,4 +1,20 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Navegación responsive
+    const navToggle = document.querySelector('.nav-toggle');
+    const nav = document.querySelector('nav');
+
+    navToggle.addEventListener('click', () => {
+        nav.classList.toggle('active');
+    });
+
+    // Cerrar menú al hacer clic en un enlace
+    const navLinks = document.querySelectorAll('nav a');
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            nav.classList.remove('active');
+        });
+    });
+
     // Animación de entrada para elementos
     const animateOnScroll = () => {
         const elements = document.querySelectorAll('.animate-on-scroll');
