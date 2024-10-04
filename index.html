@@ -9,13 +9,16 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/keen-slider@6.8.5/keen-slider.min.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div id="promo-banner" class="bg-accent text-primary py-2">
         <div class="container mx-auto px-4">
-            <div class="promo-slider">
-                <!-- Promo slides will be inserted here by JavaScript -->
+            <div id="promo-slider" class="keen-slider">
+                <div class="keen-slider__slide">¡Oferta especial! 20% de descuento en todos los servicios</div>
+                <div class="keen-slider__slide">Nuevo servicio de consultoría gratuita</div>
+                <div class="keen-slider__slide">¡Regístrate hoy y obtén un análisis de marca gratis!</div>
             </div>
         </div>
     </div>
@@ -57,14 +60,33 @@
 
     <main>
         <section id="inicio" class="hero-section bg-primary text-white">
-            <div class="hero-slider">
-                <!-- Hero slides will be inserted here by JavaScript -->
-            </div>
-            <div class="absolute inset-0 flex items-center justify-center">
-                <div class="text-center">
-                    <h1 class="text-5xl md:text-6xl font-bold mb-4 animate-fade-in">Impulsa tu E-Commerce hacia el Éxito</h1>
-                    <p class="text-xl mb-8 animate-fade-in">Hacemos que tu marca destaque y las ventas aumenten</p>
-                    <a href="#contacto" class="bg-accent text-primary font-bold py-3 px-8 rounded-full text-lg hover:bg-white transition duration-300">Contáctanos</a>
+            <div id="hero-slider" class="keen-slider">
+                <div class="keen-slider__slide" style="background-image: url('images/hero-1.jpg');">
+                    <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50">
+                        <div class="text-center">
+                            <h1 class="text-5xl md:text-6xl font-bold mb-4 animate-fade-in">Impulsa tu E-Commerce hacia el Éxito</h1>
+                            <p class="text-xl mb-8 animate-fade-in">Hacemos que tu marca destaque y las ventas aumenten</p>
+                            <a href="#contacto" class="bg-accent text-primary font-bold py-3 px-8 rounded-full text-lg hover:bg-white transition duration-300">Contáctanos</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="keen-slider__slide" style="background-image: url('images/hero-2.jpg');">
+                    <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50">
+                        <div class="text-center">
+                            <h1 class="text-5xl md:text-6xl font-bold mb-4 animate-fade-in">Estrategias de Marketing Digital</h1>
+                            <p class="text-xl mb-8 animate-fade-in">Potenciamos tu presencia online y aumentamos tus conversiones</p>
+                            <a href="#servicios" class="bg-accent text-primary font-bold py-3 px-8 rounded-full text-lg hover:bg-white transition duration-300">Nuestros Servicios</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="keen-slider__slide" style="background-image: url('images/hero-3.jpg');">
+                    <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50">
+                        <div class="text-center">
+                            <h1 class="text-5xl md:text-6xl font-bold mb-4 animate-fade-in">Diseño y Desarrollo Web</h1>
+                            <p class="text-xl mb-8 animate-fade-in">Creamos experiencias digitales que convierten visitantes en clientes</p>
+                            <a href="#portfolio" class="bg-accent text-primary font-bold py-3 px-8 rounded-full text-lg hover:bg-white transition duration-300">Ver Portfolio</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -86,7 +108,7 @@
         <section id="servicios" class="py-20 bg-gray-100">
             <div class="container mx-auto px-4">
                 <h2 class="text-4xl font-bold text-center mb-12">Nuestros Servicios</h2>
-                <div class="services-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div id="services-slider" class="keen-slider">
                     <!-- Los servicios se cargarán dinámicamente con JavaScript -->
                 </div>
             </div>
@@ -219,6 +241,6 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/keen-slider@6.8.5/keen-slider.min.js"></script>
-    <script src="js/main.js"></script>
+    <script src="main.js"></script>
 </body>
 </html>
