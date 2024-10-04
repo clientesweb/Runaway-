@@ -1,4 +1,3 @@
-// js/components/Portfolio.js
 export function Portfolio() {
   const portfolioItems = [
     { category: "branding", image: "portfolio-1.jpg", title: "Proyecto de Branding 1" },
