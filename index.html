@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RNW Studio</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <title>RNW Studio - Impulsa tu E-Commerce hacia el Éxito</title>
+    <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Tan+Meringue&family=Glacial+Indifference:wght@400;700&display=swap" rel="stylesheet">
+    <script src="js/main.js" defer></script>
 </head>
 <body>
     <header>
@@ -25,52 +26,94 @@
     </header>
 
     <main>
-        <section id="inicio" class="hero">
+        <section id="inicio" class="hero animate-on-scroll">
             <div class="container">
-                <h1>Diseño creativo para tu marca</h1>
-                <p>Somos RNW Studio, expertos en crear experiencias visuales únicas</p>
+                <h1>Impulsa tu E-Commerce hacia el Éxito con Nuestros Servicios</h1>
+                <p>Hacemos que tu marca destaque y las ventas aumenten</p>
                 <a href="#contacto" class="btn">Contáctanos</a>
             </div>
         </section>
 
-        <section id="servicios">
+        <section id="about" class="animate-on-scroll">
+            <div class="container">
+                <h2>Quiénes Somos</h2>
+                <div class="video-container">
+                    <video id="agency-video" controls>
+                        <source src="video/agency-presentation.mp4" type="video/mp4">
+                        Tu navegador no soporta el elemento de video.
+                    </video>
+                </div>
+                <h3>AUMENTA TUS VENTAS, POSICIONÁ TU MARCA!</h3>
+                <a href="#contacto" class="btn">QUIERO AGENDAR UNA REUNIÓN</a>
+            </div>
+        </section>
+
+        <section id="servicios" class="animate-on-scroll">
             <div class="container">
                 <h2>Nuestros Servicios</h2>
                 <div class="services-grid">
                     <div class="service-item">
                         <div class="circle"></div>
-                        <h3>Diseño Gráfico</h3>
-                        <p>Creamos identidades visuales impactantes para tu marca.</p>
+                        <h3>Branding</h3>
+                        <p>Creamos una identidad de marca única y distintiva que se destaca en el mercado.</p>
                     </div>
                     <div class="service-item">
                         <div class="circle"></div>
-                        <h3>Desarrollo Web</h3>
-                        <p>Sitios web modernos y responsivos que destacan tu presencia online.</p>
+                        <h3>Rebranding</h3>
+                        <p>Renovamos la identidad de marcas existentes para mantenerlas relevantes y en sintonía con el mercado.</p>
                     </div>
                     <div class="service-item">
                         <div class="circle"></div>
-                        <h3>Fotografía</h3>
-                        <p>Capturamos la esencia de tu marca con imágenes profesionales.</p>
+                        <h3>Producción & Estilismo</h3>
+                        <p>Planificamos y ejecutamos producciones de fotos y videos para crear contenido visual coherente y efectivo.</p>
+                    </div>
+                    <div class="service-item">
+                        <div class="circle"></div>
+                        <h3>Creación de Contenido</h3>
+                        <p>Generamos material relevante y atractivo para promover tu marca y aumentar su visibilidad.</p>
+                    </div>
+                    <div class="service-item">
+                        <div class="circle"></div>
+                        <h3>Pauta Publicitaria</h3>
+                        <p>Planificamos y ejecutamos estrategias publicitarias efectivas en diversos canales digitales.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="portfolio">
+        <section id="portfolio" class="animate-on-scroll">
             <div class="container">
                 <h2>Nuestro Portfolio</h2>
+                <div class="portfolio-filters">
+                    <button class="filter-btn active" data-filter="all">Todos</button>
+                    <button class="filter-btn" data-filter="branding">Branding</button>
+                    <button class="filter-btn" data-filter="web">Desarrollo Web</button>
+                    <button class="filter-btn" data-filter="photo">Fotografía</button>
+                </div>
                 <div class="portfolio-grid">
-                    <img src="images/portfolio-1.jpg" alt="Proyecto 1">
-                    <img src="images/portfolio-2.jpg" alt="Proyecto 2">
-                    <img src="images/portfolio-3.jpg" alt="Proyecto 3">
-                    <img src="images/portfolio-4.jpg" alt="Proyecto 4">
-                    <img src="images/portfolio-5.jpg" alt="Proyecto 5">
-                    <img src="images/portfolio-6.jpg" alt="Proyecto 6">
+                    <div class="portfolio-item branding">
+                        <img src="images/portfolio-1.jpg" alt="Proyecto de Branding 1">
+                    </div>
+                    <div class="portfolio-item web">
+                        <img src="images/portfolio-2.jpg" alt="Proyecto Web 1">
+                    </div>
+                    <div class="portfolio-item photo">
+                        <img src="images/portfolio-3.jpg" alt="Proyecto de Fotografía 1">
+                    </div>
+                    <div class="portfolio-item branding">
+                        <img src="images/portfolio-4.jpg" alt="Proyecto de Branding 2">
+                    </div>
+                    <div class="portfolio-item web">
+                        <img src="images/portfolio-5.jpg" alt="Proyecto Web 2">
+                    </div>
+                    <div class="portfolio-item photo">
+                        <img src="images/portfolio-6.jpg" alt="Proyecto de Fotografía 2">
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section id="contacto">
+        <section id="contacto" class="animate-on-scroll">
             <div class="container">
                 <h2>Contáctanos</h2>
                 <form>
