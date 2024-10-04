@@ -310,11 +310,14 @@ nav ul li a:hover {
 
 .services-slider {
     position: relative;
-    overflow: hidden; /* Oculta el desbordamiento */
+    overflow-x: auto; /* Permite el desplazamiento horizontal */
+    overflow-y: hidden; /* Oculta el desbordamiento vertical */
+    white-space: nowrap; /* Asegura que los elementos se alineen en una fila */
+    padding: 10px 0; /* Espacio alrededor de la pista de servicios */
 }
 
 .services-track {
-    display: flex; /* Usar flexbox para el slider */
+    display: inline-flex; /* Usar flexbox para el slider */
     transition: transform 0.5s ease; /* Animación suave para el movimiento */
 }
 
@@ -326,6 +329,7 @@ nav ul li a:hover {
     overflow: hidden;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Sombra más suave */
     transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    display: inline-block; /* Asegura que los elementos se alineen horizontalmente */
 }
 
 .service-item:hover {
@@ -377,7 +381,7 @@ nav ul li a:hover {
     line-height: 1.5; /* Aumentar el espaciado entre líneas */
 }
 
-/* Botones de navegación */
+/* Botones de navegación (opcional) */
 .slider-btn {
     position: absolute;
     top: 50%;
