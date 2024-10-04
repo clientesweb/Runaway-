@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <div id="promo-banner" class="bg-accent text-primary py-2">
+    <div id="promo-banner" class="bg-accent text-primary py-1">
         <div class="container mx-auto px-4">
             <div id="promo-slider" class="keen-slider">
                 <div class="keen-slider__slide">¡Oferta especial! 20% de descuento en todos los servicios</div>
@@ -61,7 +61,7 @@
     <main>
         <section id="inicio" class="hero-section bg-primary text-white">
             <div id="hero-slider" class="keen-slider">
-                <div class="keen-slider__slide" style="background-image: url('images/IMG_4414_jpg.jpg');">
+                <div class="keen-slider__slide" style="background-image: url('images/hero-1.jpg');">
                     <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50">
                         <div class="text-center">
                             <h1 class="text-5xl md:text-6xl font-bold mb-4 animate-fade-in">Impulsa tu E-Commerce hacia el Éxito</h1>
@@ -70,7 +70,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="keen-slider__slide" style="background-image: url('images/IMG_4380_jpg.jpg');">
+                <div class="keen-slider__slide" style="background-image: url('images/hero-2.jpg');">
                     <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50">
                         <div class="text-center">
                             <h1 class="text-5xl md:text-6xl font-bold mb-4 animate-fade-in">Estrategias de Marketing Digital</h1>
@@ -79,7 +79,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="keen-slider__slide" style="background-image: url('images/IMG_7019.jpg');">
+                <div class="keen-slider__slide" style="background-image: url('images/hero-3.jpg');">
                     <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50">
                         <div class="text-center">
                             <h1 class="text-5xl md:text-6xl font-bold mb-4 animate-fade-in">Diseño y Desarrollo Web</h1>
@@ -111,14 +111,29 @@
                 <div id="services-slider" class="keen-slider">
                     <!-- Los servicios se cargarán dinámicamente con JavaScript -->
                 </div>
+                <div class="text-center mt-8">
+                    <button id="ver-mas-servicios" class="bg-accent text-primary font-bold py-3 px-8 rounded-full text-lg hover:bg-primary hover:text-white transition duration-300">Ver más servicios</button>
+                </div>
             </div>
         </section>
 
         <section id="banner-publicitario" class="py-12 bg-accent">
-            <div class="container mx-auto px-4 text-center">
-                <h2 class="text-3xl font-bold mb-4">¡Impulsa tu negocio ahora!</h2>
-                <p class="text-xl mb-8">Obtén un 20% de descuento en tu primer proyecto con nosotros</p>
-                <a href="#contacto" class="bg-primary text-white font-bold py-3 px-8 rounded-full text-lg hover:bg-white hover:text-primary transition duration-300">¡Aprovecha esta oferta!</a>
+            <div class="container mx-auto px-4">
+                <div id="ad-slider" class="keen-slider">
+                    <div class="keen-slider__slide">
+                        <div class="text-center">
+                            <h2 class="text-3xl font-bold mb-4">¡Impulsa tu negocio ahora!</h2>
+                            <p class="text-xl mb-8">Obtén un 20% de descuento en tu primer proyecto con nosotros</p>
+                            <a href="#contacto" class="bg-primary text-white font-bold py-3 px-8 rounded-full text-lg hover:bg-white hover:text-primary transition duration-300">¡Aprovecha esta oferta!</a>
+                        </div>
+                    </div>
+                    <div class="keen-slider__slide">
+                        <img src="images/ad-1.jpg" alt="Oferta especial" class="w-full h-64 object-cover rounded-lg">
+                    </div>
+                    <div class="keen-slider__slide">
+                        <img src="images/ad-2.jpg" alt="Nuevo servicio" class="w-full h-64 object-cover rounded-lg">
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -239,6 +254,10 @@
             </div>
         </div>
     </footer>
+
+    <a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer" class="whatsapp-float">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
     <script src="https://cdn.jsdelivr.net/npm/keen-slider@6.8.5/keen-slider.min.js"></script>
     <script src="js/main.js"></script>
