@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
             preloader.classList.add('hidden');
             content.classList.add('visible');
             document.body.classList.remove('overflow-hidden');
-        }, 2000); // Aumentamos el tiempo a 2 segundos para apreciar mejor la animación
+        }, 2000); // 2 segundos de retraso para mostrar el preloader
     });
 
     // Menú móvil
@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', function() {
             description: 'Planificamos y ejecutamos producciones de fotos y videos para crear contenido visual coherente y efectivo.'
         },
         {
-            icon: 'penc il-alt',
+            icon: 'pencil-alt',
             title: 'Diseño Gráfico',
             description: 'Creamos diseños atractivos y funcionales para diversos medios y plataformas.'
         },
