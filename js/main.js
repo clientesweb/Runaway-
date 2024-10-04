@@ -91,4 +91,33 @@ document.addEventListener('DOMContentLoaded', () => {
 
     setInterval(nextTopBannerSlide, 3000); // Cambiar slide cada 3 segundos
     showTopBannerSlide(currentTopBannerSlide); // Mostrar el primer slide
+
+    // Filtros del portfolio
+    const portfolioFilters = document.querySelectorAll('.filter-btn');
+    const portfolioItems = document.querySelectorAll('.portfolio-item');
+
+    portfolioFilters.forEach(filter => {
+        filter.addEventListener('click', () => {
+            portfolioFilters.forEach(f => f.classList.remove('active'));
+            filter.classList.add('active');
+            const category = filter.getAttribute('data-filter');
+
+            portfolioItems.forEach(item => {
+                if (category === 'all' || item.classList.contains(category)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        });
+    });
+
+    // Manejo del formulario de contacto
+    const contactForm = document.getElementById('contact-form');
+    contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        // Aquí puedes agregar la lógica para enviar el formulario y programar la reunión
+        // Por ejemplo, puedes usar la API de Google Calendar para agendar la reunión
+        alert('Gracias por tu mensaje. Nos pondremos en contacto contigo pronto para agendar una reunión.');
+    });
 });
