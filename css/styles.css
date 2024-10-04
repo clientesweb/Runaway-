@@ -134,6 +134,16 @@ h1, h2, h3, h4, h5, h6 {
     text-align: center;
 }
 
+.hero .slide {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .hero h1 {
     font-size: 3.5rem;
     margin-bottom: 1rem;
@@ -173,6 +183,22 @@ h1, h2, h3, h4, h5, h6 {
 /* Sections */
 section {
     padding: 4rem 0;
+}
+
+/* About Section */
+#about {
+    background-color: var(--color-beige);
+    text-align: center;
+}
+
+.video-container {
+    max-width: 800px;
+    margin: 0 auto 2rem;
+}
+
+#about h3 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
 }
 
 /* Services */
@@ -215,6 +241,125 @@ section {
 
 .service-item:hover .circle {
     transform: scale(1.1);
+}
+
+/* Portfolio */
+.portfolio-filters {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    margin: 0.5rem;
+    padding: 0.5rem 1rem;
+    transition: color 0.3s ease, background-color 0.3s ease;
+    border-radius: 20px;
+}
+
+.filter-btn.active,
+.filter-btn:hover {
+    color: var(--color-black);
+    background-color: var(--color-neon-yellow);
+}
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.portfolio-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.portfolio-item img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.portfolio-item:hover img {
+    transform: scale(1.05);
+}
+
+.portfolio-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    padding: 1rem;
+    text-align: center;
+}
+
+.portfolio-item:hover .portfolio-overlay {
+    opacity: 1;
+}
+
+.portfolio-overlay h3 {
+    color: var(--color-white);
+    margin-bottom: 0.5rem;
+}
+
+.portfolio-overlay p {
+    color: var(--color-neon-yellow);
+}
+
+/* Ad Banner */
+#ad-banner {
+    background-color: var(--color-neon-yellow);
+    color: var(--color-black);
+    text-align: center;
+    padding: 2rem 0;
+}
+
+#ad-banner h3 {
+    margin-bottom: 1rem;
+}
+
+/* Contact Form */
+#contacto {
+    background-color: var(--color-beige);
+}
+
+form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid var(--color-gray);
+    border-radius: 4px;
 }
 
 /* Footer */
@@ -321,10 +466,20 @@ footer {
     .section-title {
         font-size: 2rem;
     }
+
+    .portfolio-filters {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .filter-btn {
+        margin-bottom: 0.5rem;
+    }
 }
 
 @media (max-width: 480px) {
-    .services-grid {
+    .services-grid,
+    .portfolio-grid {
         grid-template-columns: 1fr;
     }
 
