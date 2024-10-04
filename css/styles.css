@@ -267,21 +267,27 @@ nav ul li a:hover {
 
 .service-item {
     background-color: var(--color-secondary);
-    border-radius: 8px;
+    border-radius: 12px; /* Aumentar el borde redondeado */
     overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Sombra más suave */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
 }
 
 .service-item:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
+    background-color: rgba(255, 255, 255, 0.1); /* Ligera transparencia en hover */
 }
 
 .service-image {
     width: 100%;
     height: 200px;
     object-fit: cover;
+    transition: transform 0.3s ease; /* Añadir transición a la imagen */
+}
+
+.service-item:hover .service-image {
+    transform: scale(1.05); /* Escalar imagen en hover */
 }
 
 .service-content {
@@ -289,13 +295,31 @@ nav ul li a:hover {
 }
 
 .service-icon {
-    font-size: 2.5rem;
+    font-size: 3rem; /* Aumentar el tamaño del icono */
     color: var(--color-accent);
     margin-bottom: 15px;
+    transition: color 0.3s ease; /* Transición al cambiar el color */
+}
+
+.service-item:hover .service-icon {
+    color: var(--color-primary); /* Cambiar color del icono al pasar el mouse */
 }
 
 .service-item h3 {
     margin-bottom: 10px;
+    font-size: 1.5rem; /* Aumentar el tamaño del título */
+    color: var(--color-primary); /* Cambiar el color del título */
+    transition: color 0.3s ease; /* Transición al cambiar el color */
+}
+
+.service-item:hover h3 {
+    color: var(--color-secondary); /* Cambiar color del título al pasar el mouse */
+}
+
+.service-item p {
+    font-size: 1rem; /* Tamaño de texto estándar */
+    color: var(--color-dark); /* Color más oscuro para el texto */
+    line-height: 1.5; /* Aumentar el espaciado entre líneas */
 }
 
 /* Portfolio Section */
