@@ -85,7 +85,7 @@ document.addEventListener('DOMContentLoaded', function() {
         servicesSlider.appendChild(serviceItem);
     });
 
-    new KeenSlider('#services-slider', {
+    const servicesSliderInstance = new KeenSlider('#services-slider', {
         loop: true,
         mode: "free-snap",
         slides: {
@@ -108,43 +108,70 @@ document.addEventListener('DOMContentLoaded', function() {
         },
     });
 
+    // Botón "Ver más servicios"
+    const verMasServiciosBtn = document.getElementById('ver-mas-servicios');
+    verMasServiciosBtn.addEventListener('click', function() {
+        servicesSliderInstance.next();
+    });
+
+    // Banner publicitario slider
+    new KeenSlider('#ad-slider', {
+        loop: true,
+        mode: "fade",
+        duration: 3000,
+        dragStart: () => false,
+        dragEnd: () => false,
+        created: function (instance) {
+            setInterval(() => {
+                instance.next();
+            }, 5000); // Cambia cada 5 segundos
+        },
+    });
+
     // Portfolio
-    const portfolio = [
-        { id: 1, category: 'branding', image: 'images/portfolio-1.jpg', title: 'Proyecto de Branding 1' },
-        { id: 2, category: 'web', image: 'images/portfolio-2.jpg', title: 'Proyecto Web 1' },
-        { id: 3, category: 'photo', image: 'images/portfolio-3.jpg', title: 'Proyecto de Fotografía 1' },
-        { id: 4, category: 'branding', image: 'images/portfolio-4.jpg', title: 'Proyecto de Branding 2' },
-        { id: 5, category: 'web', image: 'images/portfolio-5.jpg', title: 'Proyecto Web 2' },
-        { id: 6, category: 'photo', image: 'images/portfolio-6.jpg', title: 'Proyecto de Fotografía 2' },
+    const portfolioItems = [
+        { category: 'branding', image: 'images/portfolio-1.jpg', title: 'Diseño de Logo' },
+        { category: 'web', image: 'images/portfolio-2.jpg', title: 'Sitio Web E-commerce' },
+        { category: 'photo', image: 'images/portfolio-3.jpg', title: 'Sesión de Fotos de Producto' },
+        { category: 'branding', image: 'images/portfolio-4.jpg', title: 'Identidad Corporativa' },
+        { category: 'web', image: 'images/portfolio-5.jpg', title: 'Aplicación Web' },
+        { category: 'photo', image: 'images/portfolio-6.jpg', title: 'Campaña Publicitaria' }
     ];
 
     const portfolioGrid = document.getElementById('portfolio-grid');
-    const filterButtons = document.querySelectorAll('.filter-btn');
-
-    function renderPortfolio(items) {
-        portfolioGrid.innerHTML = '';
-        items.forEach(item => {
-            const portfolioItem = document.createElement('div');
-            portfolioItem.className = 'portfolio-item relative overflow-hidden rounded-lg shadow-lg';
-            portfolioItem.innerHTML = `
+    portfolioItems.forEach(item => {
+        const portfolioItem = document.createElement('div');
+        portfolioItem.className = `portfolio-item ${item.category}`;
+        portfolioItem.innerHTML = `
+            <div class="relative overflow-hidden rounded-lg">
                 <img src="${item.image}" alt="${item.title}" class="w-full h-64 object-cover">
                 <div class="portfolio-overlay absolute inset-0 flex items-center justify-center">
-                    <h3 class="text-white text-xl font-bold">${item.title}</h3>
+                    <div class="text-center">
+                        <h3 class="text-white text-xl font-bold mb-2">${item.title}</h3>
+                        <p class="text-accent">${item.category}</p>
+                    </div>
                 </div>
-            `;
-            portfolioGrid.appendChild(portfolioItem);
-        });
-    }
+            </div>
+        `;
+        portfolioGrid.appendChild(portfolioItem);
+    });
 
-    renderPortfolio(portfolio);
-
+    // Filtros del portfolio
+    const filterButtons = document.querySelectorAll('.filter-btn');
     filterButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            const filter = button.getAttribute('data-filter');
+        button.addEventListener('click', function() {
+            const filter = this.getAttribute('data-filter');
             filterButtons.forEach(btn => btn.classList.remove('active'));
-            button.classList.add('active');
-            const filteredItems = filter === 'all' ? portfolio : portfolio.filter(item => item.category === filter);
-            renderPortfolio(filteredItems);
+            this.classList.add('active');
+
+            const portfolioItems = document.querySelectorAll('.portfolio-item');
+            portfolioItems.forEach(item => {
+                if (filter === 'all' || item.classList.contains(filter)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
         });
     });
 
@@ -152,34 +179,16 @@ document.addEventListener('DOMContentLoaded', function() {
     const contactForm = document.getElementById('contact-form');
     contactForm.addEventListener('submit', function(e) {
         e.preventDefault();
-        // Aquí iría la lógica para manejar el envío del formulario y la integración con Google Calendar
-        console.log('Formulario enviado');
-        alert('Gracias por tu mensaje. Te contactaremos pronto para agendar una reunión.');
+        // Aquí puedes agregar la lógica para enviar el formulario
+        alert('Gracias por contactarnos. Nos pondremos en contacto contigo pronto.');
         contactForm.reset();
     });
 
-    // Botón para agendar reunión
-    const scheduleButton = document.getElementById('schedule-meeting');
-    scheduleButton.addEventListener('click', function(e) {
+    // Botón de programar reunión
+    const scheduleMeetingBtn = document.getElementById('schedule-meeting');
+    scheduleMeetingBtn.addEventListener('click', function(e) {
         e.preventDefault();
-        // Aquí iría la lógica para abrir el calendario de Google y agendar una reunión
-        console.log('Abriendo calendario para agendar reunión');
-        alert('Abriendo el calendario para agendar una reunión. Por favor, selecciona una fecha y hora disponible.');
+        // Aquí puedes agregar la lógica para programar una reunión
+        alert('Gracias por tu interés. Te contactaremos para programar una reunión.');
     });
-
-    // Animaciones de scroll
-    function animateOnScroll() {
-        const elements = document.querySelectorAll('.animate-fade-in');
-        elements.forEach(element => {
-            const elementTop = element.getBoundingClientRect().top;
-            const windowHeight = window.innerHeight;
-            if (elementTop < windowHeight - 100) {
-                element.style.opacity = '1';
-                element.style.transform = 'translateY(0)';
-            }
-        });
-    }
-
-    window.addEventListener('scroll', animateOnScroll);
-    animateOnScroll(); // Llamar una vez al cargar la página
 });
