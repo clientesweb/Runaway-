@@ -1,4 +1,3 @@
-// js/components/Services.js
 export function Services() {
   const services = [
     {
