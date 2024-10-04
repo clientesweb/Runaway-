@@ -23,6 +23,7 @@ body {
     width: 90%;
     max-width: 1200px;
     margin: 0 auto;
+    padding: 0 15px;
 }
 
 /* Top Banner */
@@ -54,6 +55,15 @@ header .container {
     height: 40px;
 }
 
+.nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--color-white);
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
 nav ul {
     display: flex;
     list-style-type: none;
@@ -67,6 +77,12 @@ nav ul li a {
     color: var(--color-white);
     text-decoration: none;
     transition: color 0.3s ease;
+    display: flex;
+    align-items: center;
+}
+
+nav ul li a i {
+    margin-right: 0.5rem;
 }
 
 nav ul li a:hover {
@@ -88,12 +104,26 @@ nav ul li a:hover {
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Tan Meringue', serif;
     margin-bottom: 1rem;
+    line-height: 1.2;
 }
 
 .section-title {
     text-align: center;
     font-size: 2.5rem;
     margin-bottom: 2rem;
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background-color: var(--color-neon-yellow);
 }
 
 /* Hero Section */
@@ -105,8 +135,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .hero h1 {
-    font-size: 3rem;
+    font-size: 3.5rem;
     margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
 }
 
 .hero p {
@@ -116,7 +147,9 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Buttons */
 .btn {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     background-color: var(--color-neon-yellow);
     color: var(--color-black);
     padding: 0.8rem 2rem;
@@ -125,6 +158,11 @@ h1, h2, h3, h4, h5, h6 {
     border: none;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.3s ease;
+    border-radius: 30px;
+}
+
+.btn i {
+    margin-right: 0.5rem;
 }
 
 .btn:hover {
@@ -148,6 +186,10 @@ section {
 .service-item {
     text-align: center;
     transition: transform 0.3s ease;
+    background-color: var(--color-white);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
 .service-item:hover {
@@ -160,7 +202,15 @@ section {
     background-color: var(--color-neon-yellow);
     border-radius: 50%;
     margin: 0 auto 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     transition: transform 0.3s ease;
+}
+
+.circle i {
+    font-size: 2.5rem;
+    color: var(--color-black);
 }
 
 .service-item:hover .circle {
@@ -172,6 +222,7 @@ section {
     display: flex;
     justify-content: center;
     margin-bottom: 2rem;
+    flex-wrap: wrap;
 }
 
 .filter-btn {
@@ -179,14 +230,16 @@ section {
     border: none;
     cursor: pointer;
     font-size: 1rem;
-    margin: 0 0.5rem;
+    margin: 0.5rem;
     padding: 0.5rem 1rem;
-    transition: color 0.3s ease;
+    transition: color 0.3s ease, background-color 0.3s ease;
+    border-radius: 20px;
 }
 
 .filter-btn.active,
 .filter-btn:hover {
-    color: var(--color-neon-yellow);
+    color: var(--color-black);
+    background-color: var(--color-neon-yellow);
 }
 
 .portfolio-grid {
@@ -196,8 +249,10 @@ section {
 }
 
 .portfolio-item {
-    overflow: hidden;
     position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
 .portfolio-item img {
@@ -211,20 +266,49 @@ section {
     transform: scale(1.05);
 }
 
-.portfolio-item::after {
-    content: '';
+.portfolio-overlay {
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     opacity: 0;
     transition: opacity 0.3s ease;
+    padding: 1rem;
+    text-align: center;
 }
 
-.portfolio-item:hover::after {
+.portfolio-item:hover .portfolio-overlay {
     opacity: 1;
+}
+
+.portfolio-overlay h3 {
+    color: var(--color-white);
+    margin-bottom: 0.5rem;
+}
+
+.portfolio-overlay p {
+    color: var(--color-neon-yellow);
+}
+
+/* Video Container */
+.video-container {
+    max-width: 800px;
+    margin: 0 auto 2rem;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+video {
+    width: 100%;
+    height: auto;
+    display: block;
 }
 
 /* Why Choose Us */
@@ -240,6 +324,7 @@ section {
     background-color: var(--color-beige);
     border-radius: 8px;
     transition: transform 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
 .reason-item:hover {
@@ -264,6 +349,7 @@ section {
     background-color: var(--color-beige);
     border-radius: 8px;
     margin-bottom: 2rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
 .testimonial p {
@@ -273,6 +359,7 @@ section {
 
 .testimonial cite {
     font-weight: bold;
+    color: var(--color-gray);
 }
 
 /* Contact Form */
@@ -283,6 +370,16 @@ form {
     margin: 0 auto;
 }
 
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
 input, select, textarea {
     width: 100%;
     padding: 0.8rem;
@@ -290,6 +387,7 @@ input, select, textarea {
     background-color: var(--color-white);
     color: var(--color-black);
     transition: border-color 0.3s ease;
+    border-radius: 4px;
 }
 
 input:focus, select:focus, textarea:focus {
@@ -339,6 +437,12 @@ footer {
     color: var(--color-white);
     text-decoration: none;
     transition: color 0.3s ease;
+    display: flex;
+    align-items: center;
+}
+
+.footer-links ul li a i {
+    margin-right: 0.5rem;
 }
 
 .footer-links ul li a:hover {
@@ -371,15 +475,29 @@ footer {
 /* Responsive Design */
 @media (max-width: 768px) {
     header .container {
-        flex-direction: column;
+        flex-wrap: wrap;
+    }
+
+    .nav-toggle {
+        display: block;
+    }
+
+    nav {
+        flex-basis: 100%;
+        display: none;
+    }
+
+    nav.active {
+        display: block;
     }
 
     nav ul {
-        margin-top: 1rem;
+        flex-direction: column;
+        align-items: center;
     }
 
     nav ul li {
-        margin: 0 1rem;
+        margin: 1rem 0;
     }
 
     .hero h1 {
@@ -388,6 +506,10 @@ footer {
 
     .hero p {
         font-size: 1rem;
+    }
+
+    .section-title {
+        font-size: 2rem;
     }
 }
 
@@ -401,10 +523,15 @@ footer {
     }
 
     .portfolio-filters {
-        flex-wrap: wrap;
+        flex-direction: column;
+        align-items: center;
     }
 
     .filter-btn {
         margin-bottom: 0.5rem;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
     }
 }
