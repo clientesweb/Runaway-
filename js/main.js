@@ -1,4 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Preloader
+    const preloader = document.getElementById('preloader');
+    window.addEventListener('load', () => {
+        preloader.style.display = 'none';
+    });
+
     // Navegación responsive
     const navToggle = document.querySelector('.nav-toggle');
     const nav = document.querySelector('nav');
@@ -22,8 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const elementTop = element.getBoundingClientRect().top;
             const elementBottom = element.getBoundingClientRect().bottom;
             if (elementTop < window.innerHeight && elementBottom > 0) {
-                element.style.animationDelay = '0.2s';
-                element.style.animationPlayState = 'running';
+                element.classList.add('animate');
             }
         });
     };
@@ -41,24 +46,41 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Slider para el top banner
-    const topBanner = document.querySelector('#top-banner');
-    const topBannerSlides = topBanner.querySelectorAll('.slide');
-    let currentTopBannerSlide = 0;
+    // Slider para el hero
+    const heroSlider = document.querySelector('.hero-slider');
+    const heroSlides = heroSlider.querySelectorAll('.slide');
+    let currentHeroSlide = 0;
 
-    const showTopBannerSlide = (index) => {
-        topBannerSlides.forEach((slide, i) => {
-            slide.style.display = i === index ? 'block' : 'none';
+    const showHeroSlide = (index) => {
+        heroSlides.forEach((slide, i) => {
+            slide.classList.toggle('active', i === index);
         });
     };
 
-    const nextTopBannerSlide = () => {
-        currentTopBannerSlide = (currentTopBannerSlide + 1) % topBannerSlides.length;
-        showTopBannerSlide(currentTopBannerSlide);
+    const nextHeroSlide = () => {
+        currentHeroSlide = (currentHeroSlide + 1) % heroSlides.length;
+        showHeroSlide(currentHeroSlide);
     };
 
-    setInterval(nextTopBannerSlide, 3000); // Cambiar slide cada 3 segundos
-    showTopBannerSlide(currentTopBannerSlide); // Mostrar el primer slide
+    setInterval(nextHeroSlide, 5000); // Cambiar slide cada 5 segundos
+
+    // Slider para el banner publicitario
+    const adBanner = document.querySelector('.banner-slider');
+    const adSlides = adBanner.querySelectorAll('.slide');
+    let currentAdSlide = 0;
+
+    const showAdSlide = (index) => {
+        adSlides.forEach((slide, i) => {
+            slide.classList.toggle('active', i === index);
+        });
+    };
+
+    const nextAdSlide = () => {
+        currentAdSlide = (currentAdSlide + 1) % adSlides.length;
+        showAdSlide(currentAdSlide);
+    };
+
+    setInterval(nextAdSlide, 3000); // Cambiar slide cada 3 segundos
 
     // Filtros del portfolio
     const portfolioFilters = document.querySelectorAll('.filter-btn');
@@ -91,23 +113,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Animación del encabezado al hacer scroll
     const header = document.querySelector('header');
-    let lastScroll = 0;
+    let lastScrollTop = 0;
 
     window.addEventListener('scroll', () => {
-        const currentScroll = window.pageYOffset;
-
-        if (currentScroll <= 0) {
-            header.classList.remove("scroll-up");
-            return;
+        let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        if (scrollTop > lastScrollTop) {
+            header.style.transform = 'translateY(-100%)';
+        } else {
+            header.style.transform = 'translateY(0)';
         }
-
-        if (currentScroll > lastScroll && !header.classList.contains("scroll-down")) {
-            header.classList.remove("scroll-up");
-            header.classList.add("scroll-down");
-        } else if (currentScroll < lastScroll && header.classList.contains("scroll-down")) {
-            header.classList.remove("scroll-down");
-            header.classList.add("scroll-up");
-        }
-        lastScroll = currentScroll;
+        lastScrollTop = scrollTop;
     });
 });
