@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
             preloader.classList.add('hidden');
             content.classList.add('visible');
             document.body.classList.remove('overflow-hidden');
-        }, 1000); // Ajusta este valor para controlar cuánto tiempo se muestra el preloader
+        }, 2000); // Aumentamos el tiempo a 2 segundos para apreciar mejor la animación
     });
 
     // Menú móvil
