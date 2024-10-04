@@ -1,168 +1,133 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Preloader
-    window.addEventListener('load', function() {
-        document.getElementById('preloader').style.display = 'none';
-    });
-
-    // Responsive Navigation
-    const navToggle = document.querySelector('.nav-toggle');
-    const nav = document.querySelector('nav ul');
-
-    navToggle.addEventListener('click', function() {
-        nav.classList.toggle('show');
-        this.classList.toggle('active');
-    });
-
-    // Close menu when clicking outside
-    document.addEventListener('click', function(event) {
-        const isClickInside = nav.contains(event.target) || navToggle.contains(event.target);
-        if (!isClickInside && nav.classList.contains('show')) {
-            nav.classList.remove('show');
-            navToggle.classList.remove('active');
+    // Servicios
+    const services = [
+        {
+            icon: 'paint-brush',
+            title: 'Branding',
+            description: 'Creamos una identidad de marca única y distintiva que se destaca en el mercado.',
+            image: 'images/service-branding.jpg'
+        },
+        {
+            icon: 'sync-alt',
+            title: 'Rebranding',
+            description: 'Renovamos la identidad de marcas existentes para mantenerlas relevantes y en sintonía con el mercado.',
+            image: 'images/service-rebranding.jpg'
+        },
+        {
+            icon: 'camera',
+            title: 'Producción & Estilismo',
+            description: 'Planificamos y ejecutamos producciones de fotos y videos para crear contenido visual coherente y efectivo.',
+            image: 'images/service-produccion.jpg'
+        },
+        {
+            icon: 'pencil-alt',
+            title: 'Creación de Contenido',
+            description: 'Generamos material relevante y atractivo para promover tu marca y aumentar su visibilidad.',
+            image: 'images/service-contenido.jpg'
+        },
+        {
+            icon: 'ad',
+            title: 'Pauta Publicitaria',
+            description: 'Planificamos y ejecutamos estrategias publicitarias efectivas en diversos canales digitales.',
+            image: 'images/service-pauta.jpg'
         }
+    ];
+
+    const servicesSlider = document.querySelector('.services-slider');
+    services.forEach(service => {
+        const slide = document.createElement('div');
+        slide.className = 'keen-slider__slide bg-white rounded-lg shadow-lg overflow-hidden';
+        slide.innerHTML = `
+            <img src="${service.image}" alt="${service.title}" class="w-full h-48 object-cover">
+            <div class="p-6">
+                <i class="fas fa-${service.icon} text-4xl text-accent mb-4"></i>
+                <h3 class="text-xl font-bold mb-2">${service.title}</h3>
+                <p class="text-gray-600">${service.description}</p>
+            </div>
+        `;
+        servicesSlider.appendChild(slide);
     });
 
-    // Smooth Scrolling
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
-            // Close mobile menu after clicking a link
-            if (nav.classList.contains('show')) {
-                nav.classList.remove('show');
-                navToggle.classList.remove('active');
-            }
+    new KeenSlider('.services-slider', {
+        loop: true,
+        mode: "free-snap",
+        slides: {
+            perView: 3,
+            spacing: 15,
+        },
+        breakpoints: {
+            '(max-width: 768px)': {
+                slides: { perView: 1, spacing: 10 },
+            },
+            '(max-width: 1024px)': {
+                slides: { perView: 2, spacing: 10 },
+            },
+        },
+    });
+
+    // Portfolio
+    const portfolio = [
+        { id: 1, category: 'branding', image: 'images/portfolio-1.jpg', title: 'Proyecto de Branding 1' },
+        { id: 2, category: 'web', image: 'images/portfolio-2.jpg', title: 'Proyecto Web 1' },
+        { id: 3, category: 'photo', image: 'images/portfolio-3.jpg', title: 'Proyecto de Fotografía 1' },
+        { id: 4, category: 'branding', image: 'images/portfolio-4.jpg', title: 'Proyecto de Branding 2' },
+        { id: 5, category: 'web', image: 'images/portfolio-5.jpg', title: 'Proyecto Web 2' },
+        { id: 6, category: 'photo', image: 'images/portfolio-6.jpg', title: 'Proyecto de Fotografía 2' },
+    ];
+
+    const portfolioGrid = document.getElementById('portfolio-grid');
+    const filterButtons = document.querySelectorAll('.filter-btn');
+
+    function renderPortfolio(items) {
+        portfolioGrid.innerHTML = '';
+        items.forEach(item => {
+            const portfolioItem = document.createElement('div');
+            portfolioItem.className = 'portfolio-item relative overflow-hidden rounded-lg shadow-lg';
+            portfolioItem.innerHTML = `
+                <img src="${item.image}" alt="${item.title}" class="w-full h-64 object-cover">
+                <div class="portfolio-overlay absolute inset-0 bg-black bg-opacity-75 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
+                    <h3 class="text-white text-xl font-bold">${item.title}</h3>
+                </div>
+            `;
+            portfolioGrid.appendChild(portfolioItem);
         });
-    });
-
-    // Sliders
-    function createSlider(containerSelector, interval = 5000) {
-        const slides = document.querySelectorAll(`${containerSelector} .slide`);
-        let currentSlide = 0;
-
-        function showSlide(n) {
-            slides[currentSlide].classList.remove('active');
-            currentSlide = (n + slides.length) % slides.length;
-            slides[currentSlide].classList.add('active');
-        }
-
-        setInterval(() => showSlide(currentSlide + 1), interval);
     }
 
-    createSlider('.hero-slider');
-    createSlider('.top-banner .banner-slider', 3000);
-    createSlider('.ad-banner .banner-slider', 4000);
-
-    // Portfolio Filters
-    const filterButtons = document.querySelectorAll('.filter-btn');
-    const portfolioItems = document.querySelectorAll('.portfolio-item');
+    renderPortfolio(portfolio);
 
     filterButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            const filter = this.dataset.filter;
-            
+        button.addEventListener('click', () => {
+            const filter = button.getAttribute('data-filter');
             filterButtons.forEach(btn => btn.classList.remove('active'));
-            this.classList.add('active');
-
-            portfolioItems.forEach(item => {
-                if (filter === 'all' || item.classList.contains(filter)) {
-                    item.style.display = 'block';
-                } else {
-                    item.style.display = 'none';
-                }
-            });
+            button.classList.add('active');
+            const filteredItems = filter === 'all' ? portfolio : portfolio.filter(item => item.category === filter);
+            renderPortfolio(filteredItems);
         });
     });
 
-    // Form Validation
+    // Formulario de contacto
     const contactForm = document.getElementById('contact-form');
     contactForm.addEventListener('submit', function(e) {
         e.preventDefault();
-        if (validateForm()) {
-            // Here you would typically send the form data to a server
-            alert('Formulario enviado con éxito!');
-            contactForm.reset();
-        }
+        // Aquí iría la lógica para manejar el envío del formulario
+        console.log('Formulario enviado');
+        alert('Gracias por tu mensaje. Te contactaremos pronto.');
+        contactForm.reset();
     });
 
-    function validateForm() {
-        let isValid = true;
-        const requiredFields = contactForm.querySelectorAll('[required]');
-        requiredFields.forEach(field => {
-            if (!field.value.trim()) {
-                isValid = false;
-                field.classList.add('error');
-            } else {
-                field.classList.remove('error');
+    // Animaciones de scroll
+    function animateOnScroll() {
+        const elements = document.querySelectorAll('.animate-fade-in');
+        elements.forEach(element => {
+            const elementTop = element.getBoundingClientRect().top;
+            const windowHeight = window.innerHeight;
+            if (elementTop < windowHeight - 100) {
+                element.style.opacity = '1';
+                element.style.transform = 'translateY(0)';
             }
         });
-        return isValid;
     }
 
-    // Lazy Loading Images
-    const lazyImages = document.querySelectorAll('img[data-src]');
-    const lazyLoadOptions = {
-        threshold: 0.5,
-        rootMargin: "0px 0px 200px 0px"
-    };
-
-    const lazyLoadObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const img = entry.target;
-                img.src = img.dataset.src;
-                img.removeAttribute('data-src');
-                observer.unobserve(img);
-            }
-        });
-    }, lazyLoadOptions);
-
-    lazyImages.forEach(img => lazyLoadObserver.observe(img));
-
-    // Animate on Scroll
-    const animatedElements = document.querySelectorAll('.animate-on-scroll');
-    const animateOptions = {
-        threshold: 0.1,
-        rootMargin: "0px 0px -50px 0px"
-    };
-
-    const animateObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('animate');
-                observer.unobserve(entry.target);
-            }
-        });
-    }, animateOptions);
-
-    animatedElements.forEach(el => animateObserver.observe(el));
-
-    // Sticky Header
-    const header = document.getElementById('main-header');
-    const headerHeight = header.offsetHeight;
-    let lastScrollTop = 0;
-
-    window.addEventListener('scroll', () => {
-        let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        if (scrollTop > lastScrollTop && scrollTop > headerHeight) {
-            header.style.transform = `translateY(-${headerHeight}px)`;
-        } else {
-            header.style.transform = 'translateY(0)';
-        }
-        lastScrollTop = scrollTop;
-    });
-});
-
-// Selección de elementos
-const servicesSlider = document.querySelector('.services-slider');
-
-// Evento para el scroll horizontal
-servicesSlider.addEventListener('wheel', (e) => {
-    e.preventDefault(); // Prevenir el scroll vertical
-    servicesSlider.scrollBy({
-        left: e.deltaY < 0 ? -100 : 100, // Desplazarse a la izquierda o a la derecha
-        behavior: 'smooth' // Desplazamiento suave
-    });
+    window.addEventListener('scroll', animateOnScroll);
+    animateOnScroll(); // Llamar una vez al cargar la página
 });
