@@ -1,20 +1,30 @@
-// js/main.js
-
 import { renderComponent } from './utils/renderComponent.js';
+import { TopBanner } from './components/TopBanner.js';
 import { Header } from './components/Header.js';
 import { Hero } from './components/Hero.js';
+import { About } from './components/About.js';
 import { Services } from './components/Services.js';
 import { Portfolio } from './components/Portfolio.js';
+import { WhyChooseUs } from './components/WhyChooseUs.js';
 import { Testimonials } from './components/Testimonials.js';
+import { Commitment } from './components/Commitment.js';
 import { Contact } from './components/Contact.js';
+import { AdBanner } from './components/AdBanner.js';
+import { Footer } from './components/Footer.js';
 
 document.addEventListener('DOMContentLoaded', () => {
+  renderComponent('#top-banner-container', TopBanner);
   renderComponent('#header-container', Header);
   renderComponent('#hero-container', Hero);
+  renderComponent('#about-container', About);
   renderComponent('#services-container', Services);
   renderComponent('#portfolio-container', Portfolio);
+  renderComponent('#why-choose-us-container', WhyChooseUs);
   renderComponent('#testimonials-container', Testimonials);
+  renderComponent('#commitment-container', Commitment);
   renderComponent('#contact-container', Contact);
+  renderComponent('#ad-banner-container', AdBanner);
+  renderComponent('#footer-container', Footer);
 
   // Inicializar funcionalidades
   initializeSlider();
@@ -23,7 +33,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initializeContactForm();
 });
 
-// Función para inicializar el slider
 function initializeSlider() {
   const sliders = document.querySelectorAll('.slider');
   sliders.forEach(slider => {
@@ -46,7 +55,6 @@ function initializeSlider() {
   });
 }
 
-// Función para inicializar animaciones de scroll
 function initializeScrollAnimations() {
   const animatedElements = document.querySelectorAll('.animate-on-scroll');
   
@@ -61,7 +69,6 @@ function initializeScrollAnimations() {
   animatedElements.forEach(el => observer.observe(el));
 }
 
-// Función para inicializar filtros de portfolio
 function initializePortfolioFilters() {
   const filterButtons = document.querySelectorAll('.filter-btn');
   const portfolioItems = document.querySelectorAll('.portfolio-item');
@@ -84,7 +91,6 @@ function initializePortfolioFilters() {
   });
 }
 
-// Función para inicializar el formulario de contacto
 function initializeContactForm() {
   const form = document.getElementById('contact-form');
   if (form) {
