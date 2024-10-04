@@ -2,7 +2,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // Preloader
     const preloader = document.getElementById('preloader');
     window.addEventListener('load', () => {
-        preloader.style.display = 'none';
+        preloader.style.opacity = '0';
+        setTimeout(() => {
+            preloader.style.display = 'none';
+        }, 500);
     });
 
     // Navegación responsive
@@ -11,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     navToggle.addEventListener('click', () => {
         nav.classList.toggle('active');
+        navToggle.classList.toggle('active');
     });
 
     // Cerrar menú al hacer clic en un enlace
@@ -18,16 +22,18 @@ document.addEventListener('DOMContentLoaded', () => {
     navLinks.forEach(link => {
         link.addEventListener('click', () => {
             nav.classList.remove('active');
+            navToggle.classList.remove('active');
         });
     });
 
     // Animación de entrada para elementos
     const animateOnScroll = () => {
         const elements = document.querySelectorAll('.animate-on-scroll');
+        const triggerBottom = window.innerHeight * 0.8;
+
         elements.forEach(element => {
             const elementTop = element.getBoundingClientRect().top;
-            const elementBottom = element.getBoundingClientRect().bottom;
-            if (elementTop < window.innerHeight && elementBottom > 0) {
+            if (elementTop < triggerBottom) {
                 element.classList.add('animate');
             }
         });
@@ -40,9 +46,13 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                window.scrollTo({
+                    top: target.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            }
         });
     });
 
@@ -124,4 +134,32 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         lastScrollTop = scrollTop;
     });
+
+    // Lazy loading para imágenes
+    const lazyImages = document.querySelectorAll('img[data-src]');
+    const lazyLoadImage = (image) => {
+        image.setAttribute('src', image.getAttribute('data-src'));
+        image.onload = () => {
+            image.removeAttribute('data-src');
+        };
+    };
+
+    if ('IntersectionObserver' in window) {
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    lazyLoadImage(entry.target);
+                    observer.unobserve(entry.target);
+                }
+            });
+        });
+
+        lazyImages.forEach(image => {
+            imageObserver.observe(image);
+        });
+    } else {
+        lazyImages.forEach(image => {
+            lazyLoadImage(image);
+        });
+    }
 });
