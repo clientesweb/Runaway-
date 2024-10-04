@@ -1,4 +1,20 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // Menú móvil
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileNav = document.getElementById('mobile-nav');
+
+    menuToggle.addEventListener('click', function() {
+        mobileNav.classList.toggle('active');
+    });
+
+    // Cerrar menú móvil al hacer clic en un enlace
+    const mobileNavLinks = mobileNav.querySelectorAll('a');
+    mobileNavLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            mobileNav.classList.remove('active');
+        });
+    });
+
     // Promo Banner Slider
     const promoBanner = document.querySelector('.promo-slider');
     const promos = [
@@ -90,11 +106,11 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     ];
 
-    const servicesSlider = document.querySelector('.services-slider');
+    const servicesGrid = document.querySelector('.services-grid');
     services.forEach(service => {
-        const slide = document.createElement('div');
-        slide.className = 'keen-slider__slide bg-white rounded-lg shadow-lg overflow-hidden';
-        slide.innerHTML = `
+        const serviceItem = document.createElement('div');
+        serviceItem.className = 'service-item bg-white rounded-lg shadow-lg overflow-hidden';
+        serviceItem.innerHTML = `
             <img src="${service.image}" alt="${service.title}" class="w-full h-48 object-cover">
             <div class="p-6">
                 <i class="fas fa-${service.icon} text-4xl text-accent mb-4"></i>
@@ -102,24 +118,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 <p class="text-gray-600">${service.description}</p>
             </div>
         `;
-        servicesSlider.appendChild(slide);
-    });
-
-    new KeenSlider('.services-slider', {
-        loop: true,
-        mode: "free-snap",
-        slides: {
-            perView: 3,
-            spacing: 15,
-        },
-        breakpoints: {
-            '(max-width: 768px)': {
-                slides: { perView: 1, spacing: 10 },
-            },
-            '(max-width: 1024px)': {
-                slides: { perView: 2, spacing: 10 },
-            },
-        },
+        servicesGrid.appendChild(serviceItem);
     });
 
     // Portfolio
@@ -142,7 +141,7 @@ document.addEventListener('DOMContentLoaded', function() {
             portfolioItem.className = 'portfolio-item relative overflow-hidden rounded-lg shadow-lg';
             portfolioItem.innerHTML = `
                 <img src="${item.image}" alt="${item.title}" class="w-full h-64 object-cover">
-                <div class="portfolio-overlay absolute inset-0 bg-black bg-opacity-75 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
+                <div class="portfolio-overlay absolute inset-0 flex items-center justify-center">
                     <h3 class="text-white text-xl font-bold">${item.title}</h3>
                 </div>
             `;
