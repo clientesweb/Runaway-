@@ -1,13 +1,20 @@
 document.addEventListener('DOMContentLoaded', function() {
-// Preloader
-const preloader = document.getElementById('preloader');
-document.body.classList.add('overflow-hidden');
+    // Select the preloader element
+    const preloader = document.getElementById('preloader');
 
-window.addEventListener('load', function() {
-    setTimeout(function() {
-        preloader.classList.add('hidden');
-        document.body.classList.remove('overflow-hidden');
-    }, 1000); // Ajusta este valor para controlar cuánto tiempo se muestra el preloader
+    // Add overflow-hidden class to the body to prevent scrolling
+    document.body.classList.add('overflow-hidden');
+
+    // Listen for the window load event
+    window.addEventListener('load', function() {
+        // Set a timeout to control how long the preloader is shown
+        setTimeout(function() {
+            // Add hidden class to the preloader to trigger fade-out
+            preloader.classList.add('hidden');
+            // Remove overflow-hidden class from the body to enable scrolling
+            document.body.classList.remove('overflow-hidden');
+        }, 1000); // Adjust this value to control preloader duration
+    });
 });
     // Menú móvil
     const menuToggle = document.getElementById('menu-toggle');
