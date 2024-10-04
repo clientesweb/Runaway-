@@ -1,40 +1,20 @@
 // js/main.js
 
-import { TopBanner } from './components/TopBanner.js';
+import { renderComponent } from './utils/renderComponent.js';
 import { Header } from './components/Header.js';
 import { Hero } from './components/Hero.js';
-import { About } from './components/About.js';
 import { Services } from './components/Services.js';
 import { Portfolio } from './components/Portfolio.js';
-import { WhyChooseUs } from './components/WhyChooseUs.js';
 import { Testimonials } from './components/Testimonials.js';
-import { Commitment } from './components/Commitment.js';
 import { Contact } from './components/Contact.js';
-import { AdBanner } from './components/AdBanner.js';
-import { Footer } from './components/Footer.js';
 
-// Función para renderizar componentes
-function renderComponent(selector, component) {
-  const container = document.querySelector(selector);
-  if (container) {
-    container.innerHTML = component();
-  }
-}
-
-// Renderizar componentes
 document.addEventListener('DOMContentLoaded', () => {
-  renderComponent('#top-banner-container', TopBanner);
   renderComponent('#header-container', Header);
   renderComponent('#hero-container', Hero);
-  renderComponent('#about-container', About);
   renderComponent('#services-container', Services);
   renderComponent('#portfolio-container', Portfolio);
-  renderComponent('#why-choose-us-container', WhyChooseUs);
   renderComponent('#testimonials-container', Testimonials);
-  renderComponent('#commitment-container', Commitment);
   renderComponent('#contact-container', Contact);
-  renderComponent('#ad-banner-container', AdBanner);
-  renderComponent('#footer-container', Footer);
 
   // Inicializar funcionalidades
   initializeSlider();
@@ -118,13 +98,11 @@ function initializeContactForm() {
 }
 
 // Inicializar la funcionalidad del botón de navegación móvil
-document.addEventListener('DOMContentLoaded', () => {
-  const navToggle = document.querySelector('.nav-toggle');
-  const navMenu = document.querySelector('.nav-menu');
+const navToggle = document.querySelector('.nav-toggle');
+const navMenu = document.querySelector('.nav-menu');
 
-  if (navToggle && navMenu) {
-    navToggle.addEventListener('click', () => {
-      navMenu.classList.toggle('active');
-    });
-  }
-});
+if (navToggle && navMenu) {
+  navToggle.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+  });
+}
