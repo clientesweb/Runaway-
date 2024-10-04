@@ -32,6 +32,14 @@ body {
 
 .hero-section {
     height: calc(100vh - 80px);
+    position: relative;
+}
+
+.hero-slider, .hero-slider .keen-slider__slide {
+    height: 100%;
+}
+
+.hero-slider .keen-slider__slide {
     background-size: cover;
     background-position: center;
 }
@@ -45,7 +53,8 @@ body {
 }
 
 .contact-form input:focus,
-.contact-form textarea:focus {
+.contact-form textarea:focus,
+.contact-form select:focus {
     border-color: var(--color-accent);
     outline: none;
     box-shadow: 0 0 0 2px rgba(204, 255, 0, 0.2);
@@ -63,4 +72,28 @@ body {
 .filter-btn.active {
     background-color: var(--color-primary);
     color: var(--color-secondary);
+}
+
+.promo-slider {
+    overflow: hidden;
+}
+
+.promo-slider .keen-slider__slide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.aspect-w-16 {
+    padding-bottom: 56.25%;
+    position: relative;
+}
+
+.aspect-w-16 iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }
