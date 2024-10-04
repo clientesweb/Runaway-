@@ -314,6 +314,7 @@ nav ul li a:hover {
     overflow-y: hidden; /* Oculta el desbordamiento vertical */
     white-space: nowrap; /* Asegura que los elementos se alineen en una fila */
     padding: 10px 0; /* Espacio alrededor de la pista de servicios */
+    height: 250px; /* Altura fija para el contenedor */
 }
 
 .services-track {
@@ -323,6 +324,7 @@ nav ul li a:hover {
 
 .service-item {
     min-width: 250px; /* Ancho mínimo para cada elemento del servicio */
+    height: 250px; /* Altura fija para cada elemento, ajustando así a un formato cuadrado */
     margin-right: 30px; /* Espacio entre los elementos */
     background-color: var(--color-secondary);
     border-radius: 12px; /* Mantener el borde redondeado */
@@ -330,6 +332,7 @@ nav ul li a:hover {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Sombra más suave */
     transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
     display: inline-block; /* Asegura que los elementos se alineen horizontalmente */
+    position: relative; /* Para el contenido */
 }
 
 .service-item:hover {
@@ -340,8 +343,8 @@ nav ul li a:hover {
 
 .service-image {
     width: 100%;
-    height: 200px;
-    object-fit: cover;
+    height: 100%; /* Ajustar la imagen para que ocupe todo el contenedor */
+    object-fit: cover; /* Mantiene la proporción de la imagen */
     transition: transform 0.3s ease; /* Añadir transición a la imagen */
 }
 
@@ -351,8 +354,14 @@ nav ul li a:hover {
 
 .service-content {
     padding: 20px;
+    position: absolute; /* Posicionar el contenido sobre la imagen */
+    bottom: 0; /* Alinear contenido al fondo */
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.8); /* Fondo semitransparente */
 }
 
+/* Icono */
 .service-icon {
     font-size: 3rem; /* Aumentar el tamaño del icono */
     color: var(--color-accent);
