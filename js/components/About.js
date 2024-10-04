@@ -1,4 +1,3 @@
-// js/components/About.js
 export function About() {
   return `
     <section id="about" class="animate-on-scroll">
