@@ -124,7 +124,8 @@ body {
 }
 
 .logo img {
-    height: 120px;
+    max-height: 80px; /* Ajustar la altura máxima del logo */
+    height: auto; /* Asegurarse de que mantenga la proporción */
 }
 
 nav ul {
