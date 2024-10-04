@@ -16,21 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Promo Banner Slider
-    const promoBanner = document.querySelector('.promo-slider');
-    const promos = [
-        "¡Oferta especial! 20% de descuento en todos los servicios",
-        "Nuevo servicio de consultoría gratuita",
-        "¡Regístrate hoy y obtén un análisis de marca gratis!"
-    ];
-
-    promos.forEach(promo => {
-        const slide = document.createElement('div');
-        slide.className = 'keen-slider__slide';
-        slide.textContent = promo;
-        promoBanner.appendChild(slide);
-    });
-
-    new KeenSlider('.promo-slider', {
+    new KeenSlider('#promo-slider', {
         loop: true,
         mode: "free",
         slides: {
@@ -45,21 +31,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Hero Slider
-    const heroSlider = document.querySelector('.hero-slider');
-    const heroImages = [
-        'images/hero-1.jpg',
-        'images/hero-2.jpg',
-        'images/hero-3.jpg'
-    ];
-
-    heroImages.forEach(image => {
-        const slide = document.createElement('div');
-        slide.className = 'keen-slider__slide';
-        slide.style.backgroundImage = `url(${image})`;
-        heroSlider.appendChild(slide);
-    });
-
-    new KeenSlider('.hero-slider', {
+    new KeenSlider('#hero-slider', {
         loop: true,
         mode: "fade",
         duration: 3000,
@@ -77,48 +49,63 @@ document.addEventListener('DOMContentLoaded', function() {
         {
             icon: 'paint-brush',
             title: 'Branding',
-            description: 'Creamos una identidad de marca única y distintiva que se destaca en el mercado.',
-            image: 'images/service-branding.jpg'
+            description: 'Creamos una identidad de marca única y distintiva que se destaca en el mercado.'
         },
         {
             icon: 'sync-alt',
             title: 'Rebranding',
-            description: 'Renovamos la identidad de marcas existentes para mantenerlas relevantes y en sintonía con el mercado.',
-            image: 'images/service-rebranding.jpg'
+            description: 'Renovamos la identidad de marcas existentes para mantenerlas relevantes y en sintonía con el mercado.'
         },
         {
             icon: 'camera',
             title: 'Producción & Estilismo',
-            description: 'Planificamos y ejecutamos producciones de fotos y videos para crear contenido visual coherente y efectivo.',
-            image: 'images/service-produccion.jpg'
+            description: 'Planificamos y ejecutamos producciones de fotos y videos para crear contenido visual coherente y efectivo.'
         },
         {
             icon: 'pencil-alt',
             title: 'Creación de Contenido',
-            description: 'Generamos material relevante y atractivo para promover tu marca y aumentar su visibilidad.',
-            image: 'images/service-contenido.jpg'
+            description: 'Generamos material relevante y atractivo para promover tu marca y aumentar su visibilidad.'
         },
         {
             icon: 'ad',
             title: 'Pauta Publicitaria',
-            description: 'Planificamos y ejecutamos estrategias publicitarias efectivas en diversos canales digitales.',
-            image: 'images/service-pauta.jpg'
+            description: 'Planificamos y ejecutamos estrategias publicitarias efectivas en diversos canales digitales.'
         }
     ];
 
-    const servicesGrid = document.querySelector('.services-grid');
+    const servicesSlider = document.getElementById('services-slider');
     services.forEach(service => {
         const serviceItem = document.createElement('div');
-        serviceItem.className = 'service-item bg-white rounded-lg shadow-lg overflow-hidden';
+        serviceItem.className = 'keen-slider__slide';
         serviceItem.innerHTML = `
-            <img src="${service.image}" alt="${service.title}" class="w-full h-48 object-cover">
-            <div class="p-6">
-                <i class="fas fa-${service.icon} text-4xl text-accent mb-4"></i>
-                <h3 class="text-xl font-bold mb-2">${service.title}</h3>
-                <p class="text-gray-600">${service.description}</p>
-            </div>
+            <i class="fas fa-${service.icon} text-4xl text-accent mb-4"></i>
+            <h3 class="text-xl font-bold mb-2">${service.title}</h3>
+            <p class="text-gray-600">${service.description}</p>
         `;
-        servicesGrid.appendChild(serviceItem);
+        servicesSlider.appendChild(serviceItem);
+    });
+
+    new KeenSlider('#services-slider', {
+        loop: true,
+        mode: "free-snap",
+        slides: {
+            perView: 1,
+            spacing: 15,
+        },
+        breakpoints: {
+            "(min-width: 768px)": {
+                slides: {
+                    perView: 2,
+                    spacing: 15,
+                },
+            },
+            "(min-width: 1024px)": {
+                slides: {
+                    perView: 3,
+                    spacing: 15,
+                },
+            },
+        },
     });
 
     // Portfolio
