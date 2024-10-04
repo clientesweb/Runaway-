@@ -1,4 +1,61 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // Promo Banner Slider
+    const promoBanner = document.querySelector('.promo-slider');
+    const promos = [
+        "¡Oferta especial! 20% de descuento en todos los servicios",
+        "Nuevo servicio de consultoría gratuita",
+        "¡Regístrate hoy y obtén un análisis de marca gratis!"
+    ];
+
+    promos.forEach(promo => {
+        const slide = document.createElement('div');
+        slide.className = 'keen-slider__slide';
+        slide.textContent = promo;
+        promoBanner.appendChild(slide);
+    });
+
+    new KeenSlider('.promo-slider', {
+        loop: true,
+        mode: "free",
+        slides: {
+            perView: 1,
+            spacing: 15,
+        },
+        created: function (instance) {
+            setInterval(() => {
+                instance.next();
+            }, 3000); // Cambia cada 3 segundos
+        },
+    });
+
+    // Hero Slider
+    const heroSlider = document.querySelector('.hero-slider');
+    const heroImages = [
+        'images/hero-1.jpg',
+        'images/hero-2.jpg',
+        'images/hero-3.jpg'
+    ];
+
+    heroImages.forEach(image => {
+        const slide = document.createElement('div');
+        slide.className = 'keen-slider__slide';
+        slide.style.backgroundImage = `url(${image})`;
+        heroSlider.appendChild(slide);
+    });
+
+    new KeenSlider('.hero-slider', {
+        loop: true,
+        mode: "fade",
+        duration: 3000,
+        dragStart: () => false,
+        dragEnd: () => false,
+        created: function (instance) {
+            setInterval(() => {
+                instance.next();
+            }, 5000); // Cambia cada 5 segundos
+        },
+    });
+
     // Servicios
     const services = [
         {
@@ -109,10 +166,19 @@ document.addEventListener('DOMContentLoaded', function() {
     const contactForm = document.getElementById('contact-form');
     contactForm.addEventListener('submit', function(e) {
         e.preventDefault();
-        // Aquí iría la lógica para manejar el envío del formulario
+        // Aquí iría la lógica para manejar el envío del formulario y la integración con Google Calendar
         console.log('Formulario enviado');
-        alert('Gracias por tu mensaje. Te contactaremos pronto.');
+        alert('Gracias por tu mensaje. Te contactaremos pronto para agendar una reunión.');
         contactForm.reset();
+    });
+
+    // Botón para agendar reunión
+    const scheduleButton = document.getElementById('schedule-meeting');
+    scheduleButton.addEventListener('click', function(e) {
+        e.preventDefault();
+        // Aquí iría la lógica para abrir el calendario de Google y agendar una reunión
+        console.log('Abriendo calendario para agendar reunión');
+        alert('Abriendo el calendario para agendar una reunión. Por favor, selecciona una fecha y hora disponible.');
     });
 
     // Animaciones de scroll
