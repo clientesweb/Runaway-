@@ -4,28 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RNW Studio - Impulsa tu E-Commerce hacia el Éxito</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Glacial+Indifference:wght@400;700&family=Tan+Meringue&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <div id="top-banner" class="slider">
-        <div class="slide">¡Oferta especial! 20% de descuento en servicios de branding</div>
-        <div class="slide">Nuevo servicio: Consultoría de marketing digital</div>
-        <div class="slide">¡Únete a nuestro webinar gratuito este viernes!</div>
+    <div id="preloader">
+        <img src="images/rnw-studio-logo.svg" alt="RNW Studio Logo" class="preloader-logo">
     </div>
 
     <header>
         <div class="container">
-            <a href="index.html" class="logo">
-                <img src="images/rnw-studio-logo.svg" alt="RNW Studio">
-            </a>
+            <img src="images/rnw-studio-logo.svg" alt="RNW Studio" class="logo">
             <nav>
-                <ul class="nav-menu">
+                <ul>
                     <li><a href="#inicio">Inicio</a></li>
                     <li><a href="#servicios">Servicios</a></li>
                     <li><a href="#portfolio">Portfolio</a></li>
-                    <li><a href="#testimonios">Testimonios</a></li>
                     <li><a href="#contacto">Contacto</a></li>
                 </ul>
             </nav>
@@ -42,27 +37,31 @@
 
     <main>
         <section id="inicio" class="hero">
-            <div class="hero-content">
-                <h1>Impulsa tu E-Commerce hacia el Éxito</h1>
-                <p>Hacemos que tu marca destaque y las ventas aumenten</p>
-                <a href="#contacto" class="btn">Contáctanos</a>
-            </div>
-            <div class="hero-image">
-                <img src="images/hero-image.jpg" alt="E-Commerce Success">
-            </div>
-        </section>
-
-        <section id="about" class="about">
-            <div class="container">
-                <h2 class="section-title">Quiénes Somos</h2>
-                <div class="video-container">
-                    <video id="agency-video" controls>
-                        <source src="video/agency-presentation.mp4" type="video/mp4">
-                        Tu navegador no soporta el elemento de video.
-                    </video>
+            <div class="hero-slider">
+                <div class="slide active">
+                    <img src="images/hero-1.jpg" alt="Hero 1">
+                    <div class="hero-content">
+                        <h1>Impulsa tu E-Commerce hacia el Éxito</h1>
+                        <p>Hacemos que tu marca destaque y las ventas aumenten</p>
+                        <a href="#contacto" class="btn">Contáctanos</a>
+                    </div>
                 </div>
-                <h3 class="subtitle">AUMENTA TUS VENTAS, POSICIONÁ TU MARCA!</h3>
-                <a href="#contacto" class="btn">QUIERO AGENDAR UNA REUNIÓN</a>
+                <div class="slide">
+                    <img src="images/hero-2.jpg" alt="Hero 2">
+                    <div class="hero-content">
+                        <h1>Estrategias Digitales Innovadoras</h1>
+                        <p>Potenciamos tu presencia online con soluciones creativas</p>
+                        <a href="#contacto" class="btn">Descubre Más</a>
+                    </div>
+                </div>
+                <div class="slide">
+                    <img src="images/hero-3.jpg" alt="Hero 3">
+                    <div class="hero-content">
+                        <h1>Transforma tu Negocio Digital</h1>
+                        <p>Expertos en llevar tu e-commerce al siguiente nivel</p>
+                        <a href="#contacto" class="btn">Empieza Ahora</a>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -157,9 +156,23 @@
 
         <section id="ad-banner" class="ad-banner">
             <div class="container">
-                <h3>¿Listo para llevar tu E-Commerce al siguiente nivel?</h3>
-                <p>Aprovecha nuestra oferta especial: 20% de descuento en tu primer mes de servicios</p>
-                <a href="#contacto" class="btn">¡Contáctanos ahora!</a>
+                <div class="banner-slider">
+                    <div class="slide active">
+                        <h3>¿Listo para llevar tu E-Commerce al siguiente nivel?</h3>
+                        <p>Aprovecha nuestra oferta especial: 20% de descuento en tu primer mes de servicios</p>
+                        <a href="#contacto" class="btn">¡Contáctanos ahora!</a>
+                    </div>
+                    <div class="slide">
+                        <h3>Potencia tu presencia digital</h3>
+                        <p>Estrategias personalizadas para maximizar tus ventas online</p>
+                        <a href="#contacto" class="btn">Descubre cómo</a>
+                    </div>
+                    <div class="slide">
+                        <h3>Transforma tu marca con RNW Studio</h3>
+                        <p>Expertos en branding y marketing digital para e-commerce</p>
+                        <a href="#contacto" class="btn">Empieza hoy</a>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -257,10 +270,11 @@
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2024 RNW Studio. Todos los derechos reservados.</p>
+                <p>Powered by <a href="https://dualitydomain.com" target="_blank" rel="noopener noreferrer">Duality Domain</a></p>
             </div>
         </div>
     </footer>
 
-    <script src="js/main.js"></script>
+    <script src="main.js"></script>
 </body>
 </html>
