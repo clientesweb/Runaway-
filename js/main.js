@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
             preloader.classList.add('hidden');
             content.classList.add('visible');
             document.body.classList.remove('overflow-hidden');
-        }, 2000); // 2 segundos de retraso para mostrar el preloader
+        }, 2000);
     });
 
     // Menú móvil
@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function() {
         created: function (instance) {
             setInterval(() => {
                 instance.next();
-            }, 3000); // Cambia cada 3 segundos
+            }, 3000);
         },
     });
 
@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', function() {
         created: function (instance) {
             setInterval(() => {
                 instance.next();
-            }, 5000); // Cambia cada 5 segundos
+            }, 5000);
         },
     });
 
@@ -91,37 +91,57 @@ document.addEventListener('DOMContentLoaded', function() {
     ];
 
     const servicesSlider = document.getElementById('services-slider');
-    services.forEach(service => {
-        const slide = document.createElement('div');
-        slide.className = 'keen-slider__slide';
-        slide.innerHTML = `
-            <i class="fas fa-${service.icon} text-4xl text-accent mb-4"></i>
-            <h3 class="text-xl font-bold mb-2">${service.title}</h3>
-            <p>${service.description}</p>
-        `;
-        servicesSlider.appendChild(slide);
-    });
+    let servicesKeenSlider;
 
-    new KeenSlider('#services-slider', {
-        loop: true,
-        mode: "free-snap",
-        slides: {
-            perView: 1,
-            spacing: 15,
-        },
-        breakpoints: {
-            "(min-width: 768px)": {
-                slides: {
-                    perView: 2,
-                    spacing: 15,
-                }
+    function initServicesSlider(slidesToShow) {
+        if (servicesKeenSlider) {
+            servicesKeenSlider.destroy();
+        }
+
+        servicesSlider.innerHTML = '';
+        
+        services.slice(0, slidesToShow).forEach(service => {
+            const slide = document.createElement('div');
+            slide.className = 'keen-slider__slide';
+            slide.innerHTML = `
+                <i class="fas fa-${service.icon} text-4xl text-accent mb-4"></i>
+                <h3 class="text-xl font-bold mb-2">${service.title}</h3>
+                <p>${service.description}</p>
+            `;
+            servicesSlider.appendChild(slide);
+        });
+
+        servicesKeenSlider = new KeenSlider('#services-slider', {
+            loop: true,
+            mode: "free-snap",
+            slides: {
+                perView: 1,
+                spacing: 15,
             },
-            "(min-width: 1024px)": {
-                slides: {
-                    perView: 3,
-                    spacing: 15,
+            breakpoints: {
+                "(min-width: 768px)": {
+                    slides: {
+                        perView: 2,
+                        spacing: 15,
+                    }
+                },
+                "(min-width: 1024px)": {
+                    slides: {
+                        perView: 3,
+                        spacing: 15,
+                    }
                 }
             }
+        });
+    }
+
+    initServicesSlider(3);
+
+    const verMasServiciosBtn = document.getElementById('ver-mas-servicios');
+    verMasServiciosBtn.addEventListener('click', function() {
+        if (services.length > 3) {
+            initServicesSlider(6);
+            this.style.display = 'none';
         }
     });
 
@@ -136,7 +156,7 @@ document.addEventListener('DOMContentLoaded', function() {
         created: function (instance) {
             setInterval(() => {
                 instance.next();
-            }, 5000); // Cambia cada 5 segundos
+            }, 5000);
         },
     });
 
@@ -194,6 +214,14 @@ document.addEventListener('DOMContentLoaded', function() {
         // Aquí puedes agregar la lógica para enviar el formulario
         alert('Gracias por tu mensaje. Nos pondremos en contacto contigo pronto.');
         contactForm.reset();
+    });
+
+    // Agendar reunión
+    const scheduleMeetingBtn = document.getElementById('schedule-meeting');
+    scheduleMeetingBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        const calendlyURL = 'https://calendly.com/tu-usuario/30min'; // Reemplaza con tu URL de Calendly
+        window.open(calendlyURL, '_blank');
     });
 
     // Smooth Scroll
