@@ -171,32 +171,26 @@ body {
     }
 }
 @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
-@keyframes spin-reverse {
-    0% { transform: rotate(360deg); }
-    100% { transform: rotate(0deg); }
-}
-
-.animate-spin {
-    animation: spin 2s linear infinite;
-}
-
-.animate-spin-reverse {
-    animation: spin-reverse 1.5s linear infinite;
-}
-
-#preloader {
-    transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
-}
-
-#preloader.hidden {
-    opacity: 0;
-    visibility: hidden;
-}
-
-.overflow-hidden {
-    overflow: hidden;
-}
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        @keyframes spin-reverse {
+            0% { transform: rotate(360deg); }
+            100% { transform: rotate(0deg); }
+        }
+        .animate-spin {
+            animation: spin 2s linear infinite;
+        }
+        .animate-spin-reverse {
+            animation: spin-reverse 1.5s linear infinite;
+        }
+        #preloader {
+            transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+        }
+        #preloader.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+        .overflow-hidden {
+            overflow: hidden;
+        }
