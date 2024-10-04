@@ -259,15 +259,21 @@ nav ul li a:hover {
     background-color: var(--color-beige);
 }
 
-.services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
+.services-slider {
+    position: relative;
+    overflow: hidden; /* Oculta el desbordamiento */
+}
+
+.services-track {
+    display: flex; /* Usar flexbox para el slider */
+    transition: transform 0.5s ease; /* Animación suave para el movimiento */
 }
 
 .service-item {
+    min-width: 250px; /* Ancho mínimo para cada elemento del servicio */
+    margin-right: 30px; /* Espacio entre los elementos */
     background-color: var(--color-secondary);
-    border-radius: 12px; /* Aumentar el borde redondeado */
+    border-radius: 12px; /* Mantener el borde redondeado */
     overflow: hidden;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Sombra más suave */
     transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
@@ -320,6 +326,26 @@ nav ul li a:hover {
     font-size: 1rem; /* Tamaño de texto estándar */
     color: var(--color-dark); /* Color más oscuro para el texto */
     line-height: 1.5; /* Aumentar el espaciado entre líneas */
+}
+
+/* Botones de navegación */
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.8);
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
 }
 
 /* Portfolio Section */
