@@ -4,13 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RNW Studio - Impulsa tu E-Commerce hacia el Éxito</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <div id="preloader">
         <div class="loader"></div>
+    </div>
+
+    <div id="top-banner" class="top-banner">
+        <div class="container">
+            <div class="banner-slider">
+                <div class="slide active">
+                    <p>¡Oferta especial! 20% de descuento en tu primer mes de servicios</p>
+                </div>
+                <div class="slide">
+                    <p>¡Nueva promoción! Consultoría gratuita para nuevos clientes</p>
+                </div>
+                <div class="slide">
+                    <p>¡Lanzamiento! Nuevo servicio de marketing de influencers</p>
+                </div>
+            </div>
+        </div>
     </div>
 
     <header>
@@ -28,6 +44,7 @@
                 <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
                 <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
                 <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-tiktok"></i></a>
             </div>
             <button class="nav-toggle" aria-label="Abrir menú">
                 <span></span>
@@ -67,32 +84,50 @@
             </div>
         </section>
 
+        <section id="presentacion" class="presentacion">
+            <div class="container">
+                <div class="video-container">
+                    <video autoplay loop muted playsinline>
+                        <source src="video/presentacion.mp4" type="video/mp4">
+                        Tu navegador no soporta el tag de video.
+                    </video>
+                </div>
+                <h2 class="section-title">AUMENTA TUS VENTAS, POSICIONÁ TU MARCA!</h2>
+                <a href="#contacto" class="btn btn-large">QUIERO AGENDAR UNA REUNIÓN</a>
+            </div>
+        </section>
+
         <section id="servicios" class="services">
             <div class="container">
                 <h2 class="section-title">Nuestros Servicios</h2>
                 <div class="services-grid">
                     <div class="service-item">
                         <div class="service-icon"><i class="fas fa-paint-brush"></i></div>
+                        <img src="images/service-branding.jpg" alt="Branding" class="service-image">
                         <h3>Branding</h3>
                         <p>Creamos una identidad de marca única y distintiva que se destaca en el mercado.</p>
                     </div>
                     <div class="service-item">
                         <div class="service-icon"><i class="fas fa-sync-alt"></i></div>
+                        <img src="images/service-rebranding.jpg" alt="Rebranding" class="service-image">
                         <h3>Rebranding</h3>
                         <p>Renovamos la identidad de marcas existentes para mantenerlas relevantes y en sintonía con el mercado.</p>
                     </div>
                     <div class="service-item">
                         <div class="service-icon"><i class="fas fa-camera"></i></div>
+                        <img src="images/service-produccion.jpg" alt="Producción & Estilismo" class="service-image">
                         <h3>Producción & Estilismo</h3>
                         <p>Planificamos y ejecutamos producciones de fotos y videos para crear contenido visual coherente y efectivo.</p>
                     </div>
                     <div class="service-item">
                         <div class="service-icon"><i class="fas fa-pencil-alt"></i></div>
+                        <img src="images/service-contenido.jpg" alt="Creación de Contenido" class="service-image">
                         <h3>Creación de Contenido</h3>
                         <p>Generamos material relevante y atractivo para promover tu marca y aumentar su visibilidad.</p>
                     </div>
                     <div class="service-item">
                         <div class="service-icon"><i class="fas fa-ad"></i></div>
+                        <img src="images/service-pauta.jpg" alt="Pauta Publicitaria" class="service-image">
                         <h3>Pauta Publicitaria</h3>
                         <p>Planificamos y ejecutamos estrategias publicitarias efectivas en diversos canales digitales.</p>
                     </div>
@@ -267,6 +302,7 @@
                         <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
                         <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
                         <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-tiktok"></i></a>
                     </div>
                 </div>
             </div>
@@ -277,6 +313,6 @@
         </div>
     </footer>
 
-    <script src="js/main.js"></script>
+    <script src="main.js"></script>
 </body>
 </html>
