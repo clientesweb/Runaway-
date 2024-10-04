@@ -63,6 +63,9 @@ body {
     padding: 0.5rem 0;
     text-align: center;
     font-weight: bold;
+    position: relative;
+    overflow: hidden;
+    height: 40px;
 }
 
 .top-banner .banner-slider {
@@ -75,8 +78,12 @@ body {
     top: 0;
     left: 0;
     width: 100%;
+    height: 100%;
     opacity: 0;
     transition: opacity 0.5s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .top-banner .slide.active {
@@ -139,6 +146,11 @@ nav ul li a {
 
 nav ul li a:hover {
     color: var(--color-accent);
+}
+
+.social-icons {
+    display: flex;
+    align-items: center;
 }
 
 .social-icons a {
@@ -232,11 +244,18 @@ h1, h2, h3, h4, h5, h6 {
 .video-container {
     max-width: 800px;
     margin: 0 auto 2rem;
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    height: 0;
+    overflow: hidden;
 }
 
-.video-container video {
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    height: auto;
+    height: 100%;
 }
 
 .btn-large {
@@ -535,4 +554,67 @@ footer {
 }
 
 /* Responsive Design */
-@media (max-width: 768px)
+@media (max-width: 768px) {
+    .nav-toggle {
+        display: block;
+    }
+
+    nav ul {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--color-primary);
+        flex-direction: column;
+        padding: 1rem 0;
+    }
+
+    nav ul.show {
+        display: flex;
+    }
+
+    nav ul li {
+        margin: 0.5rem 0;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .services-grid,
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .btn {
+        padding: 0.6rem 1.5rem;
+        font-size: 0.9rem;
+    }
+
+    .social-icons {
+        display: none;
+    }
+
+    .footer-social .social-icons {
+        display: flex;
+    }
+}
