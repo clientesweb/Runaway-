@@ -1,4 +1,3 @@
-// js/components/TopBanner.js
 export function TopBanner() {
   return `
     <div id="top-banner" class="slider">
