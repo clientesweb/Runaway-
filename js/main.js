@@ -1,112 +1,94 @@
-import { renderComponent } from './utils/renderComponent.js';
-import { TopBanner } from './components/TopBanner.js';
-import { Header } from './components/Header.js';
-import { Hero } from './components/Hero.js';
-import { About } from './components/About.js';
-import { Services } from './components/Services.js';
-import { Portfolio } from './components/Portfolio.js';
-import { WhyChooseUs } from './components/WhyChooseUs.js';
-import { Testimonials } from './components/Testimonials.js';
-import { Commitment } from './components/Commitment.js';
-import { Contact } from './components/Contact.js';
-import { AdBanner } from './components/AdBanner.js';
-import { Footer } from './components/Footer.js';
-
 document.addEventListener('DOMContentLoaded', () => {
-  renderComponent('#top-banner-container', TopBanner);
-  renderComponent('#header-container', Header);
-  renderComponent('#hero-container', Hero);
-  renderComponent('#about-container', About);
-  renderComponent('#services-container', Services);
-  renderComponent('#portfolio-container', Portfolio);
-  renderComponent('#why-choose-us-container', WhyChooseUs);
-  renderComponent('#testimonials-container', Testimonials);
-  renderComponent('#commitment-container', Commitment);
-  renderComponent('#contact-container', Contact);
-  renderComponent('#ad-banner-container', AdBanner);
-  renderComponent('#footer-container', Footer);
+    // Navegación responsive
+    const navToggle = document.querySelector('.nav-toggle');
+    const nav = document.querySelector('nav');
 
-  initializeSlider();
-  initializeScrollAnimations();
-  initializePortfolioFilters();
-  initializeContactForm();
-});
-
-function initializeSlider() {
-  const sliders = document.querySelectorAll('.slider');
-  sliders.forEach(slider => {
-    let currentSlide = 0;
-    const slides = slider.querySelectorAll('.slide');
-    
-    function showSlide(index) {
-      slides.forEach((slide, i) => {
-        slide.style.display = i === index ? 'block' : 'none';
-      });
-    }
-
-    function nextSlide() {
-      currentSlide = (currentSlide + 1) % slides.length;
-      showSlide(currentSlide);
-    }
-
-    setInterval(nextSlide, 5000);
-    showSlide(0);
-  });
-}
-
-function initializeScrollAnimations() {
-  const animatedElements = document.querySelectorAll('.animate-on-scroll');
-  
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('animated');
-      }
+    navToggle.addEventListener('click', () => {
+        nav.classList.toggle('active');
     });
-  }, { threshold: 0.1 });
 
-  animatedElements.forEach(el => observer.observe(el));
-}
+    // Cerrar menú al hacer clic en un enlace
+    const navLinks = document.querySelectorAll('nav a');
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            nav.classList.remove('active');
+        });
+    });
 
-function initializePortfolioFilters() {
-  const filterButtons = document.querySelectorAll('.filter-btn');
-  const portfolioItems = document.querySelectorAll('.portfolio-item');
+    // Animación de entrada para elementos
+    const animateOnScroll = () => {
+        const elements = document.querySelectorAll('.animate-on-scroll');
+        elements.forEach(element => {
+            const elementTop = element.getBoundingClientRect().top;
+            const elementBottom = element.getBoundingClientRect().bottom;
+            if (elementTop < window.innerHeight && elementBottom > 0) {
+                element.classList.add('animate');
+            }
+        });
+    };
 
-  filterButtons.forEach(button => {
-    button.addEventListener('click', () => {
-      const filter = button.getAttribute('data-filter');
-      
-      filterButtons.forEach(btn => btn.classList.remove('active'));
-      button.classList.add('active');
+    window.addEventListener('scroll', animateOnScroll);
+    animateOnScroll(); // Llamar inicialmente para animar elementos visibles
 
-      portfolioItems.forEach(item => {
-        if (filter === 'all' || item.classList.contains(filter)) {
-          item.style.display = 'block';
+    // Smooth scroll para enlaces internos
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+
+    // Animación del encabezado al hacer scroll
+    const header = document.querySelector('header');
+    let lastScrollTop = 0;
+
+    window.addEventListener('scroll', () => {
+        let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        if (scrollTop > lastScrollTop) {
+            header.style.transform = 'translateY(-100%)';
         } else {
-          item.style.display = 'none';
+            header.style.transform = 'translateY(0)';
         }
-      });
+        lastScrollTop = scrollTop;
     });
-  });
-}
 
-function initializeContactForm() {
-  const form = document.getElementById('contact-form');
-  if (form) {
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      console.log('Formulario enviado');
-      // Aquí puedes agregar la lógica para enviar el formulario
-    });
-  }
-}
+    // Slider para el hero
+    const heroSlider = document.querySelector('.hero.slider');
+    const heroSlides = heroSlider.querySelectorAll('.slide');
+    let currentHeroSlide = 0;
 
-// Inicializar la funcionalidad del botón de navegación móvil
-const navToggle = document.querySelector('.nav-toggle');
-const navMenu = document.querySelector('.nav-menu');
+    const showHeroSlide = (index) => {
+        heroSlides.forEach((slide, i) => {
+            slide.style.display = i === index ? 'block' : 'none';
+        });
+    };
 
-if (navToggle && navMenu) {
-  navToggle.addEventListener('click', () => {
-    navMenu.classList.toggle('active');
-  });
-}
+    const nextHeroSlide = () => {
+        currentHeroSlide = (currentHeroSlide + 1) % heroSlides.length;
+        showHeroSlide(currentHeroSlide);
+    };
+
+    setInterval(nextHeroSlide, 5000); // Cambiar slide cada 5 segundos
+    showHeroSlide(currentHeroSlide); // Mostrar el primer slide
+
+    // Slider para el top banner
+    const topBanner = document.querySelector('#top-banner');
+    const topBannerSlides = topBanner.querySelectorAll('.slide');
+    let currentTopBannerSlide = 0;
+
+    const showTopBannerSlide = (index) => {
+        topBannerSlides.forEach((slide, i) => {
+            slide.style.display = i === index ? 'block' : 'none';
+        });
+    };
+
+    const nextTopBannerSlide = () => {
+        currentTopBannerSlide = (currentTopBannerSlide + 1) % topBannerSlides.length;
+        showTopBannerSlide(currentTopBannerSlide);
+    };
+
+    setInterval(nextTopBannerSlide, 3000); // Cambiar slide cada 3 segundos
+    showTopBannerSlide(currentTopBannerSlide); // Mostrar el primer slide
+});
