@@ -511,6 +511,29 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+     // Función para cargar los Reels de Instagram
+function loadInstagramReels() {
+    const reelUrls = [
+        'https://www.instagram.com/reel/ABC123/',
+        'https://www.instagram.com/reel/DEF456/',
+        'https://www.instagram.com/reel/GHI789/',
+        'https://www.instagram.com/reel/JKL012/',
+        'https://www.instagram.com/reel/MNO345/',
+        // Agrega más URLs según sea necesario
+    ];
+
+    const slider = document.querySelector('.instagram-slider');
+
+    reelUrls.forEach(url => {
+        const reel = document.createElement('div');
+        reel.className = 'flex-none w-80 h-[600px] mx-4 scroll-item';
+        reel.innerHTML = `<iframe src="${url}embed" class="w-full h-full rounded-lg shadow-md" allowfullscreen></iframe>`;
+        slider.appendChild(reel);
+    });
+}
+
+// Cargar los Reels cuando el DOM esté listo
+document.addEventListener('DOMContentLoaded', loadInstagramReels);
 
 // Log a message to confirm the script has loaded
 console.log('Runway Studio script loaded successfully');
