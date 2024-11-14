@@ -514,11 +514,11 @@ document.addEventListener('DOMContentLoaded', function() {
      // Función para cargar los Reels de Instagram
 function loadInstagramReels() {
     const reelUrls = [
-        'https://www.instagram.com/reel/ABC123/',
-        'https://www.instagram.com/reel/DEF456/',
-        'https://www.instagram.com/reel/GHI789/',
-        'https://www.instagram.com/reel/JKL012/',
-        'https://www.instagram.com/reel/MNO345/',
+        'https://www.instagram.com/reel/C_jglFdRDLJ/',
+        'https://www.instagram.com/reel/C-Tl90fR7mQ/',
+        'https://www.instagram.com/reel/C9JBsXoRtHC/',
+        'https://www.instagram.com/reel/C8A2QJ2Rldf/',
+        'https://www.instagram.com/reel/C72gmHWRSLN/',
         // Agrega más URLs según sea necesario
     ];
 
