@@ -13,7 +13,6 @@
 }
 
 body {
-    font-family: 'Montserrat', sans-serif;
     background-color: var(--color-bg);
     color: var(--color-text);
     line-height: 1.6;
@@ -25,20 +24,40 @@ body {
     margin: 0 auto;
 }
 
+.montserrat {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.the-season-light {
+    font-family: 'The Season Light', sans-serif;
+    font-style: italic;
+}
+
 /* Header */
 header {
     background-color: var(--color-dark);
     color: var(--color-bg);
-    padding: 10px 0;
-}
-
-.promo-slider {
     overflow: hidden;
 }
 
-.promo-slide {
-    text-align: center;
-    padding: 5px 0;
+.top-banner-slider {
+    white-space: nowrap;
+    animation: slide 20s linear infinite;
+}
+
+.top-banner-slider .slide {
+    display: inline-block;
+    padding: 10px;
+    width: 100%;
+}
+
+@keyframes slide {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
 }
 
 /* Navigation */
@@ -102,7 +121,14 @@ nav .container {
     overflow: hidden;
 }
 
-.hero-slide {
+.hero-slider {
+    height: 100%;
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.hero-slider .slide {
+    flex: 0 0 100%;
     height: 100%;
     background-size: cover;
     background-position: center;
@@ -118,7 +144,7 @@ nav .container {
     background-color: rgba(0, 0, 0, 0.6);
 }
 
-.hero-content h1 {
+.hero-content h1, .hero-content h2 {
     font-size: 3em;
     margin-bottom: 20px;
 }
@@ -152,19 +178,21 @@ section h2 {
 /* Services */
 .services-slider {
     display: flex;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
+    overflow: hidden;
 }
 
 .service-card {
     flex: 0 0 300px;
     margin-right: 20px;
-    scroll-snap-align: start;
     background-color: var(--color-bg);
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
 }
 
 /* Portfolio */
@@ -172,13 +200,14 @@ section h2 {
     display: flex;
     justify-content: center;
     margin-bottom: 30px;
+    flex-wrap: wrap;
 }
 
 .filter-btn {
     background-color: var(--color-bg);
     border: none;
     padding: 10px 20px;
-    margin: 0 5px;
+    margin: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
@@ -370,5 +399,30 @@ footer {
 
     .social-links {
         display: none;
+    }
+
+    .hero-content h1, .hero-content h2 {
+        font-size: 2em;
+    }
+
+    .portfolio-filters {
+        flex-direction: column;
+    }
+
+    .filter-btn {
+        width: 100%;
+        margin: 5px 0;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .hero-content h1, .hero-content h2 {
+        font-size: 2.5em;
+    }
+}
+
+@media (min-width: 1025px) {
+    .hero-section {
+        height: 1080px;
     }
 }
