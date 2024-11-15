@@ -212,15 +212,14 @@ section h2 {
 }
 
 /* Services */
-.services-slider {
-    display: flex;
-    overflow: hidden;
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
     justify-content: center;
 }
 
 .service-card {
-    flex: 0 0 300px;
-    margin: 0 20px;
     background-color: var(--color-bg);
     border-radius: 10px;
     overflow: hidden;
@@ -487,6 +486,6 @@ footer {
 
 @media (min-width: 1025px) {
     .hero-section {
-        height: 1080px;
+        height: 100vh;
     }
 }
