@@ -121,15 +121,15 @@ document.addEventListener('DOMContentLoaded', function() {
     // Portfolio grid
     const portfolioData = [
         { title: "Branding 1", category: "branding", image: "images/branding.png", description: "Brainding para Bel Divano", link: "https://www.instagram.com/beldivano.shop?igsh=ZzV5YXYyeTVxZXJp" },
-        { title: "Branding 2", category: "branding", image: "path/to/branding2.jpg", description: "Descripción del proyecto de branding 2", link: "#" },
-        { title: "Branding 3", category: "branding", image: "path/to/branding3.jpg", description: "Descripción del proyecto de branding 3", link: "#" },
+        { title: "Branding 2", category: "branding", image: "images/branding2.jpg", description: "Descripción del proyecto de branding 2", link: "#" },
+        { title: "Branding 3", category: "branding", image: "images/branding3.jpg", description: "Descripción del proyecto de branding 3", link: "#" },
         { title: "Contenido 1", category: "contenido", image: "images/redes.png", description: "Descripción del proyecto de contenido 1", link: "#" },
         { title: "Contenido 2", category: "contenido", image: "images/redes1.png", description: "Descripción del proyecto de contenido 2", link: "#" },
         { title: "Producción 1", category: "produccion", image: "images/produccion.jpg", description: "Descripción del proyecto de producción 1", link: "#" },
-        { title: "Producción 2", category: "produccion", image: "path/to/produccion2.jpg", description: "Descripción del proyecto de producción 2", link: "#" },
-        { title: "Tienda 1", category: "tienda", image: "path/to/tienda1.jpg", description: "Descripción del proyecto de tienda online 1", link: "#" },
-        { title: "Pauta 1", category: "pauta", image: "path/to/pauta1.jpg", description: "Descripción del proyecto de pauta publicitaria 1", link: "#" },
-        { title: "Pauta 2", category: "pauta", image: "path/to/pauta2.jpg", description: "Descripción del proyecto de pauta publicitaria 2", link: "#" }
+        { title: "Producción 2", category: "produccion", image: "images/produccion2.jpg", description: "Descripción del proyecto de producción 2", link: "#" },
+        { title: "Tienda 1", category: "tienda", image: "images/tienda1.jpg", description: "Descripción del proyecto de tienda online 1", link: "#" },
+        { title: "Pauta 1", category: "pauta", image: "images/pauta1.jpg", description: "Descripción del proyecto de pauta publicitaria 1", link: "#" },
+        { title: "Pauta 2", category: "pauta", image: "images/pauta2.jpg", description: "Descripción del proyecto de pauta publicitaria 2", link: "#" }
     ];
 
     const portfolioGrid = document.querySelector('.portfolio-grid');
@@ -140,7 +140,7 @@ document.addEventListener('DOMContentLoaded', function() {
         portfolioItem.classList.add('portfolio-item');
         portfolioItem.dataset.category = item.category;
         portfolioItem.innerHTML = `
-            <img src="${item.image}" alt="${item.title}" loading="lazy">
+            <img src="images/placeholder.jpg" data-src="${item.image}" alt="${item.title}" loading="lazy">
         `;
         portfolioItem.addEventListener('click', () => openModal(item));
         return portfolioItem;
