@@ -23,10 +23,10 @@
 
     <div id="content">
         <header>
-            <div class="promo-slider">
-                <div class="promo-slide">¡Oferta especial! 20% de descuento en todos los servicios</div>
-                <div class="promo-slide">Nuevo servicio de consultoría gratuita</div>
-                <div class="promo-slide">¡Regístrate hoy y obtén un análisis de marca gratis!</div>
+            <div class="top-banner-slider">
+                <div class="slide">¡Oferta especial! 20% de descuento en todos los servicios</div>
+                <div class="slide">Nuevo servicio de consultoría gratuita</div>
+                <div class="slide">¡Regístrate hoy y obtén un análisis de marca gratis!</div>
             </div>
         </header>
 
@@ -39,11 +39,11 @@
                     <i class="fas fa-bars"></i>
                 </button>
                 <ul id="main-nav">
-                    <li><a href="#inicio">Inicio</a></li>
-                    <li><a href="#sobre-nosotros">Sobre Nosotros</a></li>
-                    <li><a href="#servicios">Servicios</a></li>
-                    <li><a href="#portfolio">Portfolio</a></li>
-                    <li><a href="#contacto">Contacto</a></li>
+                    <li><a href="#inicio" class="montserrat">Inicio</a></li>
+                    <li><a href="#sobre-nosotros" class="the-season-light">Sobre Nosotros</a></li>
+                    <li><a href="#servicios" class="montserrat">Servicios</a></li>
+                    <li><a href="#portfolio" class="the-season-light">Portfolio</a></li>
+                    <li><a href="#contacto" class="montserrat">Contacto</a></li>
                 </ul>
                 <div class="social-links">
                     <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
@@ -57,30 +57,43 @@
         <main>
             <section id="inicio" class="hero-section">
                 <div class="hero-slider">
-                    <div class="hero-slide" style="background-image: url('images/IMG_4414_jpg.jpg');">
+                    <div class="slide" style="background-image: url('images/IMG_4414_jpg.jpg');">
                         <div class="hero-content">
-                            <h1>Impulsá tu e-commerce hacia el éxito</h1>
-                            <p>Hacemos que tu marca destaque y tus ventas aumenten</p>
-                            <a href="#contacto" class="cta-button">Contáctanos</a>
+                            <h1 class="montserrat">Impulsá tu e-commerce hacia el éxito</h1>
+                            <p class="the-season-light">Hacemos que tu marca destaque y tus ventas aumenten</p>
+                            <a href="#contacto" class="cta-button montserrat">Contáctanos</a>
                         </div>
                     </div>
-                    <!-- Más slides aquí -->
+                    <div class="slide" style="background-image: url('images/IMG_4380_jpg.jpg');">
+                        <div class="hero-content">
+                            <h2 class="the-season-light">Diseño y desarrollo web</h2>
+                            <p class="montserrat">Creamos experiencias digitales que conviertan visitantes en clientes</p>
+                            <a href="#servicios" class="cta-button the-season-light">Nuestros Servicios</a>
+                        </div>
+                    </div>
+                    <div class="slide" style="background-image: url('images/IMG_7019.jpg');">
+                        <div class="hero-content">
+                            <h2 class="montserrat">Estrategias de Marketing digital</h2>
+                            <p class="the-season-light">Potenciamos tu presencia online</p>
+                            <a href="#portfolio" class="cta-button montserrat">Ver Portfolio</a>
+                        </div>
+                    </div>
                 </div>
             </section>
 
             <section id="sobre-nosotros">
                 <div class="container">
-                    <h2>Construimos identidades de marca que conectan</h2>
-                    <p>
+                    <h2 class="the-season-light">Construimos identidades de marca que conectan</h2>
+                    <p class="montserrat">
                         Nuestra agencia creativa se enfoca en dar vida a marcas auténticas y memorables. Desde la creación de identidad hasta su presencia en el mundo digital, trabajamos para que cada interacción refleje el propósito y visión de tu negocio.
                     </p>
-                    <a href="#" id="schedule-meeting" class="cta-button">QUIERO AGENDAR UNA REUNIÓN</a>
+                    <a href="#" id="schedule-meeting" class="cta-button the-season-light">QUIERO AGENDAR UNA REUNIÓN</a>
                 </div>
             </section>
 
             <section id="servicios">
                 <div class="container">
-                    <h2>Nuestros Servicios</h2>
+                    <h2 class="montserrat">Nuestros Servicios</h2>
                     <div class="services-slider">
                         <!-- Los servicios se cargarán dinámicamente con JavaScript -->
                     </div>
@@ -90,26 +103,31 @@
             <section id="banner-publicitario">
                 <div class="container">
                     <div class="ad-slider">
-                        <div class="ad-slide">
-                            <h2>¡Impulsa tu negocio ahora!</h2>
-                            <p>Obtén un 20% de descuento en tu primer proyecto con nosotros</p>
-                            <a href="#contacto" class="cta-button">¡Aprovecha esta oferta!</a>
+                        <div class="slide">
+                            <h2 class="the-season-light">¡Impulsa tu negocio ahora!</h2>
+                            <p class="montserrat">Obtén un 20% de descuento en tu primer proyecto con nosotros</p>
+                            <a href="#contacto" class="cta-button the-season-light">¡Aprovecha esta oferta!</a>
                         </div>
-                        <!-- Más slides aquí -->
+                        <div class="slide">
+                            <img src="images/ad-1.jpg" alt="Oferta especial">
+                        </div>
+                        <div class="slide">
+                            <img src="images/ad-2.jpg" alt="Nuevo servicio">
+                        </div>
                     </div>
                 </div>
             </section>
 
             <section id="portfolio">
                 <div class="container">
-                    <h2>Nuestro Portfolio</h2>
+                    <h2 class="the-season-light">Nuestro Portfolio</h2>
                     <div class="portfolio-filters">
-                        <button class="filter-btn" data-filter="all">Todos</button>
-                        <button class="filter-btn" data-filter="branding">Branding</button>
-                        <button class="filter-btn" data-filter="contenido">Creación de contenido</button>
-                        <button class="filter-btn" data-filter="produccion">Producción y estilismo</button>
-                        <button class="filter-btn" data-filter="tienda">Tienda online</button>
-                        <button class="filter-btn" data-filter="pauta">Pauta publicitaria</button>
+                        <button class="filter-btn montserrat" data-filter="all">Todos</button>
+                        <button class="filter-btn the-season-light" data-filter="branding">Branding</button>
+                        <button class="filter-btn montserrat" data-filter="contenido">Creación de contenido</button>
+                        <button class="filter-btn the-season-light" data-filter="produccion">Producción y estilismo</button>
+                        <button class="filter-btn montserrat" data-filter="tienda">Tienda online</button>
+                        <button class="filter-btn the-season-light" data-filter="pauta">Pauta publicitaria</button>
                     </div>
                     <div class="portfolio-grid">
                         <!-- Los elementos del portfolio se cargarán dinámicamente con JavaScript -->
@@ -119,18 +137,58 @@
 
             <section id="contacto">
                 <div class="container">
-                    <h2>Contáctanos</h2>
+                    <h2 class="the-season-light">Contáctanos</h2>
                     <form id="contact-form">
                         <div class="form-group">
-                            <label for="nombre">Nombre completo *</label>
+                            <label for="nombre" class="montserrat">Nombre completo *</label>
                             <input type="text" id="nombre" name="nombre" required>
                         </div>
                         <div class="form-group">
-                            <label for="whatsapp">WhatsApp *</label>
+                            <label for="whatsapp" class="the-season-light">WhatsApp *</label>
                             <input type="tel" id="whatsapp" name="whatsapp" required>
                         </div>
-                        <!-- Más campos del formulario aquí -->
-                        <button type="submit" class="submit-button">Enviar y Agendar Reunión</button>
+                        <div class="form-group">
+                            <label for="sitio-web" class="montserrat">Sitio Web *</label>
+                            <input type="url" id="sitio-web" name="sitio-web" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="pais" class="the-season-light">País</label>
+                            <input type="text" id="pais" name="pais">
+                        </div>
+                        <div class="form-group">
+                            <label for="servicios" class="montserrat">¿En qué servicios estás interesado?</label>
+                            <select id="servicios" name="servicios">
+                                <option value="branding">BRANDING</option>
+                                <option value="contenido">CREACIÓN DE CONTENIDO | PRODUCCIÓN & ESTILISMO</option>
+                                <option value="pauta">PAUTA PUBLICITARIA</option>
+                                <option value="todos">TODOS</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="anos-empresa" class="the-season-light">¿Cuántos años lleva la empresa en el mercado?</label>
+                            <input type="number" id="anos-empresa" name="anos-empresa">
+                        </div>
+                        <div class="form-group">
+                            <label for="facturacion" class="montserrat">¿Cuánto estás facturando por mes?</label>
+                            <select id="facturacion" name="facturacion">
+                                <option value="0-1000">0-1000 USD</option>
+                                <option value="1000-3000">1000 USD A 3000 USD</option>
+                                <option value="3000-5000">3000 USD A 5000 USD</option>
+                                <option value="5000-10000">5000 USD - 10.000 USD</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="inversion-previa" class="the-season-light">¿Alguna vez invertiste en pauta publicitaria?</label>
+                            <select id="inversion-previa" name="inversion-previa">
+                                <option value="si">Sí</option>
+                                <option value="no">No</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="inversion-futura" class="montserrat">¿Qué monto estarías dispuesto a invertir en pauta publicitaria?</label>
+                            <input type="number" id="inversion-futura" name="inversion-futura">
+                        </div>
+                        <button type="submit" class="submit-button the-season-light">Enviar y Agendar Reunión</button>
                     </form>
                 </div>
             </section>
@@ -141,27 +199,27 @@
                 <div class="footer-content">
                     <div class="footer-logo">
                         <img src="images/Logos_C-18.png" alt="RNW Studio" class="footer-logo-img">
-                        <p>Impulsando tu e-commerce hacia el éxito.</p>
+                        <p class="montserrat">Impulsando tu e-commerce hacia el éxito.</p>
                     </div>
                     <div class="footer-links">
-                        <h4>Enlaces rápidos</h4>
+                        <h4 class="the-season-light">Enlaces rápidos</h4>
                         <ul>
-                            <li><a href="#inicio">Inicio</a></li>
-                            <li><a href="#sobre-nosotros">Sobre Nosotros</a></li>
-                            <li><a href="#servicios">Servicios</a></li>
-                            <li><a href="#portfolio">Portfolio</a></li>
-                            <li><a href="#contacto">Contacto</a></li>
+                            <li><a href="#inicio" class="montserrat">Inicio</a></li>
+                            <li><a href="#sobre-nosotros" class="the-season-light">Sobre Nosotros</a></li>
+                            <li><a href="#servicios" class="montserrat">Servicios</a></li>
+                            <li><a href="#portfolio" class="the-season-light">Portfolio</a></li>
+                            <li><a href="#contacto" class="montserrat">Contacto</a></li>
                         </ul>
                     </div>
                     <div class="footer-contact">
-                        <h4>Contáctanos</h4>
-                        <p><i class="fab fa-tiktok"></i> TikTok: <a href="https://www.tiktok.com/@rnw.studio" target="_blank" rel="noopener noreferrer">@rnw.studio</a></p>
-                        <p><i class="fas fa-phone"></i> Teléfono: <a href="tel:3517323886">3517323886</a></p>
-                        <p><i class="fas fa-envelope"></i> Email: <a href="mailto:info@rnwstudio.com">info@rnwstudio.com</a></p>
-                        <p><i class="fab fa-instagram"></i> Instagram: <a href="https://www.instagram.com/rnw.studio" target="_blank" rel="noopener noreferrer">rnw.studio</a></p>
+                        <h4 class="the-season-light">Contáctanos</h4>
+                        <p class="montserrat"><i class="fab fa-tiktok"></i> TikTok: <a href="https://www.tiktok.com/@rnw.studio" target="_blank" rel="noopener noreferrer">@rnw.studio</a></p>
+                        <p class="the-season-light"><i class="fas fa-phone"></i> Teléfono: <a href="tel:3517323886">3517323886</a></p>
+                        <p class="montserrat"><i class="fas fa-envelope"></i> Email: <a href="mailto:info@rnwstudio.com">info@rnwstudio.com</a></p>
+                        <p class="the-season-light"><i class="fab fa-instagram"></i> Instagram: <a href="https://www.instagram.com/rnw.studio" target="_blank" rel="noopener noreferrer">rnw.studio</a></p>
                     </div>
                     <div class="footer-social">
-                        <h4>Síguenos</h4>
+                        <h4 class="the-season-light">Síguenos</h4>
                         <div class="social-icons">
                             <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
                             <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
@@ -171,8 +229,8 @@
                     </div>
                 </div>
                 <div class="footer-bottom">
-                    <p>&copy; 2024 RNW Studio. Todos los derechos reservados.</p>
-                    <p>Powered by <a href="https://dualitydomain.github.io/Dualitydomain/" target="_blank" rel="noopener noreferrer">Duality Domain</a></p>
+                    <p class="montserrat">&copy; 2024 RNW Studio. Todos los derechos reservados.</p>
+                    <p class="the-season-light">Powered by <a href="https://dualitydomain.github.io/Dualitydomain/" target="_blank" rel="noopener noreferrer">Duality Domain</a></p>
                 </div>
             </div>
         </footer>
@@ -185,10 +243,10 @@
     <div id="gallery-modal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
-            <h3 id="modal-title"></h3>
+            <h3 id="modal-title" class="the-season-light"></h3>
             <img id="modal-image" src="" alt="Proyecto">
-            <p id="modal-description"></p>
-            <a id="modal-link" href="#" target="_blank" rel="noopener noreferrer" class="cta-button">Ver Proyecto</a>
+            <p id="modal-description" class="montserrat"></p>
+            <a id="modal-link" href="#" target="_blank" rel="noopener noreferrer" class="cta-button the-season-light">Ver Proyecto</a>
         </div>
     </div>
 
