@@ -1,3 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;700&display=swap');
+@font-face {
+    font-family: 'The Season Light';
+    src: url('path/to/TheSeasonLight.woff2') format('woff2'),
+         url('path/to/TheSeasonLight.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 :root {
     --color-primary: #000000;
     --color-secondary: #FFFFFF;
@@ -5,6 +15,7 @@
     --color-background: #EFE7DA;
     --font-primary: 'Montserrat', sans-serif;
     --font-secondary: 'League Spartan', sans-serif;
+    --font-tertiary: 'The Season Light', sans-serif;
 }
 
 body {
@@ -32,6 +43,10 @@ h1, h2, h3, h4, h5, h6 {
 
 .font-secondary {
     font-family: var(--font-secondary);
+}
+
+.font-tertiary {
+    font-family: var(--font-tertiary);
 }
 
 .hero-section {
@@ -106,9 +121,15 @@ h1, h2, h3, h4, h5, h6 {
     animation: fadeIn 0.5s ease forwards;
 }
 
+.filter-btn {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.filter-btn:hover,
+.filter-btn:focus,
 .filter-btn.active {
-    background-color: var(--color-primary);
-    color: var(--color-secondary);
+    background-color: var(--color-accent);
+    color: var(--color-primary);
 }
 
 #promo-slider .keen-slider__slide {
@@ -340,11 +361,16 @@ a:hover, button:hover {
 
 /* Alternating font styles */
 .alternate-font {
+    font-family: var(--font-primary);
+    font-weight: 300;
+}
+
+.alternate-font:nth-child(2n) {
     font-family: var(--font-secondary);
     font-weight: 400;
 }
 
-.alternate-font:nth-child(even) {
-    font-family: var(--font-primary);
-    font-weight: 300;
+.alternate-font:nth-child(3n) {
+    font-family: var(--font-tertiary);
+    font-weight: normal;
 }
