@@ -125,230 +125,169 @@ document.addEventListener('DOMContentLoaded', function() {
         { title: "Branding 3", category: "branding", image: "path/to/branding3.jpg", description: "Descripción del proyecto de branding 3", link: "#" },
         { title: "Contenido 1", category: "contenido", image: "path/to/contenido1.jpg", description: "Descripción del proyecto de contenido 1", link: "#" },
         { title: "Contenido 2", category: "contenido", image: "path/to/contenido2.jpg", description: "Descripción del proyecto de contenido 2", link: "#" },
-        { title: "Contenido 3", category: "contenido", image: "path/to/contenido3.jpg", description: "Descripción del proyecto de contenido 3", link: "#" },
         { title: "Producción 1", category: "produccion", image: "path/to/produccion1.jpg", description: "Descripción del proyecto de producción 1", link: "#" },
         { title: "Producción 2", category: "produccion", image: "path/to/produccion2.jpg", description: "Descripción del proyecto de producción 2", link: "#" },
-        { title: "Producción 3", category: "produccion", image: "path/to/produccion3.jpg", description: "Descripción del proyecto de producción 3", link: "#" },
-        { title: "Rahco", category: "tienda", image: "path/to/rahco.jpg", description: "Tienda online para Rahco", link: "#" },
-        { title: "Edific", category: "tienda", image: "path/to/edific.jpg", description: "Tienda online para Edific", link: "#" },
-        { title: "Hakuna Sport", category: "tienda", image: "path/to/hakuna-sport.jpg", description: "Tienda online para Hakuna Sport", link: "#" },
+        { title: "Tienda 1", category: "tienda", image: "path/to/tienda1.jpg", description: "Descripción del proyecto de tienda online 1", link: "#" },
+        { title: "Pauta 1", category: "pauta", image: "path/to/pauta1.jpg", description: "Descripción del proyecto de pauta publicitaria 1", link: "#" },
+        { title: "Pauta 2", category: "pauta", image: "path/to/pauta2.jpg", description: "Descripción del proyecto de pauta publicitaria 2", link: "#" }
     ];
 
     const portfolioGrid = document.querySelector('.portfolio-grid');
     const filterButtons = document.querySelectorAll('.filter-btn');
 
-    function renderPortfolio(items) {
-        portfolioGrid.innerHTML = '';
-        items.forEach((item) => {
-            const portfolioItem = document.createElement('div');
-            portfolioItem.classList.add('portfolio-item');
-            portfolioItem.dataset.category = item.category;
-            portfolioItem.innerHTML = `
-                <img src="${item.image}" alt="${item.title}" loading="lazy">
-                <h3 class="the-season-light">${item.title}</h3>
-            `;
-            portfolioItem.addEventListener('click', () => openModal(item));
-            portfolioGrid.appendChild(portfolioItem);
-        });
+    function createPortfolioItem(item) {
+        const portfolioItem = document.createElement('div');
+        portfolioItem.classList.add('portfolio-item');
+        portfolioItem.dataset.category = item.category;
+        portfolioItem.innerHTML = `
+            <img src="${item.image}" alt="${item.title}" loading="lazy">
+        `;
+        portfolioItem.addEventListener('click', () => openModal(item));
+        return portfolioItem;
     }
 
-    renderPortfolio(portfolioData);
+    function filterPortfolio(category) {
+        const items = portfolioGrid.children;
+        for (let item of items) {
+            if (category === 'all' || item.dataset.category === category) {
+                item.style.display = 'block';
+            } else {
+                item.style.display = 'none';
+            }
+        }
+    }
 
-    filterButtons.forEach(button => {
+    portfolioData.forEach((item) => {
+        portfolioGrid.appendChild(createPortfolioItem(item));
+    });
+
+    filterButtons.forEach((button) => {
         button.addEventListener('click', () => {
-            const filter = button.dataset.filter;
             filterButtons.forEach(btn => btn.classList.remove('active'));
             button.classList.add('active');
-            if (filter === 'all') {
-                renderPortfolio(portfolioData);
-            } else {
-                const filteredItems = portfolioData.filter(item => item.category === filter);
-                renderPortfolio(filteredItems);
-            }
+            filterPortfolio(button.dataset.filter);
         });
     });
 
     // Modal functionality
     const modal = document.getElementById('gallery-modal');
-    const closeModal = document.getElementsByClassName('close')[0];
+    const modalTitle = document.getElementById('modal-title');
+    const modalImage = document.getElementById('modal-image');
+    const modalDescription = document.getElementById('modal-description');
+    const modalLink = document.getElementById('modal-link');
+    const closeButton = modal.querySelector('.close');
 
     function openModal(item) {
-        document.getElementById('modal-title').textContent = item.title;
-        const modalImage = document.getElementById('modal-image');
+        modalTitle.textContent = item.title;
         modalImage.src = item.image;
         modalImage.alt = item.title;
-        document.getElementById('modal-description').textContent = item.description;
-        document.getElementById('modal-link').href = item.link || '#';
+        modalDescription.textContent = item.description;
+        modalLink.href = item.link;
         modal.style.display = 'block';
-        document.body.style.overflow = 'hidden'; // Prevent scrolling when modal is open
-        
-        // Ajustar la imagen después de que se cargue
-        modalImage.onload = function() {
-            if (this.naturalHeight > window.innerHeight * 0.7) {
-                this.style.height = '70vh';
-                this.style.width = 'auto';
-            } else {
-                this.style.height = 'auto';
-                this.style.width = '100%';
-            }
-        }
+        document.body.style.overflow = 'hidden';
     }
 
-    closeModal.onclick = function() {
+    function closeModal() {
         modal.style.display = 'none';
-        document.body.style.overflow = ''; // Restore scrolling
+        document.body.style.overflow = 'auto';
     }
 
-    window.onclick = function(event) {
-        if (event.target == modal) {
-            modal.style.display = 'none';
-            document.body.style.overflow = ''; // Restore scrolling
-        }
-    }
-
-    window.addEventListener('resize', function() {
-        if (modal.style.display === 'block') {
-            const modalImage = document.getElementById('modal-image');
-            if (modalImage.naturalHeight > window.innerHeight * 0.7) {
-                modalImage.style.height = '70vh';
-                modalImage.style.width = 'auto';
-            } else {
-                modalImage.style.height = 'auto';
-                modalImage.style.width = '100%';
-            }
+    closeButton.addEventListener('click', closeModal);
+    window.addEventListener('click', (event) => {
+        if (event.target === modal) {
+            closeModal();
         }
     });
 
-    // Form submission
+    // Testimonial slider
+    const testimonials = [
+        { text: "RNW Studio transformó completamente nuestra presencia en línea. Su enfoque estratégico y creatividad nos ayudaron a destacar en un mercado competitivo.", author: "María G., CEO de TechSolutions" },
+        { text: "El equipo de RNW Studio no solo entendió nuestra visión, sino que la elevó a un nivel que no imaginábamos posible. Su trabajo en nuestro branding fue excepcional.", author: "Carlos R., Fundador de EcoLife" },
+        { text: "Desde que comenzamos a trabajar con RNW Studio, nuestras ventas en línea han aumentado significativamente. Su experiencia en marketing digital es invaluable.", author: "Laura M., Directora de Marketing en FashionNow" }
+    ];
+
+    const testimonialSlider = document.querySelector('.testimonial-slider');
+    let currentTestimonial = 0;
+
+    function createTestimonialSlide(testimonial) {
+        const slide = document.createElement('div');
+        slide.classList.add('testimonial-slide');
+        slide.innerHTML = `
+            <p class="montserrat">"${testimonial.text}"</p>
+            <p class="the-season-light author">- ${testimonial.author}</p>
+        `;
+        return slide;
+    }
+
+    testimonials.forEach(testimonial => {
+        testimonialSlider.appendChild(createTestimonialSlide(testimonial));
+    });
+
+    function nextTestimonial() {
+        currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+        testimonialSlider.style.transform = `translateX(-${currentTestimonial * 100}%)`;
+    }
+
+    setInterval(nextTestimonial, 8000);
+
+    // Form validation
     const contactForm = document.getElementById('contact-form');
     contactForm.addEventListener('submit', function(e) {
         e.preventDefault();
-        const formData = new FormData(contactForm);
-        fetch(contactForm.action, {
-            method: 'POST',
-            body: formData,
-            headers: {
-                'Accept': 'application/json'
-            }
-        }).then(response => {
-            if (response.ok) {
-                alert('Formulario enviado con éxito!');
-                contactForm.reset();
-            } else {
-                throw new Error('Error en el envío del formulario');
-            }
-        }).catch(error => {
-            alert('Hubo un problema al enviar el formulario. Por favor, inténtalo de nuevo.');
-        });
+        if (validateForm()) {
+            // Here you would typically send the form data to a server
+            alert('Formulario enviado con éxito. Nos pondremos en contacto contigo pronto.');
+            contactForm.reset();
+        }
     });
 
-    // Advertising banner slider
-    const adSlider = document.querySelector('.ad-slider');
-    const adSlides = adSlider.children;
-    let adCurrentSlide = 0;
-
-    function nextAdSlide() {
-        adSlides[adCurrentSlide].style.display = 'none';
-        adCurrentSlide = (adCurrentSlide + 1) % adSlides.length;
-        adSlides[adCurrentSlide].style.display = 'block';
+    function validateForm() {
+        let isValid = true;
+        const requiredFields = contactForm.querySelectorAll('[required]');
+        requiredFields.forEach(field => {
+            if (!field.value.trim()) {
+                isValid = false;
+                field.classList.add('error');
+            } else {
+                field.classList.remove('error');
+            }
+        });
+        return isValid;
     }
 
-    setInterval(nextAdSlide, 7000);
-
-    // Schedule meeting button
-    const scheduleMeetingBtn = document.getElementById('schedule-meeting');
-    scheduleMeetingBtn.addEventListener('click', function(e) {
-        e.preventDefault();
-        // Implementación de la funcionalidad de agendar una reunión
-        const userTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-        const currentDate = new Date().toISOString().split('T')[0];
-        const calendarUrl = `https://calendly.com/tu-usuario/30min?date=${currentDate}&timezone=${userTimeZone}`;
-        window.open(calendarUrl, '_blank');
-    });
-
-    // WhatsApp float button functionality
-    const whatsappFloat = document.querySelector('.whatsapp-float');
-    whatsappFloat.addEventListener('click', function(e) {
-        e.preventDefault();
-        window.open(this.href, '_blank');
-    });
-
-    // Lazy loading for images
-    const images = document.querySelectorAll('img[loading="lazy"]');
-    const config = {
-        rootMargin: '0px 0px 50px 0px',
-        threshold: 0
-    };
-
-    let observer = new IntersectionObserver(function (entries, self) {
+    // Lazy loading images
+    const lazyImages = document.querySelectorAll('img[loading="lazy"]');
+    const lazyImageObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                preloadImage(entry.target);
-                self.unobserve(entry.target);
+                const lazyImage = entry.target;
+                lazyImage.src = lazyImage.dataset.src;
+                lazyImage.classList.add('loaded');
+                observer.unobserve(lazyImage);
             }
         });
-    }, config);
-
-    images.forEach(image => {
-        observer.observe(image);
     });
 
-    function preloadImage(img) {
-        const src = img.getAttribute('src');
-        if (!src) { return; }
-        img.src = src;
+    lazyImages.forEach(image => lazyImageObserver.observe(image));
+
+    // Schedule meeting button
+    const scheduleButton = document.getElementById('schedule-meeting');
+    scheduleButton.addEventListener('click', function(e) {
+        e.preventDefault();
+        // Here you would typically open a scheduling tool or redirect to a scheduling page
+        alert('Funcionalidad de programación de reuniones aún no implementada. Por favor, contáctanos directamente.');
+    });
+
+    // Ad slider
+    const adSlider = document.querySelector('.ad-slider');
+    const adSlides = adSlider.children;
+    let currentAdSlide = 0;
+
+    function nextAdSlide() {
+        adSlides[currentAdSlide].style.display = 'none';
+        currentAdSlide = (currentAdSlide + 1) % adSlides.length;
+        adSlides[currentAdSlide].style.display = 'block';
     }
 
-    // Testimonial slider
-    const testimonialSlider = document.querySelector('.testimonial-slider');
-    if (testimonialSlider) {
-        const testimonials = [
-            { text: "RNW Studio transformó nuestra marca. Su enfoque creativo y estratégico nos ayudó a destacar en el mercado.", author: "Cliente Satisfecho 1" },
-            { text: "El equipo de RNW Studio es increíblemente profesional y talentoso. Superaron nuestras expectativas.", author: "Cliente Satisfecho 2" },
-            { text: "Gracias a RNW Studio, nuestra presencia en línea ha mejorado significativamente. Altamente recomendados.", author: "Cliente Satisfecho 3" }
-        ];
-
-        testimonials.forEach(testimonial => {
-            const testimonialElement = document.createElement('div');
-            testimonialElement.classList.add('testimonial');
-            testimonialElement.innerHTML = `
-                <p class="montserrat">"${testimonial.text}"</p>
-                <p class="the-season-light">- ${testimonial.author}</p>
-            `;
-            testimonialSlider.appendChild(testimonialElement);
-        });
-
-        let currentTestimonial = 0;
-        const testimonialElements = testimonialSlider.children;
-
-        function nextTestimonial() {
-            testimonialElements[currentTestimonial].style.display = 'none';
-            currentTestimonial = (currentTestimonial + 1) % testimonialElements.length;
-            testimonialElements[currentTestimonial].style.display = 'block';
-        }
-
-        setInterval(nextTestimonial, 5000);
-    }
-
-    // Scroll to top button
-    const scrollToTopButton = document.createElement('button');
-    scrollToTopButton.innerHTML = '&#8593;';
-    scrollToTopButton.setAttribute('aria-label', 'Volver arriba');
-    scrollToTopButton.classList.add('scroll-to-top');
-    document.body.appendChild(scrollToTopButton);
-
-    window.addEventListener('scroll', () => {
-        if (window.pageYOffset > 100) {
-            scrollToTopButton.classList.add('show');
-        } else {
-            scrollToTopButton.classList.remove('show');
-        }
-    });
-
-    scrollToTopButton.addEventListener('click', () => {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
-    });
+    setInterval(nextAdSlide, 10000);
 });
