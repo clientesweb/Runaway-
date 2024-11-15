@@ -9,268 +9,170 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.cdnfonts.com/css/the-season-light" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/keen-slider@6.8.5/keen-slider.min.css">
     <link rel="stylesheet" href="css/styles.css">
 </head>
-<body class="bg-custom-bg text-custom-text font-primary">
-    <div id="preloader" class="fixed inset-0 z-50 flex items-center justify-center bg-custom-bg-alt">
+<body>
+    <div id="preloader">
         <div class="preloader-content">
-            <div class="spinner">
-                <div class="double-bounce1"></div>
-                <div class="double-bounce2"></div>
-            </div>
+            <div class="spinner"></div>
             <img src="images/Logos_C-18.png" alt="RNW Studio Logo" class="logo" width="100" height="100">
-            <p class="loading-text font-secondary">Cargando<span class="dots"></span></p>
+            <p class="loading-text">Cargando<span class="dots"></span></p>
         </div>
     </div>
 
-    <div id="content" class="opacity-0 invisible">
-        <header class="bg-custom-bg-alt text-custom-title py-1">
-            <div class="container mx-auto px-4">
-                <div id="promo-slider" class="keen-slider">
-                    <div class="keen-slider__slide font-secondary">¡Oferta especial! 20% de descuento en todos los servicios</div>
-                    <div class="keen-slider__slide font-primary">Nuevo servicio de consultoría gratuita</div>
-                    <div class="keen-slider__slide font-secondary">¡Regístrate hoy y obtén un análisis de marca gratis!</div>
-                </div>
+    <div id="content">
+        <header>
+            <div class="promo-slider">
+                <div class="promo-slide">¡Oferta especial! 20% de descuento en todos los servicios</div>
+                <div class="promo-slide">Nuevo servicio de consultoría gratuita</div>
+                <div class="promo-slide">¡Regístrate hoy y obtén un análisis de marca gratis!</div>
             </div>
         </header>
 
-        <nav class="sticky top-0 z-40 bg-custom-bg-alt text-custom-text shadow-md">
-            <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-                <a href="#" class="flex items-center">
-                    <img src="images/Logos_B-10-removebg-preview.png" alt="RNW Studio" class="h-12 w-auto">
-                    <span class="sr-only">RNW Studio</span>
+        <nav>
+            <div class="container">
+                <a href="#" class="logo">
+                    <img src="images/Logos_B-10-removebg-preview.png" alt="RNW Studio" class="logo-img">
                 </a>
-                <button id="menu-toggle" class="md:hidden text-custom-text focus:outline-none">
+                <button id="menu-toggle" aria-label="Toggle menu">
                     <i class="fas fa-bars"></i>
                 </button>
-                <ul id="main-nav" class="hidden md:flex space-x-8">
-                    <li><a href="#inicio" class="text-custom-text hover:text-custom-hover transition-colors sliding-element font-primary">Inicio</a></li>
-                    <li><a href="#sobre-nosotros" class="text-custom-text hover:text-custom-hover transition-colors sliding-element font-secondary">Sobre Nosotros</a></li>
-                    <li><a href="#servicios" class="text-custom-text hover:text-custom-hover transition-colors sliding-element font-primary">Servicios</a></li>
-                    <li><a href="#portfolio" class="text-custom-text hover:text-custom-hover transition-colors sliding-element font-secondary">Portfolio</a></li>
-                    <li><a href="#contacto" class="text-custom-text hover:text-custom-hover transition-colors sliding-element font-primary">Contacto</a></li>
+                <ul id="main-nav">
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#sobre-nosotros">Sobre Nosotros</a></li>
+                    <li><a href="#servicios">Servicios</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
                 </ul>
-                <div class="hidden md:flex space-x-4">
-                    <a href="#" class="text-custom-text hover:text-custom-hover transition-colors"><i class="fab fa-facebook"></i></a>
-                    <a href="#" class="text-custom-text hover:text-custom-hover transition-colors"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="text-custom-text hover:text-custom-hover transition-colors"><i class="fab fa-linkedin"></i></a>
-                    <a href="#" class="text-custom-text hover:text-custom-hover transition-colors"><i class="fab fa-tiktok"></i></a>
-                </div>
-            </div>
-            <div id="mobile-nav" class="md:hidden bg-custom-bg-alt hidden">
-                <ul>
-                    <li><a href="#inicio" class="block py-2 px-4 text-custom-text hover:bg-custom-hover hover:text-custom-bg-alt font-primary">Inicio</a></li>
-                    <li><a href="#sobre-nosotros" class="block py-2 px-4 text-custom-text hover:bg-custom-hover hover:text-custom-bg-alt font-secondary">Sobre Nosotros</a></li>
-                    <li><a href="#servicios" class="block py-2 px-4 text-custom-text hover:bg-custom-hover hover:text-custom-bg-alt font-primary">Servicios</a></li>
-                    <li><a href="#portfolio" class="block py-2 px-4 text-custom-text hover:bg-custom-hover hover:text-custom-bg-alt font-secondary">Portfolio</a></li>
-                    <li><a href="#contacto" class="block py-2 px-4 text-custom-text hover:bg-custom-hover hover:text-custom-bg-alt font-primary">Contacto</a></li>
-                </ul>
-                <div class="flex justify-center space-x-4 py-2">
-                    <a href="#" class="text-custom-text hover:text-custom-hover transition-colors"><i class="fab fa-facebook"></i></a>
-                    <a href="#" class="text-custom-text hover:text-custom-hover transition-colors"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="text-custom-text hover:text-custom-hover transition-colors"><i class="fab fa-linkedin"></i></a>
-                    <a href="#" class="text-custom-text hover:text-custom-hover transition-colors"><i class="fab fa-tiktok"></i></a>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
                 </div>
             </div>
         </nav>
 
         <main>
-            <section id="inicio" class="hero-section bg-custom-bg-alt text-custom-text">
-                <div id="hero-slider" class="keen-slider">
-                    <div class="keen-slider__slide" style="background-image: url('images/IMG_4414_jpg.jpg');">
-                        <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50">
-                            <div class="text-center">
-                                <h1 class="text-5xl md:text-6xl font-bold mb-4 animate-fade-in font-primary">Impulsá tu e-commerce hacia el éxito</h1>
-                                <p class="text-xl mb-8 animate-fade-in font-secondary">Hacemos que tu marca destaque y tus ventas aumenten</p>
-                                <a href="#contacto" class="bg-custom-hover text-custom-bg-alt font-bold py-3 px-8 rounded-full text-lg hover:bg-custom-text hover:text-custom-bg transition duration-300 font-primary">Contáctanos</a>
-                            </div>
+            <section id="inicio" class="hero-section">
+                <div class="hero-slider">
+                    <div class="hero-slide" style="background-image: url('images/IMG_4414_jpg.jpg');">
+                        <div class="hero-content">
+                            <h1>Impulsá tu e-commerce hacia el éxito</h1>
+                            <p>Hacemos que tu marca destaque y tus ventas aumenten</p>
+                            <a href="#contacto" class="cta-button">Contáctanos</a>
                         </div>
                     </div>
-                    <div class="keen-slider__slide" style="background-image: url('images/IMG_4380_jpg.jpg');">
-                        <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50">
-                            <div class="text-center">
-                                <h2 class="text-5xl md:text-6xl font-bold mb-4 animate-fade-in font-secondary">Diseño y desarrollo web</h2>
-                                <p class="text-xl mb-8 animate-fade-in font-primary">Creamos experiencias digitales que conviertan visitantes en clientes</p>
-                                <a href="#servicios" class="bg-custom-hover text-custom-bg-alt font-bold py-3 px-8 rounded-full text-lg hover:bg-custom-text hover:text-custom-bg transition duration-300 font-secondary">Nuestros Servicios</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="keen-slider__slide" style="background-image: url('images/IMG_7019.jpg');">
-                        <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50">
-                            <div class="text-center">
-                                <h2 class="text-5xl md:text-6xl font-bold mb-4 animate-fade-in font-primary">Estrategias de Marketing digital</h2>
-                                <p class="text-xl mb-8 animate-fade-in font-secondary">Potenciamos tu presencia online</p>
-                                <a href="#portfolio" class="bg-custom-hover text-custom-bg-alt font-bold py-3 px-8 rounded-full text-lg hover:bg-custom-text hover:text-custom-bg transition duration-300 font-primary">Ver Portfolio</a>
-                            </div>
-                        </div>
-                    </div>
+                    <!-- Más slides aquí -->
                 </div>
             </section>
 
-            <section id="sobre-nosotros" class="py-20">
-                <div class="container mx-auto px-4">
-                    <div class="max-w-4xl mx-auto">
-                        <h2 class="text-4xl font-bold text-center mb-8 font-secondary text-custom-title">Construimos identidades de marca que conectan</h2>
-                        <p class="text-lg mb-8 text-center font-primary">
-                            Nuestra agencia creativa se enfoca en dar vida a marcas auténticas y memorables. Desde la creación de identidad hasta su presencia en el mundo digital, trabajamos para que cada interacción refleje el propósito y visión de tu negocio.
-                        </p>
-                        <div class="text-center">
-                            <a href="#" id="schedule-meeting" class="bg-custom-hover text-custom-bg-alt font-bold py-3 px-8 rounded-full text-lg hover:bg-custom-text hover:text-custom-bg transition duration-300 font-secondary">QUIERO AGENDAR UNA REUNIÓN</a>
-                        </div>
-                    </div>
+            <section id="sobre-nosotros">
+                <div class="container">
+                    <h2>Construimos identidades de marca que conectan</h2>
+                    <p>
+                        Nuestra agencia creativa se enfoca en dar vida a marcas auténticas y memorables. Desde la creación de identidad hasta su presencia en el mundo digital, trabajamos para que cada interacción refleje el propósito y visión de tu negocio.
+                    </p>
+                    <a href="#" id="schedule-meeting" class="cta-button">QUIERO AGENDAR UNA REUNIÓN</a>
                 </div>
             </section>
 
-            <section id="servicios" class="py-20 bg-custom-bg-alt">
-                <div class="container mx-auto px-4">
-                    <h2 class="text-4xl font-bold text-center mb-12 font-primary text-custom-title">Nuestros Servicios</h2>
-                    <div id="services-slider" class="keen-slider">
+            <section id="servicios">
+                <div class="container">
+                    <h2>Nuestros Servicios</h2>
+                    <div class="services-slider">
                         <!-- Los servicios se cargarán dinámicamente con JavaScript -->
                     </div>
                 </div>
             </section>
 
-            <section id="banner-publicitario" class="py-12 bg-custom-hover">
-                <div class="container mx-auto px-4">
-                    <div id="ad-slider" class="keen-slider">
-                        <div class="keen-slider__slide">
-                            <div class="text-center">
-                                <h2 class="text-3xl font-bold mb-4 font-secondary text-custom-bg-alt">¡Impulsa tu negocio ahora!</h2>
-                                <p class="text-xl mb-8 font-primary text-custom-bg-alt">Obtén un 20% de descuento en tu primer proyecto con nosotros</p>
-                                <a href="#contacto" class="bg-custom-bg-alt text-custom-text font-bold py-3 px-8 rounded-full text-lg hover:bg-custom-text hover:text-custom-bg transition duration-300 font-secondary">¡Aprovecha esta oferta!</a>
-                            </div>
+            <section id="banner-publicitario">
+                <div class="container">
+                    <div class="ad-slider">
+                        <div class="ad-slide">
+                            <h2>¡Impulsa tu negocio ahora!</h2>
+                            <p>Obtén un 20% de descuento en tu primer proyecto con nosotros</p>
+                            <a href="#contacto" class="cta-button">¡Aprovecha esta oferta!</a>
                         </div>
-                        <div class="keen-slider__slide">
-                            <img src="images/ad-1.jpg" alt="Oferta especial" class="w-full h-64 object-cover rounded-lg">
-                        </div>
-                        <div class="keen-slider__slide">
-                            <img src="images/ad-2.jpg" alt="Nuevo servicio" class="w-full h-64 object-cover rounded-lg">
-                        </div>
+                        <!-- Más slides aquí -->
                     </div>
                 </div>
             </section>
 
-            <section id="portfolio" class="py-20">
-                <div class="container mx-auto px-4">
-                    <h2 class="text-4xl font-bold text-center mb-12 font-secondary text-custom-title">Nuestro Portfolio</h2>
-                    <div class="flex flex-wrap justify-center gap-4 mb-8">
-                        <button class="filter-btn px-4 py-2 rounded-full bg-custom-bg-alt text-custom-text font-primary" data-filter="all">Todos</button>
-                        <button class="filter-btn px-4 py-2 rounded-full bg-custom-bg text-custom-text font-secondary" data-filter="branding">Branding</button>
-                        <button class="filter-btn px-4 py-2 rounded-full bg-custom-bg text-custom-text font-primary" data-filter="contenido">Creación de contenido</button>
-                        <button class="filter-btn px-4 py-2 rounded-full bg-custom-bg text-custom-text font-secondary" data-filter="produccion">Producción y estilismo</button>
-                        <button class="filter-btn px-4 py-2 rounded-full bg-custom-bg text-custom-text font-primary" data-filter="tienda">Tienda online</button>
-                        <button class="filter-btn px-4 py-2 rounded-full bg-custom-bg text-custom-text font-secondary" data-filter="pauta">Pauta publicitaria</button>
+            <section id="portfolio">
+                <div class="container">
+                    <h2>Nuestro Portfolio</h2>
+                    <div class="portfolio-filters">
+                        <button class="filter-btn" data-filter="all">Todos</button>
+                        <button class="filter-btn" data-filter="branding">Branding</button>
+                        <button class="filter-btn" data-filter="contenido">Creación de contenido</button>
+                        <button class="filter-btn" data-filter="produccion">Producción y estilismo</button>
+                        <button class="filter-btn" data-filter="tienda">Tienda online</button>
+                        <button class="filter-btn" data-filter="pauta">Pauta publicitaria</button>
                     </div>
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="portfolio-grid">
+                    <div class="portfolio-grid">
                         <!-- Los elementos del portfolio se cargarán dinámicamente con JavaScript -->
                     </div>
                 </div>
             </section>
 
-            <section id="contacto" class="py-20 bg-custom-bg-alt">
-                <div class="container mx-auto px-4">
-                    <h2 class="text-4xl font-bold text-center mb-12 font-secondary text-custom-title">Contáctanos</h2>
-                    <div class="max-w-4xl mx-auto bg-custom-bg p-8 rounded-lg shadow-lg">
-                        <h3 class="text-2xl font-bold text-center mb-8 font-primary text-custom-title">Completa el formulario y programemos nuestra primera reunión para empezar a trabajar juntos!</h3>
-                        <form id="contact-form" class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div>
-                                <label for="nombre" class="block text-custom-text text-sm font-bold mb-2 font-secondary">Nombre completo *</label>
-                                <input type="text" id="nombre" name="nombre" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-custom-hover" required>
-                            </div>
-                            <div>
-                                <label for="whatsapp" class="block text-custom-text text-sm font-bold mb-2 font-primary">WhatsApp *</label>
-                                <input type="tel" id="whatsapp" name="whatsapp" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-custom-hover" required>
-                            </div>
-                            <div>
-                                <label for="sitio-web" class="block text-custom-text text-sm font-bold mb-2 font-secondary">Sitio Web *</label>
-                                <input type="url" id="sitio-web" name="sitio-web" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-custom-hover" required>
-                            </div>
-                            <div>
-                                <label for="pais" class="block text-custom-text text-sm font-bold mb-2 font-primary">País</label>
-                                <input type="text" id="pais" name="pais" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-custom-hover">
-                            </div>
-                            <div>
-                                <label for="servicios" class="block text-custom-text text-sm font-bold mb-2 font-secondary">¿En qué servicios estás interesado?</label>
-                                <select id="servicios" name="servicios" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-custom-hover">
-                                    <option value="branding">BRANDING</option>
-                                    <option value="contenido">CREACIÓN DE CONTENIDO | PRODUCCIÓN & ESTILISMO</option>
-                                    <option value="pauta">PAUTA PUBLICITARIA</option>
-                                    <option value="todos">TODOS</option>
-                                </select>
-                            </div>
-                            <div>
-                                <label for="anos-empresa" class="block text-custom-text text-sm font-bold mb-2 font-primary">¿Cuántos años lleva la empresa en el mercado?</label>
-                                <input type="number" id="anos-empresa" name="anos-empresa" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-custom-hover">
-                            </div>
-                            <div>
-                                <label for="facturacion" class="block text-custom-text text-sm font-bold mb-2 font-secondary">¿Cuánto estás facturando por mes?</label>
-                                <select id="facturacion" name="facturacion" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-custom-hover">
-                                    <option value="0-1000">0-1000 USD</option>
-                                    <option value="1000-3000">1000 USD A 3000 USD</option>
-                                    <option value="3000-5000">3000 USD A 5000 USD</option>
-                                    <option value="5000-10000">5000 USD - 10.000 USD</option>
-                                </select>
-                            </div>
-                            <div>
-                                <label for="inversion-previa" class="block text-custom-text text-sm font-bold mb-2 font-primary">¿Alguna vez invertiste en pauta publicitaria?</label>
-                                <select id="inversion-previa" name="inversion-previa" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-custom-hover">
-                                    <option value="si">Sí</option>
-                                    <option value="no">No</option>
-                                </select>
-                            </div>
-                            <div>
-                                <label for="inversion-futura" class="block text-custom-text text-sm font-bold mb-2 font-secondary">¿Qué monto estarías dispuesto a invertir en pauta publicitaria?</label>
-                                <input type="number" id="inversion-futura" name="inversion-futura" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-custom-hover">
-                            </div>
-                            <div class="md:col-span-2">
-                                <button type="submit" class="w-full bg-custom-hover text-custom-bg-alt font-bold py-3 px-4 rounded-lg hover:bg-custom-text hover:text-custom-bg transition duration-300 font-primary">Enviar y Agendar Reunión</button>
-                            </div>
-                        </form>
-                    </div>
+            <section id="contacto">
+                <div class="container">
+                    <h2>Contáctanos</h2>
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <label for="nombre">Nombre completo *</label>
+                            <input type="text" id="nombre" name="nombre" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="whatsapp">WhatsApp *</label>
+                            <input type="tel" id="whatsapp" name="whatsapp" required>
+                        </div>
+                        <!-- Más campos del formulario aquí -->
+                        <button type="submit" class="submit-button">Enviar y Agendar Reunión</button>
+                    </form>
                 </div>
             </section>
         </main>
 
-        <footer class="bg-custom-bg-alt text-custom-text py-12">
-            <div class="container mx-auto px-4">
-                <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                    <div>
-                        <img src="images/Logos_C-18.png" alt="RNW Studio" class="h-17 w-auto mb-4">
-                        <p class="text-sm font-primary">Impulsando tu e-commerce hacia el éxito.</p>
+        <footer>
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-logo">
+                        <img src="images/Logos_C-18.png" alt="RNW Studio" class="footer-logo-img">
+                        <p>Impulsando tu e-commerce hacia el éxito.</p>
                     </div>
-                    <div>
-                        <h4 class="text-lg font-bold mb-4 font-secondary text-custom-title">Enlaces rápidos</h4>
-                        <ul class="space-y-2">
-                            <li><a href="#inicio" class="hover:text-custom-hover transition-colors sliding-element font-primary">Inicio</a></li>
-                            <li><a href="#sobre-nosotros" class="hover:text-custom-hover transition-colors sliding-element font-secondary">Sobre Nosotros</a></li>
-                            <li><a href="#servicios" class="hover:text-custom-hover transition-colors sliding-element font-primary">Servicios</a></li>
-                            <li><a href="#portfolio" class="hover:text-custom-hover transition-colors sliding-element font-secondary">Portfolio</a></li>
-                            <li><a href="#contacto" class="hover:text-custom-hover transition-colors sliding-element font-primary">Contacto</a></li>
+                    <div class="footer-links">
+                        <h4>Enlaces rápidos</h4>
+                        <ul>
+                            <li><a href="#inicio">Inicio</a></li>
+                            <li><a href="#sobre-nosotros">Sobre Nosotros</a></li>
+                            <li><a href="#servicios">Servicios</a></li>
+                            <li><a href="#portfolio">Portfolio</a></li>
+                            <li><a href="#contacto">Contacto</a></li>
                         </ul>
                     </div>
-                    <div>
-                        <h4 class="text-lg font-bold mb-4 font-secondary text-custom-title">Contáctanos</h4>
-                        <p class="font-primary"><i class="fab fa-tiktok mr-2"></i>TikTok: <a href="https://www.tiktok.com/@rnw.studio" target="_blank" rel="noopener noreferrer" class="hover:text-custom-hover transition-colors">@rnw.studio</a></p>
-                        <p class="font-secondary"><i class="fas fa-phone mr-2"></i>Teléfono: <a href="tel:3517323886" class="hover:text-custom-hover transition-colors">3517323886</a></p>
-                        <p class="font-primary"><i class="fas fa-envelope mr-2"></i>Email: <a href="mailto:info@rnwstudio.com" class="hover:text-custom-hover transition-colors">info@rnwstudio.com</a></p>
-                        <p class="font-secondary"><i class="fab fa-instagram mr-2"></i>Instagram: <a href="https://www.instagram.com/rnw.studio" target="_blank" rel="noopener noreferrer" class="hover:text-custom-hover transition-colors">rnw.studio</a></p>
+                    <div class="footer-contact">
+                        <h4>Contáctanos</h4>
+                        <p><i class="fab fa-tiktok"></i> TikTok: <a href="https://www.tiktok.com/@rnw.studio" target="_blank" rel="noopener noreferrer">@rnw.studio</a></p>
+                        <p><i class="fas fa-phone"></i> Teléfono: <a href="tel:3517323886">3517323886</a></p>
+                        <p><i class="fas fa-envelope"></i> Email: <a href="mailto:info@rnwstudio.com">info@rnwstudio.com</a></p>
+                        <p><i class="fab fa-instagram"></i> Instagram: <a href="https://www.instagram.com/rnw.studio" target="_blank" rel="noopener noreferrer">rnw.studio</a></p>
                     </div>
-                    <div>
-                        <h4 class="text-lg font-bold mb-4 font-secondary text-custom-title">Síguenos</h4>
-                        <div class="flex space-x-4">
-                            <a href="#" class="text-custom-text hover:text-custom-hover transition-colors" aria-label="Facebook"><i class="fab fa-facebook text-2xl"></i></a>
-                            <a href="#" class="text-custom-text hover:text-custom-hover transition-colors" aria-label="Instagram"><i class="fab fa-instagram text-2xl"></i></a>
-                            <a href="#" class="text-custom-text hover:text-custom-hover transition-colors" aria-label="LinkedIn"><i class="fab fa-linkedin text-2xl"></i></a>
-                            <a href="#" class="text-custom-text hover:text-custom-hover transition-colors" aria-label="TikTok"><i class="fab fa-tiktok text-2xl"></i></a>
+                    <div class="footer-social">
+                        <h4>Síguenos</h4>
+                        <div class="social-icons">
+                            <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
                         </div>
                     </div>
                 </div>
-                <div class="mt-8 text-center">
-                    <p class="font-primary">&copy; 2024 RNW Studio. Todos los derechos reservados.</p>
-                    <p class="font-secondary">Powered by <a href="https://dualitydomain.github.io/Dualitydomain/" target="_blank" rel="noopener noreferrer" class="text-custom-hover hover:underline">Duality Domain</a></p>
+                <div class="footer-bottom">
+                    <p>&copy; 2024 RNW Studio. Todos los derechos reservados.</p>
+                    <p>Powered by <a href="https://dualitydomain.github.io/Dualitydomain/" target="_blank" rel="noopener noreferrer">Duality Domain</a></p>
                 </div>
             </div>
         </footer>
@@ -280,22 +182,16 @@
         </a>
     </div>
 
-    <!-- Modal de Galería -->
-    <div id="gallery-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
-        <div class="bg-custom-bg p-8 rounded-lg max-w-3xl w-full mx-4">
-            <div class="flex justify-between items-center mb-4">
-                <h3 id="modal-title" class="text-2xl font-bold font-secondary text-custom-title"></h3>
-                <button id="close-modal" class="text-custom-text hover:text-custom-hover">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-            <img id="modal-image" src="" alt="Proyecto" class="w-full h-auto mb-4 rounded-lg">
-            <p id="modal-description" class="text-custom-text mb-4 font-primary"></p>
-            <a id="modal-link" href="#" target="_blank" rel="noopener noreferrer" class="bg-custom-hover text-custom-bg-alt font-bold py-2 px-4 rounded-lg hover:bg-custom-text hover:text-custom-bg transition duration-300 font-secondary">Ver Proyecto</a>
+    <div id="gallery-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3 id="modal-title"></h3>
+            <img id="modal-image" src="" alt="Proyecto">
+            <p id="modal-description"></p>
+            <a id="modal-link" href="#" target="_blank" rel="noopener noreferrer" class="cta-button">Ver Proyecto</a>
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/keen-slider@6.8.5/keen-slider.min.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>
