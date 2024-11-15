@@ -1,232 +1,18 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Preloader
-    const preloader = document.getElementById('preloader');
-    const content = document.getElementById('content');
-
     window.addEventListener('load', function() {
-        setTimeout(function() {
-            preloader.classList.add('hidden');
-            content.classList.add('visible');
-            document.body.classList.remove('overflow-hidden');
-        }, 2000);
+        document.getElementById('preloader').style.display = 'none';
+        document.getElementById('content').style.opacity = '1';
     });
 
-    // Mobile menu
+    // Mobile menu toggle
     const menuToggle = document.getElementById('menu-toggle');
-    const mobileNav = document.getElementById('mobile-nav');
-
+    const mainNav = document.getElementById('main-nav');
     menuToggle.addEventListener('click', function() {
-        mobileNav.classList.toggle('active');
+        mainNav.classList.toggle('active');
     });
 
-    // Close mobile menu when clicking a link
-    const mobileNavLinks = mobileNav.querySelectorAll('a');
-    mobileNavLinks.forEach(link => {
-        link.addEventListener('click', function() {
-            mobileNav.classList.remove('active');
-        });
-    });
-
-    // Promo Banner Slider
-    new KeenSlider('#promo-slider', {
-        loop: true,
-        mode: "free",
-        slides: {
-            perView: 1,
-            spacing: 15,
-        },
-        created: function (instance) {
-            setInterval(() => {
-                instance.next();
-            }, 3000);
-        },
-    });
-
-    // Hero Slider
-    new KeenSlider('#hero-slider', {
-        loop: true,
-        mode: "fade",
-        duration: 3000,
-        dragStart: () => false,
-        dragEnd: () => false,
-        created: function (instance) {
-            setInterval(() => {
-                instance.next();
-            }, 5000);
-        },
-    });
-
-    // Services
-    const services = [
-        {
-            icon: 'paint-brush',
-            title: 'Branding',
-            description: 'Creamos una identidad de marca única y distintiva que se destaca en el mercado.'
-        },
-        {
-            icon: 'sync-alt',
-            title: 'Rebranding',
-            description: 'Renovamos la identidad de marcas existentes para mantenerlas relevantes y en sintonía con el mercado.'
-        },
-        {
-            icon: 'camera',
-            title: 'Producción & Estilismo',
-            description: 'Planificamos y ejecutamos producciones de fotos y videos para crear contenido visual coherente y efectivo.'
-        },
-        {
-            icon: 'comments',
-            title: 'Gestión de Contenido y Redes Sociales',
-            description: 'Desarrollamos y gestionamos contenido visual y escrito que refleja la identidad de tu marca, construyendo una presencia sólida y coherente en redes sociales.'
-        },
-        {
-            icon: 'users',
-            title: 'Community Manager',
-            description: 'Administramos y gestionamos la presencia de tu marca en redes sociales.'
-        },
-        {
-            icon: 'ad',
-            title: 'Paid Media',
-            description: 'Gestionamos la publicidad estratégica en plataformas clave, optimizando la visibilidad y alcance de tu marca.'
-        },
-        {
-            icon: 'laptop-code',
-            title: 'Website',
-            description: 'Desarrollo de sitios web funcionales y atractivos, pensados para brindar una experiencia de usuario fluida.'
-        }
-    ];
-
-    const servicesSlider = document.getElementById('services-slider');
-    let servicesKeenSlider;
-
-    function initServicesSlider() {
-        if (servicesKeenSlider) {
-            servicesKeenSlider.destroy();
-        }
-
-        servicesSlider.innerHTML = '';
-        
-        services.forEach(service => {
-            const slide = document.createElement('div');
-            slide.className = 'keen-slider__slide';
-            slide.innerHTML = `
-                <i class="fas fa-${service.icon} text-4xl text-accent mb-4"></i>
-                <h3 class="text-xl font-bold mb-2 font-secondary">${service.title}</h3>
-                <p class="font-primary">${service.description}</p>
-            `;
-            servicesSlider.appendChild(slide);
-        });
-
-        servicesKeenSlider = new KeenSlider('#services-slider', {
-            loop: true,
-            mode: "free-snap",
-            slides: {
-                perView: 1,
-                spacing: 15,
-            },
-            breakpoints: {
-                "(min-width: 768px)": {
-                    slides: {
-                        perView: 2,
-                        spacing: 15,
-                    }
-                },
-                "(min-width: 1024px)": {
-                    slides: {
-                        perView: 3,
-                        spacing: 15,
-                    }
-                }
-            },
-            created: function(instance) {
-                setInterval(() => {
-                    instance.next();
-                }, 5000);
-            }
-        });
-    }
-
-    initServicesSlider();
-
-    // Banner Publicitario Slider
-    new KeenSlider('#ad-slider', {
-        loop: true,
-        mode: "free-snap",
-        slides: {
-            perView: 1,
-            spacing: 15,
-        },
-        created: function (instance) {
-            setInterval(() => {
-                instance.next();
-            }, 5000);
-        },
-    });
-
-    // Portfolio
-    const portfolioItems = [
-        { category: 'branding', image: 'images/portfolio-1.jpg', title: 'Proyecto 1', description: 'Branding para empresa de tecnología' },
-        { category: 'web', image: 'images/portfolio-2.jpg', title: 'Proyecto 2', description: 'Desarrollo web para e-commerce' },
-        { category: 'photo', image: 'images/portfolio-3.jpg', title: 'Proyecto 3', description: 'Sesión fotográfica para marca de moda' },
-        { category: 'branding', image: 'images/portfolio-4.jpg', title: 'Proyecto 4', description: 'Rebranding para restaurante' },
-        { category: 'web', image: 'images/portfolio-5.jpg', title: 'Proyecto 5', description: 'Diseño UX/UI para aplicación móvil' },
-        { category: 'photo', image: 'images/portfolio-6.jpg', title: 'Proyecto 6', description: 'Producción de video para campaña publicitaria' },
-    ];
-
-    const portfolioGrid = document.getElementById('portfolio-grid');
-    portfolioItems.forEach(item => {
-        const portfolioItem = document.createElement('div');
-        portfolioItem.className = `portfolio-item ${item.category}`;
-        portfolioItem.innerHTML = `
-            <div class="relative overflow-hidden rounded-lg">
-                <img src="${item.image}" alt="${item.title}" class="w-full h-64 object-cover">
-                <div class="portfolio-overlay absolute inset-0 flex items-center justify-center">
-                    <div class="text-center">
-                        <h3 class="text-white text-xl font-bold mb-2 font-secondary">${item.title}</h3>
-                        <p class="text-white font-primary">${item.description}</p>
-                    </div>
-                </div>
-            </div>
-        `;
-        portfolioGrid.appendChild(portfolioItem);
-    });
-
-    // Portfolio Filter
-    const filterButtons = document.querySelectorAll('.filter-btn');
-    filterButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            const filter = this.getAttribute('data-filter');
-            filterButtons.forEach(btn => btn.classList.remove('active'));
-            this.classList.add('active');
-
-            const portfolioItems = document.querySelectorAll('.portfolio-item');
-            portfolioItems.forEach(item => {
-                if (filter === 'all' || item.classList.contains(filter)) {
-                    item.style.display = 'block';
-                } else {
-                    item.style.display = 'none';
-                }
-            });
-        });
-    });
-
-    // Contact Form
-    const contactForm = document.getElementById('contact-form');
-    contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        // Here you can add the logic to send the form
-        alert('Gracias por tu mensaje. Nos pondremos en contacto contigo pronto.');
-        contactForm.reset();
-    });
-
-    // Schedule Meeting
-    const scheduleMeetingBtn = document.getElementById('schedule-meeting');
-    scheduleMeetingBtn.addEventListener('click', function(e) {
-        e.preventDefault();
-        const calendlyURL = 'https://calendly.com/tu-usuario/30min'; // Replace with your Calendly URL
-        window.open(calendlyURL, '_blank');
-    });
-
-    // Smooth Scroll
+    // Smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
@@ -236,54 +22,92 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Gallery Modal
-    const galleryModal = document.getElementById('gallery-modal');
-    const closeModal = document.getElementById('close-modal');
-    const modalTitle = document.getElementById('modal-title');
-    const modalImage = document.getElementById('modal-image');
-    const modalDescription = document.getElementById('modal-description');
-    const modalLink = document.getElementById('modal-link');
+    // Services slider
+    const servicesData = [
+        { title: "Branding", description: "Creamos identidades de marca únicas y memorables." },
+        { title: "Desarrollo Web", description: "Diseñamos y desarrollamos sitios web atractivos y funcionales." },
+        { title: "Marketing Digital", description: "Estrategias efectivas para aumentar tu presencia online." },
+        // Añade más servicios aquí
+    ];
 
-    portfolioGrid.addEventListener('click', function(e) {
-        const portfolioItem = e.target.closest('.portfolio-item');
-        if (portfolioItem) {
-            const title = portfolioItem.querySelector('h3').textContent;
-            const description = portfolioItem.querySelector('p').textContent;
-            const imageSrc = portfolioItem.querySelector('img').src;
-
-            modalTitle.textContent = title;
-            modalImage.src = imageSrc;
-            modalImage.alt = title;
-            modalDescription.textContent = description;
-            modalLink.href = '#'; // Update this with the real project link
-
-            galleryModal.classList.remove('hidden');
-            galleryModal.classList.add('flex');
-        }
+    const servicesSlider = document.querySelector('.services-slider');
+    servicesData.forEach(service => {
+        const serviceCard = document.createElement('div');
+        serviceCard.classList.add('service-card');
+        serviceCard.innerHTML = `
+            <h3>${service.title}</h3>
+            <p>${service.description}</p>
+        `;
+        servicesSlider.appendChild(serviceCard);
     });
 
-    closeModal.addEventListener('click', function() {
-        galleryModal.classList.add('hidden');
-        galleryModal.classList.remove('flex');
-    });
+    // Portfolio grid
+    const portfolioData = [
+        { title: "Proyecto 1", category: "branding", image: "path/to/image1.jpg", description: "Descripción del proyecto 1" },
+        { title: "Proyecto 2", category: "contenido", image: "path/to/image2.jpg", description: "Descripción del proyecto 2" },
+        // Añade más proyectos aquí
+    ];
 
-    galleryModal.addEventListener('click', function(e) {
-        if (e.target === galleryModal) {
-            galleryModal.classList.add('hidden');
-            galleryModal.classList.remove('flex');
-        }
-    });
+    const portfolioGrid = document.querySelector('.portfolio-grid');
+    const filterButtons = document.querySelectorAll('.filter-btn');
 
-    // Sliding effect for navigation links
-    const navLinks = document.querySelectorAll('.sliding-element');
-    navLinks.forEach(link => {
-        link.addEventListener('mouseenter', function() {
-            this.classList.add('sliding-active');
+    function renderPortfolio(items) {
+        portfolioGrid.innerHTML = '';
+        items.forEach(item => {
+            const portfolioItem = document.createElement('div');
+            portfolioItem.classList.add('portfolio-item');
+            portfolioItem.dataset.category = item.category;
+            portfolioItem.innerHTML = `
+                <img src="${item.image}" alt="${item.title}">
+                <h3>${item.title}</h3>
+            `;
+            portfolioItem.addEventListener('click', () => openModal(item));
+            portfolioGrid.appendChild(portfolioItem);
         });
-        link.addEventListener('mouseleave', function() {
-            this.classList.remove('sliding-active');
+    }
+
+    renderPortfolio(portfolioData);
+
+    filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const filter = button.dataset.filter;
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+            if (filter === 'all') {
+                renderPortfolio(portfolioData);
+            } else {
+                const filteredItems = portfolioData.filter(item => item.category === filter);
+                renderPortfolio(filteredItems);
+            }
         });
+    });
+
+    // Modal functionality
+    const modal = document.getElementById('gallery-modal');
+    const closeModal = document.getElementsByClassName('close')[0];
+
+    function openModal(item) {
+        document.getElementById('modal-title').textContent = item.title;
+        document.getElementById('modal-image').src = item.image;
+        document.getElementById('modal-description').textContent = item.description;
+        modal.style.display = 'block';
+    }
+
+    closeModal.onclick = function() {
+        modal.style.display = 'none';
+    }
+
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = 'none';
+        }
+    }
+
+    // Form submission
+    const contactForm = document.getElementById('contact-form');
+    contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        // Aquí puedes añadir la lógica para enviar el formulario
+        alert('Formulario enviado con éxito!');
     });
 });
-
-console.log("JavaScript file loaded successfully!");
