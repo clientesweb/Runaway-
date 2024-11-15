@@ -10,15 +10,25 @@ document.addEventListener('DOMContentLoaded', function() {
     const mainNav = document.getElementById('main-nav');
     menuToggle.addEventListener('click', function() {
         mainNav.classList.toggle('active');
+        menuToggle.setAttribute('aria-expanded', mainNav.classList.contains('active'));
     });
 
     // Smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
+            const targetId = this.getAttribute('href').substring(1);
+            const targetElement = document.getElementById(targetId);
+            if (targetElement) {
+                targetElement.scrollIntoView({
+                    behavior: 'smooth'
+                });
+                // Close mobile menu if open
+                if (mainNav.classList.contains('active')) {
+                    mainNav.classList.remove('active');
+                    menuToggle.setAttribute('aria-expanded', 'false');
+                }
+            }
         });
     });
 
@@ -101,7 +111,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const serviceCard = document.createElement('div');
         serviceCard.classList.add('service-card');
         serviceCard.innerHTML = `
-            <i class="${service.icon} service-icon"></i>
+            <i class="${service.icon} service-icon" aria-hidden="true"></i>
             <h3 class="the-season-light">${service.title}</h3>
             <p class="montserrat">${service.description}</p>
         `;
@@ -134,7 +144,7 @@ document.addEventListener('DOMContentLoaded', function() {
             portfolioItem.classList.add('portfolio-item');
             portfolioItem.dataset.category = item.category;
             portfolioItem.innerHTML = `
-                <img src="${item.image}" alt="${item.title}">
+                <img src="${item.image}" alt="${item.title}" loading="lazy">
                 <h3 class="the-season-light">${item.title}</h3>
             `;
             portfolioItem.addEventListener('click', () => openModal(item));
@@ -170,6 +180,7 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('modal-description').textContent = item.description;
         document.getElementById('modal-link').href = item.link || '#';
         modal.style.display = 'block';
+        document.body.style.overflow = 'hidden'; // Prevent scrolling when modal is open
         
         // Ajustar la imagen después de que se cargue
         modalImage.onload = function() {
@@ -185,11 +196,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
     closeModal.onclick = function() {
         modal.style.display = 'none';
+        document.body.style.overflow = ''; // Restore scrolling
     }
 
     window.onclick = function(event) {
         if (event.target == modal) {
             modal.style.display = 'none';
+            document.body.style.overflow = ''; // Restore scrolling
         }
     }
 
@@ -205,7 +218,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
     });
-
 
     // Form submission
     const contactForm = document.getElementById('contact-form');
@@ -247,8 +259,11 @@ document.addEventListener('DOMContentLoaded', function() {
     const scheduleMeetingBtn = document.getElementById('schedule-meeting');
     scheduleMeetingBtn.addEventListener('click', function(e) {
         e.preventDefault();
-        // Aquí puedes agregar la lógica para agendar una reunión
-        alert('Funcionalidad de agendar reunión pendiente de implementar');
+        // Implementación de la funcionalidad de agendar una reunión
+        const userTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+        const currentDate = new Date().toISOString().split('T')[0];
+        const calendarUrl = `https://calendly.com/tu-usuario/30min?date=${currentDate}&timezone=${userTimeZone}`;
+        window.open(calendarUrl, '_blank');
     });
 
     // WhatsApp float button functionality
@@ -259,7 +274,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Lazy loading for images
-    const images = document.querySelectorAll('img[data-src]');
+    const images = document.querySelectorAll('img[loading="lazy"]');
     const config = {
         rootMargin: '0px 0px 50px 0px',
         threshold: 0
@@ -279,7 +294,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     function preloadImage(img) {
-        const src = img.getAttribute('data-src');
+        const src = img.getAttribute('src');
         if (!src) { return; }
         img.src = src;
     }
@@ -314,4 +329,26 @@ document.addEventListener('DOMContentLoaded', function() {
 
         setInterval(nextTestimonial, 5000);
     }
+
+    // Scroll to top button
+    const scrollToTopButton = document.createElement('button');
+    scrollToTopButton.innerHTML = '&#8593;';
+    scrollToTopButton.setAttribute('aria-label', 'Volver arriba');
+    scrollToTopButton.classList.add('scroll-to-top');
+    document.body.appendChild(scrollToTopButton);
+
+    window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 100) {
+            scrollToTopButton.classList.add('show');
+        } else {
+            scrollToTopButton.classList.remove('show');
+        }
+    });
+
+    scrollToTopButton.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
 });
