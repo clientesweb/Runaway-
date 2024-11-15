@@ -3,13 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CreatInc Studio - Agencia Creativa</title>
+    <title>Runway Studio - Agencia Creativa</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/the-seasons" rel="stylesheet">
     <style>
         :root {
-            --primary-bg: #1a1a1a;
-            --card-bg: #ffffff;
+            --color-beige: #EFE7DA;
+            --color-gray: #878787;
+            --color-dark-gray: #262626;
+            --color-black: #151419;
+            --color-neon: #DCFF00;
         }
         
         @keyframes fadeInUp {
@@ -61,7 +66,7 @@
         }
         
         .clip-path-card {
-            clip-path: polygon(0 0, 100% 0, 92% 100%, 0% 100%);
+            clip-path: path('M0,40 C0,17.9 17.9,0 40,0 H360 C382.1,0 400,17.9 400,40 V460 C400,482.1 382.1,500 360,500 H40 C17.9,500 0,482.1 0,460 V40');
         }
         
         .paper-texture {
@@ -71,9 +76,17 @@
         }
         
         body {
-            font-family: 'Poppins', sans-serif;
-            background-color: var(--primary-bg);
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--color-black);
             color: #ffffff;
+        }
+
+        h1, h2, h3, .heading-font {
+            font-family: 'League Spartan', sans-serif;
+        }
+
+        .seasons-light {
+            font-family: 'The Seasons Light', serif;
         }
 
         .parallax {
@@ -84,11 +97,12 @@
         }
 
         .hover-grow {
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .hover-grow:hover {
             transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
         }
 
         .text-shadow {
@@ -96,259 +110,579 @@
         }
 
         .gradient-bg {
-            background: linear-gradient(45deg, #1a1a1a, #2a2a2a);
+            background: linear-gradient(45deg, var(--color-black), var(--color-dark-gray));
+        }
+
+        .accent-color {
+            color: var(--color-neon);
+        }
+
+        .accent-bg {
+            background-color: var(--color-neon);
+        }
+
+        .filter-btn {
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background-color: var(--color-neon);
+            color: var(--color-black);
+        }
+
+        .service-card {
+            background-color: white;
+            border-radius: 30px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .service-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 50px;
+            height: 50px;
+            background-color: var(--color-black);
+            border-top-left-radius: 100%;
+        }
+
+        .whatsapp-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp-button:hover {
+            transform: scale(1.1);
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1001;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.8);
+        }
+
+        .modal-content {
+            background-color: var(--color-dark-gray);
+            margin: 10% auto;
+            padding: 20px;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 800px;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #fff;
+            text-decoration: none;
+            cursor: pointer;
         }
     </style>
 </head>
-<body>
-    <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-500" id="header">
-        <nav class="container mx-auto px-4 py-6">
-            <div class="flex justify-between items-center">
-                <a href="#" class="text-2xl font-bold text-white hover:text-blue-400 transition-colors duration-300">CreatInc</a>
-                <div class="hidden md:flex space-x-8">
-                    <a href="#quienes-somos" class="text-white hover:text-blue-400 transition-colors duration-300">Quiénes Somos</a>
-                    <a href="#servicios" class="text-white hover:text-blue-400 transition-colors duration-300">Servicios</a>
-                    <a href="#work-with-us" class="text-white hover:text-blue-400 transition-colors duration-300">Trabajar con Nosotros</a>
-                    <a href="#contacto" class="text-white hover:text-blue-400 transition-colors duration-300">Contacto</a>
-                </div>
-                <button id="menuBtn" class="md:hidden text-white focus:outline-none transition-transform duration-300 hover:rotate-90">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                    </svg>
-                </button>
+<body class="text-white">
+<header class="fixed top-0 left-0 right-0 z-50 transition-all duration-500" id="header">
+    <nav class="container mx-auto px-4 py-6">
+        <div class="flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-white hover:text-[#DCFF00] transition-colors duration-300">RUNWAY</a>
+            <div class="hidden md:flex space-x-8">
+                <a href="#quienes-somos" class="text-white hover:text-[#DCFF00] transition-colors duration-300">Quiénes Somos</a>
+                <a href="#servicios" class="text-white hover:text-[#DCFF00] transition-colors duration-300">Servicios</a>
+                <a href="#portafolio" class="text-white hover:text-[#DCFF00] transition-colors duration-300">Portafolio</a>
+                <a href="#contacto" class="text-white hover:text-[#DCFF00] transition-colors duration-300">Contacto</a>
             </div>
-        </nav>
-        <div id="mobileMenu" class="hidden md:hidden bg-black bg-opacity-90 absolute top-full left-0 right-0 transition-all duration-500 max-h-0 overflow-hidden">
-            <a href="#quienes-somos" class="block px-4 py-2 text-white hover:bg-gray-700 transition-colors duration-300">Quiénes Somos</a>
-            <a href="#servicios" class="block px-4 py-2 text-white hover:bg-gray-700 transition-colors duration-300">Servicios</a>
-            <a href="#work-with-us" class="block px-4 py-2 text-white hover:bg-gray-700 transition-colors duration-300">Trabajar con Nosotros</a>
-            <a href="#contacto" class="block px-4 py-2 text-white hover:bg-gray-700 transition-colors duration-300">Contacto</a>
+            <button id="menuBtn" class="md:hidden text-white focus:outline-none transition-transform duration-300 hover:rotate-90">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
         </div>
-    </header>
+    </nav>
+    <div id="mobileMenu" class="hidden md:hidden bg-[#151419] bg-opacity-90 absolute top-full left-0 right-0 transition-all duration-500 max-h-0 overflow-hidden">
+        <a href="#quienes-somos" class="block px-4 py-2 text-white hover:bg-[#262626] transition-colors duration-300">Quiénes Somos</a>
+        <a href="#servicios" class="block px-4 py-2 text-white hover:bg-[#262626] transition-colors duration-300">Servicios</a>
+        <a href="#portafolio" class="block px-4 py-2 text-white hover:bg-[#262626] transition-colors duration-300">Portafolio</a>
+        <a href="#contacto" class="block px-4 py-2 text-white hover:bg-[#262626] transition-colors duration-300">Contacto</a>
+    </div>
+</header>
 
-    <main class="bg-[#1a1a1a]">
-        <section id="hero" class="relative h-screen flex items-center justify-center text-white parallax" style="background-image: url('https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1769&q=80');">
-            <div class="absolute inset-0 bg-black opacity-50"></div>
-            <div class="relative z-10 text-center px-4">
-                <h1 class="text-4xl md:text-6xl font-bold mb-4 animate-fadeInUp text-shadow">Bienvenido a CreatInc</h1>
-                <p class="text-xl md:text-2xl mb-8 animate-fadeInUp text-shadow" style="animation-delay: 0.5s;">Hacemos realidad tus sueños digitales</p>
-                <a href="#quienes-somos" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full text-lg transition-all duration-300 animate-fadeInUp inline-block hover:shadow-lg hover:-translate-y-1" style="animation-delay: 1s;">
-                    Descubre Más
+<main class="bg-[#151419]">
+    <section id="hero" class="relative h-screen flex items-center justify-center text-white parallax" style="background-image: url('https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1769&q=80');">
+        <div class="absolute inset-0 bg-[#151419] opacity-50"></div>
+        <div class="relative z-10 text-center px-4">
+            <div id="heroCarousel" class="carousel">
+                <div class="carousel-item">
+                    <h1 class="text-4xl md:text-6xl font-bold mb-4 animate-fadeInUp text-shadow">Impulsá tu e-commerce hacia el éxito</h1>
+                    <p class="text-xl md:text-2xl mb-8 animate-fadeInUp text-shadow" style="animation-delay: 0.5s;">
+                        Hacemos que tu marca destaque y tus ventas aumenten
+                    </p>
+                </div>
+                <div class="carousel-item hidden">
+                    <h1 class="text-4xl md:text-6xl font-bold mb-4 animate-fadeInUp text-shadow">Diseño y desarrollo web</h1>
+                    <p class="text-xl md:text-2xl mb-8 animate-fadeInUp text-shadow" style="animation-delay: 0.5s;">
+                        Creamos experiencias digitales que conviertan visitantes en clientes
+                    </p>
+                </div>
+                <div class="carousel-item hidden">
+                    <h1 class="text-4xl md:text-6xl font-bold mb-4 animate-fadeInUp text-shadow">Estrategias de Marketing digital</h1>
+                    <p class="text-xl md:text-2xl mb-8 animate-fadeInUp text-shadow" style="animation-delay: 0.5s;">
+                        Potenciamos tu presencia online
+                    </p>
+                </div>
+            </div>
+            <a href="#contacto" class="bg-[#DCFF00] hover:bg-[#c7e600] text-[#151419] font-bold py-3 px-8 rounded-full text-lg transition-all duration-300 animate-fadeInUp inline-block hover:shadow-lg hover:-translate-y-1" style="animation-delay: 1s;">
+                Impulsá tu negocio ahora
+            </a>
+        </div>
+    </section>
+
+    <section id="quienes-somos" class="py-20 px-4 md:px-8 gradient-bg">
+        <div class="container mx-auto max-w-4xl">
+            <h2 class="text-5xl font-bold mb-8 animate-slideInLeft text-shadow">¿QUIÉNES SOMOS?</h2>
+            <div class="space-y-6 text-lg">
+                <p class="animate-fadeInUp" style="animation-delay: 0.3s;">
+                    Construimos identidades de marca que conectan.
+                </p>
+                <p class="animate-fadeInUp" style="animation-delay: 0.6s;">
+                    Nuestra agencia creativa se enfoca en dar vida a marcas auténticas y memorables. Desde la creación de identidad hasta su presencia en el mundo digital, trabajamos para que cada interacción refleje el propósito y visión de tu negocio.
+                </p>
+            </div>
+            <div class="mt-12 paper-texture bg-[#EFE7DA] text-[#151419] p-12 rounded-[2.5rem] transform hover:scale-105 transition-all duration-500 animate-fadeInUp hover:shadow-2xl clip-path-card" style="animation-delay: 1.2s;">
+                <h3 class="text-3xl md:text-4xl font-bold text-center seasons-light">
+                    ARE YOU READY FOR<br>THE CHANGE?
+                </h3>
+            </div>
+            <div class="mt-8 text-center">
+                <a href="#contacto" class="bg-[#DCFF00] hover:bg-[#c7e600] text-[#151419] font-bold py-3 px-8 rounded-full text-lg transition-all duration-300 inline-block hover:shadow-lg hover:-translate-y-1">
+                    Impulsá tu negocio ahora
                 </a>
             </div>
-        </section>
-
-        <section id="quienes-somos" class="py-20 px-4 md:px-8 gradient-bg">
-            <div class="container mx-auto max-w-4xl">
-                <h2 class="text-4xl md:text-5xl font-bold mb-8 animate-slideInLeft text-shadow">¿QUIÉNES SOMOS?</h2>
-                <p class="text-xl mb-6 animate-fadeInUp" style="animation-delay: 0.3s;">
-                    Te damos la bienvenida a Creatinc Studio, Agencia Creativa!
-                </p>
-                <p class="text-lg mb-6 animate-fadeInUp" style="animation-delay: 0.6s;">
-                    Somos más que una agencia; somos arquitectos de la creatividad.
-                </p>
-                <p class="text-lg mb-12 animate-fadeInUp" style="animation-delay: 0.9s;">
-                    En Creatinc, fusionamos la pasión por la creatividad con un profundo conocimiento del mercado. 
-                    Somos artífices de estrategias de marketing que trascienden lo convencional, dando vida a marcas y 
-                    conectándolas con audiencias de manera auténtica, orgánica y duradera.
-                </p>
-                <div class="paper-texture bg-gray-100 text-black p-12 rounded-3xl transform hover:scale-105 transition-all duration-500 animate-fadeInUp hover:shadow-2xl" style="animation-delay: 1.2s;">
-                    <h3 class="text-3xl md:text-4xl font-bold text-center text-shadow">
-                        ARE YOU READY FOR<br>THE CHANGE?
-                    </h3>
-                </div>
-            </div>
-        </section>
-
-        <section id="servicios" class="py-20 px-4 md:px-8 parallax" style="background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1772&q=80');">
-            <div class="container mx-auto">
-                <h2 class="text-3xl font-bold text-center mb-12 animate-fadeInUp text-shadow">Nuestros Servicios</h2>
-                <div class="max-w-2xl mx-auto space-y-12">
-                    <div class="bg-white rounded-[2.5rem] overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 clip-path-card transform hover:scale-[1.03] animate-slideInLeft">
-                        <div class="aspect-[16/9] relative overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1542744094-3a31f272c490" alt="Content Creation" 
-                                 class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
-                        </div>
-                        <div class="p-8 text-black">
-                            <h3 class="text-2xl font-bold mb-3 tracking-wide text-center">CONTENT CREATION</h3>
-                            <p class="text-gray-600 text-lg text-center">
-                                Creación de contenido para tus redes sociales
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="bg-white rounded-[2.5rem] overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 clip-path-card transform hover:scale-[1.03] animate-slideInRight" style="animation-delay: 0.3s;">
-                        <div class="aspect-[16/9] relative overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3" alt="Website Development"
-                                 class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
-                        </div>
-                        <div class="p-8 text-black">
-                            <h3 class="text-2xl font-bold mb-3 tracking-wide text-center">WEBSITE</h3>
-                            <p class="text-gray-600 text-lg text-center">
-                                Creamos tu sitio web o tienda virtual
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="bg-white rounded-[2.5rem] overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 clip-path-card transform hover:scale-[1.03] animate-slideInLeft" style="animation-delay: 0.6s;">
-                        <div class="aspect-[16/9] relative overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0" alt="Social Media Management"
-                                 class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
-                        </div>
-                        <div class="p-8 text-black">
-                            <h3 class="text-2xl font-bold mb-3 tracking-wide text-center">SOCIAL MEDIA MANAGEMENT</h3>
-                            <p class="text-gray-600 text-lg text-center">
-                                Proceso de administrar y controlar la presencia de tu marca en redes sociales
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="work-with-us" class="py-20 px-4 md:px-8 gradient-bg">
-            <div class="container mx-auto max-w-6xl">
-                <div class="flex flex-col md:flex-row items-center justify-between gap-12">
-                    <div class="md:w-1/2 animate-slideInLeft">
-                        <h2 class="text-4xl md:text-5xl font-bold mb-4 text-shadow">READY?</h2>
-                        <h3 class="text-3xl md:text-4xl font-bold mb-8 text-shadow">WORK WITH US</h3>
-                        <p class="text-xl mb-6">CHARLEMOS!</p>
-                        <p class="text-lg mb-8">PRIMERA REUNIÓN SIN COSTO!</p>
-                        <div class="space-y-4">
-                            <a href="https://instagram.com/creatinc.es" class="flex items-center gap-2 hover:text-blue-400 transition-colors duration-300 hover-grow">
-                                <span class="w-6">@</span>creatinc.es
-                            </a>
-                            <a href="mailto:creatinc.es@gmail.com" class="flex items-center gap-2 hover:text-blue-400 transition-colors duration-300 hover-grow">
-                                <span class="w-6">✉</span>creatinc.es@gmail.com
-                            </a>
-                        </div>
-                    </div>
-                    <div class="md:w-1/2 animate-slideInRight" style="animation-delay: 0.3s;">
-                        <img src="https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0" alt="Work with us"
-                             class="w-full rounded-2xl shadow-lg transform hover:scale-105 transition-all duration-500 hover:shadow-2xl">
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="contacto" class="py-20 px-4 md:px-8 bg-gray-900">
-            <div class="container mx-auto max-w-4xl">
-                <h2 class="text-3xl font-bold text-center mb-12 animate-fadeInUp text-shadow">Contáctanos</h2>
-                <form class="space-y-6 animate-fadeInUp" style="animation-delay: 0.3s;">
-                    <div class="transform transition-all duration-300 hover:scale-105">
-                        <label for="name" class="block text-sm font-medium text-gray-300 mb-1">Nombre</label>
-                        <input type="text" id="name" name="name" required class="w-full px-4 py-2 rounded-md bg-gray-800 text-white border border-gray-700 focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50 transition-all duration-300">
-                    </div>
-                    <div class="transform transition-all duration-300 hover:scale-105">
-                        <label for="email" class="block text-sm font-medium text-gray-300 mb-1">Email</label>
-                        <input type="email" id="email" name="email" required class="w-full px-4 py-2 rounded-md bg-gray-800 text-white border border-gray-700 focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50 transition-all duration-300">
-                    </div>
-                    <div class="transform transition-all duration-300 hover:scale-105">
-                        <label for="message" class="block text-sm font-medium text-gray-300 mb-1">Mensaje</label>
-                        <textarea id="message" name="message" rows="4" required class="w-full px-4 py-2 rounded-md bg-gray-800 text-white border border-gray-700 focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50 transition-all duration-300"></textarea>
-                    </div>
-                    <div>
-                        <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-md transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
-                            Enviar Mensaje
-                        </button>
-                    </div>
-                </form>
-            </div>
-        </section>
-    </main>
-
-    <footer class="bg-black text-white py-8">
-        <div class="container mx-auto px-4 text-center">
-            <p>&copy; 2023 CreatInc Studio. Todos los derechos reservados.</p>
         </div>
-    </footer>
+    </section>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const header = document.getElementById('header');
-            const menuBtn = document.getElementById('menuBtn');
-            const mobileMenu = document.getElementById('mobileMenu');
+    <section id="servicios" class="py-20 px-4 md:px-8">
+        <div class="container mx-auto">
+            <h2 class="text-5xl font-bold text-center mb-12 animate-fadeInUp text-shadow">NUESTROS SERVICIOS</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="animate-slideInLeft">
+                    <div class="service-card">
+                        <img src="https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" alt="Social Media Management" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="mb-4 text-2xl font-bold text-black">SOCIAL MEDIA MANAGEMENT</h3>
+                            <p class="text-gray-600">Proceso de administrar y controlar la presencia de tu marca en redes sociales.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="animate-slideInRight" style="animation-delay: 0.3s;">
+                    <div class="service-card">
+                        <img src="https://images.unsplash.com/photo-1542744094-3a31f272c490?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" alt="Content Creation" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="mb-4 text-2xl font-bold text-black">CONTENT CREATION</h3>
+                            <p class="text-gray-600">Creación de contenido estratégico para aumentar la visibilidad de tu marca.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="animate-slideInLeft" style="animation-delay: 0.6s;">
+                    <div class="service-card">
+                        <img src="https://images.unsplash.com/photo-1542038784456-1ea8e935640e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" alt="Producción & Estilismo" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="mb-4 text-2xl font-bold text-black">PRODUCCIÓN & ESTILISMO</h3>
+                            <p class="text-gray-600">Planificamos y ejecutamos producciones visuales coherentes y efectivas para tu marca.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="animate-slideInRight" style="animation-delay: 0.9s;">
+                    <div class="service-card">
+                        <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" alt="Creación de Contenido" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="mb-4 text-2xl font-bold text-black">CREACIÓN DE CONTENIDO</h3>
+                            <p class="text-gray-600">Generamos material relevante y atractivo para promover tu marca y aumentar su visibilidad.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="animate-slideInLeft" style="animation-delay: 1.2s;">
+                    <div class="service-card">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1715&q=80" alt="Pauta Publicitaria" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="mb-4 text-2xl font-bold text-black">PAUTA PUBLICITARIA</h3>
+                            <p class="text-gray-600">Planificamos y ejecutamos estrategias de inversión publicitaria para maximizar tu alcance.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="animate-slideInRight" style="animation-delay: 1.5s;">
+                    <div class="service-card">
+                        <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1674&q=80" alt="Gestión de Contenido y Redes Sociales" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="mb-4 text-2xl font-bold text-black">GESTIÓN DE CONTENIDO Y REDES SOCIALES</h3>
+                            <p class="text-gray-600">Desarrollamos y gestionamos contenido que refleja la identidad de tu marca en redes sociales.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="animate-slideInLeft" style="animation-delay: 1.8s;">
+                    <div class="service-card">
+                        <img src="https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1774&q=80" alt="Community Manager" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="mb-4 text-2xl font-bold text-black">COMMUNITY MANAGER</h3>
+                            <p class="text-gray-600">Administramos y gestionamos la presencia de tu marca en redes sociales.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="animate-slideInRight" style="animation-delay: 2.1s;">
+                    <div class="service-card">
+                        <img src="https://images.unsplash.com/photo-1533750349088-cd871a92f312?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" alt="Paid Media" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="mb-4 text-2xl font-bold text-black">PAID MEDIA</h3>
+                            <p class="text-gray-600">Gestionamos la publicidad estratégica en plataformas clave para maximizar el retorno de inversión.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="animate-slideInLeft" style="animation-delay: 2.4s;">
+                    <div class="service-card">
+                        <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1769&q=80" alt="Website" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="mb-4 text-2xl font-bold text-black">WEBSITE</h3>
+                            <p class="text-gray-600">Desarrollamos sitios web funcionales y atractivos que reflejan la personalidad de tu marca.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-            // Intersection Observer for animations
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('animate-fadeInUp');
-                        entry.target.style.animationDelay = '0.3s';
-                    }
-                });
-            }, { threshold: 0.1 });
+    <section id="portafolio" class="py-20 px-4 md:px-8 bg-[#262626]">
+        <div class="container mx-auto">
+            <h2 class="text-5xl font-bold text-center mb-12 animate-fadeInUp text-shadow">Nuestro Portafolio</h2>
+            <div class="mb-8">
+                <div class="flex flex-wrap justify-center gap-4">
+                    <button class="filter-btn active px-4 py-2 rounded-full border border-[#DCFF00] text-[#DCFF00] hover:bg-[#DCFF00] hover:text-[#151419] transition-all duration-300" data-filter="all">Todos</button>
+                    <button class="filter-btn px-4 py-2 rounded-full border border-[#DCFF00] text-[#DCFF00] hover:bg-[#DCFF00] hover:text-[#151419] transition-all duration-300" data-filter="branding">Branding</button>
+                    <button class="filter-btn px-4 py-2 rounded-full border border-[#DCFF00] text-[#DCFF00] hover:bg-[#DCFF00] hover:text-[#151419] transition-all duration-300" data-filter="contenido">Creación de Contenido</button>
+                    <button class="filter-btn px-4 py-2 rounded-full border border-[#DCFF00] text-[#DCFF00] hover:bg-[#DCFF00] hover:text-[#151419] transition-all duration-300" data-filter="produccion">Producción y Estilismo</button>
+                    <button class="filter-btn px-4 py-2 rounded-full border border-[#DCFF00] text-[#DCFF00] hover:bg-[#DCFF00] hover:text-[#151419] transition-all duration-300" data-filter="tienda">Tienda Online</button>
+                    <button class="filter-btn px-4 py-2 rounded-full border border-[#DCFF00] text-[#DCFF00] hover:bg-[#DCFF00] hover:text-[#151419] transition-all duration-300" data-filter="pauta">Pauta Publicitaria</button>
+                </div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="portfolio-grid">
+                <div class="portfolio-item branding">
+                    <img src="https://images.unsplash.com/photo-1636633762833-5d1658f1e29b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" alt="Proyecto de Branding" class="w-full h-64 object-cover rounded-lg cursor-pointer" onclick="openModal('project1')">
+                    <h3 class="text-xl font-bold mt-4">Proyecto de Branding</h3>
+                    <p class="text-gray-300">Descripción breve del proyecto</p>
+                </div>
+                <div class="portfolio-item contenido">
+                    <img src="https://images.unsplash.com/photo-1542744094-3a31f272c490?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" alt="Creación de Contenido" class="w-full h-64 object-cover rounded-lg cursor-pointer" onclick="openModal('project2')">
+                    <h3 class="text-xl font-bold mt-4">Creación de Contenido</h3>
+                    <p class="text-gray-300">Descripción breve del proyecto</p>
+                </div>
+                <div class="portfolio-item produccion">
+                    <img src="https://images.unsplash.com/photo-1542038784456-1ea8e935640e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" alt="Producción y Estilismo" class="w-full h-64 object-cover rounded-lg cursor-pointer" onclick="openModal('project3')">
+                    <h3 class="text-xl font-bold mt-4">Producción y Estilismo</h3>
+                    <p class="text-gray-300">Descripción breve del proyecto</p>
+                </div>
+                <div class="portfolio-item tienda">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1715&q=80" alt="Tienda Online" class="w-full h-64 object-cover rounded-lg cursor-pointer" onclick="openModal('project4')">
+                    <h3 class="text-xl font-bold mt-4">Tienda Online</h3>
+                    <p class="text-gray-300">Descripción breve del proyecto</p>
+                </div>
+                <div class="portfolio-item pauta">
+                    <img src="https://images.unsplash.com/photo-1533750349088-cd871a92f312?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" alt="Pauta Publicitaria" class="w-full h-64 object-cover rounded-lg cursor-pointer" onclick="openModal('project5')">
+                    <h3 class="text-xl font-bold mt-4">Pauta Publicitaria</h3>
+                    <p class="text-gray-300">Descripción breve del proyecto</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-            document.querySelectorAll('section > div > *').forEach((el) => {
-                observer.observe(el);
-            });
+    <section id="contacto" class="py-20 px-4 md:px-8 bg-[#151419]">
+        <div class="container mx-auto max-w-4xl">
+            <h2 class="text-3xl font-bold text-center mb-12 animate-fadeInUp text-shadow">Contáctanos</h2>
+            <form class="space-y-6 animate-fadeInUp" style="animation-delay: 0.3s;">
+                <div class="transform transition-all duration-300 hover:scale-105">
+                    <label for="name" class="block text-sm font-medium text-gray-300 mb-1">Nombre completo *</label>
+                    <input type="text" id="name" name="name" required class="w-full px-4 py-2 rounded-md bg-[#262626] text-white border border-[#878787] focus:border-[#DCFF00] focus:ring focus:ring-[#DCFF00] focus:ring-opacity-50 transition-all duration-300">
+                </div>
+                <div class="transform transition-all duration-300 hover:scale-105">
+                    <label for="whatsapp" class="block text-sm font-medium text-gray-300 mb-1">WhatsApp *</label>
+                    <input type="tel" id="whatsapp" name="whatsapp" required class="w-full px-4 py-2 rounded-md bg-[#262626] text-white border border-[#878787] focus:border-[#DCFF00] focus:ring focus:ring-[#DCFF00] focus:ring-opacity-50 transition-all duration-300">
+                </div>
+                <div class="transform transition-all duration-300 hover:scale-105">
+                    <label for="website" class="block text-sm font-medium text-gray-300 mb-1">Sitio Web *</label>
+                    <input type="url" id="website" name="website" required class="w-full px-4 py-2 rounded-md bg-[#262626] text-white border border-[#878787] focus:border-[#DCFF00] focus:ring focus:ring-[#DCFF00] focus:ring-opacity-50 transition-all duration-300">
+                </div>
+                <div class="transform transition-all duration-300 hover:scale-105">
+                    <label for="country" class="block text-sm font-medium text-gray-300 mb-1">País</label>
+                    <input type="text" id="country" name="country" class="w-full px-4 py-2 rounded-md bg-[#262626] text-white border border-[#878787] focus:border-[#DCFF00] focus:ring focus:ring-[#DCFF00] focus:ring-opacity-50 transition-all duration-300">
+                </div>
+                <div class="transform transition-all duration-300 hover:scale-105">
+                    <label for="services" class="block text-sm font-medium text-gray-300 mb-1">¿En qué servicios estás interesado? *</label>
+                    <select id="services" name="services" required class="w-full px-4 py-2 rounded-md bg-[#262626] text-white border border-[#878787] focus:border-[#DCFF00] focus:ring focus:ring-[#DCFF00] focus:ring-opacity-50 transition-all duration-300">
+                        <option value="">Selecciona una opción</option>
+                        <option value="BRANDING">BRANDING</option>
+                        <option value="CREACIÓN DE CONTENIDO">CREACIÓN DE CONTENIDO | PRODUCCIÓN & ESTILISMO</option>
+                        <option value="PAUTA PUBLICITARIA">PAUTA PUBLICITARIA</option>
+                        <option value="TODOS">TODOS</option>
+                    </select>
+                </div>
+                <div class="transform transition-all duration-300 hover:scale-105">
+                    <label for="years" class="block text-sm font-medium text-gray-300 mb-1">¿Cuántos años lleva la empresa en el mercado?</label>
+                    <input type="number" id="years" name="years" class="w-full px-4 py-2 rounded-md bg-[#262626] text-white border border-[#878787] focus:border-[#DCFF00] focus:ring focus:ring-[#DCFF00] focus:ring-opacity-50 transition-all duration-300">
+                </div>
+                <div class="transform transition-all duration-300 hover:scale-105">
+                    <label for="revenue" class="block text-sm font-medium text-gray-300 mb-1">¿Cuánto estás facturando por mes?</label>
+                    <select id="revenue" name="revenue" class="w-full px-4 py-2 rounded-md bg-[#262626] text-white border border-[#878787] focus:border-[#DCFF00] focus:ring focus:ring-[#DCFF00] focus:ring-opacity-50 transition-all duration-300">
+                        <option value="">Selecciona una opción</option>
+                        <option value="0-1000">0-1000 USD</option>
+                        <option value="1000-3000">1000 USD A 3000 USD</option>
+                        <option value="3000-5000">3000 USD A 5000 USD</option>
+                        <option value="5000-10000">5000 USD - 10.000 USD</option>
+                    </select>
+                </div>
+                <div class="transform transition-all duration-300 hover:scale-105">
+                    <label for="invested" class="block text-sm font-medium text-gray-300 mb-1">¿Alguna vez invertiste en pauta publicitaria?</label>
+                    <select id="invested" name="invested" class="w-full px-4 py-2 rounded-md bg-[#262626] text-white border border-[#878787] focus:border-[#DCFF00] focus:ring focus:ring-[#DCFF00] focus:ring-opacity-50 transition-all duration-300">
+                        <option value="">Selecciona una opción</option>
+                        <option value="si">Sí</option>
+                        <option value="no">No</option>
+                    </select>
+                </div>
+                <div class="transform transition-all duration-300 hover:scale-105">
+                    <label for="investment" class="block text-sm font-medium text-gray-300 mb-1">¿Qué monto estarías dispuesto a invertir en pauta publicitaria?</label>
+                    <input type="number" id="investment" name="investment" class="w-full px-4 py-2 rounded-md bg-[#262626] text-white border border-[#878787] focus:border-[#DCFF00] focus:ring focus:ring-[#DCFF00] focus:ring-opacity-50 transition-all duration-300">
+                </div>
+                <div>
+                    <button type="submit" class="w-full bg-[#DCFF00] hover:bg-[#c7e600] text-[#151419] font-bold py-3 px-4 rounded-md transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+                        Enviar Mensaje
+                    </button>
+                </div>
+            </form>
+        </div>
+    </section>
+</main>
 
-            // Mobile menu functionality
-            if (menuBtn && mobileMenu) {
-                menuBtn.addEventListener('click', () => {
-                    mobileMenu.classList.toggle('hidden');
-                    if (!mobileMenu.classList.contains('hidden')) {
-                        mobileMenu.style.maxHeight = mobileMenu.scrollHeight + 'px';
-                    } else {
-                        mobileMenu.style.maxHeight = '0';
-                    }
-                });
-            }
+<footer class="bg-[#151419] text-white py-12">
+    <div class="container mx-auto px-4">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+            <div class="mb-8 md:mb-0">
+                <h3 class="text-2xl font-bold mb-4">¿Listo para Impulsar tu ECommerce hacia el éxito?</h3>
+                <a href="#contacto" class="bg-[#DCFF00] hover:bg-[#c7e600] text-[#151419] font-bold py-3 px-8 rounded-full text-lg transition-all duration-300 inline-block hover:shadow-lg hover:-translate-y-1">
+                    AGENDAR REUNIÓN
+                </a>
+            </div>
+            <div class="flex flex-col items-center md:items-end">
+                <div class="flex space-x-4 mb-4">
+                    <a href="https://www.instagram.com/runwayfusion_/" target="_blank" rel="noopener noreferrer" class="text-white hover:text-[#DCFF00] transition-colors duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-instagram"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                    </a>
+                    <a href="https://www.tiktok.com/@runwayfusion" target="_blank" rel="noopener noreferrer" class="text-white hover:text-[#DCFF00] transition-colors duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-music"><path d="M9 18V5l12-2v13"></path><circle cx="6" cy="18" r="3"></circle><circle cx="18" cy="16" r="3"></circle></svg>
+                    </a>
+                </div>
+                <p class="text-center text-sm text-gray-400">Powered by Duality Domain</p>
+                <p class="mt-2">&copy; 2024 Runway Studio. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </div>
+</footer>
 
-            // Scroll event for header background
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 50) {
-                    header.classList.add('bg-black', 'bg-opacity-90');
-                    header.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.1)';
+<a href="https://wa.me/YOUR_PHONE_NUMBER" target="_blank" rel="noopener noreferrer" class="whatsapp-button">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-circle"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+</a>
+
+<div id="project1Modal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2 class="text-2xl font-bold mb-4">Proyecto de Branding</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+                <img src="https://images.unsplash.com/photo-1636633762833-5d1658f1e29b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" alt="Proyecto de Branding" class="w-full h-64 object-cover rounded-lg">
+            </div>
+            <div>
+                <p class="mb-4">Descripción detallada del proyecto de branding...</p>
+                <h3 class="text-xl font-bold mb-2">Servicios realizados:</h3>
+                <ul class="list-disc list-inside mb-4">
+                    <li>Diseño de logo</li>
+                    <li>Desarrollo de identidad visual</li>
+                    <li>Guía de estilo de marca</li>
+                </ul>
+                <a href="#" class="bg-[#DCFF00] hover:bg-[#c7e600] text-[#151419] font-bold py-2 px-4 rounded-full transition-all duration-300 inline-block">Ver más detalles</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const header = document.getElementById('header');
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const heroCarousel = document.getElementById('heroCarousel');
+        let currentSlide = 0;
+
+        // Hero Carousel
+        function showSlide(index) {
+            const slides = heroCarousel.querySelectorAll('.carousel-item');
+            slides.forEach((slide, i) => {
+                if (i === index) {
+                    slide.classList.remove('hidden');
+                    slide.classList.add('animate-fadeInUp');
                 } else {
-                    header.classList.remove('bg-black', 'bg-opacity-90');
-                    header.style.boxShadow = 'none';
+                    slide.classList.add('hidden');
+                    slide.classList.remove('animate-fadeInUp');
                 }
             });
+        }
 
-            // Smooth scrolling for anchor links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const targetId = this.getAttribute('href');
-                    const targetElement = document.querySelector(targetId);
-                    const headerOffset = 100;
-                    const elementPosition = targetElement.getBoundingClientRect().top;
-                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % 3;
+            showSlide(currentSlide);
+        }
 
-                    window.scrollTo({
-                        top: offsetPosition,
-                        behavior: 'smooth'
-                    });
+        setInterval(nextSlide, 5000); // Change slide every 5 seconds
 
-                    // Close mobile menu if open
-                    if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
-                        mobileMenu.classList.add('hidden');
-                        mobileMenu.style.maxHeight = '0';
+        // Intersection Observer for animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fadeInUp');
+                    entry.target.style.animationDelay = '0.3s';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('section > div > *').forEach((el) => {
+            observer.observe(el);
+        });
+
+        // Mobile menu functionality
+        if (menuBtn && mobileMenu) {
+            menuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+                if (!mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.style.maxHeight = mobileMenu.scrollHeight + 'px';
+                } else {
+                    mobileMenu.style.maxHeight = '0';
+                }
+            });
+        }
+
+        // Scroll event for header background
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('bg-[#151419]', 'bg-opacity-90');
+                header.style.boxShadow = '0 4px 6px rgba(0, 0,0, 0.1)';
+            } else {
+                header.classList.remove('bg-[#151419]', 'bg-opacity-90');
+                header.style.boxShadow = 'none';
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                const headerOffset = 100;
+                const elementPosition = targetElement.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+
+                // Close mobile menu if open
+                if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenu.style.maxHeight = '0';
+                }
+            });
+        });
+
+        // Parallax effect for background images
+        window.addEventListener('scroll', () => {
+            const parallaxElements = document.querySelectorAll('.parallax');
+            parallaxElements.forEach(element => {
+                const scrollPosition = window.pageYOffset;
+                element.style.backgroundPositionY = `${scrollPosition * 0.5}px`;
+            });
+        });
+
+        // Portfolio filter functionality
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const portfolioItems = document.querySelectorAll('.portfolio-item');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const filter = button.getAttribute('data-filter');
+                
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+
+                portfolioItems.forEach(item => {
+                    if (filter === 'all' || item.classList.contains(filter)) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
                     }
-                });
-            });
-
-            // Parallax effect for background images
-            window.addEventListener('scroll', () => {
-                const parallaxElements = document.querySelectorAll('.parallax');
-                parallaxElements.forEach(element => {
-                    const scrollPosition = window.pageYOffset;
-                    element.style.backgroundPositionY = `${scrollPosition * 0.5}px`;
-                });
-            });
-
-            // Add hover effect to service cards
-            const serviceCards = document.querySelectorAll('#servicios .bg-white');
-            serviceCards.forEach(card => {
-                card.addEventListener('mouseenter', () => {
-                    card.style.transform = 'scale(1.05) rotate(2deg)';
-                });
-                card.addEventListener('mouseleave', () => {
-                    card.style.transform = 'scale(1) rotate(0)';
                 });
             });
         });
-    </script>
+
+        // Modal functionality
+        const modals = document.querySelectorAll('.modal');
+        const closeButtons = document.querySelectorAll('.close');
+
+        function openModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.style.display = 'block';
+        }
+
+        function closeModal() {
+            modals.forEach(modal => {
+                modal.style.display = 'none';
+            });
+        }
+
+        closeButtons.forEach(button => {
+            button.addEventListener('click', closeModal);
+        });
+
+        window.addEventListener('click', (event) => {
+            modals.forEach(modal => {
+                if (event.target === modal) {
+                    closeModal();
+                }
+            });
+        });
+
+        // Make openModal function available globally
+        window.openModal = openModal;
+    });
+</script>
 </body>
 </html>
