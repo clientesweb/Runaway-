@@ -127,7 +127,11 @@ document.addEventListener('DOMContentLoaded', function() {
         { title: "Contenido 2", category: "contenido", image: "images/redes1.png", description: "Descripción del proyecto de contenido 2", link: "#" },
         { title: "Producción 1", category: "produccion", image: "images/produccion.jpg", description: "Descripción del proyecto de producción 1", link: "#" },
         { title: "Producción 2", category: "produccion", image: "images/produccion2.jpg", description: "Descripción del proyecto de producción 2", link: "#" },
-        { title: "Tienda 1", category: "tienda", image: "images/tienda1.jpg", description: "Descripción del proyecto de tienda online 1", link: "#" },
+        { title: "Bel Divano", category: "tienda", image: "images/baldivano.png", description: "Descripción del proyecto de tienda online 1", link: "https://beldivano.com.ar/" },
+        { title: "Hakuna Sports", category: "tienda", image: "images/hakuna.png", description: "Descripción del proyecto de tienda online 1", link:"https://hakunamatata45.mitiendanube.com/" },
+        { title: "RAHCO S.A.S", category: "tienda", image: "images/raco.png", description: "Descripción del proyecto de tienda online 1", link: "https://rahcosas.com.ar/" },
+        { title: "GRAPE!", category: "tienda", image: "images/grape.png", description: "Descripción del proyecto de tienda online 1", link: "https://grapebarramovil.com/" },
+        { title: "Perimetrales Las Flores", category: "tienda", image: "images/IMG-20241111-WA0040.jpg", description: "Descripción del proyecto de tienda online 1", link: "https://perimetraleslasflores.com/" },
         { title: "Pauta 1", category: "pauta", image: "images/pauta1.jpg", description: "Descripción del proyecto de pauta publicitaria 1", link: "#" },
         { title: "Pauta 2", category: "pauta", image: "images/pauta2.jpg", description: "Descripción del proyecto de pauta publicitaria 2", link: "#" }
     ];
