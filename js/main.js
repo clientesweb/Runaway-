@@ -24,7 +24,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Top banner slider
     const topBannerSlider = document.querySelector('.top-banner-slider');
-    const topBannerSlides = topBannerSlider.children;
+    const top
+
+BannerSlides = topBannerSlider.children;
     let topBannerCurrentSlide = 0;
 
     function nextTopBannerSlide() {
@@ -47,17 +49,56 @@ document.addEventListener('DOMContentLoaded', function() {
 
     setInterval(nextHeroSlide, 5000);
 
-    // Services slider
+    // Services grid
     const servicesData = [
-        { title: "Branding", description: "Creamos identidades de marca únicas y memorables.", icon: "fas fa-paint-brush" },
-        { title: "Desarrollo Web", description: "Diseñamos y desarrollamos sitios web atractivos y funcionales.", icon: "fas fa-laptop-code" },
-        { title: "Marketing Digital", description: "Estrategias efectivas para aumentar tu presencia online.", icon: "fas fa-bullhorn" },
-        { title: "E-commerce", description: "Soluciones de comercio electrónico personalizadas.", icon: "fas fa-shopping-cart" },
-        { title: "SEO", description: "Optimizamos tu sitio para los motores de búsqueda.", icon: "fas fa-search" },
-        { title: "Redes Sociales", description: "Gestionamos y potenciamos tus redes sociales.", icon: "fas fa-share-alt" }
+        { 
+            title: "Branding", 
+            description: "Creamos una identidad de marca única y distintiva que se destaca en el mercado.",
+            icon: "fas fa-paint-brush"
+        },
+        { 
+            title: "Rebranding", 
+            description: "Renovamos la identidad de marcas existentes para mejorar su relevancia y sintonía con el mercado.",
+            icon: "fas fa-sync-alt"
+        },
+        { 
+            title: "Producción & Estilismo", 
+            description: "Planificamos y ejecutamos producciones de fotos o videos para crear contenido visual coherente y efectivo.",
+            icon: "fas fa-camera"
+        },
+        { 
+            title: "Creación de contenido", 
+            description: "Generamos material relevante y atractivo para promover tu marca y fomentar la interacción con la audiencia.",
+            icon: "fas fa-pencil-alt"
+        },
+        { 
+            title: "Pauta Publicitaria", 
+            description: "Planificamos estratégicamente la inversión publicitaria para maximizar el alcance y el retorno de inversión.",
+            icon: "fas fa-ad"
+        },
+        { 
+            title: "Gestión de Contenido y Redes Sociales", 
+            description: "Desarrollamos y gestionamos contenido que refleja la identidad de tu marca en redes sociales.",
+            icon: "fas fa-share-alt"
+        },
+        { 
+            title: "Community Manager", 
+            description: "Administramos y gestionamos la presencia de tu marca en redes sociales.",
+            icon: "fas fa-users"
+        },
+        { 
+            title: "Paid Media", 
+            description: "Gestionamos la publicidad estratégica en plataformas clave para maximizar la visibilidad y el alcance de tu marca.",
+            icon: "fas fa-bullhorn"
+        },
+        { 
+            title: "Website", 
+            description: "Desarrollamos sitios web funcionales y atractivos que reflejan la personalidad de tu marca en el entorno digital.",
+            icon: "fas fa-laptop-code"
+        }
     ];
 
-    const servicesSlider = document.querySelector('.services-slider');
+    const servicesGrid = document.querySelector('.services-grid');
     servicesData.forEach((service) => {
         const serviceCard = document.createElement('div');
         serviceCard.classList.add('service-card');
@@ -66,27 +107,23 @@ document.addEventListener('DOMContentLoaded', function() {
             <h3 class="the-season-light">${service.title}</h3>
             <p class="montserrat">${service.description}</p>
         `;
-        servicesSlider.appendChild(serviceCard);
+        servicesGrid.appendChild(serviceCard);
     });
-
-    let serviceCurrentSlide = 0;
-    const serviceCards = servicesSlider.children;
-
-    function nextServiceSlide() {
-        serviceCurrentSlide = (serviceCurrentSlide + 1) % serviceCards.length;
-        servicesSlider.style.transform = `translateX(-${serviceCurrentSlide * (300 + 40)}px)`;
-    }
-
-    setInterval(nextServiceSlide, 3000);
 
     // Portfolio grid
     const portfolioData = [
-        { title: "Proyecto 1", category: "branding", image: "path/to/image1.jpg", description: "Descripción del proyecto 1" },
-        { title: "Proyecto 2", category: "contenido", image: "path/to/image2.jpg", description: "Descripción del proyecto 2" },
-        { title: "Proyecto 3", category: "produccion", image: "path/to/image3.jpg", description: "Descripción del proyecto 3" },
-        { title: "Proyecto 4", category: "tienda", image: "path/to/image4.jpg", description: "Descripción del proyecto 4" },
-        { title: "Proyecto 5", category: "pauta", image: "path/to/image5.jpg", description: "Descripción del proyecto 5" },
-        { title: "Proyecto 6", category: "branding", image: "path/to/image6.jpg", description: "Descripción del proyecto 6" },
+        { title: "Branding 1", category: "branding", image: "path/to/branding1.jpg", description: "Descripción del proyecto de branding 1" },
+        { title: "Branding 2", category: "branding", image: "path/to/branding2.jpg", description: "Descripción del proyecto de branding 2" },
+        { title: "Branding 3", category: "branding", image: "path/to/branding3.jpg", description: "Descripción del proyecto de branding 3" },
+        { title: "Contenido 1", category: "contenido", image: "path/to/contenido1.jpg", description: "Descripción del proyecto de contenido 1" },
+        { title: "Contenido 2", category: "contenido", image: "path/to/contenido2.jpg", description: "Descripción del proyecto de contenido 2" },
+        { title: "Contenido 3", category: "contenido", image: "path/to/contenido3.jpg", description: "Descripción del proyecto de contenido 3" },
+        { title: "Producción 1", category: "produccion", image: "path/to/produccion1.jpg", description: "Descripción del proyecto de producción 1" },
+        { title: "Producción 2", category: "produccion", image: "path/to/produccion2.jpg", description: "Descripción del proyecto de producción 2" },
+        { title: "Producción 3", category: "produccion", image: "path/to/produccion3.jpg", description: "Descripción del proyecto de producción 3" },
+        { title: "Rahco", category: "tienda", image: "path/to/rahco.jpg", description: "Tienda online para Rahco" },
+        { title: "Edific", category: "tienda", image: "path/to/edific.jpg", description: "Tienda online para Edific" },
+        { title: "Hakuna Sport", category: "tienda", image: "path/to/hakuna-sport.jpg", description: "Tienda online para Hakuna Sport" },
     ];
 
     const portfolioGrid = document.querySelector('.portfolio-grid');
@@ -148,7 +185,22 @@ document.addEventListener('DOMContentLoaded', function() {
     const contactForm = document.getElementById('contact-form');
     contactForm.addEventListener('submit', function(e) {
         e.preventDefault();
-        // Aquí puedes añadir la lógica para enviar el formulario
-        alert('Formulario enviado con éxito!');
+        const formData = new FormData(contactForm);
+        fetch(contactForm.action, {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'Accept': 'application/json'
+            }
+        }).then(response => {
+            if (response.ok) {
+                alert('Formulario enviado con éxito!');
+                contactForm.reset();
+            } else {
+                throw new Error('Error en el envío del formulario');
+            }
+        }).catch(error => {
+            alert('Hubo un problema al enviar el formulario. Por favor, inténtalo de nuevo.');
+        });
     });
 });
