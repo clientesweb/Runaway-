@@ -3,10 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CreatInc - Servicios de Marketing Digital</title>
+    <title>CreatInc Studio - Agencia Creativa</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --primary-bg: #1a1a1a;
+            --card-bg: #ffffff;
+        }
+        
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -17,198 +22,280 @@
                 transform: translateY(0);
             }
         }
+        
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
         .animate-fadeInUp {
             animation: fadeInUp 0.6s ease-out;
         }
+        
+        .animate-slideInLeft {
+            animation: slideInLeft 0.6s ease-out;
+        }
+        
+        .animate-slideInRight {
+            animation: slideInRight 0.6s ease-out;
+        }
+        
         .clip-path-card {
             clip-path: polygon(0 0, 100% 0, 92% 100%, 0% 100%);
         }
+        
+        .paper-texture {
+            background-image: url('data:image/svg+xml,<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><filter id="noiseFilter"><feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(%23noiseFilter)"/></svg>');
+            background-position: center;
+            background-size: cover;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--primary-bg);
+            color: #ffffff;
+        }
+
+        .parallax {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
     </style>
 </head>
-<body class="font-['Poppins',sans-serif] text-gray-800">
-    <header class="fixed top-0 left-0 right-0 z-50 bg-transparent">
+<body>
+    <header class="fixed top-0 left-0 right-0 z-50 bg-transparent transition-all duration-300" id="header">
         <nav class="container mx-auto px-4 py-6">
             <div class="flex justify-between items-center">
                 <a href="#" class="text-2xl font-bold text-white">CreatInc</a>
                 <div class="hidden md:flex space-x-8">
+                    <a href="#quienes-somos" class="text-white hover:text-blue-400 transition-colors">Quiénes Somos</a>
                     <a href="#servicios" class="text-white hover:text-blue-400 transition-colors">Servicios</a>
-                    <a href="#portfolio" class="text-white hover:text-blue-400 transition-colors">Portfolio</a>
-                    <a href="#testimonios" class="text-white hover:text-blue-400 transition-colors">Testimonios</a>
+                    <a href="#work-with-us" class="text-white hover:text-blue-400 transition-colors">Trabajar con Nosotros</a>
                     <a href="#contacto" class="text-white hover:text-blue-400 transition-colors">Contacto</a>
                 </div>
-                <button id="menuBtn" class="md:hidden text-white">
+                <button id="menuBtn" class="md:hidden text-white focus:outline-none">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                     </svg>
                 </button>
             </div>
         </nav>
-        <div id="mobileMenu" class="hidden md:hidden bg-white shadow-md absolute top-full left-0 right-0">
-            <a href="#servicios" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Servicios</a>
-            <a href="#portfolio" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Portfolio</a>
-            <a href="#testimonios" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Testimonios</a>
-            <a href="#contacto" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Contacto</a>
+        <div id="mobileMenu" class="hidden md:hidden bg-black bg-opacity-90 absolute top-full left-0 right-0 transition-all duration-300">
+            <a href="#quienes-somos" class="block px-4 py-2 text-white hover:bg-gray-700">Quiénes Somos</a>
+            <a href="#servicios" class="block px-4 py-2 text-white hover:bg-gray-700">Servicios</a>
+            <a href="#work-with-us" class="block px-4 py-2 text-white hover:bg-gray-700">Trabajar con Nosotros</a>
+            <a href="#contacto" class="block px-4 py-2 text-white hover:bg-gray-700">Contacto</a>
         </div>
     </header>
 
-    <main>
-        <section id="hero" class="relative h-screen flex items-center justify-center text-white">
-            <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1769&q=80');">
-                <div class="absolute inset-0 bg-black opacity-50"></div>
-            </div>
+    <main class="bg-[#1a1a1a]">
+        <section id="hero" class="relative h-screen flex items-center justify-center text-white parallax" style="background-image: url('https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1769&q=80');">
+            <div class="absolute inset-0 bg-black opacity-50"></div>
             <div class="relative z-10 text-center px-4">
                 <h1 class="text-4xl md:text-6xl font-bold mb-4 animate-fadeInUp">Bienvenido a CreatInc</h1>
                 <p class="text-xl md:text-2xl mb-8 animate-fadeInUp" style="animation-delay: 0.2s;">Hacemos realidad tus sueños digitales</p>
-                <button class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full text-lg transition-colors duration-300 animate-fadeInUp" style="animation-delay: 0.4s;">
-                    Comienza Ahora
-                </button>
+                <a href="#quienes-somos" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full text-lg transition-colors duration-300 animate-fadeInUp inline-block" style="animation-delay: 0.4s;">
+                    Descubre Más
+                </a>
             </div>
         </section>
 
-        <section id="servicios" class="py-20 bg-gray-100">
-            <div class="container mx-auto px-4">
-                <h2 class="text-3xl font-bold text-center mb-12">Nuestros Servicios</h2>
+        <section id="quienes-somos" class="py-20 px-4 md:px-8">
+            <div class="container mx-auto max-w-4xl">
+                <h2 class="text-4xl md:text-5xl font-bold mb-8 animate-slideInLeft">¿QUIÉNES SOMOS?</h2>
+                <p class="text-xl mb-6 animate-fadeInUp">
+                    Te damos la bienvenida a Creatinc Studio, Agencia Creativa!
+                </p>
+                <p class="text-lg mb-6 animate-fadeInUp" style="animation-delay: 0.2s;">
+                    Somos más que una agencia; somos arquitectos de la creatividad.
+                </p>
+                <p class="text-lg mb-12 animate-fadeInUp" style="animation-delay: 0.4s;">
+                    En Creatinc, fusionamos la pasión por la creatividad con un profundo conocimiento del mercado. 
+                    Somos artífices de estrategias de marketing que trascienden lo convencional, dando vida a marcas y 
+                    conectándolas con audiencias de manera auténtica, orgánica y duradera.
+                </p>
+                <div class="paper-texture bg-gray-100 text-black p-12 rounded-3xl transform hover:scale-105 transition-transform duration-300 animate-fadeInUp" style="animation-delay: 0.6s;">
+                    <h3 class="text-3xl md:text-4xl font-bold text-center">
+                        ARE YOU READY FOR<br>THE CHANGE?
+                    </h3>
+                </div>
+            </div>
+        </section>
+
+        <section id="servicios" class="py-20 px-4 md:px-8 parallax" style="background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1772&q=80');">
+            <div class="container mx-auto">
+                <h2 class="text-3xl font-bold text-center mb-12 animate-fadeInUp">Nuestros Servicios</h2>
                 <div class="max-w-2xl mx-auto space-y-8">
-                    <div class="bg-white rounded-[2rem] overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 clip-path-card">
+                    <div class="bg-white rounded-[2.5rem] overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 clip-path-card transform hover:scale-[1.02] animate-slideInLeft">
                         <div class="aspect-[16/9] relative overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1674&q=80" alt="Social Media Management" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
+                            <img src="https://images.unsplash.com/photo-1542744094-3a31f272c490" alt="Content Creation" 
+                                 class="w-full h-full object-cover transition-transform duration-300 hover:scale-110">
                         </div>
-                        <div class="p-8">
-                            <h3 class="text-2xl font-bold mb-3 tracking-wide">SOCIAL MEDIA MANAGEMENT</h3>
-                            <p class="text-gray-600 text-lg">Proceso de administrar y controlar la presencia de tu marca en redes sociales.</p>
+                        <div class="p-8 text-black">
+                            <h3 class="text-2xl font-bold mb-3 tracking-wide text-center">CONTENT CREATION</h3>
+                            <p class="text-gray-600 text-lg text-center">
+                                Creación de contenido para tus redes sociales
+                            </p>
                         </div>
                     </div>
-                    <div class="bg-white rounded-[2rem] overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 clip-path-card">
+
+                    <div class="bg-white rounded-[2.5rem] overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 clip-path-card transform hover:scale-[1.02] animate-slideInRight" style="animation-delay: 0.2s;">
                         <div class="aspect-[16/9] relative overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80" alt="Community Manager" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
+                            <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3" alt="Website Development"
+                                 class="w-full h-full object-cover transition-transform duration-300 hover:scale-110">
                         </div>
-                        <div class="p-8">
-                            <h3 class="text-2xl font-bold mb-3 tracking-wide">COMMUNITY MANAGER</h3>
-                            <p class="text-gray-600 text-lg">Manejo & gestión de tus redes sociales.</p>
+                        <div class="p-8 text-black">
+                            <h3 class="text-2xl font-bold mb-3 tracking-wide text-center">WEBSITE</h3>
+                            <p class="text-gray-600 text-lg text-center">
+                                Creamos tu sitio web o tienda virtual
+                            </p>
                         </div>
                     </div>
-                    <div class="bg-white rounded-[2rem] overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 clip-path-card">
+
+                    <div class="bg-white rounded-[2.5rem] overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 clip-path-card transform hover:scale-[1.02] animate-slideInLeft" style="animation-delay: 0.4s;">
                         <div class="aspect-[16/9] relative overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1542744094-3a31f272c490?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80" alt="Content Creation" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
+                            <img src="https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0" alt="Social Media Management"
+                                 class="w-full h-full object-cover transition-transform duration-300 hover:scale-110">
                         </div>
-                        <div class="p-8">
-                            <h3 class="text-2xl font-bold mb-3 tracking-wide">CONTENT CREATION</h3>
-                            <p class="text-gray-600 text-lg">Creación de contenido estratégico para tus redes sociales.</p>
+                        <div class="p-8 text-black">
+                            <h3 class="text-2xl font-bold mb-3 tracking-wide text-center">SOCIAL MEDIA MANAGEMENT</h3>
+                            <p class="text-gray-600 text-lg text-center">
+                                Proceso de administrar y controlar la presencia de tu marca en redes sociales
+                            </p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="portfolio" class="py-20">
-            <div class="container mx-auto px-4">
-                <h2 class="text-3xl font-bold text-center mb-12">Nuestro Portfolio</h2>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div class="relative overflow-hidden rounded-lg shadow-md group">
-                        <img src="https://source.unsplash.com/random/400x300?sig=1" alt="Portfolio item 1" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                            <button class="bg-white text-gray-800 hover:bg-gray-200 font-bold py-2 px-4 rounded">
-                                Ver Proyecto
-                            </button>
+        <section id="work-with-us" class="py-20 px-4 md:px-8 bg-[#1a1a1a]">
+            <div class="container mx-auto max-w-6xl">
+                <div class="flex flex-col md:flex-row items-center justify-between gap-12">
+                    <div class="md:w-1/2 animate-slideInLeft">
+                        <h2 class="text-4xl md:text-5xl font-bold mb-4">READY?</h2>
+                        <h3 class="text-3xl md:text-4xl font-bold mb-8">WORK WITH US</h3>
+                        <p class="text-xl mb-6">CHARLEMOS!</p>
+                        <p class="text-lg mb-8">PRIMERA REUNIÓN SIN COSTO!</p>
+                        <div class="space-y-2">
+                            <a href="https://instagram.com/creatinc.es" class="flex items-center gap-2 hover:text-gray-300 transition-colors duration-300">
+                                <span class="w-6">@</span>creatinc.es
+                            </a>
+                            <a href="mailto:creatinc.es@gmail.com" class="flex items-center gap-2 hover:text-gray-300 transition-colors duration-300">
+                                <span class="w-6">✉</span>creatinc.es@gmail.com
+                            </a>
                         </div>
                     </div>
-                    <div class="relative overflow-hidden rounded-lg shadow-md group">
-                        <img src="https://source.unsplash.com/random/400x300?sig=2" alt="Portfolio item 2" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                            <button class="bg-white text-gray-800 hover:bg-gray-200 font-bold py-2 px-4 rounded">
-                                Ver Proyecto
-                            </button>
-                        </div>
-                    </div>
-                    <div class="relative overflow-hidden rounded-lg shadow-md group">
-                        <img src="https://source.unsplash.com/random/400x300?sig=3" alt="Portfolio item 3" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                            <button class="bg-white text-gray-800 hover:bg-gray-200 font-bold py-2 px-4 rounded">
-                                Ver Proyecto
-                            </button>
-                        </div>
+                    <div class="md:w-1/2 animate-slideInRight">
+                        <img src="https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0" alt="Work with us"
+                             class="w-full rounded-2xl shadow-lg transform hover:scale-105 transition-transform duration-300">
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="testimonios" class="py-20 bg-gray-100">
-            <div class="container mx-auto px-4">
-                <h2 class="text-3xl font-bold text-center mb-12">Lo que dicen nuestros clientes</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div class="bg-white p-6 rounded-lg shadow-md">
-                        <p class="mb-4 italic">"CreatInc superó nuestras expectativas. La creatividad y profesionalismo de su equipo son incomparables."</p>
-                        <div class="flex items-center">
-                            <div class="rounded-full bg-gray-300 w-12 h-12 mr-4"></div>
-                            <div>
-                                <h4 class="font-semibold">Juan Pérez</h4>
-                                <p class="text-sm text-gray-600">CEO, TechCorp</p>
-                            </div>
-                        </div>
+        <section id="contacto" class="py-20 px-4 md:px-8 bg-gray-900">
+            <div class="container mx-auto max-w-4xl">
+                <h2 class="text-3xl font-bold text-center mb-12 animate-fadeInUp">Contáctanos</h2>
+                <form class="space-y-6 animate-fadeInUp" style="animation-delay: 0.2s;">
+                    <div>
+                        <label for="name" class="block text-sm font-medium text-gray-300 mb-1">Nombre</label>
+                        <input type="text" id="name" name="name" required class="w-full px-4 py-2 rounded-md bg-gray-800 text-white border border-gray-700 focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50">
                     </div>
-                    <div class="bg-white p-6 rounded-lg shadow-md">
-                        <p class="mb-4 italic">"Trabajar con CreatInc fue un cambio de juego para nuestra marca. Realmente entienden el marketing digital."</p>
-                        <div class="flex items-center">
-                            <div class="rounded-full bg-gray-300 w-12 h-12 mr-4"></div>
-                            <div>
-                                <h4 class="font-semibold">María González</h4>
-                                <p class="text-sm text-gray-600">Directora de Marketing, StyleCo</p>
-                            </div>
-                        </div>
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-300 mb-1">Email</label>
+                        <input type="email" id="email" name="email" required class="w-full px-4 py-2 rounded-md bg-gray-800 text-white border border-gray-700 focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50">
                     </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="contacto" class="py-20">
-            <div class="container mx-auto px-4">
-                <h2 class="text-3xl font-bold text-center mb-12">Contáctanos</h2>
-                <div class="max-w-md mx-auto">
-                    <form class="space-y-4">
-                        <div>
-                            <input type="text" placeholder="Tu Nombre" class="w-full px-4 py-2 border rounded-md">
-                        </div>
-                        <div>
-                            <input type="email" placeholder="Tu Email" class="w-full px-4 py-2 border rounded-md">
-                        </div>
-                        <div>
-                            <textarea placeholder="Tu Mensaje" rows="4" class="w-full px-4 py-2 border rounded-md"></textarea>
-                        </div>
+                    <div>
+                        <label for="message" class="block text-sm font-medium text-gray-300 mb-1">Mensaje</label>
+                        <textarea id="message" name="message" rows="4" required class="w-full px-4 py-2 rounded-md bg-gray-800 text-white border border-gray-700 focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50"></textarea>
+                    </div>
+                    <div>
                         <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md transition-colors duration-300">
                             Enviar Mensaje
                         </button>
-                    </form>
-                </div>
+                    </div>
+                </form>
             </div>
         </section>
     </main>
 
-    <footer class="bg-gray-800 text-white py-8">
+    <footer class="bg-black text-white py-8">
         <div class="container mx-auto px-4 text-center">
-            <p>&copy; 2023 CreatInc. Todos los derechos reservados.</p>
+            <p>&copy; 2023 CreatInc Studio. Todos los derechos reservados.</p>
         </div>
     </footer>
 
     <script>
-        document.addEventListener('DOMContentLoaded', (event) => {
+        document.addEventListener('DOMContentLoaded', () => {
+            const header = document.getElementById('header');
             const menuBtn = document.getElementById('menuBtn');
             const mobileMenu = document.getElementById('mobileMenu');
 
-            menuBtn.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
-            });
-
-            // Animación de aparición para las secciones
+            // Intersection Observer for animations
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                entry.target.classList.add('animate-fadeInUp');
+                        entry.target.classList.add('animate-fadeInUp');
                     }
                 });
             }, { threshold: 0.1 });
 
             document.querySelectorAll('section > div > *').forEach((el) => {
                 observer.observe(el);
+            });
+
+            // Mobile menu functionality
+            if (menuBtn && mobileMenu) {
+                menuBtn.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+
+            // Scroll event for header background
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    header.classList.add('bg-black', 'bg-opacity-90');
+                } else {
+                    header.classList.remove('bg-black', 'bg-opacity-90');
+                }
+            });
+
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+            // Parallax effect for background images
+            window.addEventListener('scroll', () => {
+                const parallaxElements = document.querySelectorAll('.parallax');
+                parallaxElements.forEach(element => {
+                    const scrollPosition = window.pageYOffset;
+                    element.style.backgroundPositionY = `${scrollPosition * 0.5}px`;
+                });
             });
         });
     </script>
