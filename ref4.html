@@ -7,6 +7,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/the-seasons" rel="stylesheet">
     <style>
         :root {
             --color-beige: #EFE7DA;
@@ -96,11 +97,12 @@
         }
 
         .hover-grow {
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .hover-grow:hover {
             transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
         }
 
         .text-shadow {
@@ -128,7 +130,7 @@
                 <div class="hidden md:flex space-x-8">
                     <a href="#quienes-somos" class="text-white hover:text-[#DCFF00] transition-colors duration-300">Quiénes Somos</a>
                     <a href="#servicios" class="text-white hover:text-[#DCFF00] transition-colors duration-300">Servicios</a>
-                    <a href="#work-with-us" class="text-white hover:text-[#DCFF00] transition-colors duration-300">Trabajar con Nosotros</a>
+                    <a href="#portafolio" class="text-white hover:text-[#DCFF00] transition-colors duration-300">Portafolio</a>
                     <a href="#contacto" class="text-white hover:text-[#DCFF00] transition-colors duration-300">Contacto</a>
                 </div>
                 <button id="menuBtn" class="md:hidden text-white focus:outline-none transition-transform duration-300 hover:rotate-90">
@@ -141,7 +143,7 @@
         <div id="mobileMenu" class="hidden md:hidden bg-[#151419] bg-opacity-90 absolute top-full left-0 right-0 transition-all duration-500 max-h-0 overflow-hidden">
             <a href="#quienes-somos" class="block px-4 py-2 text-white hover:bg-[#262626] transition-colors duration-300">Quiénes Somos</a>
             <a href="#servicios" class="block px-4 py-2 text-white hover:bg-[#262626] transition-colors duration-300">Servicios</a>
-            <a href="#work-with-us" class="block px-4 py-2 text-white hover:bg-[#262626] transition-colors duration-300">Trabajar con Nosotros</a>
+            <a href="#portafolio" class="block px-4 py-2 text-white hover:bg-[#262626] transition-colors duration-300">Portafolio</a>
             <a href="#contacto" class="block px-4 py-2 text-white hover:bg-[#262626] transition-colors duration-300">Contacto</a>
         </div>
     </header>
@@ -150,12 +152,28 @@
         <section id="hero" class="relative h-screen flex items-center justify-center text-white parallax" style="background-image: url('https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1769&q=80');">
             <div class="absolute inset-0 bg-[#151419] opacity-50"></div>
             <div class="relative z-10 text-center px-4">
-                <h1 class="text-4xl md:text-6xl font-bold mb-4 animate-fadeInUp text-shadow">Bienvenido a <span class="text-[#DCFF00]">RUNWAY</span></h1>
-                <p class="text-xl md:text-2xl mb-8 animate-fadeInUp text-shadow" style="animation-delay: 0.5s;">
-                    Transformamos tu visión en una experiencia única
-                </p>
-                <a href="#quienes-somos" class="bg-[#DCFF00] hover:bg-[#c7e600] text-[#151419] font-bold py-3 px-8 rounded-full text-lg transition-all duration-300 animate-fadeInUp inline-block hover:shadow-lg hover:-translate-y-1" style="animation-delay: 1s;">
-                    Descubre Más
+                <div id="heroCarousel" class="carousel">
+                    <div class="carousel-item">
+                        <h1 class="text-4xl md:text-6xl font-bold mb-4 animate-fadeInUp text-shadow">Impulsá tu e-commerce hacia el éxito</h1>
+                        <p class="text-xl md:text-2xl mb-8 animate-fadeInUp text-shadow" style="animation-delay: 0.5s;">
+                            Hacemos que tu marca destaque y tus ventas aumenten
+                        </p>
+                    </div>
+                    <div class="carousel-item hidden">
+                        <h1 class="text-4xl md:text-6xl font-bold mb-4 animate-fadeInUp text-shadow">Diseño y desarrollo web</h1>
+                        <p class="text-xl md:text-2xl mb-8 animate-fadeInUp text-shadow" style="animation-delay: 0.5s;">
+                            Creamos experiencias digitales que conviertan visitantes en clientes
+                        </p>
+                    </div>
+                    <div class="carousel-item hidden">
+                        <h1 class="text-4xl md:text-6xl font-bold mb-4 animate-fadeInUp text-shadow">Estrategias de Marketing digital</h1>
+                        <p class="text-xl md:text-2xl mb-8 animate-fadeInUp text-shadow" style="animation-delay: 0.5s;">
+                            Potenciamos tu presencia online
+                        </p>
+                    </div>
+                </div>
+                <a href="#contacto" class="bg-[#DCFF00] hover:bg-[#c7e600] text-[#151419] font-bold py-3 px-8 rounded-full text-lg transition-all duration-300 animate-fadeInUp inline-block hover:shadow-lg hover:-translate-y-1" style="animation-delay: 1s;">
+                    Impulsá tu negocio ahora
                 </a>
             </div>
         </section>
@@ -165,13 +183,10 @@
                 <h2 class="text-5xl font-bold mb-8 animate-slideInLeft text-shadow">¿QUIÉNES SOMOS?</h2>
                 <div class="space-y-6 text-lg">
                     <p class="animate-fadeInUp" style="animation-delay: 0.3s;">
-                        Somos una agencia creativa y de marketing comprometida con transformar tu visión en una experiencia única.
+                        Construimos identidades de marca que conectan.
                     </p>
                     <p class="animate-fadeInUp" style="animation-delay: 0.6s;">
-                        Nuestro objetivo es brindarte herramientas estratégicas que resalten tu identidad, ofreciendo soluciones únicas y originales que marquen la diferencia.
-                    </p>
-                    <p class="animate-fadeInUp" style="animation-delay: 0.9s;">
-                        Te ayudamos a destacar en el mundo digital y a crear una presencia que realmente impacte.
+                        Nuestra agencia creativa se enfoca en dar vida a marcas auténticas y memorables. Desde la creación de identidad hasta su presencia en el mundo digital, trabajamos para que cada interacción refleje el propósito y visión de tu negocio.
                     </p>
                 </div>
                 <div class="mt-12 paper-texture bg-[#EFE7DA] text-[#151419] p-12 rounded-[2.5rem] transform hover:scale-105 transition-all duration-500 animate-fadeInUp hover:shadow-2xl clip-path-card" style="animation-delay: 1.2s;">
@@ -185,43 +200,76 @@
         <section id="servicios" class="py-20 px-4 md:px-8">
             <div class="container mx-auto">
                 <h2 class="text-5xl font-bold text-center mb-12 animate-fadeInUp text-shadow">NUESTROS SERVICIOS</h2>
-                <div class="max-w-2xl mx-auto space-y-12">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <div class="animate-slideInLeft">
-                        <div class="relative mx-auto max-w-sm overflow-hidden bg-[#EFE7DA] clip-path-card shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:scale-[1.03]">
-                            <img
-                                alt="Social Media Management"
-                                class="h-[300px] w-full object-cover"
-                                src="https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0"
-                            />
+                        <div class="relative mx-auto overflow-hidden bg-[#EFE7DA] clip-path-card shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:scale-[1.03]">
                             <div class="p-8 text-center">
-                                <h3 class="mb-4 text-2xl font-bold text-[#151419]">SOCIAL MEDIA MANAGEMENT</h3>
-                                <p class="text-[#262626]">Proceso de administrar y controlar la presencia de tu marca en redes sociales.</p>
+                                <h3 class="mb-4 text-2xl font-bold text-[#151419]">Branding</h3>
+                                <p class="text-[#262626]">Creamos una identidad de marca única y distintiva que se destaca en el mercado.</p>
                             </div>
                         </div>
                     </div>
                     <div class="animate-slideInRight" style="animation-delay: 0.3s;">
-                        <div class="relative mx-auto max-w-sm overflow-hidden bg-[#EFE7DA] clip-path-card shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:scale-[1.03]">
-                            <img
-                                alt="Content Creation"
-                                class="h-[300px] w-full object-cover"
-                                src="https://images.unsplash.com/photo-1542744094-3a31f272c490"
-                            />
+                        <div class="relative mx-auto overflow-hidden bg-[#EFE7DA] clip-path-card shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:scale-[1.03]">
                             <div class="p-8 text-center">
-                                <h3 class="mb-4 text-2xl font-bold text-[#151419]">CONTENT CREATION</h3>
-                                <p class="text-[#262626]">Creación de contenido estratégico para aumentar la visibilidad de tu marca.</p>
+                                <h3 class="mb-4 text-2xl font-bold text-[#151419]">Rebranding</h3>
+                                <p class="text-[#262626]">Renovamos la identidad de marcas existentes para mantenerlas relevantes y en sintonía con el mercado.</p>
                             </div>
                         </div>
                     </div>
                     <div class="animate-slideInLeft" style="animation-delay: 0.6s;">
-                        <div class="relative mx-auto max-w-sm overflow-hidden bg-[#EFE7DA] clip-path-card shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:scale-[1.03]">
-                            <img
-                                alt="Website Development"
-                                class="h-[300px] w-full object-cover"
-                                src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3"
-                            />
+                        <div class="relative mx-auto overflow-hidden bg-[#EFE7DA] clip-path-card shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:scale-[1.03]">
                             <div class="p-8 text-center">
-                                <h3 class="mb-4 text-2xl font-bold text-[#151419]">WEBSITE</h3>
-                                <p class="text-[#262626]">Creamos tu sitio web o tienda virtual.</p>
+                                <h3 class="mb-4 text-2xl font-bold text-[#151419]">Producción & Estilismo</h3>
+                                <p class="text-[#262626]">Planificamos y ejecutamos producciones visuales coherentes y efectivas para tu marca.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="animate-slideInRight" style="animation-delay: 0.9s;">
+                        <div class="relative mx-auto overflow-hidden bg-[#EFE7DA] clip-path-card shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:scale-[1.03]">
+                            <div class="p-8 text-center">
+                                <h3 class="mb-4 text-2xl font-bold text-[#151419]">Creación de Contenido</h3>
+                                <p class="text-[#262626]">Generamos material relevante y atractivo para promover tu marca y aumentar su visibilidad.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="animate-slideInLeft" style="animation-delay: 1.2s;">
+                        <div class="relative mx-auto overflow-hidden bg-[#EFE7DA] clip-path-card shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:scale-[1.03]">
+                            <div class="p-8 text-center">
+                                <h3 class="mb-4 text-2xl font-bold text-[#151419]">Pauta Publicitaria</h3>
+                                <p class="text-[#262626]">Planificamos y ejecutamos estrategias de inversión publicitaria para maximizar tu alcance.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="animate-slideInRight" style="animation-delay: 1.5s;">
+                        <div class="relative mx-auto overflow-hidden bg-[#EFE7DA] clip-path-card shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:scale-[1.03]">
+                            <div class="p-8 text-center">
+                                <h3 class="mb-4 text-2xl font-bold text-[#151419]">Gestión de Contenido y Redes Sociales</h3>
+                                <p class="text-[#262626]">Desarrollamos y gestionamos contenido que refleja la identidad de tu marca en redes sociales.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="animate-slideInLeft" style="animation-delay: 1.8s;">
+                        <div class="relative mx-auto overflow-hidden bg-[#EFE7DA] clip-path-card shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:scale-[1.03]">
+                            <div class="p-8 text-center">
+                                <h3 class="mb-4 text-2xl font-bold text-[#151419]">Community Manager</h3>
+                                <p class="text-[#262626]">Administramos y gestionamos la presencia de tu marca en redes sociales.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="animate-slideInRight" style="animation-delay: 2.1s;">
+                        <div class="relative mx-auto overflow-hidden bg-[#EFE7DA] clip-path-card shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:scale-[1.03]">
+                            <div class="p-8 text-center">
+                                <h3 class="mb-4 text-2xl font-bold text-[#151419]">Paid Media</h3>
+                                <p class="text-[#262626]">Gestionamos la publicidad estratégica en plataformas clave para maximizar el retorno de inversión.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="animate-slideInLeft" style="animation-delay: 2.4s;">
+                        <div class="relative mx-auto overflow-hidden bg-[#EFE7DA] clip-path-card shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:scale-[1.03]">
+                            <div class="p-8 text-center">
+                                <h3 class="mb-4 text-2xl font-bold text-[#151419]">Website</h3>
+                                <p class="text-[#262626]">Desarrollamos sitios web funcionales y atractivos que reflejan la personalidad de tu marca.</p>
                             </div>
                         </div>
                     </div>
@@ -229,27 +277,27 @@
             </div>
         </section>
 
-        <section id="work-with-us" class="py-20 px-4 md:px-8 bg-[#262626]">
-            <div class="container mx-auto max-w-6xl">
-                <div class="flex flex-col md:flex-row items-center justify-between gap-12">
-                    <div class="md:w-1/2 animate-slideInLeft">
-                        <h2 class="text-4xl md:text-5xl font-bold mb-4 text-shadow">READY?</h2>
-                        <h3 class="text-3xl md:text-4xl font-bold mb-8 text-shadow">WORK WITH US</h3>
-                        <p class="text-xl mb-6">CHARLEMOS!</p>
-                        <p class="text-lg mb-8">PRIMERA REUNIÓN SIN COSTO!</p>
-                        <div class="space-y-4">
-                            <a href="https://instagram.com/runway.es" class="flex items-center gap-2 hover:text-[#DCFF00] transition-colors duration-300 hover-grow">
-                                <span class="w-6">@</span>runway.es
-                            </a>
-                            <a href="mailto:info@runway.es" class="flex items-center gap-2 hover:text-[#DCFF00] transition-colors duration-300 hover-grow">
-                                <span class="w-6">✉</span>info@runway.es
-                            </a>
-                        </div>
+        <section id="portafolio" class="py-20 px-4 md:px-8 bg-[#262626]">
+            <div class="container mx-auto">
+                <h2 class="text-5xl font-bold text-center mb-12 animate-fadeInUp text-shadow">Nuestro Portafolio</h2>
+                <div class="mb-8">
+                    <div class="flex justify-center space-x-4">
+                        <button class="filter-btn active" data-filter="all">Todos</button>
+                        <button class="filter-btn" data-filter="branding">Branding</button>
+                        <button class="filter-btn" data-filter="contenido">Creación de Contenido</button>
+                        <button class="filter-btn" data-filter="produccion">Producción y Estilismo</button>
+                        <button class="filter-btn" data-filter="tienda">Tienda Online</button>
+                        <button class="filter-btn" data-filter="pauta">Pauta Publicitaria</button>
                     </div>
-                    <div class="md:w-1/2 animate-slideInRight" style="animation-delay: 0.3s;">
-                        <img src="https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0" alt="Work with us"
-                             class="w-full rounded-2xl shadow-lg transform hover:scale-105 transition-all duration-500 hover:shadow-2xl">
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="portfolio-grid">
+                    <!-- Aquí irían los elementos del portafolio. Por ejemplo: -->
+                    <div class="portfolio-item branding">
+                        <img src="path_to_image.jpg" alt="Proyecto de Branding" class="w-full h-64 object-cover rounded-lg">
+                        <h3 class="text-xl font-bold mt-4">Proyecto de Branding</h3>
+                        <p class="text-gray-300">Descripción breve del proyecto</p>
                     </div>
+                    <!-- Más elementos del portafolio aquí -->
                 </div>
             </div>
         </section>
@@ -259,16 +307,56 @@
                 <h2 class="text-3xl font-bold text-center mb-12 animate-fadeInUp text-shadow">Contáctanos</h2>
                 <form class="space-y-6 animate-fadeInUp" style="animation-delay: 0.3s;">
                     <div class="transform transition-all duration-300 hover:scale-105">
-                        <label for="name" class="block text-sm font-medium text-gray-300 mb-1">Nombre</label>
+                        <label for="name" class="block text-sm font-medium text-gray-300 mb-1">Nombre completo *</label>
                         <input type="text" id="name" name="name" required class="w-full px-4 py-2 rounded-md bg-[#262626] text-white border border-[#878787] focus:border-[#DCFF00] focus:ring focus:ring-[#DCFF00] focus:ring-opacity-50 transition-all duration-300">
                     </div>
                     <div class="transform transition-all duration-300 hover:scale-105">
-                        <label for="email" class="block text-sm font-medium text-gray-300 mb-1">Email</label>
-                        <input type="email" id="email" name="email" required class="w-full px-4 py-2 rounded-md bg-[#262626] text-white border border-[#878787] focus:border-[#DCFF00] focus:ring focus:ring-[#DCFF00] focus:ring-opacity-50 transition-all duration-300">
+                        <label for="whatsapp" class="block text-sm font-medium text-gray-300 mb-1">WhatsApp *</label>
+                        <input type="tel" id="whatsapp" name="whatsapp" required class="w-full px-4 py-2 rounded-md bg-[#262626] text-white border border-[#878787] focus:border-[#DCFF00] focus:ring focus:ring-[#DCFF00] focus:ring-opacity-50 transition-all duration-300">
                     </div>
                     <div class="transform transition-all duration-300 hover:scale-105">
-                        <label for="message" class="block text-sm font-medium text-gray-300 mb-1">Mensaje</label>
-                        <textarea id="message" name="message" rows="4" required class="w-full px-4 py-2 rounded-md bg-[#262626] text-white border border-[#878787] focus:border-[#DCFF00] focus:ring focus:ring-[#DCFF00] focus:ring-opacity-50 transition-all duration-300"></textarea>
+                        <label for="website" class="block text-sm font-medium text-gray-300 mb-1">Sitio Web *</label>
+                        <input type="url" id="website" name="website" required class="w-full px-4 py-2 rounded-md bg-[#262626] text-white border border-[#878787] focus:border-[#DCFF00] focus:ring focus:ring-[#DCFF00] focus:ring-opacity-50 transition-all duration-300">
+                    </div>
+                    <div class="transform transition-all duration-300 hover:scale-105">
+                        <label for="country" class="block text-sm font-medium text-gray-300 mb-1">País</label>
+                        <input type="text" id="country" name="country" class="w-full px-4 py-2 rounded-md bg-[#262626] text-white border border-[#878787] focus:border-[#DCFF00] focus:ring focus:ring-[#DCFF00] focus:ring-opacity-50 transition-all duration-300">
+                    </div>
+                    <div class="transform transition-all duration-300 hover:scale-105">
+                        <label for="services" class="block text-sm font-medium text-gray-300 mb-1">¿En qué servicios estás interesado? *</label>
+                        <select id="services" name="services" required class="w-full px-4 py-2 rounded-md bg-[#262626] text-white border border-[#878787] focus:border-[#DCFF00] focus:ring focus:ring-[#DCFF00] focus:ring-opacity-50 transition-all duration-300">
+                            <option value="">Selecciona una opción</option>
+                            <option value="BRANDING">BRANDING</option>
+                            <option value="CREACIÓN DE CONTENIDO">CREACIÓN DE CONTENIDO | PRODUCCIÓN & ESTILISMO</option>
+                            <option value="PAUTA PUBLICITARIA">PAUTA PUBLICITARIA</option>
+                            <option value="TODOS">TODOS</option>
+                        </select>
+                    </div>
+                    <div class="transform transition-all duration-300 hover:scale-105">
+                        <label for="years" class="block text-sm font-medium text-gray-300 mb-1">¿Cuántos años lleva la empresa en el mercado?</label>
+                        <input type="number" id="years" name="years" class="w-full px-4 py-2 rounded-md bg-[#262626] text-white border border-[#878787] focus:border-[#DCFF00] focus:ring focus:ring-[#DCFF00] focus:ring-opacity-50 transition-all duration-300">
+                    </div>
+                    <div class="transform transition-all duration-300 hover:scale-105">
+                        <label for="revenue" class="block text-sm font-medium text-gray-300 mb-1">¿Cuánto estás facturando por mes?</label>
+                        <select id="revenue" name="revenue" class="w-full px-4 py-2 rounded-md bg-[#262626] text-white border border-[#878787] focus:border-[#DCFF00] focus:ring focus:ring-[#DCFF00] focus:ring-opacity-50 transition-all duration-300">
+                            <option value="">Selecciona una opción</option>
+                            <option value="0-1000">0-1000 USD</option>
+                            <option value="1000-3000">1000 USD A 3000 USD</option>
+                            <option value="3000-5000">3000 USD A 5000 USD</option>
+                            <option value="5000-10000">5000 USD - 10.000 USD</option>
+                        </select>
+                    </div>
+                    <div class="transform transition-all duration-300 hover:scale-105">
+                        <label for="invested" class="block text-sm font-medium text-gray-300 mb-1">¿Alguna vez invertiste en pauta publicitaria?</label>
+                        <select id="invested" name="invested" class="w-full px-4 py-2 rounded-md bg-[#262626] text-white border border-[#878787] focus:border-[#DCFF00] focus:ring focus:ring-[#DCFF00] focus:ring-opacity-50 transition-all duration-300">
+                            <option value="">Selecciona una opción</option>
+                            <option value="si">Sí</option>
+                            <option value="no">No</option>
+                        </select>
+                    </div>
+                    <div class="transform transition-all duration-300 hover:scale-105">
+                        <label for="investment" class="block text-sm font-medium text-gray-300 mb-1">¿Qué monto estarías dispuesto a invertir en pauta publicitaria?</label>
+                        <input type="number" id="investment" name="investment" class="w-full px-4 py-2 rounded-md bg-[#262626] text-white border border-[#878787] focus:border-[#DCFF00] focus:ring focus:ring-[#DCFF00] focus:ring-opacity-50 transition-all duration-300">
                     </div>
                     <div>
                         <button type="submit" class="w-full bg-[#DCFF00] hover:bg-[#c7e600] text-[#151419] font-bold py-3 px-4 rounded-md transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
@@ -291,6 +379,29 @@
             const header = document.getElementById('header');
             const menuBtn = document.getElementById('menuBtn');
             const mobileMenu = document.getElementById('mobileMenu');
+            const heroCarousel = document.getElementById('heroCarousel');
+            let currentSlide = 0;
+
+            // Hero Carousel
+            function showSlide(index) {
+                const slides = heroCarousel.querySelectorAll('.carousel-item');
+                slides.forEach((slide, i) => {
+                    if (i === index) {
+                        slide.classList.remove('hidden');
+                        slide.classList.add('animate-fadeInUp');
+                    } else {
+                        slide.classList.add('hidden');
+                        slide.classList.remove('animate-fadeInUp');
+                    }
+                });
+            }
+
+            function nextSlide() {
+                currentSlide = (currentSlide + 1) % 3;
+                showSlide(currentSlide);
+            }
+
+            setInterval(nextSlide, 5000); // Change slide every 5 seconds
 
             // Intersection Observer for animations
             const observer = new IntersectionObserver((entries) => {
@@ -361,14 +472,24 @@
                 });
             });
 
-            // Add hover effect to service cards
-            const serviceCards = document.querySelectorAll('#servicios .clip-path-card');
-            serviceCards.forEach(card => {
-                card.addEventListener('mouseenter', () => {
-                    card.style.transform = 'scale(1.05) rotate(2deg)';
-                });
-                card.addEventListener('mouseleave', () => {
-                    card.style.transform = 'scale(1) rotate(0)';
+            // Portfolio filter functionality
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const portfolioItems = document.querySelectorAll('.portfolio-item');
+
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const filter = button.getAttribute('data-filter');
+                    
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+
+                    portfolioItems.forEach(item => {
+                        if (filter === 'all' || item.classList.contains(filter)) {
+                            item.style.display = 'block';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
                 });
             });
         });
