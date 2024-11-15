@@ -49,21 +49,22 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Services slider
     const servicesData = [
-        { title: "Branding", description: "Creamos identidades de marca únicas y memorables." },
-        { title: "Desarrollo Web", description: "Diseñamos y desarrollamos sitios web atractivos y funcionales." },
-        { title: "Marketing Digital", description: "Estrategias efectivas para aumentar tu presencia online." },
-        { title: "E-commerce", description: "Soluciones de comercio electrónico personalizadas." },
-        { title: "SEO", description: "Optimizamos tu sitio para los motores de búsqueda." },
-        { title: "Redes Sociales", description: "Gestionamos y potenciamos tus redes sociales." }
+        { title: "Branding", description: "Creamos identidades de marca únicas y memorables.", icon: "fas fa-paint-brush" },
+        { title: "Desarrollo Web", description: "Diseñamos y desarrollamos sitios web atractivos y funcionales.", icon: "fas fa-laptop-code" },
+        { title: "Marketing Digital", description: "Estrategias efectivas para aumentar tu presencia online.", icon: "fas fa-bullhorn" },
+        { title: "E-commerce", description: "Soluciones de comercio electrónico personalizadas.", icon: "fas fa-shopping-cart" },
+        { title: "SEO", description: "Optimizamos tu sitio para los motores de búsqueda.", icon: "fas fa-search" },
+        { title: "Redes Sociales", description: "Gestionamos y potenciamos tus redes sociales.", icon: "fas fa-share-alt" }
     ];
 
     const servicesSlider = document.querySelector('.services-slider');
-    servicesData.forEach((service, index) => {
+    servicesData.forEach((service) => {
         const serviceCard = document.createElement('div');
         serviceCard.classList.add('service-card');
         serviceCard.innerHTML = `
-            <h3 class="${index % 2 === 0 ? 'montserrat' : 'the-season-light'}">${service.title}</h3>
-            <p class="${index % 2 === 0 ? 'the-season-light' : 'montserrat'}">${service.description}</p>
+            <i class="${service.icon} service-icon"></i>
+            <h3 class="the-season-light">${service.title}</h3>
+            <p class="montserrat">${service.description}</p>
         `;
         servicesSlider.appendChild(serviceCard);
     });
@@ -73,7 +74,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function nextServiceSlide() {
         serviceCurrentSlide = (serviceCurrentSlide + 1) % serviceCards.length;
-        servicesSlider.style.transform = `translateX(-${serviceCurrentSlide * (300 + 20)}px)`;
+        servicesSlider.style.transform = `translateX(-${serviceCurrentSlide * (300 + 40)}px)`;
     }
 
     setInterval(nextServiceSlide, 3000);
@@ -93,13 +94,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function renderPortfolio(items) {
         portfolioGrid.innerHTML = '';
-        items.forEach((item, index) => {
+        items.forEach((item) => {
             const portfolioItem = document.createElement('div');
             portfolioItem.classList.add('portfolio-item');
             portfolioItem.dataset.category = item.category;
             portfolioItem.innerHTML = `
                 <img src="${item.image}" alt="${item.title}">
-                <h3 class="${index % 2 === 0 ? 'montserrat' : 'the-season-light'}">${item.title}</h3>
+                <h3 class="the-season-light">${item.title}</h3>
             `;
             portfolioItem.addEventListener('click', () => openModal(item));
             portfolioGrid.appendChild(portfolioItem);
