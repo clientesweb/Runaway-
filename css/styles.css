@@ -1,17 +1,21 @@
 :root {
     --color-primary: #000000;
     --color-secondary: #FFFFFF;
-    --color-accent: #CCFF00;
-    --color-gray: #808080;
-    --color-beige: #F5F5DC;
-    --font-primary: 'Poppins', sans-serif;
-    --font-secondary: 'Playfair Display', serif;
+    --color-accent: #DCFF00;
+    --color-background: #EFE7DA;
+    --font-primary: 'Montserrat', sans-serif;
+    --font-secondary: 'League Spartan', sans-serif;
 }
 
 body {
     font-family: var(--font-primary);
     color: var(--color-primary);
-    background-color: var(--color-secondary);
+    background-color: var(--color-background);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-secondary);
+    font-weight: 700;
 }
 
 .bg-primary {
@@ -90,7 +94,7 @@ body {
 .contact-form select:focus {
     border-color: var(--color-accent);
     outline: none;
-    box-shadow: 0 0 0 2px rgba(204, 255, 0, 0.2);
+    box-shadow: 0 0 0 2px rgba(220, 255, 0, 0.2);
 }
 
 @keyframes fadeIn {
@@ -151,24 +155,6 @@ body {
 .whatsapp-float:hover {
     background-color: #128C7E;
     color: #FFF;
-}
-
-@media (max-width: 768px) {
-    #mobile-nav {
-        display: none;
-    }
-
-    #mobile-nav.active {
-        display: block;
-    }
-
-    .whatsapp-float {
-        width: 50px;
-        height: 50px;
-        bottom: 20px;
-        right: 20px;
-        font-size: 24px;
-    }
 }
 
 /* Preloader styles */
@@ -268,4 +254,97 @@ body {
 #content.visible {
     opacity: 1;
     visibility: visible;
+}
+
+/* Responsive styles */
+@media (max-width: 1024px) {
+    .hero-section {
+        height: calc(100vh - 60px);
+    }
+}
+
+@media (max-width: 768px) {
+    #mobile-nav {
+        display: none;
+    }
+
+    #mobile-nav.active {
+        display: block;
+    }
+
+    .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        bottom: 20px;
+        right: 20px;
+        font-size: 24px;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    .hero-section {
+        height: calc(100vh - 50px);
+    }
+}
+
+@media (max-width: 640px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.75rem;
+    }
+
+    .hero-section {
+        height: calc(100vh - 40px);
+    }
+}
+
+/* Hover effect for buttons and links */
+a, button {
+    transition: all 0.3s ease;
+}
+
+a:hover, button:hover {
+    color: var(--color-accent);
+}
+
+/* Accent color effect for sliding elements */
+.sliding-element {
+    position: relative;
+    overflow: hidden;
+}
+
+.sliding-element::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--color-accent);
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+}
+
+.sliding-element:hover::after {
+    transform: translateX(0);
+}
+
+/* Alternating font styles */
+.alternate-font {
+    font-family: var(--font-secondary);
+    font-weight: 400;
+}
+
+.alternate-font:nth-child(even) {
+    font-family: var(--font-primary);
+    font-weight: 300;
 }
