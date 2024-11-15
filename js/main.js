@@ -166,6 +166,7 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('modal-title').textContent = item.title;
         document.getElementById('modal-image').src = item.image;
         document.getElementById('modal-description').textContent = item.description;
+        document.getElementById('modal-link').href = item.link || '#';
         modal.style.display = 'block';
     }
 
@@ -254,5 +255,36 @@ document.addEventListener('DOMContentLoaded', function() {
         const src = img.getAttribute('data-src');
         if (!src) { return; }
         img.src = src;
+    }
+
+    // Testimonial slider
+    const testimonialSlider = document.querySelector('.testimonial-slider');
+    if (testimonialSlider) {
+        const testimonials = [
+            { text: "RNW Studio transformó nuestra marca. Su enfoque creativo y estratégico nos ayudó a destacar en el mercado.", author: "Cliente Satisfecho 1" },
+            { text: "El equipo de RNW Studio es increíblemente profesional y talentoso. Superaron nuestras expectativas.", author: "Cliente Satisfecho 2" },
+            { text: "Gracias a RNW Studio, nuestra presencia en línea ha mejorado significativamente. Altamente recomendados.", author: "Cliente Satisfecho 3" }
+        ];
+
+        testimonials.forEach(testimonial => {
+            const testimonialElement = document.createElement('div');
+            testimonialElement.classList.add('testimonial');
+            testimonialElement.innerHTML = `
+                <p class="montserrat">"${testimonial.text}"</p>
+                <p class="the-season-light">- ${testimonial.author}</p>
+            `;
+            testimonialSlider.appendChild(testimonialElement);
+        });
+
+        let currentTestimonial = 0;
+        const testimonialElements = testimonialSlider.children;
+
+        function nextTestimonial() {
+            testimonialElements[currentTestimonial].style.display = 'none';
+            currentTestimonial = (currentTestimonial + 1) % testimonialElements.length;
+            testimonialElements[currentTestimonial].style.display = 'block';
+        }
+
+        setInterval(nextTestimonial, 5000);
     }
 });
