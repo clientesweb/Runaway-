@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Preloader
     const preloader = document.getElementById('preloader');
     const content = document.getElementById('content');
-    
+
     window.addEventListener('load', function() {
         setTimeout(function() {
             preloader.classList.add('hidden');
@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 2000);
     });
 
-    // Menú móvil
+    // Mobile menu
     const menuToggle = document.getElementById('menu-toggle');
     const mobileNav = document.getElementById('mobile-nav');
 
@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
         mobileNav.classList.toggle('active');
     });
 
-    // Cerrar menú móvil al hacer clic en un enlace
+    // Close mobile menu when clicking a link
     const mobileNavLinks = mobileNav.querySelectorAll('a');
     mobileNavLinks.forEach(link => {
         link.addEventListener('click', function() {
@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', function() {
         },
     });
 
-    // Servicios
+    // Services
     const services = [
         {
             icon: 'paint-brush',
@@ -110,8 +110,8 @@ document.addEventListener('DOMContentLoaded', function() {
             slide.className = 'keen-slider__slide';
             slide.innerHTML = `
                 <i class="fas fa-${service.icon} text-4xl text-accent mb-4"></i>
-                <h3 class="text-xl font-bold mb-2">${service.title}</h3>
-                <p>${service.description}</p>
+                <h3 class="text-xl font-bold mb-2 font-secondary">${service.title}</h3>
+                <p class="font-tertiary">${service.description}</p>
             `;
             servicesSlider.appendChild(slide);
         });
@@ -136,6 +136,11 @@ document.addEventListener('DOMContentLoaded', function() {
                         spacing: 15,
                     }
                 }
+            },
+            created: function(instance) {
+                setInterval(() => {
+                    instance.next();
+                }, 5000);
             }
         });
     }
@@ -184,8 +189,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 <img src="${item.image}" alt="${item.title}" class="w-full h-64 object-cover">
                 <div class="portfolio-overlay absolute inset-0 flex items-center justify-center">
                     <div class="text-center">
-                        <h3 class="text-white text-xl font-bold mb-2">${item.title}</h3>
-                        <p class="text-white">${item.description}</p>
+                        <h3 class="text-white text-xl font-bold mb-2 font-secondary">${item.title}</h3>
+                        <p class="text-white font-tertiary">${item.description}</p>
                     </div>
                 </div>
             </div>
@@ -193,7 +198,7 @@ document.addEventListener('DOMContentLoaded', function() {
         portfolioGrid.appendChild(portfolioItem);
     });
 
-    // Filtro de Portfolio
+    // Portfolio Filter
     const filterButtons = document.querySelectorAll('.filter-btn');
     filterButtons.forEach(button => {
         button.addEventListener('click', function() {
@@ -212,20 +217,20 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Formulario de contacto
+    // Contact Form
     const contactForm = document.getElementById('contact-form');
     contactForm.addEventListener('submit', function(e) {
         e.preventDefault();
-        // Aquí puedes agregar la lógica para enviar el formulario
+        // Here you can add the logic to send the form
         alert('Gracias por tu mensaje. Nos pondremos en contacto contigo pronto.');
         contactForm.reset();
     });
 
-    // Agendar reunión
+    // Schedule Meeting
     const scheduleMeetingBtn = document.getElementById('schedule-meeting');
     scheduleMeetingBtn.addEventListener('click', function(e) {
         e.preventDefault();
-        const calendlyURL = 'https://calendly.com/tu-usuario/30min'; // Reemplaza con tu URL de Calendly
+        const calendlyURL = 'https://calendly.com/tu-usuario/30min'; // Replace with your Calendly URL
         window.open(calendlyURL, '_blank');
     });
 
@@ -239,7 +244,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Modal de Galería
+    // Gallery Modal
     const galleryModal = document.getElementById('gallery-modal');
     const closeModal = document.getElementById('close-modal');
     const modalTitle = document.getElementById('modal-title');
@@ -258,7 +263,7 @@ document.addEventListener('DOMContentLoaded', function() {
             modalImage.src = imageSrc;
             modalImage.alt = title;
             modalDescription.textContent = description;
-            modalLink.href = '#'; // Actualiza esto con el enlace real al proyecto
+            modalLink.href = '#'; // Update this with the real project link
 
             galleryModal.classList.remove('hidden');
             galleryModal.classList.add('flex');
@@ -274,6 +279,29 @@ document.addEventListener('DOMContentLoaded', function() {
         if (e.target === galleryModal) {
             galleryModal.classList.add('hidden');
             galleryModal.classList.remove('flex');
+        }
+    });
+
+    // Sliding effect for navigation links
+    const navLinks = document.querySelectorAll('.sliding-element');
+    navLinks.forEach(link => {
+        link.addEventListener('mouseenter', function() {
+            this.classList.add('sliding-active');
+        });
+        link.addEventListener('mouseleave', function() {
+            this.classList.remove('sliding-active');
+        });
+    });
+
+    // Alternating font styles
+    const alternateFonts = document.querySelectorAll('.alternate-font');
+    alternateFonts.forEach((element, index) => {
+        if (index % 3 === 0) {
+            element.classList.add('font-primary');
+        } else if (index % 3 === 1) {
+            element.classList.add('font-secondary');
+        } else {
+            element.classList.add('font-tertiary');
         }
     });
 });
