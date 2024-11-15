@@ -1,12 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;700&display=swap');
-@font-face {
-    font-family: 'The Season Light';
-    src: url('path/to/TheSeasonLight.woff2') format('woff2'),
-         url('path/to/TheSeasonLight.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
 
 :root {
     --color-primary: #000000;
@@ -18,10 +11,12 @@
     --font-tertiary: 'The Season Light', sans-serif;
 }
 
+/* Base Styles */
 body {
     font-family: var(--font-primary);
     color: var(--color-primary);
     background-color: var(--color-background);
+    line-height: 1.6;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -29,6 +24,17 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 700;
 }
 
+a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--color-accent);
+}
+
+/* Utility Classes */
 .bg-primary {
     background-color: var(--color-primary);
 }
@@ -41,6 +47,10 @@ h1, h2, h3, h4, h5, h6 {
     background-color: var(--color-accent);
 }
 
+.font-primary {
+    font-family: var(--font-primary);
+}
+
 .font-secondary {
     font-family: var(--font-secondary);
 }
@@ -49,6 +59,35 @@ h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-tertiary);
 }
 
+/* Header and Navigation */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-link {
+    position: relative;
+    overflow: hidden;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--color-accent);
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+}
+
+.nav-link:hover::after {
+    transform: translateX(0);
+}
+
+/* Hero Section */
 .hero-section {
     height: calc(100vh - 80px);
     position: relative;
@@ -63,6 +102,7 @@ h1, h2, h3, h4, h5, h6 {
     background-position: center;
 }
 
+/* Services Section */
 #services-slider .keen-slider__slide {
     min-height: 300px;
     display: flex;
@@ -82,8 +122,10 @@ h1, h2, h3, h4, h5, h6 {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
+/* Portfolio Section */
 .portfolio-item {
     overflow: hidden;
+    position: relative;
 }
 
 .portfolio-item img {
@@ -104,6 +146,7 @@ h1, h2, h3, h4, h5, h6 {
     opacity: 1;
 }
 
+/* Contact Form */
 .contact-form input:focus,
 .contact-form textarea:focus,
 .contact-form select:focus {
@@ -112,6 +155,7 @@ h1, h2, h3, h4, h5, h6 {
     box-shadow: 0 0 0 2px rgba(220, 255, 0, 0.2);
 }
 
+/* Animations */
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
@@ -121,6 +165,27 @@ h1, h2, h3, h4, h5, h6 {
     animation: fadeIn 0.5s ease forwards;
 }
 
+/* Button Styles */
+.btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border-radius: 9999px;
+    font-weight: bold;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background-color: var(--color-accent);
+    color: var(--color-primary);
+}
+
+.btn-primary:hover {
+    background-color: var(--color-primary);
+    color: var(--color-accent);
+}
+
+/* Filter Buttons */
 .filter-btn {
     transition: background-color 0.3s ease, color 0.3s ease;
 }
@@ -132,6 +197,7 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--color-primary);
 }
 
+/* Promo Slider */
 #promo-slider .keen-slider__slide {
     display: flex;
     align-items: center;
@@ -140,6 +206,7 @@ h1, h2, h3, h4, h5, h6 {
     padding: 0.5rem;
 }
 
+/* Responsive Video Container */
 .aspect-w-16 {
     padding-bottom: 56.25%;
     position: relative;
@@ -153,6 +220,7 @@ h1, h2, h3, h4, h5, h6 {
     height: 100%;
 }
 
+/* WhatsApp Float Button */
 .whatsapp-float {
     position: fixed;
     width: 60px;
@@ -178,7 +246,7 @@ h1, h2, h3, h4, h5, h6 {
     color: #FFF;
 }
 
-/* Preloader styles */
+/* Preloader */
 #preloader {
     transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
 }
@@ -264,20 +332,43 @@ h1, h2, h3, h4, h5, h6 {
     }
 }
 
-.overflow-hidden {
-    overflow: hidden;
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
 }
 
-#content {
-    transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
 }
 
-#content.visible {
-    opacity: 1;
-    visibility: visible;
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
 }
 
-/* Responsive styles */
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Responsive Styles */
 @media (max-width: 1024px) {
     .hero-section {
         height: calc(100vh - 60px);
@@ -312,6 +403,10 @@ h1, h2, h3, h4, h5, h6 {
     .hero-section {
         height: calc(100vh - 50px);
     }
+
+    #services-slider .keen-slider__slide {
+        min-height: 250px;
+    }
 }
 
 @media (max-width: 640px) {
@@ -326,51 +421,41 @@ h1, h2, h3, h4, h5, h6 {
     .hero-section {
         height: calc(100vh - 40px);
     }
+
+    #services-slider .keen-slider__slide {
+        min-height: 200px;
+    }
+
+    .btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+    }
 }
 
-/* Hover effect for buttons and links */
-a, button {
-    transition: all 0.3s ease;
-}
-
-a:hover, button:hover {
-    color: var(--color-accent);
-}
-
-/* Accent color effect for sliding elements */
-.sliding-element {
-    position: relative;
-    overflow: hidden;
-}
-
-.sliding-element::after {
-    content: '';
+/* Accessibility */
+.sr-only {
     position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background-color: var(--color-accent);
-    transform: translateX(-100%);
-    transition: transform 0.3s ease;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
 }
 
-.sliding-element:hover::after {
-    transform: translateX(0);
-}
+/* Print Styles */
+@media print {
+    .no-print {
+        display: none;
+    }
 
-/* Alternating font styles */
-.alternate-font {
-    font-family: var(--font-primary);
-    font-weight: 300;
-}
+    body {
+        font-size: 12pt;
+    }
 
-.alternate-font:nth-child(2n) {
-    font-family: var(--font-secondary);
-    font-weight: 400;
-}
-
-.alternate-font:nth-child(3n) {
-    font-family: var(--font-tertiary);
-    font-weight: normal;
+    a[href]:after {
+        content: " (" attr(href) ")";
+    }
 }
