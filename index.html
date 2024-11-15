@@ -8,14 +8,13 @@
     <link rel="icon" href="images/Logos_B-10.jpg" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.cdnfonts.com/css/the-season-light" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/keen-slider@6.8.5/keen-slider.min.css">
     <link rel="stylesheet" href="css/styles.css">
 </head>
-<body class="overflow-x-hidden">
+<body class="overflow-x-hidden font-primary">
     <div id="preloader" class="fixed inset-0 z-50 flex items-center justify-center bg-primary" aria-hidden="true">
         <div class="preloader-content">
             <div class="spinner" role="status">
@@ -23,7 +22,7 @@
                 <div class="double-bounce2"></div>
             </div>
             <img src="images/Logos_C-18.png" alt="RNW Studio Logo" class="logo" width="100" height="100">
-            <p class="loading-text font-tertiary">Cargando<span class="dots"></span></p>
+            <p class="loading-text font-secondary">Cargando<span class="dots"></span></p>
         </div>
     </div>
 
@@ -85,7 +84,7 @@
                         <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50">
                             <div class="text-center">
                                 <h1 class="text-5xl md:text-6xl font-bold mb-4 animate-fade-in font-secondary">Impulsá tu e-commerce hacia el éxito</h1>
-                                <p class="text-xl mb-8 animate-fade-in font-tertiary">Hacemos que tu marca destaque y tus ventas aumenten</p>
+                                <p class="text-xl mb-8 animate-fade-in font-primary">Hacemos que tu marca destaque y tus ventas aumenten</p>
                                 <a href="#contacto" class="bg-accent text-primary font-bold py-3 px-8 rounded-full text-lg hover:bg-white transition duration-300">Contáctanos</a>
                             </div>
                         </div>
@@ -94,7 +93,7 @@
                         <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50">
                             <div class="text-center">
                                 <h2 class="text-5xl md:text-6xl font-bold mb-4 animate-fade-in font-secondary">Diseño y desarrollo web</h2>
-                                <p class="text-xl mb-8 animate-fade-in font-tertiary">Creamos experiencias digitales que conviertan visitantes en clientes</p>
+                                <p class="text-xl mb-8 animate-fade-in font-primary">Creamos experiencias digitales que conviertan visitantes en clientes</p>
                                 <a href="#servicios" class="bg-accent text-primary font-bold py-3 px-8 rounded-full text-lg hover:bg-white transition duration-300">Nuestros Servicios</a>
                             </div>
                         </div>
@@ -103,7 +102,7 @@
                         <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50">
                             <div class="text-center">
                                 <h2 class="text-5xl md:text-6xl font-bold mb-4 animate-fade-in font-secondary">Estrategias de Marketing digital</h2>
-                                <p class="text-xl mb-8 animate-fade-in font-tertiary">Potenciamos tu presencia online</p>
+                                <p class="text-xl mb-8 animate-fade-in font-primary">Potenciamos tu presencia online</p>
                                 <a href="#portfolio" class="bg-accent text-primary font-bold py-3 px-8 rounded-full text-lg hover:bg-white transition duration-300">Ver Portfolio</a>
                             </div>
                         </div>
@@ -115,7 +114,7 @@
                 <div class="container mx-auto px-4">
                     <div class="max-w-4xl mx-auto">
                         <h2 class="text-4xl font-bold text-center mb-8 font-secondary">Construimos identidades de marca que conectan</h2>
-                        <p class="text-lg mb-8 text-center alternate-font">
+                        <p class="text-lg mb-8 text-center font-primary">
                             Nuestra agencia creativa se enfoca en dar vida a marcas auténticas y memorables. Desde la creación de identidad hasta su presencia en el mundo digital, trabajamos para que cada interacción refleje el propósito y visión de tu negocio.
                         </p>
                         <div class="text-center">
@@ -131,9 +130,6 @@
                     <div id="services-slider" class="keen-slider" aria-label="Servicios ofrecidos">
                         <!-- Los servicios se cargarán dinámicamente con JavaScript -->
                     </div>
-                    <div class="text-center mt-8">
-                        <button id="ver-mas-servicios" class="bg-accent text-primary font-bold py-3 px-8 rounded-full text-lg hover:bg-primary hover:text-white transition duration-300">Ver más servicios</button>
-                    </div>
                 </div>
             </section>
 
@@ -143,7 +139,7 @@
                         <div class="keen-slider__slide">
                             <div class="text-center">
                                 <h2 class="text-3xl font-bold mb-4 font-secondary">¡Impulsa tu negocio ahora!</h2>
-                                <p class="text-xl mb-8 font-tertiary">Obtén un 20% de descuento en tu primer proyecto con nosotros</p>
+                                <p class="text-xl mb-8 font-primary">Obtén un 20% de descuento en tu primer proyecto con nosotros</p>
                                 <a href="#contacto" class="bg-primary text-white font-bold py-3 px-8 rounded-full text-lg hover:bg-white hover:text-primary transition duration-300">¡Aprovecha esta oferta!</a>
                             </div>
                         </div>
@@ -160,7 +156,7 @@
             <section id="portfolio" class="py-20">
                 <div class="container mx-auto px-4">
                     <h2 class="text-4xl font-bold text-center mb-12 font-secondary">Nuestro Portfolio</h2>
-                    <div class="flex justify-center space-x-4 mb-8">
+                    <div class="flex flex-wrap justify-center gap-4 mb-8">
                         <button class="filter-btn px-4 py-2 rounded-full bg-primary text-white" data-filter="all">Todos</button>
                         <button class="filter-btn px-4 py-2 rounded-full bg-gray-200 text-primary" data-filter="branding">Branding</button>
                         <button class="filter-btn px-4 py-2 rounded-full bg-gray-200 text-primary" data-filter="contenido">Creación de contenido</button>
@@ -168,7 +164,7 @@
                         <button class="filter-btn px-4 py-2 rounded-full bg-gray-200 text-primary" data-filter="tienda">Tienda online</button>
                         <button class="filter-btn px-4 py-2 rounded-full bg-gray-200 text-primary" data-filter="pauta">Pauta publicitaria</button>
                     </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="portfolio-grid">
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="portfolio-grid">
                         <!-- Los elementos del portfolio se cargarán dinámicamente con JavaScript -->
                     </div>
                 </div>
@@ -178,7 +174,7 @@
                 <div class="container mx-auto px-4">
                     <h2 class="text-4xl font-bold text-center mb-12 font-secondary">Contáctanos</h2>
                     <div class="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-lg">
-                        <h3 class="text-2xl font-bold text-center mb-8 font-tertiary">Completa el formulario y programemos nuestra primera reunión para empezar a trabajar juntos!</h3>
+                        <h3 class="text-2xl font-bold text-center mb-8 font-primary">Completa el formulario y programemos nuestra primera reunión para empezar a trabajar juntos!</h3>
                         <form id="contact-form" class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div>
                                 <label for="nombre" class="block text-gray-700 text-sm font-bold mb-2">Nombre completo *</label>
@@ -243,7 +239,7 @@
                 <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                     <div>
                         <img src="images/Logos_C-18.png" alt="RNW Studio" class="h-17 w-auto mb-4">
-                        <p class="text-sm font-tertiary">Impulsando tu e-commerce hacia el éxito.</p>
+                        <p class="text-sm font-primary">Impulsando tu e-commerce hacia el éxito.</p>
                     </div>
                     <div>
                         <h4 class="text-lg font-bold mb-4 font-secondary">Enlaces rápidos</h4>
@@ -257,10 +253,10 @@
                     </div>
                     <div>
                         <h4 class="text-lg font-bold mb-4 font-secondary">Contáctanos</h4>
-                        <p><i class="fab fa-tiktok mr-2" aria-hidden="true"></i>TikTok: <a href="https://www.tiktok.com/@rnw.studio" target="_blank" rel="noopener noreferrer">@rnw.studio</a></p>
-                        <p><i class="fas fa-phone mr-2" aria-hidden="true"></i>Teléfono: 3517323886</p>
-                        <p><i class="fas fa-envelope mr-2" aria-hidden="true"></i>Email: info.rnwstudio@gmail.com</p>
-                        <p><i class="fab fa-instagram mr-2" aria-hidden="true"></i>Instagram: <a href="https://www.instagram.com/rnw.studio" target="_blank" rel="noopener noreferrer">rnw.studio</a></p>
+                        <p><i class="fab fa-tiktok mr-2" aria-hidden="true"></i>TikTok: <a href="https://www.tiktok.com/@rnw.studio" target="_blank" rel="noopener noreferrer" class="hover:text-accent transition-colors">@rnw.studio</a></p>
+                        <p><i class="fas fa-phone mr-2" aria-hidden="true"></i>Teléfono: <a href="tel:3517323886" class="hover:text-accent transition-colors">3517323886</a></p>
+                        <p><i class="fas fa-envelope mr-2" aria-hidden="true"></i>Email: <a href="mailto:info@rnwstudio.com" class="hover:text-accent transition-colors">info@rnwstudio.com</a></p>
+                        <p><i class="fab fa-instagram mr-2" aria-hidden="true"></i>Instagram: <a href="https://www.instagram.com/rnw.studio" target="_blank" rel="noopener noreferrer" class="hover:text-accent transition-colors">rnw.studio</a></p>
                     </div>
                     <div>
                         <h4 class="text-lg font-bold mb-4 font-secondary">Síguenos</h4>
@@ -273,8 +269,8 @@
                     </div>
                 </div>
                 <div class="mt-8 text-center">
-                    <p class="font-tertiary">&copy; 2024 RNW Studio. Todos los derechos reservados.</p>
-                    <p class="font-tertiary">Powered by <a href="https://dualitydomain.github.io/Dualitydomain/" target="_blank" rel="noopener noreferrer" class="text-accent">Duality Domain</a></p>
+                    <p class="font-primary">&copy; 2024 RNW Studio. Todos los derechos reservados.</p>
+                    <p class="font-primary">Powered by <a href="https://dualitydomain.github.io/Dualitydomain/" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">Duality Domain</a></p>
                 </div>
             </div>
         </footer>
@@ -294,7 +290,7 @@
                 </button>
             </div>
             <img id="modal-image" src="" alt="Proyecto" class="w-full h-auto mb-4 rounded-lg">
-            <p id="modal-description" class="text-gray-700 mb-4 font-tertiary"></p>
+            <p id="modal-description" class="text-gray-700 mb-4 font-primary"></p>
             <a id="modal-link" href="#" target="_blank" rel="noopener noreferrer" class="bg-accent text-primary font-bold py-2 px-4 rounded-lg hover:bg-primary hover:text-white transition duration-300">Ver Proyecto</a>
         </div>
     </div>
