@@ -110,18 +110,18 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Portfolio grid
     const portfolioData = [
-        { title: "Branding 1", category: "branding", image: "path/to/branding1.jpg", description: "Descripción del proyecto de branding 1" },
-        { title: "Branding 2", category: "branding", image: "path/to/branding2.jpg", description: "Descripción del proyecto de branding 2" },
-        { title: "Branding 3", category: "branding", image: "path/to/branding3.jpg", description: "Descripción del proyecto de branding 3" },
-        { title: "Contenido 1", category: "contenido", image: "path/to/contenido1.jpg", description: "Descripción del proyecto de contenido 1" },
-        { title: "Contenido 2", category: "contenido", image: "path/to/contenido2.jpg", description: "Descripción del proyecto de contenido 2" },
-        { title: "Contenido 3", category: "contenido", image: "path/to/contenido3.jpg", description: "Descripción del proyecto de contenido 3" },
-        { title: "Producción 1", category: "produccion", image: "path/to/produccion1.jpg", description: "Descripción del proyecto de producción 1" },
-        { title: "Producción 2", category: "produccion", image: "path/to/produccion2.jpg", description: "Descripción del proyecto de producción 2" },
-        { title: "Producción 3", category: "produccion", image: "path/to/produccion3.jpg", description: "Descripción del proyecto de producción 3" },
-        { title: "Rahco", category: "tienda", image: "path/to/rahco.jpg", description: "Tienda online para Rahco" },
-        { title: "Edific", category: "tienda", image: "path/to/edific.jpg", description: "Tienda online para Edific" },
-        { title: "Hakuna Sport", category: "tienda", image: "path/to/hakuna-sport.jpg", description: "Tienda online para Hakuna Sport" },
+        { title: "Branding 1", category: "branding", image: "path/to/branding1.jpg", description: "Descripción del proyecto de branding 1", link: "#" },
+        { title: "Branding 2", category: "branding", image: "path/to/branding2.jpg", description: "Descripción del proyecto de branding 2", link: "#" },
+        { title: "Branding 3", category: "branding", image: "path/to/branding3.jpg", description: "Descripción del proyecto de branding 3", link: "#" },
+        { title: "Contenido 1", category: "contenido", image: "path/to/contenido1.jpg", description: "Descripción del proyecto de contenido 1", link: "#" },
+        { title: "Contenido 2", category: "contenido", image: "path/to/contenido2.jpg", description: "Descripción del proyecto de contenido 2", link: "#" },
+        { title: "Contenido 3", category: "contenido", image: "path/to/contenido3.jpg", description: "Descripción del proyecto de contenido 3", link: "#" },
+        { title: "Producción 1", category: "produccion", image: "path/to/produccion1.jpg", description: "Descripción del proyecto de producción 1", link: "#" },
+        { title: "Producción 2", category: "produccion", image: "path/to/produccion2.jpg", description: "Descripción del proyecto de producción 2", link: "#" },
+        { title: "Producción 3", category: "produccion", image: "path/to/produccion3.jpg", description: "Descripción del proyecto de producción 3", link: "#" },
+        { title: "Rahco", category: "tienda", image: "path/to/rahco.jpg", description: "Tienda online para Rahco", link: "#" },
+        { title: "Edific", category: "tienda", image: "path/to/edific.jpg", description: "Tienda online para Edific", link: "#" },
+        { title: "Hakuna Sport", category: "tienda", image: "path/to/hakuna-sport.jpg", description: "Tienda online para Hakuna Sport", link: "#" },
     ];
 
     const portfolioGrid = document.querySelector('.portfolio-grid');
@@ -166,7 +166,7 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('modal-title').textContent = item.title;
         document.getElementById('modal-image').src = item.image;
         document.getElementById('modal-description').textContent = item.description;
-        document.getElementById('modal-link').href = item.link || '#';
+        document.getElementById('modal-link').href = item.link;
         modal.style.display = 'block';
     }
 
