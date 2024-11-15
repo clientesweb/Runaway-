@@ -3,19 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RNW Studio - Tu marca, nuestro enfoque</title>
-    <meta name="description" content="En RNW Studio ofrecemos servicios de branding, marketing digital y desarrollo web para impulsar tu e-commerce hacia el éxito.">
-    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <title>RNW Studio - Tu marca, nuestro enfoque | Branding y Marketing Digital</title>
+    <meta name="description" content="RNW Studio ofrece servicios de branding, marketing digital y desarrollo web para impulsar tu e-commerce hacia el éxito. Transforma tu presencia online con nosotros.">
+    <meta name="keywords" content="branding, marketing digital, desarrollo web, e-commerce, diseño gráfico, redes sociales">
+    <meta name="author" content="RNW Studio">
+    <link rel="canonical" href="https://www.rnwstudio.com">
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#DCFF00">
+    <meta name="msapplication-TileColor" content="#DCFF00">
+    <meta name="theme-color" content="#EFE7DA">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.rnwstudio.com/">
+    <meta property="og:title" content="RNW Studio - Tu marca, nuestro enfoque">
+    <meta property="og:description" content="Servicios de branding, marketing digital y desarrollo web para impulsar tu e-commerce hacia el éxito.">
+    <meta property="og:image" content="https://www.rnwstudio.com/og-image.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.rnwstudio.com/">
+    <meta property="twitter:title" content="RNW Studio - Tu marca, nuestro enfoque">
+    <meta property="twitter:description" content="Servicios de branding, marketing digital y desarrollo web para impulsar tu e-commerce hacia el éxito.">
+    <meta property="twitter:image" content="https://www.rnwstudio.com/twitter-image.jpg">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.cdnfonts.com/css/the-season-light" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer">
     <link rel="stylesheet" href="css/styles.css">
+
+    <!-- Structured Data for Local SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "RNW Studio",
+      "image": "https://www.rnwstudio.com/logo.png",
+      "url": "https://www.rnwstudio.com",
+      "telephone": "+543517323886",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Dirección de la empresa",
+        "addressLocality": "Ciudad",
+        "postalCode": "Código Postal",
+        "addressCountry": "AR"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": -31.4201,
+        "longitude": -64.1888
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday"
+        ],
+        "opens": "09:00",
+        "closes": "18:00"
+      },
+      "sameAs": [
+        "https://www.facebook.com/rnwstudio",
+        "https://www.instagram.com/rnw.studio",
+        "https://www.linkedin.com/company/rnwstudio",
+        "https://www.tiktok.com/@rnw.studio"
+      ]
+    }
+    </script>
 </head>
 <body>
-    <div id="preloader">
+    <div id="preloader" aria-hidden="true">
         <div class="preloader-content">
-            <div class="spinner"></div>
+            <div class="spinner" role="status">
+                <span class="sr-only">Cargando...</span>
+            </div>
             <img src="images/Logos_C-18.png" alt="RNW Studio Logo" class="logo" width="100" height="100">
             <p class="loading-text">Cargando<span class="dots"></span></p>
         </div>
@@ -23,17 +96,17 @@
 
     <div id="content">
         <header>
-            <div class="top-banner-slider">
+            <div class="top-banner-slider" aria-label="Anuncios importantes">
                 <div class="slide">Agendá una reunión sin cargo</div>
                 <div class="slide">Regístrate hoy y obtené un 10% de descuento en tu próximo servicio contratado</div>
             </div>
             <nav>
                 <div class="container">
-                    <a href="#" class="logo">
-                        <img src="images/Logos_B-10-removebg-preview.png" alt="RNW Studio" class="logo-img">
+                    <a href="#" class="logo" aria-label="Inicio">
+                        <img src="images/Logos_B-10-removebg-preview.png" alt="RNW Studio" class="logo-img" width="150" height="40">
                     </a>
-                    <button id="menu-toggle" aria-label="Toggle menu">
-                        <i class="fas fa-bars"></i>
+                    <button id="menu-toggle" aria-label="Abrir menú" aria-expanded="false">
+                        <i class="fas fa-bars" aria-hidden="true"></i>
                     </button>
                     <ul id="main-nav">
                         <li><a href="#inicio" class="the-season-light">Inicio</a></li>
@@ -42,11 +115,11 @@
                         <li><a href="#portfolio" class="the-season-light">Portfolio</a></li>
                         <li><a href="#contacto" class="the-season-light">Contacto</a></li>
                     </ul>
-                    <div class="social-links">
-                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                    <div class="social-links" aria-label="Redes sociales">
+                        <a href="https://www.facebook.com/rnwstudio" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook" aria-hidden="true"></i></a>
+                        <a href="https://www.instagram.com/rnw.studio" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                        <a href="https://www.linkedin.com/company/rnwstudio" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
+                        <a href="https://www.tiktok.com/@rnw.studio" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i class="fab fa-tiktok" aria-hidden="true"></i></a>
                     </div>
                 </div>
             </nav>
@@ -54,7 +127,7 @@
 
         <main>
             <section id="inicio" class="hero-section">
-                <div class="hero-slider">
+                <div class="hero-slider" aria-label="Presentación de servicios">
                     <div class="slide" style="background-image: url('images/IMG_4414_jpg.jpg');">
                         <div class="hero-content">
                             <h1 class="the-season-light">Tu marca, nuestro enfoque</h1>
@@ -92,30 +165,26 @@
             <section id="servicios">
                 <div class="container">
                     <h2 class="the-season-light">Nuestros Servicios</h2>
-                    <div class="services-grid">
-                        <!-- Los servicios se cargarán dinámicamente con JavaScript -->
-                    </div>
+                    <div class="services-grid" aria-label="Lista de servicios"></div>
                 </div>
             </section>
 
             <section id="nuestro-enfoque">
                 <div class="container">
                     <h2 class="the-season-light">Nuestro Enfoque: Trabajando Juntos para el Éxito de tu Marca</h2>
-                    <p class="montserrat">En Runway Fusión creemos en la colaboración con nuestros clientes para lograr resultados excepcionales. Nuestra metodología de trabajo se basa en que antes de iniciar a trabajar juntos programamos una reunión inicial para comprender sus objetivos, valores de marca y requisitos específicos. Nos enfocamos en entender tus necesidades para poder ofrecerte soluciones personalizadas.</p>
+                    <p class="montserrat">En RNW Studio creemos en la colaboración con nuestros clientes para lograr resultados excepcionales. Nuestra metodología de trabajo se basa en que antes de iniciar a trabajar juntos programamos una reunión inicial para comprender sus objetivos, valores de marca y requisitos específicos. Nos enfocamos en entender tus necesidades para poder ofrecerte soluciones personalizadas.</p>
                     
                     <h3 class="the-season-light">Por qué Elegirnos</h3>
-                    <div class="testimonial-slider">
-                        <!-- Los testimonios se cargarán dinámicamente con JavaScript -->
-                    </div>
+                    <div class="testimonial-slider" aria-label="Testimonios de clientes"></div>
                     
                     <h3 class="the-season-light">Resultados Sostenibles: Compromiso de Tres Meses para Impulsar tu E-Commerce</h3>
-                    <p class="montserrat">Comprendemos la importancia de generar resultados concretos y sostenibles para tu negocio. Por eso, en Runway Fusión, recomendamos un compromiso mínimo de tres meses para nuestras campañas publicitarias. Este plazo nos permite implementar estrategias sólidas, ajustarlas según los datos obtenidos y optimizar el rendimiento para asegurar el logro de tus objetivos de ventas y crecimiento.</p>
+                    <p class="montserrat">Comprendemos la importancia de generar resultados concretos y sostenibles para tu negocio. Por eso, en RNW Studio, recomendamos un compromiso mínimo de tres meses para nuestras campañas publicitarias. Este plazo nos permite implementar estrategias sólidas, ajustarlas según los datos obtenidos y optimizar el rendimiento para asegurar el logro de tus objetivos de ventas y crecimiento.</p>
                 </div>
             </section>
 
             <section id="banner-publicitario">
                 <div class="container">
-                    <div class="ad-slider">
+                    <div class="ad-slider" aria-label="Ofertas especiales">
                         <div class="slide">
                             <h2 class="the-season-light">¡Impulsa tu negocio ahora!</h2>
                             <p class="montserrat">Agendá una reunión sin cargo</p>
@@ -141,9 +210,7 @@
                         <button class="filter-btn the-season-light" data-filter="tienda">Tienda online</button>
                         <button class="filter-btn the-season-light" data-filter="pauta">Pauta publicitaria</button>
                     </div>
-                    <div class="portfolio-grid">
-                        <!-- Los elementos del portfolio se cargarán dinámicamente con JavaScript -->
-                    </div>
+                    <div class="portfolio-grid" aria-label="Galería de proyectos"></div>
                 </div>
             </section>
 
@@ -153,15 +220,15 @@
                     <form id="contact-form" action="https://formspree.io/f/your-formspree-endpoint" method="POST">
                         <div class="form-group">
                             <label for="nombre" class="the-season-light">Nombre completo *</label>
-                            <input type="text" id="nombre" name="nombre" required class="montserrat">
+                            <input type="text" id="nombre" name="nombre" required class="montserrat" aria-required="true">
                         </div>
                         <div class="form-group">
                             <label for="whatsapp" class="the-season-light">WhatsApp *</label>
-                            <input type="tel" id="whatsapp" name="whatsapp" required class="montserrat">
+                            <input type="tel" id="whatsapp" name="whatsapp" required class="montserrat" aria-required="true">
                         </div>
                         <div class="form-group">
                             <label for="sitio-web" class="the-season-light">Sitio Web *</label>
-                            <input type="url" id="sitio-web" name="sitio-web" required class="montserrat">
+                            <input type="url" id="sitio-web" name="sitio-web" required class="montserrat" aria-required="true">
                         </div>
                         <div class="form-group">
                             <label for="pais" class="the-season-light">País</label>
@@ -178,7 +245,7 @@
                         </div>
                         <div class="form-group">
                             <label for="anos-empresa" class="the-season-light">¿Cuántos años lleva la empresa en el mercado?</label>
-                            <input type="number" id="anos-empresa" name="anos-empresa" class="montserrat">
+                            <input type="number" id="anos-empresa" name="anos-empresa" class="montserrat" min="0">
                         </div>
                         <div class="form-group">
                             <label for="facturacion" class="the-season-light">¿Cuánto estás facturando por mes?</label>
@@ -198,7 +265,7 @@
                         </div>
                         <div class="form-group">
                             <label for="inversion-futura" class="the-season-light">¿Qué monto estarías dispuesto a invertir en pauta publicitaria?</label>
-                            <input type="number" id="inversion-futura" name="inversion-futura" class="montserrat">
+                            <input type="number" id="inversion-futura" name="inversion-futura" class="montserrat" min="0">
                         </div>
                         <button type="submit" class="submit-button the-season-light">Enviar y Agendar Reunión</button>
                     </form>
@@ -210,7 +277,7 @@
             <div class="container">
                 <div class="footer-content">
                     <div class="footer-logo">
-                        <img src="images/Logos_C-18.png" alt="RNW Studio" class="footer-logo-img">
+                        <img src="images/Logos_C-18.png" alt="RNW Studio" class="footer-logo-img" width="200" height="60">
                         <p class="montserrat">Tu marca, nuestro enfoque.</p>
                     </div>
                     <div class="footer-links">
@@ -225,43 +292,43 @@
                     </div>
                     <div class="footer-contact">
                         <h4 class="the-season-light">Contáctanos</h4>
-                        <p class="montserrat"><i class="fab fa-tiktok"></i> TikTok: <a href="https://www.tiktok.com/@rnw.studio" target="_blank" rel="noopener noreferrer">@rnw.studio</a></p>
-                        <p class="montserrat"><i class="fas fa-phone"></i> Teléfono: <a href="tel:3517323886">3517323886</a></p>
-                        <p class="montserrat"><i class="fas fa-envelope"></i> Email: <a href="mailto:info@rnwstudio.com">info@rnwstudio.com</a></p>
-                        <p class="montserrat"><i class="fab fa-instagram"></i> Instagram: <a href="https://www.instagram.com/rnw.studio" target="_blank" rel="noopener noreferrer">rnw.studio</a></p>
+                        <p class="montserrat"><i class="fab fa-tiktok" aria-hidden="true"></i> TikTok: <a href="https://www.tiktok.com/@rnw.studio" target="_blank" rel="noopener noreferrer">@rnw.studio</a></p>
+                        <p class="montserrat"><i class="fas fa-phone" aria-hidden="true"></i> Teléfono: <a href="tel:3517323886">3517323886</a></p>
+                        <p class="montserrat"><i class="fas fa-envelope" aria-hidden="true"></i> Email: <a href="mailto:info@rnwstudio.com">info@rnwstudio.com</a></p>
+                        <p class="montserrat"><i class="fab fa-instagram" aria-hidden="true"></i> Instagram: <a href="https://www.instagram.com/rnw.studio" target="_blank" rel="noopener noreferrer">rnw.studio</a></p>
                     </div>
                     <div class="footer-social">
                         <h4 class="the-season-light">Síguenos</h4>
                         <div class="social-icons">
-                            <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-                            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                            <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                            <a href="https://www.facebook.com/rnwstudio" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook" aria-hidden="true"></i></a>
+                            <a href="https://www.instagram.com/rnw.studio" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                            <a href="https://www.linkedin.com/company/rnwstudio" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
+                            <a href="https://www.tiktok.com/@rnw.studio" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i class="fab fa-tiktok" aria-hidden="true"></i></a>
                         </div>
                     </div>
                 </div>
                 <div class="footer-bottom">
                     <p class="montserrat">&copy; 2024 RNW Studio. Todos los derechos reservados.</p>
-                    <p class="the-season-light">Powered by <a href="https://dualitydomain.github.io/Dualitydomain/" target="_blank" rel="noopener noreferrer">Duality Domain</a></p>
+                    <p class="the-season-light powered-by">Powered by <a href="https://dualitydomain.github.io/Dualitydomain/" target="_blank" rel="noopener noreferrer">Duality Domain</a></p>
                 </div>
             </div>
         </footer>
 
         <a href="https://wa.me/3517323886" target="_blank" rel="noopener noreferrer" class="whatsapp-float" aria-label="Contactar por WhatsApp">
-            <i class="fab fa-whatsapp"></i>
+            <i class="fab fa-whatsapp" aria-hidden="true"></i>
         </a>
     </div>
 
-    <div id="gallery-modal" class="modal">
+    <div id="gallery-modal" class="modal" aria-hidden="true">
         <div class="modal-content">
-            <span class="close">&times;</span>
+            <button class="close" aria-label="Cerrar modal">&times;</button>
             <h3 id="modal-title" class="the-season-light"></h3>
-            <img id="modal-image" src="" alt="Proyecto">
+            <img id="modal-image" src="" alt="">
             <p id="modal-description" class="montserrat"></p>
             <a id="modal-link" href="#" target="_blank" rel="noopener noreferrer" class="cta-button the-season-light">Ver Proyecto</a>
         </div>
     </div>
 
-    <script src="js/main.js"></script>
+    <script src="js/main.js" defer></script>
 </body>
 </html>
