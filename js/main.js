@@ -24,9 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Top banner slider
     const topBannerSlider = document.querySelector('.top-banner-slider');
-    const top
-
-BannerSlides = topBannerSlider.children;
+    const topBannerSlides = topBannerSlider.children;
     let topBannerCurrentSlide = 0;
 
     function nextTopBannerSlide() {
@@ -203,4 +201,58 @@ BannerSlides = topBannerSlider.children;
             alert('Hubo un problema al enviar el formulario. Por favor, inténtalo de nuevo.');
         });
     });
+
+    // Advertising banner slider
+    const adSlider = document.querySelector('.ad-slider');
+    const adSlides = adSlider.children;
+    let adCurrentSlide = 0;
+
+    function nextAdSlide() {
+        adSlides[adCurrentSlide].style.display = 'none';
+        adCurrentSlide = (adCurrentSlide + 1) % adSlides.length;
+        adSlides[adCurrentSlide].style.display = 'block';
+    }
+
+    setInterval(nextAdSlide, 7000);
+
+    // Schedule meeting button
+    const scheduleMeetingBtn = document.getElementById('schedule-meeting');
+    scheduleMeetingBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        // Aquí puedes agregar la lógica para agendar una reunión
+        alert('Funcionalidad de agendar reunión pendiente de implementar');
+    });
+
+    // WhatsApp float button functionality
+    const whatsappFloat = document.querySelector('.whatsapp-float');
+    whatsappFloat.addEventListener('click', function(e) {
+        e.preventDefault();
+        window.open(this.href, '_blank');
+    });
+
+    // Lazy loading for images
+    const images = document.querySelectorAll('img[data-src]');
+    const config = {
+        rootMargin: '0px 0px 50px 0px',
+        threshold: 0
+    };
+
+    let observer = new IntersectionObserver(function (entries, self) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                preloadImage(entry.target);
+                self.unobserve(entry.target);
+            }
+        });
+    }, config);
+
+    images.forEach(image => {
+        observer.observe(image);
+    });
+
+    function preloadImage(img) {
+        const src = img.getAttribute('data-src');
+        if (!src) { return; }
+        img.src = src;
+    }
 });
