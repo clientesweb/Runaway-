@@ -32,17 +32,19 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Top banner slider
+    // Top banner slider (improved)
     const topBannerSlider = document.querySelector('.top-banner-slider');
-    const topBannerSlides = topBannerSlider.children;
+    const topBannerSlides = Array.from(topBannerSlider.children);
     let topBannerCurrentSlide = 0;
 
     function nextTopBannerSlide() {
-        topBannerSlides[topBannerCurrentSlide].style.display = 'none';
+        topBannerSlides[topBannerCurrentSlide].classList.remove('active');
         topBannerCurrentSlide = (topBannerCurrentSlide + 1) % topBannerSlides.length;
-        topBannerSlides[topBannerCurrentSlide].style.display = 'inline-block';
+        topBannerSlides[topBannerCurrentSlide].classList.add('active');
     }
 
+    // Initialize first slide
+    topBannerSlides[0].classList.add('active');
     setInterval(nextTopBannerSlide, 5000);
 
     // Hero slider
@@ -203,7 +205,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Testimonial slider
+    // Testimonial slider (improved)
     const testimonials = [
         { text: "RNW Studio transformó completamente nuestra presencia en línea. Su enfoque estratégico y creatividad nos ayudaron a destacar en un mercado competitivo.", author: "María G., CEO de TechSolutions" },
         { text: "El equipo de RNW Studio no solo entendió nuestra visión, sino que la elevó a un nivel que no imaginábamos posible. Su trabajo en nuestro branding fue excepcional.", author: "Carlos R., Fundador de EcoLife" },
@@ -213,23 +215,31 @@ document.addEventListener('DOMContentLoaded', function() {
     const testimonialSlider = document.querySelector('.testimonial-slider');
     let currentTestimonial = 0;
 
-    function createTestimonialSlide(testimonial) {
+    function createTestimonialSlide(testimonial, index) {
         const slide = document.createElement('div');
         slide.classList.add('testimonial-slide');
         slide.innerHTML = `
             <p class="montserrat">"${testimonial.text}"</p>
             <p class="the-season-light author">- ${testimonial.author}</p>
         `;
+        slide.style.transform = `translateX(${index * 100}%)`;
         return slide;
     }
 
-    testimonials.forEach(testimonial => {
-        testimonialSlider.appendChild(createTestimonialSlide(testimonial));
+    testimonials.forEach((testimonial, index) => {
+        testimonialSlider.appendChild(createTestimonialSlide(testimonial, index));
     });
 
     function nextTestimonial() {
         currentTestimonial = (currentTestimonial + 1) % testimonials.length;
-        testimonialSlider.style.transform = `translateX(-${currentTestimonial * 100}%)`;
+        updateTestimonialSlider();
+    }
+
+    function updateTestimonialSlider() {
+        const slides = testimonialSlider.children;
+        for (let i = 0; i < slides.length; i++) {
+            slides[i].style.transform = `translateX(${(i - currentTestimonial) * 100}%)`;
+        }
     }
 
     setInterval(nextTestimonial, 8000);
