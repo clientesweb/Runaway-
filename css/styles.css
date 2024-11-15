@@ -369,8 +369,8 @@ footer {
 }
 
 .footer-logo-img {
-    height: 80px;
-    width: auto;
+    height: 100px; /* Aumenta la altura */
+    width: auto;   /* El ancho se ajusta automáticamente */
     margin-bottom: 20px;
 }
 
