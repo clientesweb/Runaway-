@@ -164,10 +164,23 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function openModal(item) {
         document.getElementById('modal-title').textContent = item.title;
-        document.getElementById('modal-image').src = item.image;
+        const modalImage = document.getElementById('modal-image');
+        modalImage.src = item.image;
+        modalImage.alt = item.title;
         document.getElementById('modal-description').textContent = item.description;
-        document.getElementById('modal-link').href = item.link;
+        document.getElementById('modal-link').href = item.link || '#';
         modal.style.display = 'block';
+        
+        // Ajustar la imagen después de que se cargue
+        modalImage.onload = function() {
+            if (this.naturalHeight > window.innerHeight * 0.7) {
+                this.style.height = '70vh';
+                this.style.width = 'auto';
+            } else {
+                this.style.height = 'auto';
+                this.style.width = '100%';
+            }
+        }
     }
 
     closeModal.onclick = function() {
@@ -179,6 +192,20 @@ document.addEventListener('DOMContentLoaded', function() {
             modal.style.display = 'none';
         }
     }
+
+    window.addEventListener('resize', function() {
+        if (modal.style.display === 'block') {
+            const modalImage = document.getElementById('modal-image');
+            if (modalImage.naturalHeight > window.innerHeight * 0.7) {
+                modalImage.style.height = '70vh';
+                modalImage.style.width = 'auto';
+            } else {
+                modalImage.style.height = 'auto';
+                modalImage.style.width = '100%';
+            }
+        }
+    });
+
 
     // Form submission
     const contactForm = document.getElementById('contact-form');
