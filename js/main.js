@@ -98,20 +98,20 @@ document.addEventListener('DOMContentLoaded', function() {
     const servicesSlider = document.getElementById('services-slider');
     let servicesKeenSlider;
 
-    function initServicesSlider(slidesToShow) {
+    function initServicesSlider() {
         if (servicesKeenSlider) {
             servicesKeenSlider.destroy();
         }
 
         servicesSlider.innerHTML = '';
         
-        services.slice(0, slidesToShow).forEach(service => {
+        services.forEach(service => {
             const slide = document.createElement('div');
             slide.className = 'keen-slider__slide';
             slide.innerHTML = `
                 <i class="fas fa-${service.icon} text-4xl text-accent mb-4"></i>
                 <h3 class="text-xl font-bold mb-2 font-secondary">${service.title}</h3>
-                <p class="font-tertiary">${service.description}</p>
+                <p class="font-primary">${service.description}</p>
             `;
             servicesSlider.appendChild(slide);
         });
@@ -145,15 +145,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    initServicesSlider(3);
-
-    const verMasServiciosBtn = document.getElementById('ver-mas-servicios');
-    verMasServiciosBtn.addEventListener('click', function() {
-        if (services.length > 3) {
-            initServicesSlider(services.length);
-            this.style.display = 'none';
-        }
-    });
+    initServicesSlider();
 
     // Banner Publicitario Slider
     new KeenSlider('#ad-slider', {
@@ -190,7 +182,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 <div class="portfolio-overlay absolute inset-0 flex items-center justify-center">
                     <div class="text-center">
                         <h3 class="text-white text-xl font-bold mb-2 font-secondary">${item.title}</h3>
-                        <p class="text-white font-tertiary">${item.description}</p>
+                        <p class="text-white font-primary">${item.description}</p>
                     </div>
                 </div>
             </div>
@@ -292,16 +284,6 @@ document.addEventListener('DOMContentLoaded', function() {
             this.classList.remove('sliding-active');
         });
     });
-
-    // Alternating font styles
-    const alternateFonts = document.querySelectorAll('.alternate-font');
-    alternateFonts.forEach((element, index) => {
-        if (index % 3 === 0) {
-            element.classList.add('font-primary');
-        } else if (index % 3 === 1) {
-            element.classList.add('font-secondary');
-        } else {
-            element.classList.add('font-tertiary');
-        }
-    });
 });
+
+console.log("JavaScript file loaded successfully!");
