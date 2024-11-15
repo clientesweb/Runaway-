@@ -124,6 +124,7 @@ nav .container {
 
 .logo-img {
     height: 40px;
+    width: auto;
 }
 
 #menu-toggle {
@@ -199,7 +200,7 @@ nav .container {
 }
 
 .hero-content h1, .hero-content h2 {
-    font-size: 3em;
+    font-size: clamp(2rem, 5vw, 3.5rem);
     margin-bottom: 20px;
 }
 
@@ -227,7 +228,7 @@ section {
 
 section h2 {
     margin-bottom: 40px;
-    font-size: 2.5em;
+    font-size: clamp(1.5rem, 4vw, 2.8rem);
 }
 
 /* Services */
@@ -369,6 +370,7 @@ footer {
 
 .footer-logo-img {
     height: 80px;
+    width: auto;
     margin-bottom: 20px;
 }
 
@@ -552,7 +554,7 @@ footer {
     }
 
     .hero-content h1, .hero-content h2 {
-        font-size: 2em;
+        font-size: clamp(1.5rem, 4vw, 2.5rem);
     }
 
     .portfolio-filters {
@@ -573,7 +575,7 @@ footer {
     }
 
     section h2 {
-        font-size: 2em;
+        font-size: clamp(1.2rem, 3vw, 2rem);
     }
 }
 
@@ -583,11 +585,11 @@ footer {
     }
 
     .hero-content h1, .hero-content h2 {
-        font-size: 2.5em;
+        font-size: clamp(1.8rem, 4vw, 2.5rem);
     }
 
     section h2 {
-        font-size: 2.2em;
+        font-size: clamp(1.5rem, 3.5vw, 2.2rem);
     }
 
     .services-grid {
@@ -605,11 +607,11 @@ footer {
     }
 
     .hero-content h1, .hero-content h2 {
-        font-size: 3.5em;
+        font-size: clamp(2rem, 5vw, 3.5rem);
     }
 
     section h2 {
-        font-size: 2.8em;
+        font-size: clamp(1.8rem, 4vw, 2.8rem);
     }
 
     .services-grid {
@@ -619,4 +621,27 @@ footer {
     .portfolio-grid {
         grid-template-columns: repeat(4, 1fr);
     }
+}
+
+/* Accessibility */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+/* Lazy Loading */
+img[loading="lazy"] {
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+img[loading="lazy"].loaded {
+    opacity: 1;
 }
