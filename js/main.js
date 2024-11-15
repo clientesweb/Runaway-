@@ -74,19 +74,24 @@ document.addEventListener('DOMContentLoaded', function() {
             description: 'Planificamos y ejecutamos producciones de fotos y videos para crear contenido visual coherente y efectivo.'
         },
         {
-            icon: 'pencil-alt',
-            title: 'Diseño Gráfico',
-            description: 'Creamos diseños atractivos y funcionales para diversos medios y plataformas.'
+            icon: 'comments',
+            title: 'Gestión de Contenido y Redes Sociales',
+            description: 'Desarrollamos y gestionamos contenido visual y escrito que refleja la identidad de tu marca, construyendo una presencia sólida y coherente en redes sociales.'
         },
         {
-            icon: 'code',
-            title: 'Desarrollo Web',
-            description: 'Diseñamos y desarrollamos sitios web modernos, responsivos y optimizados para SEO.'
+            icon: 'users',
+            title: 'Community Manager',
+            description: 'Administramos y gestionamos la presencia de tu marca en redes sociales.'
         },
         {
-            icon: 'bullhorn',
-            title: 'Marketing Digital',
-            description: 'Implementamos estrategias de marketing digital para aumentar la visibilidad y las ventas.'
+            icon: 'ad',
+            title: 'Paid Media',
+            description: 'Gestionamos la publicidad estratégica en plataformas clave, optimizando la visibilidad y alcance de tu marca.'
+        },
+        {
+            icon: 'laptop-code',
+            title: 'Website',
+            description: 'Desarrollo de sitios web funcionales y atractivos, pensados para brindar una experiencia de usuario fluida.'
         }
     ];
 
@@ -140,7 +145,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const verMasServiciosBtn = document.getElementById('ver-mas-servicios');
     verMasServiciosBtn.addEventListener('click', function() {
         if (services.length > 3) {
-            initServicesSlider(6);
+            initServicesSlider(services.length);
             this.style.display = 'none';
         }
     });
@@ -232,5 +237,43 @@ document.addEventListener('DOMContentLoaded', function() {
                 behavior: 'smooth'
             });
         });
+    });
+
+    // Modal de Galería
+    const galleryModal = document.getElementById('gallery-modal');
+    const closeModal = document.getElementById('close-modal');
+    const modalTitle = document.getElementById('modal-title');
+    const modalImage = document.getElementById('modal-image');
+    const modalDescription = document.getElementById('modal-description');
+    const modalLink = document.getElementById('modal-link');
+
+    portfolioGrid.addEventListener('click', function(e) {
+        const portfolioItem = e.target.closest('.portfolio-item');
+        if (portfolioItem) {
+            const title = portfolioItem.querySelector('h3').textContent;
+            const description = portfolioItem.querySelector('p').textContent;
+            const imageSrc = portfolioItem.querySelector('img').src;
+
+            modalTitle.textContent = title;
+            modalImage.src = imageSrc;
+            modalImage.alt = title;
+            modalDescription.textContent = description;
+            modalLink.href = '#'; // Actualiza esto con el enlace real al proyecto
+
+            galleryModal.classList.remove('hidden');
+            galleryModal.classList.add('flex');
+        }
+    });
+
+    closeModal.addEventListener('click', function() {
+        galleryModal.classList.add('hidden');
+        galleryModal.classList.remove('flex');
+    });
+
+    galleryModal.addEventListener('click', function(e) {
+        if (e.target === galleryModal) {
+            galleryModal.classList.add('hidden');
+            galleryModal.classList.remove('flex');
+        }
     });
 });
